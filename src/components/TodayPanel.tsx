@@ -2,7 +2,6 @@ import Link from "next/link";
 import { addDays, formatDisplayDate } from "@/lib/date";
 import { amLichDayHref } from "@/lib/calendar/urls";
 import { formatHours } from "@/lib/calendar/can-chi";
-import { getDayTags } from "@/lib/calendar/service";
 import type { DayInfo } from "@/lib/calendar/types";
 
 type TodayPanelProps = {
@@ -16,7 +15,7 @@ function lunarDisplay(day: DayInfo): string {
 export function TodayPanel({ day }: TodayPanelProps) {
   const previousDate = addDays(day.solar, -1);
   const nextDate = addDays(day.solar, 1);
-  const tags = getDayTags(day);
+  const displayDate = formatDisplayDate(day.solar);
 
   return (
     <section className="heroCard" aria-labelledby="today-title">
@@ -68,11 +67,7 @@ export function TodayPanel({ day }: TodayPanelProps) {
         </article>
       </div>
 
-      <div className="tagRow" aria-label="Từ khóa liên quan">
-        {tags.map((tag) => (
-          <span key={tag}>#{tag}</span>
-        ))}
-      </div>
+      <p className="converterIntro">Xem nhanh lịch âm dương ngày {displayDate}, tra giờ hoàng đạo, ngày tốt xấu và lịch tháng {day.solar.month} năm {day.solar.year} trên cùng một trang.</p>
     </section>
   );
 }

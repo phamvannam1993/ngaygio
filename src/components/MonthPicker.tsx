@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
 type MonthPickerProps = {
@@ -12,7 +12,6 @@ export function MonthPicker({ month, year }: MonthPickerProps) {
   const router = useRouter();
   const [selectedMonth, setSelectedMonth] = useState(month);
   const [selectedYear, setSelectedYear] = useState(year);
-  const years = useMemo(() => Array.from({ length: 151 }, (_, index) => 1900 + index), []);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -33,11 +32,14 @@ export function MonthPicker({ month, year }: MonthPickerProps) {
         </label>
         <label>
           <span>Năm</span>
-          <select value={selectedYear} onChange={(event) => setSelectedYear(Number(event.target.value))}>
-            {years.map((value) => (
-              <option key={value} value={value}>Năm {value}</option>
-            ))}
-          </select>
+          <input
+            type="number"
+            min="1900"
+            max="2099"
+            value={selectedYear}
+            onChange={(event) => setSelectedYear(Number(event.target.value))}
+            className="yearInput"
+          />
         </label>
         <button type="submit">Xem lịch</button>
       </form>

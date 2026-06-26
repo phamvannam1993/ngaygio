@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { formatDateKey, type DateParts } from "@/lib/date";
 
@@ -8,16 +8,11 @@ type PerpetualCalendarSearchProps = {
   defaultDate: DateParts;
 };
 
-function yearOptions(): number[] {
-  return Array.from({ length: 151 }, (_, index) => 1900 + index);
-}
-
 export function PerpetualCalendarSearch({ defaultDate }: PerpetualCalendarSearchProps) {
   const router = useRouter();
   const [date, setDate] = useState(formatDateKey(defaultDate));
   const [month, setMonth] = useState(String(defaultDate.month));
   const [year, setYear] = useState(String(defaultDate.year));
-  const years = useMemo(yearOptions, []);
 
   return (
     <section className="panelCard perpetualSearch" aria-labelledby="perpetual-search-title">
@@ -63,11 +58,14 @@ export function PerpetualCalendarSearch({ defaultDate }: PerpetualCalendarSearch
           </label>
           <label>
             Năm
-            <select value={year} onChange={(event) => setYear(event.target.value)}>
-              {years.map((item) => (
-                <option key={item} value={item}>{item}</option>
-              ))}
-            </select>
+            <input
+              type="number"
+              min="1900"
+              max="2099"
+              value={year}
+              onChange={(event) => setYear(event.target.value)}
+              className="yearInput"
+            />
           </label>
           <button type="submit">Xem tháng</button>
         </form>

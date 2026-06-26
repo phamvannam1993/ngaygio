@@ -10,7 +10,15 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    sitemap: [
+      `${siteConfig.url}/sitemap/static.xml`,
+      `${siteConfig.url}/sitemap/year.xml`,
+      `${siteConfig.url}/sitemap/month-${new Date().getFullYear()}.xml`,
+      `${siteConfig.url}/sitemap/month-${new Date().getFullYear() - 1}.xml`,
+      `${siteConfig.url}/sitemap/day-${new Date().getFullYear()}.xml`,
+      `${siteConfig.url}/sitemap/day-${new Date().getFullYear() - 1}.xml`,
+      `${siteConfig.url}/sitemap/day-${new Date().getFullYear() + 1}.xml`,
+    ],
     host: siteConfig.url,
   };
 }

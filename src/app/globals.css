@@ -542,11 +542,26 @@ h2 {
   font-weight: 800;
 }
 
-.pickerForm select {
+.pickerForm select,
+.pickerForm .yearInput {
   width: 100%;
   padding: 0 12px;
   background: #fff;
   border: 1px solid var(--line);
+}
+
+.yearInput {
+  height: 44px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text);
+  outline: none;
+}
+
+.yearInput:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(32, 138, 58, 0.12);
 }
 
 .pickerForm button {
@@ -1235,7 +1250,8 @@ h2 {
 }
 
 .compactDateForm input,
-.monthYearForm select {
+.monthYearForm select,
+.monthYearForm input[type="number"] {
   min-height: 46px;
   width: 100%;
   padding: 0 12px;
