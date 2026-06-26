@@ -19,6 +19,7 @@ export function generateSitemaps() {
   const { yr } = todayVN();
   return [
     { id: "static" },
+    { id: "tools" },
     { id: "year" },
     { id: `month-${yr}` },
     { id: `month-${yr - 1}` },
@@ -41,15 +42,21 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
       u("/gio-hoang-dao", now, "daily", 0.92),
       u("/ngay-tot-xau", now, "daily", 0.92),
       u("/lich-van-nien", now, "weekly", 0.88),
-      u("/chuyen-doi-lich", now, "monthly", 0.82),
-      u("/tinh-tuoi-am", now, "monthly", 0.80),
-      u("/dem-ngay", now, "monthly", 0.78),
-      u("/nhac-ngay-gio", now, "monthly", 0.75),
-      u("/lich-nghi-le", now, "monthly", 0.78),
     ];
   }
 
-  // ── 2. Năm ─────────────────────────────────────────────────────────────────
+  // ── 2. Tools ────────────────────────────────────────────────────────────────
+  if (id === "tools") {
+    return [
+      u("/chuyen-doi-lich", now, "monthly", 0.82),
+      u("/tinh-tuoi-am", now, "monthly", 0.80),
+      u("/dem-ngay", now, "monthly", 0.78),
+      u("/lich-nghi-le", now, "monthly", 0.78),
+      u("/nhac-ngay-gio", now, "monthly", 0.75),
+    ];
+  }
+
+  // ── 3. Năm ─────────────────────────────────────────────────────────────────
   if (id === "year") {
     const entries: SitemapEntry[] = [];
     for (const y of [yr - 1, yr, yr + 1]) {

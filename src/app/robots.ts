@@ -12,6 +12,7 @@ export default function robots(): MetadataRoute.Robots {
     ],
     sitemap: [
       `${siteConfig.url}/sitemap/static.xml`,
+      `${siteConfig.url}/sitemap/tools.xml`,
       `${siteConfig.url}/sitemap/year.xml`,
       `${siteConfig.url}/sitemap/month-${new Date().getFullYear()}.xml`,
       `${siteConfig.url}/sitemap/month-${new Date().getFullYear() - 1}.xml`,
