@@ -2342,3 +2342,165 @@ h2 {
   .notFoundCode { font-size: 5rem; }
   .notFoundGrid { grid-template-columns: 1fr; }
 }
+
+/* ── Engagement tools ──────────────────────────────────────────────────────── */
+.engageRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 4px;
+}
+
+/* Share buttons */
+.shareButtons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.shareLabel {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.shareBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.shareBtn:hover { opacity: 0.85; transform: translateY(-1px); }
+.fbBtn { background: #1877f2; color: #fff; }
+.zaloBtn { background: #0068ff; color: #fff; }
+.copyBtn { background: var(--surface2); color: var(--text); }
+.copyBtn:hover { background: var(--surface3, #e0e0e0); }
+
+/* Add to Calendar dropdown */
+.calBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: var(--accent);
+  color: var(--accent-fg, #fff);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.calBtn:hover { opacity: 0.85; }
+.calDropdown { display: inline-block; }
+.calDropdownBackdrop {
+  position: fixed; inset: 0; z-index: 50;
+}
+.calDropdownMenu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 51;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  min-width: 210px;
+  overflow: hidden;
+}
+.calDropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  font-size: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.1s;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.calDropdownItem:hover { background: var(--surface2); }
+
+/* Save date button */
+.saveDateBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.saveDateBtn:hover { background: var(--surface3, #e0e0e0); }
+.saveDateBtn.saved { background: var(--green-50); color: var(--green-700); border-color: var(--green-700); }
+
+/* Next year hint */
+.nextYearHint {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.nextYearHint a { color: var(--accent); }
+
+/* Saved dates list */
+.savedDatesList.empty { color: var(--muted); font-size: 0.9rem; }
+.savedDatesList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+.savedDateItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: var(--surface2);
+  border-radius: 10px;
+  gap: 12px;
+}
+.savedDateItem a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  color: var(--text);
+}
+.savedDateItem a:hover strong { color: var(--accent); }
+.savedNote { font-size: 0.8rem; color: var(--muted); }
+.savedDateStr { font-size: 0.75rem; color: var(--muted); }
+.removeBtn {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 4px;
+  border-radius: 4px;
+}
+.removeBtn:hover { color: var(--text); background: var(--surface3, #ddd); }
+
+@media (max-width: 600px) {
+  .engageRow { gap: 6px; }
+  .shareBtn, .calBtn, .saveDateBtn { font-size: 0.78rem; padding: 5px 9px; }
+}

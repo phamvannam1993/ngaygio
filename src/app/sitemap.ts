@@ -20,9 +20,14 @@ export function generateSitemaps() {
   return [
     { id: "static" },
     { id: "tools" },
+    { id: "holidays" },
     { id: "year" },
     { id: `month-${yr}` },
     { id: `month-${yr - 1}` },
+    { id: `month-${yr + 1}` },
+    { id: `month-${yr + 2}` },
+    { id: `month-${yr + 3}` },
+    { id: `month-${yr + 4}` },
     { id: `day-${yr}` },
     { id: `day-${yr - 1}` },
     { id: `day-${yr + 1}` },
@@ -54,10 +59,16 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
       ageEntries.push(u(`/tinh-tuoi-am/${y}`, ref, "yearly", pri));
       ageEntries.push(u(`/sinh-nam/${y}`, ref, "yearly", pri));
     }
-    // Tết countdown
+    // Tết countdown + cluster pages
     const tetEntries: SitemapEntry[] = [];
     for (let y = yr - 1; y <= yr + 5; y++) {
-      tetEntries.push(u(`/tet/${y}`, now, y === yr ? "daily" : "yearly", y === yr ? 0.80 : 0.65));
+      const ref = new Date(y, 0, 1);
+      const isCurr = y === yr;
+      tetEntries.push(u(`/tet/${y}`, isCurr ? now : ref, isCurr ? "daily" : "yearly", isCurr ? 0.80 : 0.65));
+      tetEntries.push(u(`/giao-thua/${y}`, ref, "yearly", 0.62));
+      tetEntries.push(u(`/ong-cong-ong-tao/${y}`, ref, "yearly", 0.62));
+      tetEntries.push(u(`/ram-thang-chap/${y}`, ref, "yearly", 0.60));
+      tetEntries.push(u(`/lich-nghi-tet/${y}`, ref, "yearly", 0.65));
     }
     return [
       u("/chuyen-doi-lich", now, "monthly", 0.82),
@@ -75,7 +86,28 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
     ];
   }
 
-  // ── 3. Năm ─────────────────────────────────────────────────────────────────
+  // ── 3. Ngày lễ ─────────────────────────────────────────────────────────────
+  if (id === "holidays") {
+    const holidayEntries: SitemapEntry[] = [
+      u("/trung-thu", now, "yearly", 0.72),
+      u("/vu-lan", now, "yearly", 0.70),
+      u("/gio-to-hung-vuong", now, "yearly", 0.70),
+      u("/ngay-30-4", now, "yearly", 0.70),
+      u("/quoc-khanh-2-9", now, "yearly", 0.70),
+    ];
+    // Yearly holiday landing per year
+    for (let y = yr - 1; y <= yr + 2; y++) {
+      const ref = new Date(y, 0, 1);
+      holidayEntries.push(u(`/trung-thu/${y}`, ref, "yearly", 0.62));
+      holidayEntries.push(u(`/vu-lan/${y}`, ref, "yearly", 0.60));
+      holidayEntries.push(u(`/gio-to-hung-vuong/${y}`, ref, "yearly", 0.60));
+      holidayEntries.push(u(`/ngay-30-4/${y}`, ref, "yearly", 0.60));
+      holidayEntries.push(u(`/quoc-khanh-2-9/${y}`, ref, "yearly", 0.60));
+    }
+    return holidayEntries;
+  }
+
+  // ── 4. Năm ─────────────────────────────────────────────────────────────────
   if (id === "year") {
     const entries: SitemapEntry[] = [];
     for (const y of [yr - 1, yr, yr + 1]) {

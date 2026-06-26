@@ -98,11 +98,17 @@ export default function ConBaoNhieuNgayDenTetPage() {
               );
             })}
           </div>
+          <h2>Lịch các ngày quan trọng quanh Tết {tet.canChi} {tet.year}</h2>
+          <div className="dayLinkList">
+            <Link href={`/ram-thang-chap/${tet.year}`} className="eventPill blue">Rằm tháng Chạp {tet.year}</Link>
+            <Link href={`/ong-cong-ong-tao/${tet.year}`} className="eventPill blue">Ông Công Ông Táo {tet.year} (23 tháng Chạp)</Link>
+            <Link href={`/giao-thua/${tet.year}`} className="eventPill blue">Giao thừa {tet.year} (30 tháng Chạp)</Link>
+            <Link href={`/lich-nghi-tet/${tet.year}`} className="eventPill green">Lịch nghỉ Tết {tet.year}</Link>
+          </div>
           <h2>Xem thêm</h2>
           <div className="dayLinkList">
-            <Link href={`/lich-nghi-le/${tet.year}`} className="eventPill green">Lịch nghỉ lễ {tet.year}</Link>
+            <Link href={`/lich-nghi-le/${tet.solarDate.year}`} className="eventPill green">Lịch nghỉ lễ {tet.solarDate.year}</Link>
             <Link href={`/am-lich/nam/${tet.solarDate.year}/thang/${tet.solarDate.month}`} className="eventPill green">Lịch âm tháng {tet.solarDate.month}/{tet.solarDate.year}</Link>
-            <Link href="/con-bao-nhieu-ngay-den-tet" className="eventPill blue">Còn bao nhiêu ngày đến Tết</Link>
           </div>
         </article>
       </main>

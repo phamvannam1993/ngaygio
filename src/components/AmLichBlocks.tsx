@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatDisplayDate, type DateParts } from "@/lib/date";
+import { formatDisplayDate, weekdayName, type DateParts } from "@/lib/date";
 import { CHI, formatHours } from "@/lib/calendar/can-chi";
 import { getGoodBadDetails } from "@/lib/calendar/good-bad";
 import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
@@ -8,6 +8,9 @@ import type { PerpetualYearSummary } from "@/lib/calendar/perpetual";
 import { ZODIAC_BY_CHI } from "@/lib/calendar/zodiac";
 import { amLichDayHref, amLichMonthHref, amLichYearHref, gioHoangDaoDayHref } from "@/lib/calendar/urls";
 import { MonthCalendar } from "./MonthCalendar";
+import { ShareButtons } from "./ShareButtons";
+import { AddToCalendarButton } from "./AddToCalendarButton";
+import { SaveDateButton } from "./SaveDateButton";
 
 export { amLichDayHref, amLichMonthHref, amLichYearHref };
 
@@ -143,6 +146,33 @@ export function AmLichDayHero({ day, prevDay, nextDay, isHomNay }: { day: DayInf
       </div>
 
       <p className="converterIntro">Bạn có thể dùng trang này để tra âm lịch ngày {displayDate}, xem can chi, giờ hoàng đạo, ngày tốt xấu và các lưu ý dân gian trong ngày.</p>
+
+      {/* Công cụ giữ người dùng */}
+      <div className="engageRow">
+        <AddToCalendarButton
+          title={`Lịch âm ${displayDate} – ${lunarDisplay(day)}`}
+          date={`${day.solar.year}-${String(day.solar.month).padStart(2, "0")}-${String(day.solar.day).padStart(2, "0")}`}
+          description={`Ngày ${day.canChi.day}, tháng ${day.canChi.month}, năm ${day.canChi.year}. ${day.quality.label}. Giờ hoàng đạo: ${formatHours(day.goodHours)}.`}
+        />
+        <SaveDateButton
+          date={`${day.solar.year}-${String(day.solar.month).padStart(2, "0")}-${String(day.solar.day).padStart(2, "0")}`}
+          label={`Lịch âm ${displayDate}`}
+          note={`${lunarDisplay(day)} – ${day.quality.label}`}
+        />
+        <ShareButtons title={`Lịch âm ${displayDate} là ngày ${lunarDisplay(day)}`} />
+      </div>
+
+      {/* Ngày này năm sau */}
+      {(() => {
+        const nextYear = { ...day.solar, year: day.solar.year + 1 };
+        const wdNext = weekdayName(nextYear);
+        return (
+          <p className="nextYearHint">
+            Ngày này năm sau <Link href={amLichDayHref(nextYear)}>{displayDate.replace(`/${day.solar.year}`, `/${nextYear.year}`)}</Link> là <strong>{wdNext}</strong>.
+          </p>
+        );
+      })()}
+
       <AmLichBreadcrumb date={day.solar} mode="day" />
     </section>
   );

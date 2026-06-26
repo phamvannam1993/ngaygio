@@ -47,3 +47,25 @@ export function getTetInfoForYear(lunarYear: number, today: DateParts): TetInfo 
   const days = diffDays(today, tet);
   return { year: lunarYear, solarDate: tet, daysLeft: Math.abs(days), canChi: yearCanChi(lunarYear), passed: days < 0 };
 }
+
+export type TetCluster = {
+  tet: DateParts;           // Mùng 1 Tết (1/1 âm lịch lunarYear)
+  giaoThua: DateParts;      // ngày trước mùng 1 (30 hoặc 29 tháng Chạp)
+  ongTao: DateParts | null; // 23/12 âm lịch năm trước
+  ramThangChap: DateParts | null; // 15/12 âm lịch năm trước
+  canChi: string;
+};
+
+function addOneSolarDay(d: DateParts, offset: number): DateParts {
+  const dt = new Date(d.year, d.month - 1, d.day + offset);
+  return { year: dt.getFullYear(), month: dt.getMonth() + 1, day: dt.getDate() };
+}
+
+export function getTetCluster(lunarYear: number): TetCluster | null {
+  const tet = convertLunar2Solar(1, 1, lunarYear, false);
+  if (!tet) return null;
+  const giaoThua = addOneSolarDay(tet, -1);
+  const ongTao = convertLunar2Solar(23, 12, lunarYear - 1, false);
+  const ramThangChap = convertLunar2Solar(15, 12, lunarYear - 1, false);
+  return { tet, giaoThua, ongTao, ramThangChap, canChi: yearCanChi(lunarYear) };
+}
