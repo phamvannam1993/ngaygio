@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { GoodBadPageContent, goodBadDateHref } from "@/app/ngay-tot-xau/GoodBadPageContent";
 import { formatDisplayDate, getVietnamTodayParts } from "@/lib/date";
 import { getDayInfo } from "@/lib/calendar/service";
@@ -54,9 +52,7 @@ export default function NgayTotXauHomNayPage() {
 
   return (
     <>
-      <Header currentYear={today.year} />
       <GoodBadPageContent selectedDate={today} />
-      <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
   );

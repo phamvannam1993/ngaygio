@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { GoldenHourPageContent } from "@/app/gio-hoang-dao/GoldenHourPageContent";
 import { formatDisplayDate, getVietnamTodayParts } from "@/lib/date";
 import { getDayInfo } from "@/lib/calendar/service";
@@ -58,9 +56,7 @@ export default function GioHoangDaoHomNayPage() {
 
   return (
     <>
-      <Header currentYear={today.year} />
       <GoldenHourPageContent selectedDate={today} />
-      <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
   );
