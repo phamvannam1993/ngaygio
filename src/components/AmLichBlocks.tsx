@@ -77,7 +77,7 @@ export function AmLichTagRow({ tags }: { tags: string[] }) {
   );
 }
 
-export function AmLichDayHero({ day, prevDay, nextDay }: { day: DayInfo; prevDay: DateParts; nextDay: DateParts }) {
+export function AmLichDayHero({ day, prevDay, nextDay, isHomNay }: { day: DayInfo; prevDay: DateParts; nextDay: DateParts; isHomNay?: boolean }) {
   const displayDate = formatDisplayDate(day.solar);
   const yearZodiac = ZODIAC_BY_CHI[day.canChi.yearChi];
   const monthZodiac = ZODIAC_BY_CHI[day.canChi.monthChi];
@@ -88,8 +88,13 @@ export function AmLichDayHero({ day, prevDay, nextDay }: { day: DayInfo; prevDay
       <div className="heroTop">
         <Link className="circleNav" href={amLichDayHref(prevDay)} aria-label="Ngày trước">←</Link>
         <div>
-          <p className="eyebrow">Lịch âm theo ngày</p>
-          <h1 id="am-lich-day-title">Lịch âm {dateLong(day.solar)}</h1>
+          <p className="eyebrow">{isHomNay ? "Âm lịch hôm nay" : "Lịch âm theo ngày"}</p>
+          <h1 id="am-lich-day-title">
+            {isHomNay
+              ? `Âm lịch hôm nay ${displayDate} là ngày bao nhiêu?`
+              : `Lịch âm ${dateLong(day.solar)}`}
+          </h1>
+          {isHomNay && <h2 style={{ fontWeight: 600, fontSize: "1.1rem", margin: "4px 0 0" }}>Lịch âm {dateLong(day.solar)}</h2>}
           <p className="converterIntro">
             Xem lịch âm ngày {displayDate}, giờ tốt xấu, can chi, tiết khí, ngày lễ và thông tin ngày Hoàng Đạo/Hắc Đạo.
           </p>

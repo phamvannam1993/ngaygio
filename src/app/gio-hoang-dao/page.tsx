@@ -4,8 +4,8 @@ import { getVietnamTodayParts } from "@/lib/date";
 import { siteConfig, webPageSchema, faqSchema } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Giờ hoàng đạo hôm nay – Xem giờ tốt xấu | Ngày Giờ",
-  description: "Tra cứu giờ hoàng đạo hôm nay, giờ hắc đạo, can chi ngày, âm lịch và các khung giờ tốt xấu trong ngày theo phong thủy Việt Nam.",
+  title: "Xem giờ hoàng đạo theo ngày – Tra giờ tốt xấu | Ngày Giờ",
+  description: "Tra cứu giờ hoàng đạo, giờ hắc đạo và khung giờ tốt xấu trong ngày theo can chi và lịch âm Việt Nam. Chọn ngày bất kỳ để xem.",
   keywords: ["giờ hoàng đạo", "giờ hoàng đạo hôm nay", "xem giờ tốt", "giờ hắc đạo", "giờ tốt hôm nay"],
   alternates: { canonical: "/gio-hoang-dao" },
   openGraph: {

@@ -6,13 +6,15 @@ import type { DayInfo } from "@/lib/calendar/types";
 
 type TodayPanelProps = {
   day: DayInfo;
+  asH2?: boolean;
 };
 
 function lunarDisplay(day: DayInfo): string {
   return `${day.lunar.day}/${day.lunar.month}/${day.lunar.year}${day.lunar.isLeap ? " nhuận" : ""}`;
 }
 
-export function TodayPanel({ day }: TodayPanelProps) {
+export function TodayPanel({ day, asH2 }: TodayPanelProps) {
+  const Heading = asH2 ? "h2" : "h1";
   const previousDate = addDays(day.solar, -1);
   const nextDate = addDays(day.solar, 1);
   const displayDate = formatDisplayDate(day.solar);
@@ -25,7 +27,7 @@ export function TodayPanel({ day }: TodayPanelProps) {
         </Link>
         <div>
           <p className="eyebrow">{day.weekdayName} · {formatDisplayDate(day.solar)}</p>
-          <h1 id="today-title">Lịch hôm nay {day.solar.day}/{day.solar.month}/{day.solar.year}</h1>
+          <Heading id="today-title">Lịch hôm nay {day.solar.day}/{day.solar.month}/{day.solar.year}</Heading>
         </div>
         <Link className="circleNav" href={amLichDayHref(nextDate)} aria-label="Ngày sau">
           →

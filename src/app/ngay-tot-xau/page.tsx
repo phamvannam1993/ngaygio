@@ -4,8 +4,8 @@ import { getVietnamTodayParts } from "@/lib/date";
 import { siteConfig, webPageSchema, faqSchema } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Xem ngày tốt xấu hôm nay - Ngày hoàng đạo, hắc đạo | Ngày Giờ",
-  description: "Xem ngày tốt xấu hôm nay theo âm lịch, can chi, hoàng đạo hắc đạo, giờ hoàng đạo, ngày kỵ, việc nên làm và không nên làm theo phong thủy.",
+  title: "Xem ngày tốt xấu theo ngày – Tra ngày hoàng đạo, hắc đạo | Ngày Giờ",
+  description: "Tra cứu ngày tốt xấu theo âm lịch và can chi: ngày Hoàng Đạo, Hắc Đạo, Trực, giờ tốt, việc nên làm và tránh theo phong thủy Việt Nam.",
   keywords: ["ngày tốt xấu", "xem ngày tốt", "xem ngày xấu", "ngày hoàng đạo", "ngày hắc đạo", "giờ hoàng đạo"],
   alternates: { canonical: "/ngay-tot-xau" },
   openGraph: {

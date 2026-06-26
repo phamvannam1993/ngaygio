@@ -67,7 +67,7 @@ export default function AmLichHomNayPage() {
     <>
       <Header currentYear={today.year} />
       <main className="container mainStack">
-        <AmLichDayHero day={day} prevDay={addDays(today, -1)} nextDay={addDays(today, 1)} />
+        <AmLichDayHero day={day} prevDay={addDays(today, -1)} nextDay={addDays(today, 1)} isHomNay />
         <AmLichDayDetails day={day} />
         <MonthCalendarForAmLich calendar={calendar} />
         <QuickTools />

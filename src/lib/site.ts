@@ -38,14 +38,24 @@ export const quickTools = [
     description: "Xem nhanh ngày âm, can chi, tiết khí và giờ tốt trong ngày.",
   },
   {
-    title: "Lịch vạn niên",
-    href: "/lich-van-nien",
-    description: "Tra lịch theo ngày, tháng, năm với URL /am-lich rõ ràng.",
+    title: "Ngày tốt xấu hôm nay",
+    href: "/ngay-tot-xau-hom-nay",
+    description: "Hôm nay là ngày Hoàng Đạo hay Hắc Đạo? Xem ngay việc nên làm và tránh.",
   },
   {
-    title: "Ngày tốt xấu",
-    href: "/ngay-tot-xau",
-    description: "Tổng hợp ngày Hoàng Đạo, Hắc Đạo, việc nên làm và nên tránh.",
+    title: "Giờ hoàng đạo hôm nay",
+    href: "/gio-hoang-dao-hom-nay",
+    description: "Các khung giờ tốt xấu hôm nay theo can chi và lịch âm.",
+  },
+  {
+    title: "Còn bao nhiêu ngày đến Tết",
+    href: "/con-bao-nhieu-ngay-den-tet",
+    description: "Đếm ngược đến Tết Nguyên Đán, xem mùng 1 Tết năm nay là ngày dương nào.",
+  },
+  {
+    title: "Lịch vạn niên",
+    href: "/lich-van-nien",
+    description: "Tra lịch âm dương theo ngày, tháng, năm — can chi, tiết khí, ngày tốt.",
   },
   {
     title: "Đổi ngày âm dương",
@@ -53,19 +63,9 @@ export const quickTools = [
     description: "Chuyển đổi ngày dương sang âm và ngược lại theo múi giờ Việt Nam.",
   },
   {
-    title: "Đổi tuổi / tính tuổi âm",
-    href: "/tinh-tuoi-am",
+    title: "Sinh năm bao nhiêu tuổi",
+    href: "/sinh-nam/1990",
     description: "Tính tuổi âm, tuổi mụ, can chi, con giáp và nạp âm theo năm sinh.",
-  },
-  {
-    title: "Giờ hoàng đạo",
-    href: "/gio-hoang-dao",
-    description: "Xem khung giờ tốt xấu trong ngày theo can chi.",
-  },
-  {
-    title: "Đếm ngày",
-    href: "/dem-ngay",
-    description: "Tính nhanh khoảng cách giữa hai ngày hoặc còn bao nhiêu ngày đến sự kiện.",
   },
   {
     title: "Lịch nghỉ lễ",

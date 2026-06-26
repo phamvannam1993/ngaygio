@@ -127,7 +127,8 @@ export default async function Home({ searchParams }: PageProps) {
     <>
       <Header currentYear={selectedDate.year} />
       <main className="container mainStack">
-        <TodayPanel day={todayInfo} />
+        <h1 className="hubTitle">Ngày Giờ – Lịch âm dương, lịch vạn niên và giờ hoàng đạo</h1>
+        <TodayPanel day={todayInfo} asH2 />
         <MonthCalendar calendar={monthCalendar} makeHref={amLichDayHref} />
         <div className="twoColumns">
           <MonthPicker month={selectedDate.month} year={selectedDate.year} />

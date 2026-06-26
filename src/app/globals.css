@@ -259,6 +259,15 @@ h1 {
   line-height: 1.08;
 }
 
+.hubTitle {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  margin: 0 0 -12px;
+  padding: 0 2px;
+}
+
 h2 {
   font-size: clamp(1.35rem, 2.6vw, 1.75rem);
 }
