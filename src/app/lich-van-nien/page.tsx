@@ -4,7 +4,7 @@ import { getVietnamTodayParts } from "@/lib/date";
 import { siteConfig, webPageSchema, faqSchema } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Lịch vạn niên hôm nay - Lịch âm dương Việt Nam | Ngày Giờ",
+  title: "Lịch vạn niên 2026 – Xem âm lịch theo ngày, tháng, năm | Ngày Giờ",
   description: "Xem lịch vạn niên hôm nay, lịch âm dương theo ngày tháng năm, can chi, tiết khí, giờ hoàng đạo, ngày tốt xấu và các ngày lễ quan trọng của Việt Nam.",
   keywords: ["lịch vạn niên", "lịch âm dương", "lịch âm hôm nay", "xem lịch tháng", "lịch năm", "ngày tốt xấu", "giờ hoàng đạo"],
   alternates: { canonical: "/lich-van-nien" },

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { GoldenHourDateForm } from "@/components/GoldenHourDateForm";
+import { GoldenHourArticle } from "@/components/GoldenHourArticle";
 import { gioHoangDaoDayHref } from "@/lib/calendar/urls";
 import { Header } from "@/components/Header";
 import { MonthCalendar } from "@/components/MonthCalendar";
@@ -78,12 +79,7 @@ export function GoldenHourPageContent({ selectedDate }: { selectedDate: DatePart
         </section>
 
         <MonthCalendar calendar={calendar} makeHref={gioHoangDaoDayHref} />
-        <article className="seoArticle">
-          <h2>Giờ hoàng đạo là gì?</h2>
-          <p>Giờ hoàng đạo là những khung giờ được xem là thuận lợi theo quan niệm lịch pháp dân gian. Người Việt thường tham khảo giờ hoàng đạo khi xuất hành, khai trương, ký kết, cưới hỏi hoặc làm việc quan trọng.</p>
-          <h2>Cách dùng công cụ giờ hoàng đạo</h2>
-          <p>Chọn ngày cần xem, hệ thống sẽ tự tính âm lịch, can chi ngày và phân loại 12 khung giờ thành giờ hoàng đạo hoặc hắc đạo. Bạn có thể mở từng ngày trong lịch tháng để tra nhanh hơn.</p>
-        </article>
+        <GoldenHourArticle />
       </main>
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

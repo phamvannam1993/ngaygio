@@ -12,12 +12,12 @@ import { siteConfig } from "@/lib/site";
 export async function generateMetadata(): Promise<Metadata> {
   const result = getDefaultConversion();
   return {
-    title: "Ứng dụng chuyển đổi ngày Dương lịch sang Âm lịch và ngược lại",
+    title: "Đổi ngày âm dương – Chuyển dương sang âm, âm sang dương | Ngày Giờ",
     description: result.metaDescription,
     keywords: ["chuyển dương lịch sang âm lịch", "đổi ngày âm dương", "âm lịch sang dương lịch", "lịch âm dương"],
     alternates: { canonical: "/chuyen-doi-lich" },
     openGraph: {
-      title: "Chuyển đổi lịch âm dương | Ngày Giờ",
+      title: "Đổi ngày âm dương | Ngày Giờ",
       description: result.metaDescription,
       url: `${siteConfig.url}/chuyen-doi-lich`,
       siteName: siteConfig.name,
@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Chuyển đổi lịch âm dương | Ngày Giờ",
+      title: "Đổi ngày âm dương | Ngày Giờ",
       description: result.metaDescription,
       images: ["/og-home.svg"],
     },
@@ -81,6 +81,16 @@ export default function CalendarConverterPage() {
             acceptedAnswer: { "@type": "Answer", text: "Nếu ngày âm lịch thuộc tháng nhuận, cần bật tùy chọn tháng nhuận để kết quả chính xác." },
           },
         ],
+      },
+      {
+        "@type": "WebApplication",
+        name: "Đổi ngày âm dương",
+        url: `${siteConfig.url}/chuyen-doi-lich`,
+        applicationCategory: "UtilitiesApplication",
+        operatingSystem: "Web",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "VND" },
+        description: "Chuyển đổi ngày dương lịch sang âm lịch và ngược lại, hỗ trợ tháng nhuận.",
+        inLanguage: "vi-VN",
       },
     ],
   };

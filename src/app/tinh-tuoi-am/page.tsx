@@ -66,6 +66,16 @@ export default async function TinhTuoiAmPage({ searchParams }: PageProps) {
           { "@type": "Question", name: `Sinh năm ${birthYear} năm ${viewYear} bao nhiêu tuổi âm?`, acceptedAnswer: { "@type": "Answer", text: `Sinh năm ${birthYear}, đến năm ${viewYear} là ${result.solarAge} tuổi dương và ${result.lunarAge} tuổi âm/tuổi mụ tham khảo.` } },
         ],
       },
+      {
+        "@type": "WebApplication",
+        name: "Tính tuổi âm",
+        url: `${siteConfig.url}/tinh-tuoi-am`,
+        applicationCategory: "UtilitiesApplication",
+        operatingSystem: "Web",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "VND" },
+        description: "Tính tuổi âm, tuổi mụ, tuổi dương, can chi và con giáp theo năm sinh.",
+        inLanguage: "vi-VN",
+      },
     ],
   };
 

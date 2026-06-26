@@ -14,18 +14,27 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 
-const jsonLd = [
-  webPageSchema({
-    name: "Đếm ngày online - Tính số ngày giữa hai mốc",
-    url: `${siteConfig.url}/dem-ngay`,
-    description: "Công cụ tính khoảng cách giữa hai ngày, còn bao nhiêu ngày đến sự kiện.",
-    breadcrumb: [{ name: "Đếm ngày", url: `${siteConfig.url}/dem-ngay` }],
-  }),
-  faqSchema([
-    { q: "Công cụ đếm ngày tính như thế nào?", a: "Công cụ tính số ngày chênh lệch giữa ngày bắt đầu và ngày kết thúc. Có thể tính cả ngày đầu, cả ngày cuối hoặc không tính ngày đầu tùy theo nhu cầu." },
-    { q: "Còn bao nhiêu ngày đến Tết?", a: "Nhập ngày hôm nay làm ngày bắt đầu và ngày mùng 1 Tết Nguyên Đán làm ngày kết thúc, công cụ sẽ tự tính số ngày còn lại." },
-  ]),
-];
+const jsonLdPage = webPageSchema({
+  name: "Đếm ngày online - Tính số ngày giữa hai mốc",
+  url: `${siteConfig.url}/dem-ngay`,
+  description: "Công cụ tính khoảng cách giữa hai ngày, còn bao nhiêu ngày đến sự kiện.",
+  breadcrumb: [{ name: "Đếm ngày", url: `${siteConfig.url}/dem-ngay` }],
+});
+const jsonLdApp = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Đếm ngày online",
+  url: `${siteConfig.url}/dem-ngay`,
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "Web",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "VND" },
+  description: "Tính số ngày giữa hai mốc thời gian, đếm ngày còn lại đến sự kiện.",
+  inLanguage: "vi-VN",
+};
+const jsonLdFaq = faqSchema([
+  { q: "Công cụ đếm ngày tính như thế nào?", a: "Công cụ tính số ngày chênh lệch giữa ngày bắt đầu và ngày kết thúc. Có thể tính cả ngày đầu, cả ngày cuối hoặc không tính ngày đầu tùy theo nhu cầu." },
+  { q: "Còn bao nhiêu ngày đến Tết?", a: "Nhập ngày hôm nay làm ngày bắt đầu và ngày mùng 1 Tết Nguyên Đán làm ngày kết thúc, công cụ sẽ tự tính số ngày còn lại." },
+]);
 
 export default function DemNgayPage() {
   const today = getVietnamTodayParts();
@@ -47,7 +56,9 @@ export default function DemNgayPage() {
         </article>
       </main>
       <Footer />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPage) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdApp) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
     </>
   );
 }

@@ -35,7 +35,7 @@ function resolveSelectedDate(params: SearchParams): DateParts {
 
 export async function generateMetadata(): Promise<Metadata> {
   const today = getVietnamTodayParts();
-  const title = `Âm lịch hôm nay ${today.day}/${today.month}/${today.year} - Lịch âm dương Việt Nam | Ngày Giờ`;
+  const title = `Âm lịch hôm nay ${today.day}/${today.month}/${today.year} – Lịch âm dương, giờ hoàng đạo | Ngày Giờ`;
   const description = `Xem ngày âm lịch hôm nay, lịch vạn niên, ngày đẹp, giờ hoàng đạo và chuyển đổi âm dương nhanh chóng trên ${siteConfig.domain}. Lịch âm Việt Nam ${today.year}.`;
 
   return {

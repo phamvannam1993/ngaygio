@@ -21,12 +21,36 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = webPageSchema({
-  name: "Nhắc ngày giờ - Tạo nhắc việc",
-  url: `${siteConfig.url}/nhac-ngay-gio`,
-  description: "Tạo nhắc việc trực tuyến, lưu cục bộ và xuất file .ics cho Google Calendar, Apple Calendar.",
-  breadcrumb: [{ name: "Nhắc ngày giờ", url: `${siteConfig.url}/nhac-ngay-gio` }],
-});
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Nhắc ngày giờ - Tạo nhắc việc",
+      url: `${siteConfig.url}/nhac-ngay-gio`,
+      description: "Tạo nhắc việc trực tuyến, lưu cục bộ và xuất file .ics cho Google Calendar, Apple Calendar.",
+      inLanguage: "vi-VN",
+      isPartOf: { "@type": "WebSite", name: siteConfig.name, url: siteConfig.url },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Trang chủ", item: siteConfig.url },
+          { "@type": "ListItem", position: 2, name: "Nhắc ngày giờ", item: `${siteConfig.url}/nhac-ngay-gio` },
+        ],
+      },
+    },
+    {
+      "@type": "WebApplication",
+      name: "Nhắc ngày giờ",
+      url: `${siteConfig.url}/nhac-ngay-gio`,
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "Web",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "VND" },
+      description: "Tạo nhắc việc trực tuyến, xuất file .ics cho Google Calendar, Apple Calendar và Outlook.",
+      inLanguage: "vi-VN",
+    },
+  ],
+};
 
 export default function NhacNgayGioPage() {
   const today = getVietnamTodayParts();
