@@ -36,6 +36,7 @@ export function Header({ currentYear }: HeaderProps) {
               <Link href="/dem-ngay">Đếm ngày</Link>
               <Link href="/lich-nghi-le">Lịch nghỉ lễ</Link>
               <Link href="/nhac-ngay-gio">Nhắc ngày giờ</Link>
+              <Link href="/time-in-vietnam">Time in Vietnam</Link>
             </div>
           </details>
         </nav>
@@ -53,6 +54,7 @@ export function Header({ currentYear }: HeaderProps) {
             <Link href="/dem-ngay">Đếm ngày</Link>
             <Link href="/lich-nghi-le">Lịch nghỉ lễ</Link>
             <Link href="/nhac-ngay-gio">Nhắc ngày giờ</Link>
+            <Link href="/time-in-vietnam">Time in Vietnam</Link>
           </div>
         </details>
 

@@ -86,11 +86,6 @@ export default async function Home({ searchParams }: PageProps) {
         name: siteConfig.name,
         url: siteConfig.url,
         inLanguage: "vi-VN",
-        potentialAction: {
-          "@type": "SearchAction",
-          target: `${siteConfig.url}/?date={search_term_string}`,
-          "query-input": "required name=search_term_string",
-        },
       },
       {
         "@type": "WebPage",

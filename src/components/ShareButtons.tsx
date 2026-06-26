@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   url?: string;
@@ -9,20 +9,21 @@ type Props = {
 
 export function ShareButtons({ url, title }: Props) {
   const [copied, setCopied] = useState(false);
+  // Resolve URL client-side only to avoid server/client mismatch
+  const [pageUrl, setPageUrl] = useState(url ?? "");
 
-  function getUrl() {
-    return url ?? (typeof window !== "undefined" ? window.location.href : "");
-  }
+  useEffect(() => {
+    setPageUrl(url ?? window.location.href);
+  }, [url]);
 
   function handleCopy() {
-    const link = getUrl();
-    navigator.clipboard?.writeText(link).then(() => {
+    navigator.clipboard?.writeText(pageUrl).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
   }
 
-  const encodedUrl = encodeURIComponent(typeof window !== "undefined" ? getUrl() : url ?? "");
+  const encodedUrl = encodeURIComponent(pageUrl);
   const encodedTitle = encodeURIComponent(title ?? "Lịch âm dương – Ngaygio.vn");
 
   return (

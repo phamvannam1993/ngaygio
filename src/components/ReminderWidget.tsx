@@ -21,12 +21,13 @@ function escapeIcs(text: string) {
 
 export function ReminderWidget() {
   const [title, setTitle] = useState("Việc cần nhớ");
-  const [date, setDate] = useState(() => new Date().toISOString().slice(0, 10));
+  const [date, setDate] = useState("");
   const [time, setTime] = useState("08:00");
   const [note, setNote] = useState("");
   const [saved, setSaved] = useState<Reminder[]>([]);
 
   useEffect(() => {
+    setDate(new Date().toISOString().slice(0, 10));
     try {
       const raw = window.localStorage.getItem("ngaygio-reminders");
       if (raw) setSaved(JSON.parse(raw));

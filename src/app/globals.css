@@ -2504,3 +2504,155 @@ h2 {
   .engageRow { gap: 6px; }
   .shareBtn, .calBtn, .saveDateBtn { font-size: 0.78rem; padding: 5px 9px; }
 }
+
+/* ── Time in Vietnam page ─────────────────────────────────────────────────── */
+.vnHeroTitle {
+  font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.vnHeroSubtitle {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* ── Outer card wrapping all 3 columns ─────────────────────────────────────── */
+.vnHeroCard {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 300px 1fr 360px;
+  align-items: stretch;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+/* Clock panel */
+.vnClockPanel {
+  background: #eef0e8;
+  padding: 28px 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid var(--border);
+}
+.vnClockWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Analog clock (SVG-based) */
+.vnAnalogClock {
+  width: 210px;
+  height: 210px;
+  flex-shrink: 0;
+}
+.vnClockSvg {
+  width: 210px;
+  height: 210px;
+  display: block;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,.18));
+}
+.vnDigital {
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #111;
+  line-height: 1;
+}
+.vnDate {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+/* Country info table */
+.vnInfoPanel {
+  padding: 0 4px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.vnInfoTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.vnInfoTable th,
+.vnInfoTable td {
+  padding: 11px 16px;
+  border-bottom: 2px solid #6aaa4a;
+  text-align: left;
+  vertical-align: middle;
+}
+.vnInfoTable tr:last-child th,
+.vnInfoTable tr:last-child td { border-bottom: none; }
+.vnInfoTable th {
+  font-weight: 700;
+  width: 160px;
+  color: #111;
+  white-space: nowrap;
+}
+.vnInfoTable td { color: #333; }
+.tzTable th { background: var(--surface2); color: var(--text); border-bottom: 1px solid var(--border); }
+.tzTable td { border-bottom: 1px solid var(--border); }
+.tzTable tr:hover td { background: var(--surface2); }
+
+/* Map */
+.vnMapPanel {
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  border-left: 1px solid var(--border);
+  overflow: hidden;
+}
+.vnMapImg {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 320px;
+  object-fit: cover !important;
+  display: block;
+  border-radius: 0;
+}
+
+/* Cities grid */
+.citiesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cityTimeCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1.5px solid #6aaa4a;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+}
+.cityName { color: #3a8a2a; font-weight: 500; }
+.cityTime { font-weight: 600; color: var(--text); }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .vnHeroCard {
+    grid-template-columns: 260px 1fr;
+  }
+  .vnMapPanel { display: none; }
+}
+@media (max-width: 640px) {
+  .vnHeroCard { grid-template-columns: 1fr; }
+  .vnClockPanel { max-width: 100%; }
+  .vnAnalogClock { width: 160px; height: 160px; }
+  .vnClockSvg { width: 160px; height: 160px; }
+  .citiesGrid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 420px) {
+  .citiesGrid { grid-template-columns: 1fr; }
+}

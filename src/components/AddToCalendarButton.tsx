@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   title: string;
@@ -37,9 +37,13 @@ function toIcs(title: string, date: string, description: string, url: string) {
 
 export function AddToCalendarButton({ title, date, description = "", url = "" }: Props) {
   const [open, setOpen] = useState(false);
+  const [icsHref, setIcsHref] = useState("#");
   const d = toGCalDate(date);
   const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${d}/${d}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(url)}`;
-  const icsHref = toIcs(title, date, description, url);
+
+  useEffect(() => {
+    setIcsHref(toIcs(title, date, description, url));
+  }, [title, date, description, url]);
 
   return (
     <div className="calDropdown" style={{ position: "relative", display: "inline-block" }}>

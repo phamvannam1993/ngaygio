@@ -38,6 +38,7 @@ export function Footer() {
           <Link href="/dem-ngay">Đếm ngày</Link>
           <Link href="/lich-nghi-le">Lịch nghỉ lễ</Link>
           <Link href="/nhac-ngay-gio">Nhắc ngày giờ</Link>
+          <Link href="/time-in-vietnam">Time in Vietnam (GMT+7)</Link>
         </div>
         <div>
           <h2>Liên hệ</h2>
