@@ -47,12 +47,31 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
 
   // ── 2. Tools ────────────────────────────────────────────────────────────────
   if (id === "tools") {
+    const ageEntries: SitemapEntry[] = [];
+    for (let y = yr - 1; y >= yr - 80; y--) {
+      const ref = new Date(y, 0, 1);
+      const pri = y >= yr - 50 ? 0.65 : 0.50;
+      ageEntries.push(u(`/tinh-tuoi-am/${y}`, ref, "yearly", pri));
+      ageEntries.push(u(`/sinh-nam/${y}`, ref, "yearly", pri));
+    }
+    // Tết countdown
+    const tetEntries: SitemapEntry[] = [];
+    for (let y = yr - 1; y <= yr + 5; y++) {
+      tetEntries.push(u(`/tet/${y}`, now, y === yr ? "daily" : "yearly", y === yr ? 0.80 : 0.65));
+    }
     return [
       u("/chuyen-doi-lich", now, "monthly", 0.82),
       u("/tinh-tuoi-am", now, "monthly", 0.80),
       u("/dem-ngay", now, "monthly", 0.78),
       u("/lich-nghi-le", now, "monthly", 0.78),
       u("/nhac-ngay-gio", now, "monthly", 0.75),
+      u("/con-bao-nhieu-ngay-den-tet", now, "daily", 0.85),
+      u("/lich-am-ngay-mai", now, "daily", 0.70),
+      u("/lich-am-hom-qua", now, "daily", 0.65),
+      u("/ngay-tot-xau-hom-nay", now, "daily", 0.88),
+      u("/gio-hoang-dao-hom-nay", now, "daily", 0.88),
+      ...tetEntries,
+      ...ageEntries,
     ];
   }
 

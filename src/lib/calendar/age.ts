@@ -138,8 +138,8 @@ export function getAgeResult(birthYear: number, viewYear: number): AgeResult {
     element: napAm.element,
     elementMeaning: ELEMENT_MEANING[napAm.element],
     relationWithViewYear: relation,
-    compatibleBranches: [compatibility.lucHop, ...compatibility.tamHop],
-    conflictBranches: [...compatibility.xung, compatibility.hai],
+    compatibleBranches: [...new Set([compatibility.lucHop, ...compatibility.tamHop])],
+    conflictBranches: [...new Set([...compatibility.xung, compatibility.hai])],
     summary: `Người sinh năm ${birthYear} là tuổi ${birth.text}, cầm tinh con ${zodiac.animal}, nạp âm ${napAm.name}. Tính đến năm ${viewYear}, tuổi dương là ${solarAge}, tuổi âm/tuổi mụ tham khảo là ${lunarAge}.`,
   };
 }
