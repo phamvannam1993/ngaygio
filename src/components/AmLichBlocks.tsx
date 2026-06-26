@@ -137,7 +137,7 @@ export function AmLichDayHero({ day, prevDay, nextDay }: { day: DayInfo; prevDay
         <article className="zodiacCard"><span className="zodiacEmoji">{dayZodiac.emoji}</span><div><h3>Ngày {day.canChi.day}</h3><p>{dayZodiac.animal}</p></div></article>
       </div>
 
-      <AmLichTagRow tags={[`lịch âm ngày ${displayDate}`, `${displayDate} là ngày bao nhiêu âm`, `giờ hoàng đạo ngày ${displayDate}`, `ngày tốt tháng ${day.solar.month} năm ${day.solar.year}`]} />
+      <p className="converterIntro">Bạn có thể dùng trang này để tra âm lịch ngày {displayDate}, xem can chi, giờ hoàng đạo, ngày tốt xấu và các lưu ý dân gian trong ngày.</p>
       <AmLichBreadcrumb date={day.solar} mode="day" />
     </section>
   );
@@ -224,7 +224,7 @@ export function AmLichMonthHero({ calendar }: { calendar: CalendarMonth }) {
         <article><strong>{days.length - goodDays.length}</strong><span>ngày Hắc Đạo</span></article>
         <article><strong>{events.length}</strong><span>sự kiện/lễ nổi bật</span></article>
       </div>
-      <AmLichTagRow tags={[`lịch tháng ${calendar.month} năm ${calendar.year}`, `lịch âm tháng ${calendar.month} năm ${calendar.year}`, `ngày tốt tháng ${calendar.month}/${calendar.year}`, `lịch vạn niên tháng ${calendar.month}/${calendar.year}`]} />
+      <p className="converterIntro">Trang này tổng hợp lịch âm tháng {calendar.month}/{calendar.year}: ngày âm, can chi, tiết khí, ngày Hoàng Đạo/Hắc Đạo và các ngày lễ trong tháng.</p>
       <AmLichBreadcrumb date={{ year: calendar.year, month: calendar.month, day: 1 }} mode="month" />
     </section>
   );
@@ -301,7 +301,7 @@ export function AmLichYearHero({ summary, tetDay }: { summary: PerpetualYearSumm
         <article><strong>{summary.eventCount}</strong><span>sự kiện/lễ nổi bật</span></article>
       </div>
       <p className="animalDescription">{summary.animalDescription}</p>
-      <AmLichTagRow tags={[`âm lịch ${summary.year}`, `lịch năm ${summary.year}`, `lịch vạn niên ${summary.year}`, `ngày tốt năm ${summary.year}`, `năm ${summary.canChiYear}`]} />
+      <p className="converterIntro">Xem đầy đủ lịch âm năm {summary.year} — năm {summary.canChiYear}: {summary.totalDays} ngày dương lịch, {summary.goodDays} ngày Hoàng Đạo, {summary.eventCount} ngày lễ nổi bật theo bảng tham khảo truyền thống.</p>
       <AmLichBreadcrumb date={{ year: summary.year, month: 1, day: 1 }} mode="year" />
     </section>
   );

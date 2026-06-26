@@ -20,7 +20,7 @@ export type CalendarEvent = {
 
 export type DayQuality = {
   type: "good" | "bad";
-  label: "Ngày Hoàng Đạo" | "Ngày Hắc Đạo";
+  label: "Hoàng Đạo" | "Hắc Đạo";
   shortLabel: "Tốt" | "Xấu";
   note: string;
 };

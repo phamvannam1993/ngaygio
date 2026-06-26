@@ -26,7 +26,7 @@ export function TodayPanel({ day }: TodayPanelProps) {
         </Link>
         <div>
           <p className="eyebrow">{day.weekdayName} · {formatDisplayDate(day.solar)}</p>
-          <h1 id="today-title">Âm lịch ngày {day.solar.day} tháng {day.solar.month} năm {day.solar.year}</h1>
+          <h1 id="today-title">Lịch hôm nay {day.solar.day}/{day.solar.month}/{day.solar.year}</h1>
         </div>
         <Link className="circleNav" href={amLichDayHref(nextDate)} aria-label="Ngày sau">
           →

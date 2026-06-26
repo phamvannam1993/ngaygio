@@ -21,7 +21,7 @@ export function getDayQuality(lunarMonth: number, dayChi: ChiName): DayQuality {
   if (isGood) {
     return {
       type: "good",
-      label: "Ngày Hoàng Đạo",
+      label: "Hoàng Đạo",
       shortLabel: "Tốt",
       note: "Ngày có cát thần theo bảng hoàng đạo truyền thống, phù hợp để tham khảo khi sắp xếp việc quan trọng.",
     };
@@ -29,7 +29,7 @@ export function getDayQuality(lunarMonth: number, dayChi: ChiName): DayQuality {
 
   return {
     type: "bad",
-    label: "Ngày Hắc Đạo",
+    label: "Hắc Đạo",
     shortLabel: "Xấu",
     note: "Ngày thuộc nhóm hắc đạo theo bảng truyền thống; thông tin chỉ nên dùng để tham khảo, không thay thế tư vấn chuyên môn.",
   };

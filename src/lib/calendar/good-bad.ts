@@ -285,7 +285,7 @@ export function getGoodBadDetails(day: DayInfo): GoodBadDetails {
 
   const overallSummary =
     overallType === "good"
-      ? `Ngày có nhiều yếu tố cát lợi để tham khảo, gồm ${day.quality.label} và Trực ${twelveDirect.name}.${warningText}`
+      ? `Ngày có nhiều yếu tố cát lợi để tham khảo, gồm ngày ${day.quality.label} và Trực ${twelveDirect.name}.${warningText}`
       : overallType === "neutral"
         ? `Ngày có cả yếu tố tốt và yếu tố cần thận trọng. Nên ưu tiên việc vừa phải, chuẩn bị kỹ giấy tờ, thời gian và người liên quan.${warningText}`
         : `Ngày có nhiều dấu hiệu nên thận trọng. Nếu là việc hệ trọng, bạn nên chọn ngày khác hoặc hỏi thêm người có chuyên môn.${warningText}`;
