@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getVietnamTodayParts, formatDisplayDate } from "@/lib/date";
-import { getTetInfo } from "@/lib/calendar/tet";
+import { getTetInfo, getTetInfoForYear } from "@/lib/calendar/tet";
 import { siteConfig, webPageSchema, faqSchema } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -39,6 +40,9 @@ export default function ConBaoNhieuNgayDenTetPage() {
     faqSchema([
       { q: `Tết ${tet.year} là ngày mấy dương lịch?`, a: `Tết Nguyên Đán ${tet.canChi} năm ${tet.year} (mùng 1/1 âm lịch) rơi vào ngày ${tetDisplay} dương lịch.` },
       { q: `Còn bao nhiêu ngày nữa là Tết ${tet.year}?`, a: `Tính từ hôm nay (${todayDisplay}), còn ${tet.daysLeft} ngày nữa đến Tết ${tet.canChi} ${tet.year}.` },
+      { q: `Tết ${tet.year} là năm con gì?`, a: `Tết ${tet.year} là năm ${tet.canChi}. ${tet.canChi.split(" ")[1] === "Tý" ? "Năm con Chuột." : tet.canChi.split(" ")[1] === "Sửu" ? "Năm con Trâu." : tet.canChi.split(" ")[1] === "Dần" ? "Năm con Hổ." : tet.canChi.split(" ")[1] === "Mão" ? "Năm con Mèo." : tet.canChi.split(" ")[1] === "Thìn" ? "Năm con Rồng." : tet.canChi.split(" ")[1] === "Tỵ" ? "Năm con Rắn." : tet.canChi.split(" ")[1] === "Ngọ" ? "Năm con Ngựa." : tet.canChi.split(" ")[1] === "Mùi" ? "Năm con Dê." : tet.canChi.split(" ")[1] === "Thân" ? "Năm con Khỉ." : tet.canChi.split(" ")[1] === "Dậu" ? "Năm con Gà." : tet.canChi.split(" ")[1] === "Tuất" ? "Năm con Chó." : "Năm con Heo."}` },
+      { q: `Còn bao nhiêu tuần nữa đến Tết ${tet.year}?`, a: `Từ hôm nay (${todayDisplay}) còn khoảng ${Math.ceil(tet.daysLeft / 7)} tuần nữa đến Tết ${tet.canChi} ${tet.year}.` },
+      { q: "Tết Âm lịch khác Tết Dương lịch thế nào?", a: "Tết Dương lịch (Tết Tây) là ngày 1/1 theo lịch Gregory, cố định mỗi năm. Tết Âm lịch (Tết Nguyên Đán) là mùng 1 tháng Giêng âm lịch, thường rơi vào cuối tháng 1 hoặc đầu tháng 2 dương lịch và thay đổi mỗi năm." },
     ]),
   ];
 
@@ -78,11 +82,28 @@ export default function ConBaoNhieuNgayDenTetPage() {
 
         <article className="seoArticle">
           <h2>Tết Nguyên Đán {tet.canChi} {tet.year} là ngày nào?</h2>
-          <p>Tết Nguyên Đán {tet.canChi} năm {tet.year} (mùng 1 tháng Giêng âm lịch) rơi vào ngày <strong>{tetDisplay}</strong> theo dương lịch. Đây là ngày lễ lớn nhất trong năm của người Việt, đánh dấu sự khởi đầu năm mới âm lịch.</p>
+          <p>Tết Nguyên Đán {tet.canChi} năm {tet.year} (mùng 1 tháng Giêng âm lịch) rơi vào ngày <strong>{tetDisplay}</strong> theo dương lịch. Từ hôm nay ({todayDisplay}), còn <strong>{tet.daysLeft} ngày</strong> — tức khoảng {Math.ceil(tet.daysLeft / 7)} tuần nữa là Tết.</p>
           <h2>Cách tính ngày còn lại đến Tết</h2>
-          <p>Số ngày còn lại được tính từ hôm nay ({todayDisplay}) đến mùng 1 Tết ({tetDisplay}). Trang này tự động cập nhật mỗi ngày theo giờ Việt Nam (GMT+7).</p>
+          <p>Số ngày còn lại được tính từ hôm nay ({todayDisplay}) đến mùng 1 Tết ({tetDisplay}). Trang này tự động cập nhật mỗi ngày theo giờ Việt Nam (GMT+7). Ngày giao thừa (đêm 30 tháng Chạp) là ngày liền trước mùng 1, tức sẽ rơi vào ngày {tet.solarDate.day - 1 > 0 ? `${tet.solarDate.day - 1}/${tet.solarDate.month}` : `cuối tháng ${tet.solarDate.month - 1}`}/{tet.solarDate.year} dương lịch.</p>
           <h2>Tết Nguyên Đán có ý nghĩa gì?</h2>
-          <p>Tết Nguyên Đán là ngày đầu năm mới theo lịch âm, thường diễn ra vào cuối tháng 1 hoặc đầu tháng 2 dương lịch. Đây là dịp gia đình sum họp, thờ cúng tổ tiên và chào đón năm mới với nhiều phong tục như lì xì, chúc Tết, hái lộc.</p>
+          <p>Tết Nguyên Đán là ngày đầu năm mới theo lịch âm, thường diễn ra vào cuối tháng 1 hoặc đầu tháng 2 dương lịch. Đây là dịp gia đình sum họp, thờ cúng tổ tiên và chào đón năm mới với nhiều phong tục như lì xì, chúc Tết, hái lộc. Người lao động thường được nghỉ Tết 7 ngày theo quy định nhà nước.</p>
+          <h2>Xem đếm ngày đến Tết theo từng năm</h2>
+          <div className="dayLinkList">
+            {[tet.year - 1, tet.year, tet.year + 1, tet.year + 2].map((y) => {
+              const t = getTetInfoForYear(y, today);
+              return (
+                <Link key={y} href={`/tet/${y}`} className="eventPill blue">
+                  Tết {t.canChi} {y} – {formatDisplayDate(t.solarDate)}
+                </Link>
+              );
+            })}
+          </div>
+          <h2>Xem thêm</h2>
+          <div className="dayLinkList">
+            <Link href={`/lich-nghi-le/${tet.year}`} className="eventPill green">Lịch nghỉ lễ {tet.year}</Link>
+            <Link href={`/am-lich/nam/${tet.solarDate.year}/thang/${tet.solarDate.month}`} className="eventPill green">Lịch âm tháng {tet.solarDate.month}/{tet.solarDate.year}</Link>
+            <Link href="/con-bao-nhieu-ngay-den-tet" className="eventPill blue">Còn bao nhiêu ngày đến Tết</Link>
+          </div>
         </article>
       </main>
       <Footer />

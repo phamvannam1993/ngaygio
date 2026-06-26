@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { AgeCalculatorForm } from "@/components/AgeCalculatorForm";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -128,6 +129,12 @@ export default async function TinhTuoiAmPage({ searchParams }: PageProps) {
         </section>
 
         <article className="seoArticle">
+          <h2>Tra nhanh tuổi theo năm sinh</h2>
+          <div className="dayLinkList">
+            {[1975, 1980, 1985, 1990, 1992, 1995, 1996, 1998, 2000, 2002, 2005, 2010].map((y) => (
+              <Link key={y} href={`/sinh-nam/${y}`} className="eventPill blue">Sinh năm {y}</Link>
+            ))}
+          </div>
           <h2>Cách tính tuổi âm trên Ngaygio.vn</h2>
           <p>Tuổi dương được tính bằng năm cần xem trừ năm sinh. Tuổi âm hoặc tuổi mụ thường được tham khảo bằng tuổi dương cộng thêm một. Bên cạnh đó, hệ thống còn hiển thị can chi, con giáp, nạp âm ngũ hành và nhóm tuổi hợp/xung để tiện tra cứu.</p>
           <h2>Lưu ý khi xem tuổi</h2>

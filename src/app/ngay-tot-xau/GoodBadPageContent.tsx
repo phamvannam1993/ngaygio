@@ -60,7 +60,7 @@ export function buildGoodBadJsonLd(dayInfo: ReturnType<typeof getDayInfo>, detai
   };
 }
 
-export function GoodBadPageContent({ selectedDate }: { selectedDate: DateParts }) {
+export function GoodBadPageContent({ selectedDate, isHomNay }: { selectedDate: DateParts; isHomNay?: boolean }) {
   const dayInfo = getDayInfo(selectedDate);
   const details = getGoodBadDetails(dayInfo);
   const monthCalendar = getMonthCalendar(selectedDate.year, selectedDate.month, selectedDate);
@@ -70,8 +70,11 @@ export function GoodBadPageContent({ selectedDate }: { selectedDate: DateParts }
     <>
       <Header currentYear={selectedDate.year} />
       <main className="container mainStack">
+        {!isHomNay && (
+          <h1 style={{ margin: "0 0 -12px", fontSize: "clamp(1.4rem, 3vw, 1.9rem)" }}>Xem ngày tốt xấu theo ngày</h1>
+        )}
         <GoodBadDateForm defaultDate={selectedDate} />
-        <GoodBadResultPanel day={dayInfo} details={details} />
+        <GoodBadResultPanel day={dayInfo} details={details} isHomNay={isHomNay} />
         <GoodBadMonthSummary calendar={monthCalendar} />
         <MonthCalendar calendar={monthCalendar} makeHref={goodBadDateHref} />
         <GoodBadArticle />

@@ -52,7 +52,7 @@ export default function NgayTotXauHomNayPage() {
 
   return (
     <>
-      <GoodBadPageContent selectedDate={today} />
+      <GoodBadPageContent selectedDate={today} isHomNay />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
   );

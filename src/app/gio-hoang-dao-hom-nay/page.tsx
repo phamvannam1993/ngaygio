@@ -56,7 +56,7 @@ export default function GioHoangDaoHomNayPage() {
 
   return (
     <>
-      <GoldenHourPageContent selectedDate={today} />
+      <GoldenHourPageContent selectedDate={today} isHomNay />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
   );

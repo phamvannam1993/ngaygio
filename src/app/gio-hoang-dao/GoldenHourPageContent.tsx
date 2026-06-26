@@ -11,7 +11,7 @@ import type { DateParts } from "@/lib/date";
 import { formatDisplayDate } from "@/lib/date";
 import { siteConfig } from "@/lib/site";
 
-export function GoldenHourPageContent({ selectedDate }: { selectedDate: DateParts }) {
+export function GoldenHourPageContent({ selectedDate, isHomNay }: { selectedDate: DateParts; isHomNay?: boolean }) {
   const day = getDayInfo(selectedDate);
   const calendar = getMonthCalendar(selectedDate.year, selectedDate.month, selectedDate);
   const sortedHours = [...day.goodHours, ...day.badHours].sort((a, b) => CHI.indexOf(a.branch) - CHI.indexOf(b.branch));
@@ -41,10 +41,16 @@ export function GoldenHourPageContent({ selectedDate }: { selectedDate: DatePart
     <>
       <Header currentYear={selectedDate.year} />
       <main className="container mainStack">
+        {!isHomNay && (
+          <h1 style={{ margin: "0 0 -12px", fontSize: "clamp(1.4rem, 3vw, 1.9rem)" }}>Xem giờ hoàng đạo theo ngày</h1>
+        )}
         <GoldenHourDateForm defaultDate={selectedDate} />
         <section className="heroCard" aria-labelledby="golden-hour-title">
-          <p className="eyebrow">Giờ tốt trong ngày</p>
-          <h1 id="golden-hour-title">Giờ hoàng đạo ngày {displayDate}</h1>
+          <p className="eyebrow">{isHomNay ? "Giờ hoàng đạo hôm nay" : "Giờ tốt trong ngày"}</p>
+          {isHomNay
+            ? <h1 id="golden-hour-title">Giờ hoàng đạo hôm nay {displayDate}</h1>
+            : <h2 id="golden-hour-title">Giờ hoàng đạo ngày {displayDate}</h2>
+          }
           <p className="converterIntro">
             Ngày {displayDate} là {day.weekdayName}, âm lịch {day.lunar.day}/{day.lunar.month}/{day.lunar.year}, ngày {day.canChi.day}, tháng {day.canChi.month}, năm {day.canChi.year}. Ngày này là {day.quality.label.toLowerCase()}.
           </p>
