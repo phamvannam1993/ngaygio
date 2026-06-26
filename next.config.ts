@@ -6,18 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  async redirects() {
-    return [
-      // Remove the SearchAction template URL that got indexed by Google
-      {
-        source: "/",
-        has: [{ type: "query", key: "date", value: "{search_term_string}" }],
-        destination: "/",
-        permanent: true,
-        missing: [],
-      },
-    ];
-  },
+
   async rewrites() {
     return [
       // Tết keyword URLs → /tet/:year (canonical = /tet/:year)
