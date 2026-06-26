@@ -1494,9 +1494,9 @@ h2 {
 
 .megaMenu {
   width: min(680px, calc(100vw - 32px));
-  grid-template-columns: 160px 1fr 140px;
+  grid-template-columns: 160px 1fr 153px;
   gap: 0;
-  padding: 6px;
+  padding: 5px;
   max-height: none;
   overflow: visible;
 }
