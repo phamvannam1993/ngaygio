@@ -185,7 +185,7 @@ export function AmLichDayHero({ day, prevDay, nextDay, isHomNay, isNgayMai }: { 
   );
 }
 
-export function AmLichDayDetails({ day }: { day: DayInfo }) {
+export function AmLichDayDetails({ day, isNgayMai }: { day: DayInfo; isNgayMai?: boolean }) {
   const details = getGoodBadDetails(day);
   const displayDate = formatDisplayDate(day.solar);
   const sortedHours = [...day.goodHours, ...day.badHours].sort((a, b) => CHI.indexOf(a.branch) - CHI.indexOf(b.branch));
@@ -223,7 +223,7 @@ export function AmLichDayDetails({ day }: { day: DayInfo }) {
         </section>
       </div>
 
-      <h2>Hôm nay có phạm ngày kỵ không?</h2>
+      <h2>{isNgayMai ? `Ngày ${formatDisplayDate(day.solar)} có phạm ngày kỵ không?` : "Hôm nay có phạm ngày kỵ không?"}</h2>
       {details.specialWarnings.length > 0 ? (
         <ul>
           {details.specialWarnings.map((warning) => <li key={warning.name}><strong>{warning.name}:</strong> {warning.description}</li>)}

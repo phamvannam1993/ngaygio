@@ -64,7 +64,7 @@ export default function LichAmNgayMaiPage() {
       <Header currentYear={today.year} />
       <main className="container mainStack">
         <AmLichDayHero day={day} prevDay={today} nextDay={addDays(tomorrow, 1)} isNgayMai />
-        <AmLichDayDetails day={day} />
+        <AmLichDayDetails day={day} isNgayMai />
         <MonthCalendarForAmLich calendar={calendar} />
         <article className="seoArticle">
           <h2>Lịch âm ngày mai {displayDate}</h2>
