@@ -23,14 +23,14 @@ export function TodayPanel({ day, asH2 }: TodayPanelProps) {
     <section className="heroCard" aria-labelledby="today-title">
       <div className="heroTop">
         <Link className="circleNav" href={amLichDayHref(previousDate)} aria-label="Ngày trước">
-          ←
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
         </Link>
         <div>
           <p className="eyebrow">{day.weekdayName} · {formatDisplayDate(day.solar)}</p>
           <Heading id="today-title">Lịch hôm nay {day.solar.day}/{day.solar.month}/{day.solar.year}</Heading>
         </div>
         <Link className="circleNav" href={amLichDayHref(nextDate)} aria-label="Ngày sau">
-          →
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
         </Link>
       </div>
 

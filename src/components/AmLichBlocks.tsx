@@ -89,7 +89,9 @@ export function AmLichDayHero({ day, prevDay, nextDay, isHomNay }: { day: DayInf
   return (
     <section className="heroCard amLichHero" aria-labelledby="am-lich-day-title">
       <div className="heroTop">
-        <Link className="circleNav" href={amLichDayHref(prevDay)} aria-label="Ngày trước">←</Link>
+        <Link className="circleNav" href={amLichDayHref(prevDay)} aria-label="Ngày trước">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </Link>
         <div>
           <p className="eyebrow">{isHomNay ? "Âm lịch hôm nay" : "Lịch âm theo ngày"}</p>
           <h1 id="am-lich-day-title">
@@ -102,7 +104,9 @@ export function AmLichDayHero({ day, prevDay, nextDay, isHomNay }: { day: DayInf
             Xem lịch âm ngày {displayDate}, giờ tốt xấu, can chi, tiết khí, ngày lễ và thông tin ngày Hoàng Đạo/Hắc Đạo.
           </p>
         </div>
-        <Link className="circleNav" href={amLichDayHref(nextDay)} aria-label="Ngày sau">→</Link>
+        <Link className="circleNav" href={amLichDayHref(nextDay)} aria-label="Ngày sau">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </Link>
       </div>
 
       <div className="todayGrid converterGrid">

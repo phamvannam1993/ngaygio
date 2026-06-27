@@ -18,6 +18,7 @@ export function Footer() {
           <h2>Lịch vạn niên</h2>
           <Link href="/lich-hom-nay">Lịch hôm nay</Link>
           <Link href="/am-lich-hom-nay">Âm lịch hôm nay</Link>
+          <Link href="/lich-am-ngay-mai">Âm lịch ngày mai</Link>
           <Link href="/lich-van-nien">Lịch vạn niên</Link>
           <Link href={`/am-lich/nam/${currentYear}`}>Lịch âm {currentYear}</Link>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { formatDisplayDate, type DateParts } from "@/lib/date";
@@ -21,9 +21,9 @@ function totalDaysInYear(year: number): number {
   return new Date(year, 1, 29).getMonth() === 1 ? 366 : 365;
 }
 
-type Props = { today: DateParts; day: DayInfo; allHolidays: HolidayItem[] };
+type Props = { today: DateParts; day: DayInfo; allHolidays: HolidayItem[]; calendarSlot?: ReactNode };
 
-export function LichHomNayClient({ today, day, allHolidays }: Props) {
+export function LichHomNayClient({ today, day, allHolidays, calendarSlot }: Props) {
   const [clientDate, setClientDate] = useState<Date | null>(null);
 
   useEffect(() => {
@@ -117,6 +117,9 @@ export function LichHomNayClient({ today, day, allHolidays }: Props) {
           </div>
         </section>
 
+        {/* Lịch tháng */}
+        {calendarSlot}
+
         {/* Công cụ */}
         <section className="panelCard lichHomNayTools">
           <p className="eyebrow">Công cụ ngày tháng</p>
@@ -148,6 +151,7 @@ export function LichHomNayClient({ today, day, allHolidays }: Props) {
           <p className="eyebrow">Xem thêm</p>
           <div className="lichHomNayNavGrid">
             <Link href={amLichDayHref(today)}>Lịch âm ngày {displayDate}</Link>
+            <Link href="/lich-am-ngay-mai">Âm lịch ngày mai</Link>
             <Link href={amLichMonthHref(today.year, today.month)}>Lịch tháng {today.month}/{today.year}</Link>
             <Link href={amLichYearHref(today.year)}>Lịch năm {today.year}</Link>
             <Link href={`/lich-nghi-le/${today.year}`}>Ngày lễ năm {today.year}</Link>

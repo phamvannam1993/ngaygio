@@ -274,16 +274,22 @@ h2 {
 
 .circleNav,
 .monthNav {
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
   display: inline-grid;
   place-items: center;
-  border: 1px solid rgba(32, 138, 58, 0.22);
+  flex-shrink: 0;
+  border: 1.5px solid rgba(32, 138, 58, 0.28);
   border-radius: 50%;
   color: var(--green-700);
   background: var(--green-50);
-  font-size: 1.3rem;
-  font-weight: 900;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.circleNav:hover,
+.monthNav:hover {
+  background: var(--green-100, #d1fae5);
+  border-color: var(--green-700);
+  box-shadow: 0 2px 8px rgba(32,138,58,0.12);
 }
 
 .todayGrid {

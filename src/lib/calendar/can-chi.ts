@@ -44,18 +44,18 @@ export function getDayCanChi(jd: number) {
 }
 
 const HOUR_RANGES: Array<{ branch: ChiName; range: string }> = [
-  { branch: "Tý", range: "23:00-00:59" },
-  { branch: "Sửu", range: "01:00-02:59" },
-  { branch: "Dần", range: "03:00-04:59" },
-  { branch: "Mão", range: "05:00-06:59" },
-  { branch: "Thìn", range: "07:00-08:59" },
-  { branch: "Tỵ", range: "09:00-10:59" },
-  { branch: "Ngọ", range: "11:00-12:59" },
-  { branch: "Mùi", range: "13:00-14:59" },
-  { branch: "Thân", range: "15:00-16:59" },
-  { branch: "Dậu", range: "17:00-18:59" },
-  { branch: "Tuất", range: "19:00-20:59" },
-  { branch: "Hợi", range: "21:00-22:59" },
+  { branch: "Tý", range: "23-1" },
+  { branch: "Sửu", range: "1-3" },
+  { branch: "Dần", range: "3-5" },
+  { branch: "Mão", range: "5-7" },
+  { branch: "Thìn", range: "7-9" },
+  { branch: "Tỵ", range: "9-11" },
+  { branch: "Ngọ", range: "11-13" },
+  { branch: "Mùi", range: "13-15" },
+  { branch: "Thân", range: "15-17" },
+  { branch: "Dậu", range: "17-19" },
+  { branch: "Tuất", range: "19-21" },
+  { branch: "Hợi", range: "21-23" },
 ];
 
 const GOOD_HOURS_BY_DAY_CHI: Record<ChiName, readonly ChiName[]> = {

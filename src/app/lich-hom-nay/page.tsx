@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { LichHomNayClient } from "./LichHomNayClient";
 import { getVietnamTodayParts, formatDisplayDate } from "@/lib/date";
-import { getDayInfo } from "@/lib/calendar/service";
+import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
+import { MonthCalendar } from "@/components/MonthCalendar";
+import { amLichDayHref } from "@/lib/calendar/urls";
 import { getHolidayItems } from "@/lib/calendar/holidays";
 import { siteConfig } from "@/lib/site";
 
@@ -44,5 +46,13 @@ export default function LichHomNayPage() {
   const today = getVietnamTodayParts();
   const day = getDayInfo(today);
   const holidays = getHolidayItems(today.year);
-  return <LichHomNayClient today={today} day={day} allHolidays={holidays} />;
+  const monthCalendar = getMonthCalendar(today.year, today.month, today);
+  return (
+    <LichHomNayClient
+      today={today}
+      day={day}
+      allHolidays={holidays}
+      calendarSlot={<MonthCalendar calendar={monthCalendar} makeHref={amLichDayHref} />}
+    />
+  );
 }

@@ -19,7 +19,7 @@ export function PerpetualDayPanel({ day, prevDay, nextDay }: { day: DayInfo; pre
   return (
     <section className="heroCard perpetualDay" aria-labelledby="perpetual-day-title">
       <div className="heroTop">
-        <Link className="circleNav" href={lichVanNienHref(prevDay)} aria-label="Ngày trước">←</Link>
+        <Link className="circleNav" href={lichVanNienHref(prevDay)} aria-label="Ngày trước"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></Link>
         <div>
           <p className="eyebrow">Lịch âm dương theo ngày</p>
           <h2 id="perpetual-day-title">Lịch ngày {displayDate}</h2>
@@ -27,7 +27,7 @@ export function PerpetualDayPanel({ day, prevDay, nextDay }: { day: DayInfo; pre
             {day.weekdayName}, ngày {day.canChi.day}, tháng {day.canChi.month}, năm {day.canChi.year}. Âm lịch: {lunarDisplay(day)}.
           </p>
         </div>
-        <Link className="circleNav" href={lichVanNienHref(nextDay)} aria-label="Ngày sau">→</Link>
+        <Link className="circleNav" href={lichVanNienHref(nextDay)} aria-label="Ngày sau"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></Link>
       </div>
 
       <div className="todayGrid converterGrid">
