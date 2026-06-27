@@ -25,7 +25,9 @@ export function Footer() {
         <div>
           <h2>Ngày tốt · Giờ tốt</h2>
           <Link href="/ngay-tot-xau-hom-nay">Ngày tốt xấu hôm nay</Link>
+          <Link href="/ngay-tot-xau-ngay-mai">Ngày tốt xấu ngày mai</Link>
           <Link href="/gio-hoang-dao-hom-nay">Giờ hoàng đạo hôm nay</Link>
+          <Link href="/gio-hoang-dao-ngay-mai">Giờ hoàng đạo ngày mai</Link>
           <Link href="/ngay-tot-xau">Xem ngày tốt xấu theo ngày</Link>
           <Link href="/gio-hoang-dao">Xem giờ hoàng đạo theo ngày</Link>
           <Link href="/con-bao-nhieu-ngay-den-tet">Còn bao nhiêu ngày đến Tết</Link>

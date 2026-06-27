@@ -56,6 +56,7 @@ export function LichHomNayClient({ today, day, allHolidays, calendarSlot }: Prop
         {/* Hero: dương lịch + đếm ngày */}
         <section className="heroCard lichHomNayHero">
           <p className="eyebrow">Dương lịch hôm nay</p>
+          <h1 className="lichHomNayH1">Lịch hôm nay {wd}, {today.day}/{today.month}/{today.year}</h1>
           <div className="lichHomNayTop">
             <div className="lichHomNayDate">
               <span className="lichHomNayWd">{wd}</span>

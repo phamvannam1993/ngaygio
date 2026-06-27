@@ -21,18 +21,21 @@ function HourPill({ hour }: { hour: HourInfo }) {
   );
 }
 
-export function GoodBadResultPanel({ day, details, isHomNay }: { day: DayInfo; details: GoodBadDetails; isHomNay?: boolean }) {
+export function GoodBadResultPanel({ day, details, isHomNay, isNgayMai }: { day: DayInfo; details: GoodBadDetails; isHomNay?: boolean; isNgayMai?: boolean }) {
   const displayDate = formatDisplayDate(day.solar);
-  const Heading = isHomNay ? "h1" : "h2";
+  const Heading = (isHomNay || isNgayMai) ? "h1" : "h2";
   const h1Text = isHomNay
     ? `Ngày tốt xấu hôm nay ${displayDate}: ${details.overallLabel}`
+    : isNgayMai
+    ? `Ngày tốt xấu ngày mai ${displayDate}: ${details.overallLabel}`
     : `Ngày ${displayDate} tốt hay xấu?`;
+  const eyebrow = isHomNay ? "Ngày tốt xấu hôm nay" : isNgayMai ? "Ngày tốt xấu ngày mai" : "Kết quả ngày tốt xấu";
 
   return (
     <section className="heroCard goodBadResult" aria-labelledby="good-bad-title">
       <div className="goodBadHeroTop">
         <div>
-          <p className="eyebrow">{isHomNay ? "Ngày tốt xấu hôm nay" : "Kết quả ngày tốt xấu"}</p>
+          <p className="eyebrow">{eyebrow}</p>
           <Heading id="good-bad-title">{h1Text}</Heading>
           <p className="converterIntro">
             Ngày {displayDate} dương lịch là {lunarDisplay(day)} âm lịch, {day.weekdayName}, ngày {day.canChi.day}, tháng {day.canChi.month}, năm {day.canChi.year}.
