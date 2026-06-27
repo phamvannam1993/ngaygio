@@ -2016,6 +2016,13 @@ h2 {
 .lichHomNayHero {
   padding: clamp(20px, 4vw, 36px);
 }
+.lichHomNayH1 {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
 
 .lichHomNayTop {
   display: flex;

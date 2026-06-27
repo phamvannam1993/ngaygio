@@ -43,9 +43,19 @@ export const quickTools = [
     description: "Hôm nay là ngày Hoàng Đạo hay Hắc Đạo? Xem ngay việc nên làm và tránh.",
   },
   {
+    title: "Ngày tốt xấu ngày mai",
+    href: "/ngay-tot-xau-ngay-mai",
+    description: "Ngày mai tốt hay xấu? Xem trước để chuẩn bị việc quan trọng.",
+  },
+  {
     title: "Giờ hoàng đạo hôm nay",
     href: "/gio-hoang-dao-hom-nay",
     description: "Các khung giờ tốt xấu hôm nay theo can chi và lịch âm.",
+  },
+  {
+    title: "Giờ hoàng đạo ngày mai",
+    href: "/gio-hoang-dao-ngay-mai",
+    description: "Xem trước giờ hoàng đạo ngày mai để chọn giờ xuất hành, khai trương.",
   },
   {
     title: "Còn bao nhiêu ngày đến Tết",
