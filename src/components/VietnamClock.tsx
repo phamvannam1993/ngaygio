@@ -42,7 +42,7 @@ export function VietnamClock() {
 
   const dateStr = now
     ? `${DAYS[now.getDay()]}, ${now.getDate()} ${MONTHS[now.getMonth()]} ${now.getFullYear()}`
-    : "Loading...";
+    : "Giờ Việt Nam hiện tại được cập nhật trực tiếp theo ICT, UTC+7.";
 
   return (
     <div className="vnClockWrap">
@@ -125,7 +125,7 @@ export function VietnamClock() {
       </div>
 
       {/* Digital time */}
-      <p className="vnDigital">{now ? `${pad(h)}:${pad(m)}:${pad(s)}` : "--:--:--"}</p>
+      <p className="vnDigital">{now ? `${pad(h)}:${pad(m)}:${pad(s)}` : <span className="vnClockFallback">Vietnam time (ICT, UTC+7)</span>}</p>
       <p className="vnDate">{dateStr}</p>
     </div>
   );
@@ -151,7 +151,7 @@ export function VietnamCityTimes() {
 
   const timeStr = now
     ? `${["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][now.getDay()]} ${pad(now.getHours())}:${pad(now.getMinutes())}`
-    : "--:--";
+    : "ICT (UTC+7)";
 
   return (
     <div className="citiesGrid">

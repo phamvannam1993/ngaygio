@@ -2588,6 +2588,12 @@ h2 {
   color: #333;
   text-align: center;
 }
+.vnClockFallback {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  letter-spacing: 0;
+}
 
 /* Country info table */
 .vnInfoPanel {
