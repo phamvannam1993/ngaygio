@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
 
   async rewrites() {
     return [
+      // /sitemap.xml → sitemap index API (Next.js không tự gen index khi dùng generateSitemaps)
+      { source: "/sitemap.xml", destination: "/api/sitemap-index" },
+
       // Tết keyword URLs → /tet/:year (canonical = /tet/:year)
       { source: "/tet-:year-con-bao-nhieu-ngay", destination: "/tet/:year" },
       { source: "/tet-:year-ngay-nao", destination: "/tet/:year" },
