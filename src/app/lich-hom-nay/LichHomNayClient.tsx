@@ -55,7 +55,8 @@ export function LichHomNayClient({ today, day, allHolidays, calendarSlot }: Prop
 
         {/* Hero: dương lịch + đếm ngày */}
         <section className="heroCard lichHomNayHero">
-          <h1 className="lichHomNayH1">Lịch hôm nay {today.day}/{today.month}/{today.year}</h1>
+          <h1 className="lichHomNayH1">Hôm nay thứ mấy, ngày mấy?</h1>
+          <p className="lichHomNayAnswer">Hôm nay là <strong>{wd}</strong>, ngày <strong>{today.day}/{today.month}/{today.year}</strong> dương lịch.</p>
           <p className="eyebrow">Dương lịch hôm nay</p>
           <div className="lichHomNayTop">
             <div className="lichHomNayDate">
@@ -160,12 +161,14 @@ export function LichHomNayClient({ today, day, allHolidays, calendarSlot }: Prop
         </nav>
 
         <article className="seoArticle">
-          <h2>Lịch hôm nay là trang gì?</h2>
-          <p>Trang <strong>lịch hôm nay</strong> tập trung vào góc nhìn <strong>dương lịch</strong>: thứ trong tuần, ngày thứ mấy trong năm, còn bao nhiêu ngày đến hết năm, tuần và quý hiện tại. Dùng để lập kế hoạch, theo dõi tiến độ và xem ngày lễ.</p>
-          <h2>Khác với âm lịch hôm nay thế nào?</h2>
-          <p>Trang <Link href="/am-lich-hom-nay">âm lịch hôm nay</Link> tập trung vào hệ lịch âm: mùng mấy tháng mấy, can chi đủ bộ (ngày–tháng–năm), tiết khí, sao ngày và 12 khung giờ hoàng đạo. Hai trang phục vụ hai nhu cầu khác nhau.</p>
+          <h2>Hôm nay thứ mấy ngày mấy tháng mấy?</h2>
+          <p>Hôm nay là <strong>{wd}</strong>, ngày <strong>{today.day} tháng {today.month} năm {today.year}</strong> dương lịch — hay còn gọi là <strong>nay là ngày {today.day}/{today.month}/{today.year}</strong>, <strong>bữa nay thứ {wd.replace("Thứ ", "").replace("Chủ nhật", "Chủ nhật")}</strong>. Đây là ngày thứ {Math.ceil(today.day * today.month / today.month)} trong tháng {today.month} và thuộc Quý {Math.ceil(today.month / 3)} của năm {today.year}.</p>
+          <h2>Hôm nay ngày mấy âm lịch?</h2>
+          <p>Ngày dương lịch {today.day}/{today.month}/{today.year} tương đương <strong>mùng {day.lunar.day} tháng {day.lunar.month} năm {day.canChi.year}</strong> âm lịch, ngày <strong>{day.canChi.day}</strong>. Xem chi tiết tại trang <Link href="/am-lich-hom-nay">âm lịch hôm nay</Link>.</p>
+          <h2>Lịch hôm nay và âm lịch hôm nay khác nhau thế nào?</h2>
+          <p>Trang <strong>lịch hôm nay</strong> tập trung dương lịch: thứ trong tuần, ngày trong năm, tuần, quý. Trang <Link href="/am-lich-hom-nay">âm lịch hôm nay</Link> hiển thị can chi đủ bộ, tiết khí, sao ngày và 12 khung giờ hoàng đạo. Hai trang phục vụ hai nhu cầu khác nhau.</p>
           <h2>Đếm ngày đến sự kiện quan trọng</h2>
-          <p>Dùng <Link href="/dem-ngay">công cụ đếm ngày</Link> để tính khoảng cách đến sinh nhật, cưới hỏi, deadline, lễ Tết hoặc bất kỳ mốc thời gian nào. Có thể xuất nhắc việc dạng file <Link href="/nhac-ngay-gio">.ics</Link> để thêm vào Google Calendar.</p>
+          <p>Dùng <Link href="/dem-ngay">công cụ đếm ngày</Link> để tính khoảng cách đến sinh nhật, cưới hỏi, deadline hoặc lễ Tết. Có thể xuất nhắc việc dạng file <Link href="/nhac-ngay-gio">.ics</Link> để thêm vào Google Calendar.</p>
         </article>
       </main>
       <Footer />

@@ -14,12 +14,13 @@ export async function generateMetadata(): Promise<Metadata> {
   const today = getVietnamTodayParts();
   const day = getDayInfo(today);
   const displayDate = formatDisplayDate(today);
-  const title = `Âm lịch hôm nay ${displayDate} mùng mấy? | Ngày Giờ`;
-  const description = `Âm lịch hôm nay ${displayDate} là ngày ${day.lunar.day}/${day.lunar.month}/${day.lunar.year}, ngày ${day.canChi.day}, tháng ${day.canChi.month}, năm ${day.canChi.year}. Xem giờ hoàng đạo hôm nay.`;
+  const title = `Lịch âm hôm nay ${displayDate} – Hôm nay ngày mấy âm lịch? | Ngày Giờ`;
+  const description = `Hôm nay ${displayDate} âm lịch là ngày ${day.lunar.day} tháng ${day.lunar.month} năm ${day.canChi.year}${day.lunar.isLeap ? " (tháng nhuận)" : ""}, ngày ${day.canChi.day}. Xem can chi, tiết khí, giờ hoàng đạo hôm nay.`;
 
   return {
     title,
     description,
+    keywords: ["lịch âm hôm nay", "hôm nay ngày mấy âm lịch", "âm lịch hôm nay", `lịch âm hôm nay ${today.year}`, "ngày âm hôm nay", "lịch âm hôm nay mùng mấy"],
     alternates: { canonical: `${siteConfig.url}${amLichDayHref(today)}` },
     openGraph: {
       title,
