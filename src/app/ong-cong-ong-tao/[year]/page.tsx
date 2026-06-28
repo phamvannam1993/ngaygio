@@ -8,6 +8,8 @@ import { getTetCluster } from "@/lib/calendar/tet";
 import { siteConfig, webPageSchema, faqSchema } from "@/lib/site";
 import { amLichDayHref } from "@/lib/calendar/urls";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 type PageProps = { params: Promise<{ year: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
