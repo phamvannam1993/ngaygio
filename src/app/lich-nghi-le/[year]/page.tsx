@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     keywords: [`lịch nghỉ lễ ${year}`, `ngày lễ ${year}`, `lịch Tết ${year}`, "lịch nghỉ lễ"],
     alternates: { canonical: holidayYearHref(year) },
-    openGraph: { title, description, url: `${siteConfig.url}${holidayYearHref(year)}`, siteName: siteConfig.name, locale: "vi_VN", type: "article", images: [{ url: "/og-home.svg", width: 1200, height: 630, alt: title }] },
+    openGraph: { title, description, url: `${siteConfig.url}${holidayYearHref(year)}`, siteName: siteConfig.name, locale: "vi_VN", type: "article", images: [{ url: "/home.jpg", width: 1200, height: 630, alt: title }] },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   };
 }

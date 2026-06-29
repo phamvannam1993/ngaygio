@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Công cụ đếm ngày online giúp tính khoảng cách giữa hai ngày, còn bao nhiêu ngày đến sự kiện, lễ tết, sinh nhật, cưới hỏi hoặc khai trương.",
   keywords: ["đếm ngày", "tính số ngày", "còn bao nhiêu ngày", "date calculator", "đếm ngày online"],
   alternates: { canonical: "/dem-ngay" },
-  openGraph: { title: "Đếm ngày online", description: "Tính nhanh số ngày giữa hai mốc thời gian.", url: `${siteConfig.url}/dem-ngay`, siteName: siteConfig.name, locale: "vi_VN", type: "website", images: [{ url: "/og-home.svg", width: 1200, height: 630, alt: "Đếm ngày" }] },
+  openGraph: { title: "Đếm ngày online", description: "Tính nhanh số ngày giữa hai mốc thời gian.", url: `${siteConfig.url}/dem-ngay`, siteName: siteConfig.name, locale: "vi_VN", type: "website", images: [{ url: "/home.jpg", width: 1200, height: 630, alt: "Đếm ngày" }] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 

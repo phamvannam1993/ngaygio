@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: `${siteConfig.url}/con-bao-nhieu-ngay-den-tet` },
-    openGraph: { title, description, url: `${siteConfig.url}/con-bao-nhieu-ngay-den-tet`, siteName: siteConfig.name, locale: "vi_VN", type: "website", images: [{ url: "/og-home.svg", width: 1200, height: 630, alt: title }] },
+    openGraph: { title, description, url: `${siteConfig.url}/con-bao-nhieu-ngay-den-tet`, siteName: siteConfig.name, locale: "vi_VN", type: "website", images: [{ url: "/home.jpg", width: 1200, height: 630, alt: title }] },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   };
 }

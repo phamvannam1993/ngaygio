@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       locale: "vi_VN",
       type: "website",
-      images: [{ url: "/og-home.svg", width: 1200, height: 630, alt: "Tính tuổi âm" }],
+      images: [{ url: "/home.jpg", width: 1200, height: 630, alt: "Tính tuổi âm" }],
     },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   };

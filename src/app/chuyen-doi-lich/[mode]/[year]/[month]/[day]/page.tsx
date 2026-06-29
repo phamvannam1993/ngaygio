@@ -82,13 +82,13 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       siteName: siteConfig.name,
       locale: "vi_VN",
       type: "article",
-      images: [{ url: "/og-home.svg", width: 1200, height: 630, alt: title }],
+      images: [{ url: "/home.jpg", width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/og-home.svg"],
+      images: ["/home.jpg"],
     },
     robots: {
       index: true,

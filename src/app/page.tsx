@@ -50,13 +50,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       locale: "vi_VN",
       type: "website",
-      images: [{ url: "/og-home.svg", width: 1200, height: 630, alt: "Ngày Giờ - xem lịch âm hôm nay" }],
+      images: [{ url: "/home.jpg", width: 1200, height: 630, alt: "Ngày Giờ - xem lịch âm hôm nay" }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/og-home.svg"],
+      images: ["/home.jpg"],
     },
     robots: {
       index: true,

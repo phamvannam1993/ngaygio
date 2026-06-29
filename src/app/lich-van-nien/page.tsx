@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "vi_VN",
     type: "website",
-    images: [{ url: "/og-home.svg", width: 1200, height: 630, alt: "Lịch vạn niên Ngày Giờ" }],
+    images: [{ url: "/home.jpg", width: 1200, height: 630, alt: "Lịch vạn niên Ngày Giờ" }],
   },
 };
 

@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "vi_VN",
     type: "website",
-    images: [{ url: "/og-home.svg", width: 1200, height: 630, alt: siteConfig.name }],
+    images: [{ url: "/home.jpg", width: 1200, height: 630, alt: siteConfig.name }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@ngaygio_vn",
     creator: "@ngaygio_vn",
-    images: ["/og-home.svg"],
+    images: ["/home.jpg"],
   },
   robots: {
     index: true,
