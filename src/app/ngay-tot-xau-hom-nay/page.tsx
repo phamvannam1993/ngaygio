@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoodBadPageContent, goodBadDateHref } from "@/app/ngay-tot-xau/GoodBadPageContent";
+import { GoodBadPageContent } from "@/app/ngay-tot-xau/GoodBadPageContent";
 import { formatDisplayDate, getVietnamTodayParts } from "@/lib/date";
 import { getDayInfo } from "@/lib/calendar/service";
 import { getGoodBadDetails } from "@/lib/calendar/good-bad";
@@ -12,12 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const day = getDayInfo(today);
   const details = getGoodBadDetails(day);
   const displayDate = formatDisplayDate(today);
-  const title = `Ngày tốt xấu hôm nay ${displayDate} – ${details.overallLabel} | Ngày Giờ`;
-  const description = `Hôm nay ${displayDate} là ${details.overallLabel}. ${details.overallSummary} Xem giờ hoàng đạo, can chi và lịch âm hôm nay.`;
+  const title = `Ngày tốt xấu hôm nay ${displayDate} – Ngày đẹp hôm nay? | Ngày Giờ`;
+  const description = `Xem ngày tốt xấu hôm nay ${displayDate}: hôm nay là ${details.overallLabel}. ${details.overallSummary} Tra ngày đẹp hôm nay, giờ hoàng đạo, can chi và lịch âm.`;
   return {
     title,
     description,
-    alternates: { canonical: `${siteConfig.url}${goodBadDateHref(today)}` },
+    alternates: { canonical: `${siteConfig.url}/ngay-tot-xau-hom-nay` },
     openGraph: {
       title,
       description,

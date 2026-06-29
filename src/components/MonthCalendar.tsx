@@ -3,7 +3,15 @@ import type { DateParts } from "@/lib/date";
 import { amLichDayHref } from "@/lib/calendar/urls";
 import type { CalendarMonth } from "@/lib/calendar/types";
 
-const dayNames = ["Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy", "Chủ Nhật"];
+const dayNames = [
+  { full: "Thứ Hai", short: "T2" },
+  { full: "Thứ Ba", short: "T3" },
+  { full: "Thứ Tư", short: "T4" },
+  { full: "Thứ Năm", short: "T5" },
+  { full: "Thứ Sáu", short: "T6" },
+  { full: "Thứ Bảy", short: "T7" },
+  { full: "Chủ Nhật", short: "CN" },
+];
 
 type MonthCalendarProps = {
   calendar: CalendarMonth;
@@ -32,7 +40,10 @@ export function MonthCalendar({ calendar, makeHref, makeNavHref }: MonthCalendar
 
       <div className="calendarGrid" role="grid" aria-label={calendar.title}>
         {dayNames.map((name) => (
-          <div key={name} className="dayName" role="columnheader">{name}</div>
+          <div key={name.full} className="dayName" role="columnheader" aria-label={name.full}>
+            <span className="dayNameFull">{name.full}</span>
+            <span className="dayNameShort" aria-hidden="true">{name.short}</span>
+          </div>
         ))}
         {calendar.cells.map((cell) => (
           <Link

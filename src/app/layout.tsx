@@ -1,16 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Be_Vietnam_Pro } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
-
-const beVietnamPro = Be_Vietnam_Pro({
-  subsets: ["vietnamese", "latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-body",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -79,7 +71,7 @@ const organizationSchema = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="vi" className={beVietnamPro.variable}>
+    <html lang="vi">
       <body>
         {children}
         <script

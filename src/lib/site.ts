@@ -48,14 +48,14 @@ export const quickTools = [
     description: "Ngày mai tốt hay xấu? Xem trước để chuẩn bị việc quan trọng.",
   },
   {
-    title: "Giờ hoàng đạo hôm nay",
+    title: "Giờ tốt xấu hôm nay",
     href: "/gio-hoang-dao-hom-nay",
-    description: "Các khung giờ tốt xấu hôm nay theo can chi và lịch âm.",
+    description: "Xem giờ tốt hôm nay, giờ hoàng đạo, giờ hắc đạo theo can chi và lịch âm.",
   },
   {
-    title: "Giờ hoàng đạo ngày mai",
+    title: "Giờ tốt xấu ngày mai",
     href: "/gio-hoang-dao-ngay-mai",
-    description: "Xem trước giờ hoàng đạo ngày mai để chọn giờ xuất hành, khai trương.",
+    description: "Xem trước giờ tốt xấu ngày mai để chọn giờ xuất hành, khai trương.",
   },
   {
     title: "Còn bao nhiêu ngày đến Tết",

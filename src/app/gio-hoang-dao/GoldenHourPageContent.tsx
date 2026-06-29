@@ -46,13 +46,13 @@ export function GoldenHourPageContent({ selectedDate, isHomNay, isNgayMai }: { s
         )}
         <GoldenHourDateForm defaultDate={selectedDate} />
         <section className="heroCard" aria-labelledby="golden-hour-title">
-          <p className="eyebrow">{isHomNay ? "Giờ hoàng đạo hôm nay" : isNgayMai ? "Giờ hoàng đạo ngày mai" : "Giờ tốt trong ngày"}</p>
+          <p className="eyebrow">{isHomNay ? "Giờ tốt xấu hôm nay" : isNgayMai ? "Giờ tốt xấu ngày mai" : "Giờ tốt trong ngày"}</p>
           {(isHomNay || isNgayMai)
-            ? <h1 id="golden-hour-title">Giờ hoàng đạo {isNgayMai ? "ngày mai" : "hôm nay"} {displayDate}</h1>
+            ? <h1 id="golden-hour-title">Giờ tốt xấu {isNgayMai ? "ngày mai" : "hôm nay"} {displayDate}</h1>
             : <h2 id="golden-hour-title">Giờ hoàng đạo ngày {displayDate}</h2>
           }
           <p className="converterIntro">
-            Ngày {displayDate} là {day.weekdayName}, âm lịch {day.lunar.day}/{day.lunar.month}/{day.lunar.year}, ngày {day.canChi.day}, tháng {day.canChi.month}, năm {day.canChi.year}. Ngày này là {day.quality.label.toLowerCase()}.
+            Ngày {displayDate} là {day.weekdayName}, âm lịch {day.lunar.day}/{day.lunar.month}/{day.lunar.year}, ngày {day.canChi.day}, tháng {day.canChi.month}, năm {day.canChi.year}. Xem giờ tốt hôm nay, giờ xấu hôm nay, giờ hoàng đạo và giờ hắc đạo để tham khảo khi chọn giờ xuất hành, khai trương hoặc làm việc quan trọng. Ngày này là {day.quality.label.toLowerCase()}.
           </p>
           <div className="adviceGrid">
             <article className="adviceCard goodAdvice">

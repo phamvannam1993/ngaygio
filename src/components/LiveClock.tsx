@@ -23,7 +23,7 @@ export function LiveClock() {
 
   return (
     <span className="liveClock" suppressHydrationWarning>
-      <span aria-hidden="true">◷</span> {time || "--:--:--"}
+      <span aria-hidden="true">◷</span> {time || "ICT +7"}
     </span>
   );
 }

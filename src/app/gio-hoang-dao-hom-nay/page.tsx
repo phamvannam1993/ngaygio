@@ -3,7 +3,6 @@ import { GoldenHourPageContent } from "@/app/gio-hoang-dao/GoldenHourPageContent
 import { formatDisplayDate, getVietnamTodayParts } from "@/lib/date";
 import { getDayInfo } from "@/lib/calendar/service";
 import { formatHours } from "@/lib/calendar/can-chi";
-import { gioHoangDaoDayHref } from "@/lib/calendar/urls";
 import { siteConfig, webPageSchema, faqSchema } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -13,12 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const day = getDayInfo(today);
   const displayDate = formatDisplayDate(today);
   const hours = formatHours(day.goodHours);
-  const title = `Giờ hoàng đạo hôm nay ${displayDate} – ${hours} | Ngày Giờ`;
-  const description = `Giờ hoàng đạo hôm nay ${displayDate}: ${hours}. Âm lịch ${day.lunar.day}/${day.lunar.month}/${day.lunar.year}, ngày ${day.canChi.day}, ${day.quality.label}.`;
+  const title = `Giờ tốt xấu hôm nay ${displayDate} – Giờ hoàng đạo: ${hours} | Ngày Giờ`;
+  const description = `Xem giờ tốt xấu hôm nay ${displayDate}: giờ hoàng đạo gồm ${hours}. Âm lịch ${day.lunar.day}/${day.lunar.month}/${day.lunar.year}, ngày ${day.canChi.day}, ${day.quality.label}.`;
   return {
     title,
     description,
-    alternates: { canonical: `${siteConfig.url}${gioHoangDaoDayHref(today)}` },
+    alternates: { canonical: `${siteConfig.url}/gio-hoang-dao-hom-nay` },
     openGraph: {
       title,
       description,
@@ -42,14 +41,14 @@ export default function GioHoangDaoHomNayPage() {
     webPageSchema({
       name: `Giờ hoàng đạo hôm nay ${displayDate}`,
       url: `${siteConfig.url}/gio-hoang-dao-hom-nay`,
-      description: `Giờ hoàng đạo hôm nay ${displayDate}: ${hours}.`,
+      description: `Xem giờ tốt xấu hôm nay ${displayDate}: giờ hoàng đạo gồm ${hours}.`,
       breadcrumb: [
         { name: "Giờ hoàng đạo", url: `${siteConfig.url}/gio-hoang-dao` },
         { name: "Giờ hoàng đạo hôm nay", url: `${siteConfig.url}/gio-hoang-dao-hom-nay` },
       ],
     }),
     faqSchema([
-      { q: "Giờ hoàng đạo hôm nay là mấy giờ?", a: `Giờ hoàng đạo hôm nay ${displayDate} gồm: ${hours}. Đây là các khung giờ tốt để xuất hành, khai trương, ký kết.` },
+      { q: "Giờ tốt hôm nay là mấy giờ?", a: `Giờ tốt hôm nay ${displayDate}, tức các giờ hoàng đạo, gồm: ${hours}. Đây là các khung giờ tốt để xuất hành, khai trương, ký kết.` },
       { q: "Hôm nay ngày âm lịch mấy?", a: `Hôm nay ${displayDate} tương đương ngày ${day.lunar.day}/${day.lunar.month}/${day.lunar.year} âm lịch, ngày ${day.canChi.day}.` },
     ]),
   ];

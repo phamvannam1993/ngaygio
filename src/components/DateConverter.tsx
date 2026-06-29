@@ -16,14 +16,14 @@ export function DateConverter() {
   }
 
   return (
-    <form className="dateConverter" onSubmit={handleSubmit}>
+    <form className="dateConverter" aria-label="Đổi ngày âm dương nhanh" onSubmit={handleSubmit}>
       <input
-        aria-label="Chọn ngày dương lịch"
+        aria-label="Chọn ngày dương lịch để đổi âm lịch"
         type="date"
         value={date}
         onChange={(event) => setDate(event.target.value)}
       />
-      <button type="submit">Chuyển đổi</button>
+      <button type="submit">Đổi</button>
     </form>
   );
 }

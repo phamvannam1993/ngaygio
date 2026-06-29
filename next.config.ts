@@ -7,6 +7,16 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
 
+  async redirects() {
+    return [
+      { source: "/gio-tot-hom-nay", destination: "/gio-hoang-dao-hom-nay", permanent: true },
+      { source: "/gio-tot-xau-hom-nay", destination: "/gio-hoang-dao-hom-nay", permanent: true },
+      { source: "/ngay-dep-hom-nay", destination: "/ngay-tot-xau-hom-nay", permanent: true },
+      { source: "/hom-nay-thu-may", destination: "/lich-hom-nay", permanent: true },
+      { source: "/hom-nay-la-ngay-gi", destination: "/lich-hom-nay", permanent: true },
+    ];
+  },
+
   async rewrites() {
     return [
       // /sitemap.xml → sitemap index API (Next.js không tự gen index khi dùng generateSitemaps)

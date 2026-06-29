@@ -5,7 +5,6 @@ import { QuickTools } from "@/components/QuickTools";
 import { AmLichDayDetails, AmLichDayHero, MonthCalendarForAmLich } from "@/components/AmLichBlocks";
 import { addDays, formatDisplayDate, getVietnamTodayParts } from "@/lib/date";
 import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
-import { amLichDayHref } from "@/lib/calendar/urls";
 import { siteConfig } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -21,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     keywords: ["lịch âm hôm nay", "hôm nay ngày mấy âm lịch", "âm lịch hôm nay", `lịch âm hôm nay ${today.year}`, "ngày âm hôm nay", "lịch âm hôm nay mùng mấy"],
-    alternates: { canonical: `${siteConfig.url}${amLichDayHref(today)}` },
+    alternates: { canonical: `${siteConfig.url}/am-lich-hom-nay` },
     openGraph: {
       title,
       description,
