@@ -52,7 +52,7 @@ function makeCalendarHref(date: DateParts) {
   return `/ngay-tot-xau/${date.year}/${date.month}/${date.day}`;
 }
 
-export function XemNgayTotPageContent({ resolved }: { resolved: ResolvedParams }) {
+export function XemNgayTotPageContent({ resolved, overrideTitle, overrideDescription }: { resolved: ResolvedParams; overrideTitle?: string; overrideDescription?: string }) {
   const today = getVietnamTodayParts();
   const activity = getActivity(resolved.activitySlug);
   const results = searchGoodDates({
@@ -73,8 +73,8 @@ export function XemNgayTotPageContent({ resolved }: { resolved: ResolvedParams }
         <section className="activityHero heroCard" aria-labelledby="activity-hero-title">
           <div>
             <p className="eyebrow">{activity.icon} Công cụ chọn ngày mới</p>
-            <h1 id="activity-hero-title">{activity.title}</h1>
-            <p className="converterIntro yearIntroText">{activity.description} Hệ thống chấm điểm 100 theo lịch âm, trực ngày, giờ hoàng đạo, ngày kỵ và tuổi xung hợp nếu có năm sinh.</p>
+            <h1 id="activity-hero-title">{overrideTitle ?? activity.title}</h1>
+            <p className="converterIntro yearIntroText">{overrideDescription ?? `${activity.description} Hệ thống chấm điểm 100 theo lịch âm, trực ngày, giờ hoàng đạo, ngày kỵ và tuổi xung hợp nếu có năm sinh.`}</p>
             <div className="activityHeroBadges">
               <span>Chấm điểm 100</span>
               <span>Lọc theo khoảng ngày</span>

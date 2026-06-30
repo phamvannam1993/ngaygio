@@ -24,5 +24,11 @@ export const metadata: Metadata = {
 
 export default async function XemNgayTotTheoTuoiPage({ searchParams }: PageProps) {
   const resolved = resolveGoodDateParams((await searchParams) ?? {}, "khai-truong");
-  return <XemNgayTotPageContent resolved={resolved} />;
+  return (
+    <XemNgayTotPageContent
+      resolved={resolved}
+      overrideTitle="Xem ngày tốt theo tuổi"
+      overrideDescription="Nhập năm sinh để lọc ngày tốt, ngày hợp tuổi, tránh ngày xung tuổi trong khoảng thời gian bạn chọn. Hệ thống chấm điểm 100 theo lịch âm, trực ngày, giờ hoàng đạo và tuổi xung hợp."
+    />
+  );
 }

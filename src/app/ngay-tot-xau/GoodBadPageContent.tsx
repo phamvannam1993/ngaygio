@@ -4,6 +4,7 @@ import { GoodBadDateForm } from "@/components/GoodBadDateForm";
 import { GoodBadMonthSummary, GoodBadResultPanel } from "@/components/GoodBadResultPanel";
 import { Header } from "@/components/Header";
 import { MonthCalendar } from "@/components/MonthCalendar";
+import { QuickTools } from "@/components/QuickTools";
 import { type DateParts } from "@/lib/date";
 import { getGoodBadDetails } from "@/lib/calendar/good-bad";
 import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
@@ -78,6 +79,7 @@ export function GoodBadPageContent({ selectedDate, isHomNay, isNgayMai }: { sele
         <GoodBadMonthSummary calendar={monthCalendar} />
         <MonthCalendar calendar={monthCalendar} makeHref={goodBadDateHref} />
         <GoodBadArticle />
+        <QuickTools />
       </main>
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

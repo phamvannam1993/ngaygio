@@ -464,9 +464,7 @@ export function searchGoodDates(opts: { activitySlug?: string | null; from: Date
 }
 
 export function getCurrentMonthRange(today: DateParts): { from: DateParts; to: DateParts } {
-  const nextMonth = today.month === 12 ? { year: today.year + 1, month: 1 } : { year: today.year, month: today.month + 1 };
-  const lastDay = addDays({ ...nextMonth, day: 1 }, -1);
-  return { from: { year: today.year, month: today.month, day: 1 }, to: lastDay };
+  return { from: today, to: addDays(today, 60) };
 }
 
 export function getCountdownEvents(year: number): CountdownEvent[] {

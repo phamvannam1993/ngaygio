@@ -5,6 +5,7 @@ import { GoldenHourArticle } from "@/components/GoldenHourArticle";
 import { gioHoangDaoDayHref } from "@/lib/calendar/urls";
 import { Header } from "@/components/Header";
 import { MonthCalendar } from "@/components/MonthCalendar";
+import { QuickTools } from "@/components/QuickTools";
 import { CHI, formatHours } from "@/lib/calendar/can-chi";
 import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
 import type { DateParts } from "@/lib/date";
@@ -86,6 +87,7 @@ export function GoldenHourPageContent({ selectedDate, isHomNay, isNgayMai }: { s
 
         <MonthCalendar calendar={calendar} makeHref={gioHoangDaoDayHref} />
         <GoldenHourArticle />
+        <QuickTools />
       </main>
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
