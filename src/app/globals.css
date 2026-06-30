@@ -93,7 +93,7 @@ select {
 .headerActions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
 }
 
 .desktopNav {
@@ -536,7 +536,7 @@ h2 {
   display: grid;
   grid-template-columns: 0.9fr 1.6fr;
   gap: 24px;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .panelCard,
@@ -1032,7 +1032,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 20px;
-  align-items: start;
+  align-items: flex-start;
   text-align: center;
 }
 
@@ -3367,5 +3367,680 @@ button {
   .cityTimeCard {
     gap: 8px;
     border-radius: 12px;
+  }
+}
+
+/* ── 2026 modern upgrade: feature hub, activity planner, print/share ─────── */
+:root {
+  --surface: #ffffff;
+  --surface2: #f3f7f4;
+  --surface3: #e8f0ea;
+  --border: var(--line);
+  --card: #ffffff;
+  --accent: var(--green);
+  --accent-fg: #ffffff;
+  --green-100: #d7f5df;
+}
+
+.siteHeader {
+  background: linear-gradient(135deg, rgba(18, 113, 47, 0.97), rgba(32, 138, 58, 0.94) 58%, rgba(15, 92, 52, 0.96));
+}
+
+.headerInner {
+  min-height: 72px;
+}
+
+.desktopNav > a,
+.navDropdown summary,
+.mobileNav > summary {
+  border: 1px solid transparent;
+}
+
+.desktopNav > a:hover,
+.navDropdown summary:hover {
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.modernHub {
+  display: grid;
+  grid-template-columns: .9fr 1.35fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.modernHubHero,
+.modernToolCard,
+.activityResultCard,
+.countdownEventCard,
+.dayInsightCard {
+  border: 1px solid rgba(32, 138, 58, .14);
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 18px 45px rgba(23,34,27,.08);
+}
+
+.modernHubHero {
+  min-height: 100%;
+  padding: clamp(22px, 4vw, 34px);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(243,188,61,.22), transparent 14rem),
+    linear-gradient(155deg, #ffffff 0%, #f2fbf5 72%, #fff9e8 100%);
+}
+
+.modernHubHero h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.65rem, 3.4vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.modernHubHero p {
+  color: #415044;
+  line-height: 1.7;
+}
+
+.heroCtaRow,
+.resultActions,
+.shareImageActions,
+.printActions,
+.activityHeroBadges,
+.quickReminderRow,
+.scoreBreakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.heroCtaRow {
+  margin-top: 22px;
+}
+
+.heroCtaRow a,
+.resultActions a,
+.shareImageActions a,
+.shareImageActions button,
+.printActions button,
+.activityPlannerForm button,
+.quickReminderRow button,
+.wideActions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--green), var(--green-700));
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+
+.heroCtaRow a:hover,
+.resultActions a:hover,
+.shareImageActions a:hover,
+.shareImageActions button:hover,
+.printActions button:hover,
+.activityPlannerForm button:hover,
+.quickReminderRow button:hover,
+.wideActions a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(23,34,27,.12);
+}
+
+.heroCtaRow .ghostCta,
+.shareImageActions a,
+.printActions .secondaryPrintButton,
+.resultActions a:nth-child(2),
+.wideActions a:nth-child(2),
+.quickReminderRow button {
+  color: var(--green-700);
+  background: var(--green-50);
+  border: 1px solid rgba(32,138,58,.2);
+}
+
+.modernToolGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.modernToolCard {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fff, #f9fdfb);
+  transition: transform .16s ease, box-shadow .16s ease, border .16s ease;
+}
+
+.modernToolCard:hover,
+.activityResultCard:hover,
+.countdownEventCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(32,138,58,.32);
+  box-shadow: 0 22px 48px rgba(23,34,27,.11);
+}
+
+.modernToolCard span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--green-50);
+  font-size: 1.35rem;
+}
+
+.modernToolCard strong {
+  font-size: 1rem;
+}
+
+.modernToolCard p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: .92rem;
+}
+
+.activityChipCloud {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.activityChipCloud a,
+.activityHeroBadges span,
+.scoreBreakdown span,
+.quickReminderRow button {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--green-700);
+  background: var(--green-50);
+  border: 1px solid rgba(32,138,58,.16);
+  font-weight: 900;
+  font-size: .9rem;
+}
+
+.activityHero {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 24px;
+  align-items: center;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(243,188,61,.24), transparent 14rem),
+    linear-gradient(135deg, #ffffff 0%, #f0fbf4 68%, #fff9e8 100%);
+}
+
+.heroScorePreview {
+  min-height: 200px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  padding: 22px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #208a3a, #166a2b);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 24px 52px rgba(22,106,43,.22);
+}
+
+.heroScorePreview span,
+.heroScorePreview small {
+  opacity: .84;
+  font-weight: 800;
+}
+
+.heroScorePreview strong {
+  display: block;
+  margin: 4px 0;
+  font-size: clamp(2.5rem, 6vw, 2.3rem);
+  line-height: .95;
+}
+
+.activityPlannerPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.activityPlannerPanel > div > h2 {
+  margin-bottom: 6px;
+}
+
+.activityPlannerPanel p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.activityPlannerForm {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr)) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.activityPlannerForm label,
+.shareImageControls label,
+.lunarReminderFields label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.activityPlannerForm input,
+.activityPlannerForm select,
+.shareImageControls input,
+.reminderForm select,
+.lunarReminderFields input,
+.shareDateForm input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.activityResults {
+  display: grid;
+  gap: 18px;
+}
+
+.sectionIntro {
+  max-width: 760px;
+}
+
+.sectionIntro p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.activityResultGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.activityResultCard {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.activityResultCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--green);
+}
+
+.activityResultCard.excellent::before { background: linear-gradient(90deg, #208a3a, #f3bc3d); }
+.activityResultCard.good::before { background: #208a3a; }
+.activityResultCard.ok::before { background: #d99a08; }
+.activityResultCard.avoid::before { background: #d74343; }
+
+.activityResultTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.activityResultTop h3 {
+  margin: 6px 0 6px;
+  font-size: 1.12rem;
+}
+
+.activityResultTop p,
+.activitySummary,
+.ageNote,
+.bestDateGrid p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.resultRank {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--green-50);
+  color: var(--green-700);
+  font-weight: 900;
+  font-size: .8rem;
+}
+
+.scoreBadge {
+  width: 78px;
+  height: 78px;
+  flex: 0 0 78px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  border-radius: 22px;
+  background: #fff9e8;
+  border: 1px solid #f4e3ad;
+  color: #735100;
+}
+
+.scoreBadge strong {
+  font-size: 1.7rem;
+  line-height: .9;
+}
+
+.scoreBadge span {
+  font-size: .78rem;
+  font-weight: 900;
+}
+
+.miniInfoGrid {
+  display: grid;
+  gap: 7px;
+}
+
+.miniInfoGrid span {
+  padding: 9px 10px;
+  border-radius: 12px;
+  color: #415044;
+  background: #f8fbf9;
+  border: 1px solid var(--line);
+  font-size: .88rem;
+  font-weight: 800;
+}
+
+.resultActions {
+  margin-top: 2px;
+}
+
+.resultActions a {
+  min-height: 38px;
+  padding-inline: 13px;
+  font-size: .86rem;
+}
+
+.emptyActivityResult p {
+  color: var(--muted);
+}
+
+.bestDateGrid,
+.dayInsightGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.bestDateGrid article,
+.dayInsightCard {
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #fff, #f9fcfa);
+}
+
+.bestDateGrid h3,
+.dayInsightCard h2 {
+  font-size: 1.02rem;
+  margin-bottom: 10px;
+}
+
+.bestDateGrid ul,
+.dayInsightCard ul {
+  margin: 0;
+  padding-left: 19px;
+  color: #415044;
+  line-height: 1.65;
+}
+
+.scoreBreakdown {
+  margin-top: 16px;
+}
+
+.scoreBreakdown span.good { color: #17692d; background: #e6f7ec; }
+.scoreBreakdown span.bad { color: #9b3434; background: #fff2f2; border-color: rgba(215,67,67,.18); }
+.scoreBreakdown span.neutral { color: #735100; background: #fff7df; border-color: #f4e3ad; }
+
+.dayInsightGrid {
+  grid-template-columns: .9fr 1fr 1.3fr;
+  margin-top: 20px;
+}
+
+.scoreInsight {
+  display: grid;
+  align-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--green), var(--green-700));
+  color: #fff;
+}
+
+.scoreInsight span,
+.scoreInsight em,
+.scoreInsight p {
+  color: rgba(255,255,255,.84);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.scoreInsight strong {
+  display: block;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  line-height: .9;
+}
+
+.countdownEventSection p {
+  color: var(--muted);
+}
+
+.countdownEventGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.countdownEventCard {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(180deg,#fff,#f9fcfa);
+}
+
+.countdownIcon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--green-50);
+  font-size: 1.35rem;
+}
+
+.countdownEventCard strong {
+  font-size: 1.04rem;
+}
+
+.countdownEventCard em {
+  color: var(--green-700);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.countdownEventCard small,
+.countdownEventCard p {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.shareImageBuilder {
+  display: grid;
+  grid-template-columns: .8fr 1.3fr;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.shareImageControls {
+  display: grid;
+  gap: 14px;
+}
+
+.shareImagePreview {
+  padding: 14px;
+}
+
+.shareImagePreview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+}
+
+.shareImageActions button,
+.shareImageActions a,
+.printActions button {
+  min-height: 42px;
+}
+
+.shareDateForm {
+  max-width: 520px;
+  margin-top: 18px;
+  grid-template-columns: 1fr auto;
+}
+
+.printActions {
+  margin-top: 18px;
+}
+
+.printCalendarTitle {
+  display: none;
+  text-align: center;
+}
+
+.enhancedReminder {
+  align-items: flex-start;
+}
+
+.quickReminderRow {
+  margin-top: 14px;
+}
+
+.quickReminderRow button {
+  min-height: 36px;
+  padding-block: 0;
+}
+
+.reminderForm select {
+  appearance: auto;
+}
+
+.lunarReminderFields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.occurrencePreview {
+  background: #fffdf3;
+  border: 1px solid #f4e3ad;
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.activitySeoLinks .activityChipCloud {
+  margin-top: 12px;
+}
+
+@media (max-width: 1180px) {
+  .activityPlannerForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .activityPlannerForm button { grid-column: 1 / -1; }
+  .activityResultGrid,
+  .modernToolGrid,
+  .countdownEventGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bestDateGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .modernHub,
+  .activityHero,
+  .shareImageBuilder,
+  .dayInsightGrid {
+    grid-template-columns: 1fr;
+  }
+  .heroScorePreview { min-height: 150px; }
+}
+
+@media (max-width: 640px) {
+  .modernToolGrid,
+  .activityResultGrid,
+  .countdownEventGrid,
+  .bestDateGrid,
+  .activityPlannerForm,
+  .lunarReminderFields,
+  .shareDateForm {
+    grid-template-columns: 1fr;
+  }
+  .activityHeroBadges span,
+  .activityChipCloud a,
+  .scoreBreakdown span {
+    font-size: .82rem;
+  }
+  .heroScorePreview strong { font-size: 3rem; }
+  .scoreBadge { width: 68px; height: 68px; flex-basis: 68px; }
+  .resultActions a, .wideActions a { width: 100%; }
+}
+
+@media print {
+  body {
+    background: #fff !important;
+  }
+  .noPrint,
+  .siteHeader,
+  .siteFooter,
+  .breadcrumb,
+  .quickTools,
+  .seoArticle {
+    display: none !important;
+  }
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  .mainStack {
+    padding: 0 !important;
+    gap: 10px !important;
+  }
+  .printCalendarTitle {
+    display: block !important;
+    margin-bottom: 10px;
+  }
+  .calendarCard {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border: 1px solid #ccc !important;
+  }
+  .calendarHeader {
+    padding: 10px !important;
+  }
+  .dayCell {
+    min-height: 92px !important;
+    break-inside: avoid;
+  }
+  .miniEvent,
+  .moreEvent {
+    display: none !important;
   }
 }

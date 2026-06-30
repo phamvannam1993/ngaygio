@@ -29,6 +29,10 @@ export function Footer() {
           <Link href="/gio-hoang-dao-hom-nay">Giờ hoàng đạo hôm nay</Link>
           <Link href="/gio-hoang-dao-ngay-mai">Giờ hoàng đạo ngày mai</Link>
           <Link href="/ngay-tot-xau">Xem ngày tốt xấu theo ngày</Link>
+          <Link href="/xem-ngay-tot">Tìm ngày tốt theo việc</Link>
+          <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
+          <Link href="/xem-ngay-tot/khai-truong">Ngày tốt khai trương</Link>
+          <Link href="/xem-ngay-tot/cuoi-hoi">Ngày tốt cưới hỏi</Link>
           <Link href="/gio-hoang-dao">Xem giờ hoàng đạo theo ngày</Link>
           <Link href="/con-bao-nhieu-ngay-den-tet">Còn bao nhiêu ngày đến Tết</Link>
           <Link href={`/tet/${currentYear + 1}`}>Tết {currentYear + 1} ngày nào?</Link>
@@ -40,7 +44,11 @@ export function Footer() {
           <Link href="/tinh-tuoi-am">Tính tuổi âm</Link>
           <Link href="/dem-ngay">Đếm ngày</Link>
           <Link href="/lich-nghi-le">Lịch nghỉ lễ</Link>
-          <Link href="/nhac-ngay-gio">Nhắc ngày giờ</Link>
+          <Link href="/nhac-ngay-gio">Nhắc ngày âm</Link>
+          <Link href="/tao-anh-lich">Tạo ảnh lịch</Link>
+          <Link href="/tai-lich-am-pdf">Tải lịch âm PDF</Link>
+          <Link href="/dem-ngay-su-kien">Đếm ngày sự kiện</Link>
+          <Link href="/widget">Widget nhúng website</Link>
           <Link href="/time-in-vietnam">Time in Vietnam (GMT+7)</Link>
         </div>
         <div>

@@ -29,6 +29,17 @@ export function Header({ currentYear }: HeaderProps) {
               <Link href={`/am-lich/nam/${currentYear + 1}`}>Lịch âm {currentYear + 1}</Link>
             </div>
           </details>
+          <details className="navDropdown">
+            <summary>Chọn ngày</summary>
+            <div className="dropdownMenu">
+              <Link href="/xem-ngay-tot">Tìm ngày tốt theo việc</Link>
+              <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
+              <Link href="/xem-ngay-tot/khai-truong">Ngày tốt khai trương</Link>
+              <Link href="/xem-ngay-tot/cuoi-hoi">Ngày tốt cưới hỏi</Link>
+              <Link href="/xem-ngay-tot/dong-tho">Ngày tốt động thổ</Link>
+              <Link href="/xem-ngay-tot/nhap-trach">Ngày tốt nhập trạch</Link>
+            </div>
+          </details>
           <Link href="/ngay-tot-xau-hom-nay">Ngày tốt xấu</Link>
           <Link href="/gio-hoang-dao-hom-nay">Giờ tốt xấu</Link>
           <details className="navDropdown">
@@ -37,8 +48,12 @@ export function Header({ currentYear }: HeaderProps) {
               <Link href="/chuyen-doi-lich">Đổi ngày âm dương</Link>
               <Link href="/tinh-tuoi-am">Tính tuổi âm</Link>
               <Link href="/dem-ngay">Đếm ngày</Link>
+              <Link href="/dem-ngay-su-kien">Đếm ngày sự kiện</Link>
               <Link href="/lich-nghi-le">Lịch nghỉ lễ</Link>
               <Link href="/con-bao-nhieu-ngay-den-tet">Đếm ngày đến Tết</Link>
+              <Link href="/nhac-ngay-gio">Nhắc ngày âm</Link>
+              <Link href="/tao-anh-lich">Tạo ảnh lịch</Link>
+              <Link href="/tai-lich-am-pdf">Tải lịch PDF</Link>
               <Link href="/time-in-vietnam">Time in Vietnam</Link>
             </div>
           </details>
@@ -51,6 +66,8 @@ export function Header({ currentYear }: HeaderProps) {
             <Link href="/am-lich-hom-nay">Âm lịch hôm nay</Link>
             <Link href="/ngay-tot-xau-hom-nay">Ngày tốt xấu hôm nay</Link>
             <Link href="/gio-hoang-dao-hom-nay">Giờ tốt xấu hôm nay</Link>
+            <Link href="/xem-ngay-tot">Tìm ngày tốt theo việc</Link>
+            <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
 
             <details className="mobileSubMenu">
               <summary>Lịch âm theo năm</summary>
@@ -70,7 +87,11 @@ export function Header({ currentYear }: HeaderProps) {
                 <Link href="/tinh-tuoi-am">Tính tuổi</Link>
                 <Link href="/dem-ngay">Đếm ngày</Link>
                 <Link href="/lich-nghi-le">Nghỉ lễ</Link>
+                <Link href="/dem-ngay-su-kien">Sự kiện</Link>
                 <Link href="/con-bao-nhieu-ngay-den-tet">Đến Tết</Link>
+                <Link href="/nhac-ngay-gio">Nhắc âm</Link>
+                <Link href="/tao-anh-lich">Tạo ảnh</Link>
+                <Link href="/tai-lich-am-pdf">In PDF</Link>
                 <Link href="/time-in-vietnam">Giờ VN</Link>
               </div>
             </details>

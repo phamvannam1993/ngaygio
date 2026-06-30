@@ -19,6 +19,10 @@ export const siteConfig = {
     "đếm ngày",
     "lịch nghỉ lễ",
     "nhắc ngày giờ",
+    "xem ngày tốt theo việc",
+    "xem ngày tốt theo tuổi",
+    "tải lịch âm PDF",
+    "tạo ảnh lịch",
   ],
 };
 
@@ -41,6 +45,16 @@ export const quickTools = [
     title: "Ngày tốt xấu hôm nay",
     href: "/ngay-tot-xau-hom-nay",
     description: "Hôm nay là ngày Hoàng Đạo hay Hắc Đạo? Xem ngay việc nên làm và tránh.",
+  },
+  {
+    title: "Tìm ngày tốt theo việc",
+    href: "/xem-ngay-tot",
+    description: "Lọc ngày đẹp cho khai trương, cưới hỏi, động thổ, nhập trạch, mua xe và ký hợp đồng.",
+  },
+  {
+    title: "Xem ngày tốt theo tuổi",
+    href: "/xem-ngay-tot-theo-tuoi",
+    description: "Nhập năm sinh để chọn ngày hợp tuổi, tránh ngày xung/hại và chấm điểm 100.",
   },
   {
     title: "Ngày tốt xấu ngày mai",
@@ -81,6 +95,16 @@ export const quickTools = [
     title: "Lịch nghỉ lễ",
     href: "/lich-nghi-le",
     description: "Tra cứu các ngày lễ Tết, ngày nghỉ và sự kiện nổi bật trong năm.",
+  },
+  {
+    title: "Tạo ảnh lịch",
+    href: "/tao-anh-lich",
+    description: "Xuất ảnh lịch hôm nay 1200×630 để chia sẻ Facebook, Zalo hoặc website.",
+  },
+  {
+    title: "Tải lịch âm PDF",
+    href: "/tai-lich-am-pdf",
+    description: "In lịch âm dương theo tháng hoặc lưu PDF trực tiếp từ trình duyệt.",
   },
 ];
 

@@ -18,6 +18,7 @@ export default function WidgetPage() {
   const today = getVietnamTodayParts();
   const tet = getTetInfo(today);
   const widgetUrl = `${siteConfig.url}/widget/tet-countdown`;
+  const lunarWidgetUrl = `${siteConfig.url}/widget/lunar-today`;
   const apiUrl = `${siteConfig.url}/api/lich-am`;
 
   const iframeCode = `<iframe
@@ -28,6 +29,16 @@ export default function WidgetPage() {
   scrolling="no"
   style="border-radius:12px;overflow:hidden;"
   title="Đếm ngược Tết – Ngaygio.vn"
+></iframe>`;
+
+  const lunarIframeCode = `<iframe
+  src="${lunarWidgetUrl}"
+  width="340"
+  height="250"
+  frameborder="0"
+  scrolling="no"
+  style="border-radius:16px;overflow:hidden;"
+  title="Lịch âm hôm nay – Ngaygio.vn"
 ></iframe>`;
 
   const scriptCode = `<!-- Widget đếm ngược Tết – Ngaygio.vn -->
@@ -73,6 +84,26 @@ fetch('${apiUrl}?format=json')
           <h3 style={{ marginBottom: "8px" }}>Code nhúng (iframe):</h3>
           <pre className="codeBlock" style={{ background: "var(--surface2)", padding: "12px", borderRadius: "8px", overflow: "auto", fontSize: "0.8rem" }}>
             <code>{iframeCode}</code>
+          </pre>
+        </section>
+
+        <section className="panelCard" aria-labelledby="widget-lunar-title">
+          <p className="eyebrow">Widget 2 – Lịch âm hôm nay</p>
+          <h2 id="widget-lunar-title">Widget lịch âm hôm nay</h2>
+          <p style={{ marginBottom: "16px" }}>Nhúng thẻ lịch âm có ngày dương, ngày âm, can chi, ngày hoàng đạo/hắc đạo và giờ tốt.</p>
+          <div style={{ marginBottom: "16px" }}>
+            <iframe
+              src={lunarWidgetUrl}
+              width="340"
+              height="250"
+              style={{ border: "none", borderRadius: "16px", display: "block" }}
+              scrolling="no"
+              title="Preview widget lịch âm hôm nay"
+            />
+          </div>
+          <h3 style={{ marginBottom: "8px" }}>Code nhúng (iframe):</h3>
+          <pre className="codeBlock" style={{ background: "var(--surface2)", padding: "12px", borderRadius: "8px", overflow: "auto", fontSize: "0.8rem" }}>
+            <code>{lunarIframeCode}</code>
           </pre>
         </section>
 

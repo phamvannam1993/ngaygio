@@ -3,6 +3,7 @@ import { formatDisplayDate } from "@/lib/date";
 import { CHI, formatHours } from "@/lib/calendar/can-chi";
 import type { CalendarMonth, DayInfo, HourInfo } from "@/lib/calendar/types";
 import type { GoodBadDetails } from "@/lib/calendar/good-bad";
+import { getDayStars, getDirectionInfo, getGeneralDayScore100 } from "@/lib/calendar/activity";
 
 function lunarDisplay(day: DayInfo): string {
   return `${day.lunar.day}/${day.lunar.month}/${day.lunar.year}${day.lunar.isLeap ? " nhuận" : ""}`;
@@ -30,6 +31,9 @@ export function GoodBadResultPanel({ day, details, isHomNay, isNgayMai }: { day:
     ? `Ngày tốt xấu ngày mai ${displayDate}: ${details.overallLabel}`
     : `Ngày ${displayDate} tốt hay xấu?`;
   const eyebrow = isHomNay ? "Ngày tốt xấu hôm nay" : isNgayMai ? "Ngày tốt xấu ngày mai" : "Kết quả ngày tốt xấu";
+  const score = getGeneralDayScore100(day);
+  const directions = getDirectionInfo(day);
+  const stars = getDayStars(day);
 
   return (
     <section className="heroCard goodBadResult" aria-labelledby="good-bad-title">
@@ -75,6 +79,34 @@ export function GoodBadResultPanel({ day, details, isHomNay, isNgayMai }: { day:
       <div className="converterSummary goodBadSummary">
         <strong>Tổng luận:</strong>
         <p>{details.overallSummary}</p>
+      </div>
+
+      <section className="dayInsightGrid" aria-label="Điểm ngày, hướng xuất hành và sao tốt xấu">
+        <article className="dayInsightCard scoreInsight">
+          <span>Điểm tổng quan</span>
+          <strong>{score.score}/100</strong>
+          <em>{score.label}</em>
+          <p>Thang điểm giúp so sánh nhanh giữa nhiều ngày, không phải kết luận tuyệt đối.</p>
+        </article>
+        <article className="dayInsightCard">
+          <h2>Hướng xuất hành</h2>
+          <ul>
+            <li>Hỷ thần: <strong>{directions.hyThan}</strong></li>
+            <li>Tài thần: <strong>{directions.taiThan}</strong></li>
+            <li>Hắc thần nên tránh: <strong>{directions.hacThan}</strong></li>
+          </ul>
+        </article>
+        <article className="dayInsightCard">
+          <h2>Sao tốt/xấu</h2>
+          <p><strong>Sao tốt:</strong> {stars.goodStars.join(", ")}</p>
+          <p><strong>Sao xấu:</strong> {stars.badStars.join(", ")}</p>
+        </article>
+      </section>
+
+      <div className="scoreBreakdown">
+        {score.breakdown.map((item) => (
+          <span className={item.tone} key={item.label}>{item.points > 0 ? "+" : ""}{item.points} · {item.label}</span>
+        ))}
       </div>
 
       <div className="adviceGrid">

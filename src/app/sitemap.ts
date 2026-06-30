@@ -1,8 +1,11 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
+import { ACTIVITIES } from "@/lib/calendar/activity";
 
 const BASE = siteConfig.url;
 type SitemapEntry = MetadataRoute.Sitemap[number];
+
+export const dynamic = "force-dynamic";
 
 function u(path: string, lastmod: Date, changeFrequency: SitemapEntry["changeFrequency"], priority: number): SitemapEntry {
   return { url: `${BASE}${path}`, lastModified: lastmod, changeFrequency, priority };
@@ -46,6 +49,8 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
       u("/am-lich-hom-nay", now, "daily", 0.94),
       u("/gio-hoang-dao", now, "daily", 0.92),
       u("/ngay-tot-xau", now, "daily", 0.92),
+      u("/xem-ngay-tot", now, "daily", 0.93),
+      u("/xem-ngay-tot-theo-tuoi", now, "daily", 0.90),
       u("/lich-van-nien", now, "weekly", 0.88),
     ];
   }
@@ -75,7 +80,13 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
       u("/tinh-tuoi-am", now, "monthly", 0.80),
       u("/dem-ngay", now, "monthly", 0.78),
       u("/lich-nghi-le", now, "monthly", 0.78),
-      u("/nhac-ngay-gio", now, "monthly", 0.75),
+      u("/nhac-ngay-gio", now, "monthly", 0.80),
+      u("/tao-anh-lich", now, "weekly", 0.78),
+      u("/tai-lich-am-pdf", now, "weekly", 0.78),
+      u("/dem-ngay-su-kien", now, "daily", 0.80),
+      u("/widget", now, "monthly", 0.72),
+      ...ACTIVITIES.map((activity) => u(`/xem-ngay-tot/${activity.slug}`, now, "daily", 0.82)),
+      ...ACTIVITIES.map((activity) => u(`/xem-ngay-tot-${activity.slug}`, now, "daily", 0.76)),
       u("/con-bao-nhieu-ngay-den-tet", now, "daily", 0.85),
       u("/lich-am-ngay-mai", now, "daily", 0.70),
       u("/lich-am-hom-qua", now, "daily", 0.65),
