@@ -31,6 +31,8 @@ export function Footer() {
           <Link href="/ngay-tot-xau">Ngày tốt xấu</Link>
           <Link href="/chuyen-doi-lich">Đổi ngày âm dương</Link>
           <Link href="/tinh-tuoi-am">Xem tuổi âm</Link>
+          <Link href="/tu-vi-hom-nay">Tử vi hôm nay</Link>
+          <Link href="/lap-la-so-tu-vi">Lập lá số tử vi</Link>
           <Link href="/con-bao-nhieu-ngay-den-tet">Đếm ngày đến Tết</Link>
         </div>
         <div>

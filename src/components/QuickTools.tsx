@@ -2,13 +2,14 @@ import Link from "next/link";
 import { quickTools } from "@/lib/site";
 import { SiteIcon, type SiteIconName } from "./Icon";
 
-const iconList: SiteIconName[] = ["calendar", "goodBad", "check", "focus", "star", "moon", "clock", "clock", "hourglass", "perpetual", "converter", "age", "flag", "book", "calendar"];
+const iconList: SiteIconName[] = ["calendar", "goodBad", "check", "focus", "star", "bagua", "moon", "clock", "clock", "hourglass", "perpetual", "converter", "age", "flag", "book", "calendar"];
 const imageList = [
   "/illustrations/calendar.svg",
   "/illustrations/goodbad.svg",
   "/illustrations/clock.svg",
   "/illustrations/age.svg",
   "/illustrations/fortune.svg",
+  "/illustrations/la-so-tu-vi.svg",
   "/illustrations/perpetual.svg",
   "/illustrations/converter.svg",
 ];

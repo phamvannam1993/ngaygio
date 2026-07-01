@@ -27,7 +27,7 @@ export type AgeResult = {
   summary: string;
 };
 
-const NAP_AM_BY_PAIR: Record<string, { name: string; element: FiveElement }> = {
+export const NAP_AM_BY_PAIR: Record<string, { name: string; element: FiveElement }> = {
   "Giáp Tý": { name: "Hải Trung Kim", element: "Kim" },
   "Ất Sửu": { name: "Hải Trung Kim", element: "Kim" },
   "Bính Dần": { name: "Lư Trung Hỏa", element: "Hỏa" },
@@ -97,6 +97,11 @@ const ELEMENT_MEANING: Record<FiveElement, string> = {
   Hỏa: "Mệnh Hỏa gợi sự nhiệt huyết, chủ động, nhanh nhạy và giàu năng lượng.",
   Thổ: "Mệnh Thổ gợi sự ổn định, chắc chắn, thực tế và biết nâng đỡ người khác.",
 };
+
+
+export function getNapAmByCanChi(can: string, chi: ChiName): { name: string; element: FiveElement } {
+  return NAP_AM_BY_PAIR[`${can} ${chi}`] ?? { name: "Chưa rõ", element: "Thổ" };
+}
 
 function relationByBranch(birthChi: ChiName, viewChi: ChiName): string {
   const relation = getAgeCompatibility(birthChi);

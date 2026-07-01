@@ -6083,3 +6083,446 @@ body:has(.pageFullscreenBg) .pickerPanel {
     grid-template-columns: 1fr;
   }
 }
+
+/* Lá số tử vi */
+.tuViLapHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 24px;
+  align-items: center;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(239, 180, 63, .30), transparent 14rem),
+    radial-gradient(circle at 8% 100%, rgba(8, 119, 53, .10), transparent 18rem),
+    linear-gradient(135deg, rgba(255,255,255,.98), rgba(241,252,245,.96) 62%, rgba(255,248,224,.94));
+}
+
+.tuViHeroPreview {
+  min-height: 230px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  color: #fff;
+  text-align: center;
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(8,119,53,.95), rgba(0,84,39,.96)),
+    repeating-linear-gradient(90deg, transparent 0 54px, rgba(255,255,255,.16) 55px 56px),
+    repeating-linear-gradient(0deg, transparent 0 54px, rgba(255,255,255,.16) 55px 56px);
+  box-shadow: 0 22px 48px rgba(8,119,53,.22);
+}
+
+.tuViHeroPreview .svgIcon {
+  width: 84px;
+  height: 84px;
+  padding: 15px;
+  border-radius: 26px;
+  background: rgba(255,255,255,.14);
+}
+
+.tuViHeroPreview strong {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  letter-spacing: -.04em;
+}
+
+.tuViHeroPreview span {
+  opacity: .88;
+  font-weight: 800;
+}
+
+.tuViFormPanel {
+  display: grid;
+  gap: 16px;
+}
+
+.tuViForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tuViFormRow {
+  display: grid;
+  gap: 10px 14px;
+  align-items: end;
+}
+
+.tuViFormRow:first-child {
+  grid-template-columns: 2fr 1fr 1.3fr;
+}
+
+.tuViFormRow:last-child {
+  grid-template-columns: 1.2fr 1fr 1fr auto auto;
+}
+
+.tuViForm label {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.tuViForm input,
+.tuViForm select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.tuViForm button {
+  min-height: 46px;
+  padding: 0 18px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--green), var(--green-700));
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 14px 28px rgba(8,119,53,.18);
+  font-weight: 950;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tuViForm button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(8,119,53,.24);
+}
+
+.tuViCheckLabel {
+  min-height: 46px;
+  display: flex !important;
+  align-items: center;
+  gap: 8px !important;
+  padding: 0 12px;
+  background: #f8fcfa;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: #425347 !important;
+  white-space: nowrap;
+}
+
+.tuViCheckLabel input {
+  width: 16px !important;
+  min-height: 16px !important;
+  padding: 0 !important;
+  accent-color: var(--green-700);
+}
+
+.tuViChartPanel {
+  overflow-x: auto;
+}
+
+.tuViPrintBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  background: #f4f6f4;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tuViPrintBtn:hover {
+  background: #e8ede9;
+}
+
+.tuViChartSummary {
+  max-width: 840px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.tuViLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tuViChartGrid {
+  min-width: 980px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(218px, auto));
+  border: 2px solid rgba(38, 50, 42, .88);
+  background: #1b231d;
+  gap: 2px;
+}
+
+.tuViPalace,
+.tuViCenter {
+  min-width: 0;
+  background: #f8f5ec;
+}
+
+.tuViPalace {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 218px;
+  padding: 9px 10px 34px;
+  overflow: hidden;
+}
+
+.tuViPalace.isThan {
+  background:
+    linear-gradient(180deg, rgba(255,248,224,.96), rgba(248,245,236,.96)),
+    #f8f5ec;
+}
+
+.tuViPalaceTop {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 8px;
+  align-items: start;
+}
+
+.tuViPalaceTop span {
+  color: #1f2b23;
+  font-size: .92rem;
+  font-weight: 850;
+}
+
+.tuViPalaceTop strong {
+  grid-column: 1 / -1;
+  color: #985a00;
+  font-size: .95rem;
+  font-weight: 1000;
+  letter-spacing: .02em;
+  text-align: center;
+}
+
+.tuViPalaceTop em {
+  grid-column: 2;
+  grid-row: 1;
+  color: #151b17;
+  font-style: normal;
+  font-size: .9rem;
+  font-weight: 950;
+}
+
+.tuViPalaceMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #26322a;
+  font-size: .82rem;
+  font-weight: 850;
+}
+
+.tuViStarList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 7px;
+  line-height: 1.25;
+}
+
+.tuViStar {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  color: #111b15;
+  font-size: .82rem;
+  font-weight: 860;
+  white-space: nowrap;
+}
+
+.tuViPalace .tuViStar.major {
+  width: 100%;
+  justify-content: center;
+  color: #101714;
+  font-size: .98rem;
+  font-weight: 1000;
+}
+
+.tuViStar.good { color: #07883f; }
+.tuViStar.wealth { color: #d79000; }
+.tuViStar.bad { color: #d52d2d; }
+.tuViStar.neutral { color: #1f2b23; }
+.tuViStar.support { color: #2271b8; }
+
+.tuViLegend .tuViStar,
+.elementDot {
+  min-height: 28px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+  font-size: .82rem;
+  font-weight: 950;
+}
+
+.elementDot {
+  position: relative;
+  padding-left: 26px;
+  color: #425347;
+}
+
+.elementDot::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: currentColor;
+}
+
+.element-Kim { color: #7e8790; }
+.element-Mộc { color: #0c8a3e; }
+.element-Thủy { color: #111; }
+.element-Hỏa { color: #e52424; }
+.element-Thổ { color: #d59000; }
+
+.tuViPalaceFooter {
+  position: absolute;
+  inset: auto 10px 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #1c241f;
+  font-size: .78rem;
+  font-weight: 900;
+}
+
+.tuViCenter {
+  grid-column: 2 / 4;
+  grid-row: 2 / 4;
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  padding: 26px 30px;
+  text-align: center;
+  background: #f8f5ec;
+}
+
+.tuViCenter .eyebrow {
+  justify-content: center;
+  margin-bottom: 0;
+  color: #46544a;
+}
+
+.tuViCenter h2 {
+  margin: 0;
+  color: #111;
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+  font-weight: 1000;
+  letter-spacing: -.04em;
+}
+
+.tuViCenterRows {
+  width: min(440px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 6px 14px;
+  text-align: left;
+  font-size: .92rem;
+  line-height: 1.35;
+}
+
+.tuViCenterRows span {
+  color: #344039;
+}
+
+.tuViCenterRows strong {
+  color: #111;
+  font-weight: 900;
+}
+
+.tuViReadingGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.tuViReadingCard p:not(.eyebrow),
+.tuViEmptyState p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 1180px) {
+  .tuViForm {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .tuViForm button {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 820px) {
+  .tuViLapHero,
+  .tuViReadingGrid {
+    grid-template-columns: 1fr;
+  }
+  .tuViHeroPreview {
+    min-height: 170px;
+  }
+  .tuViForm {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tuViCheckLabel,
+  .tuViForm button {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .tuViForm {
+    grid-template-columns: 1fr;
+  }
+  .tuViChartGrid {
+    min-width: 900px;
+    grid-template-rows: repeat(4, minmax(205px, auto));
+  }
+  .tuViCenterRows {
+    grid-template-columns: 112px 1fr;
+    font-size: .86rem;
+  }
+}
+
+@media print {
+  .tuViFormPanel,
+  .tuViLapHero,
+  .tuViReadingGrid,
+  .tuViEmptyState,
+  .tuViChartPanel .noPrint {
+    display: none !important;
+  }
+  .tuViChartPanel {
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  .tuViChartGrid {
+    min-width: 0 !important;
+    width: 100% !important;
+    grid-template-rows: repeat(4, minmax(170px, auto));
+  }
+  .tuViPalace {
+    min-height: 170px !important;
+    padding: 7px 8px 26px !important;
+  }
+  .tuViStar {
+    font-size: .68rem !important;
+  }
+  .tuViPalace .tuViStar.major {
+    font-size: .78rem !important;
+  }
+}

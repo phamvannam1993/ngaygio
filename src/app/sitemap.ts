@@ -54,6 +54,7 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
       u("/xem-ngay-tot-theo-tuoi", now, "daily", 0.90),
       u("/tu-vi-hom-nay", now, "daily", 0.91),
       u("/tu-vi-12-con-giap", now, "daily", 0.84),
+      u("/lap-la-so-tu-vi", now, "monthly", 0.86),
       u("/lich-van-nien", now, "weekly", 0.88),
     ];
   }

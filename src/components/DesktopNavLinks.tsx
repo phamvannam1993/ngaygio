@@ -4,11 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const LICH_AM_PATHS = ["/am-lich", "/lich-van-nien", "/am-lich-hom-nay", "/lich-am"];
-const TU_VI_PATHS = ["/tu-vi", "/tu-vi-hom-nay", "/tu-vi-12-con-giap", "/tu-vi-tuoi"];
+const TU_VI_PATHS = ["/tu-vi", "/tu-vi-hom-nay", "/tu-vi-12-con-giap", "/tu-vi-tuoi", "/lap-la-so-tu-vi", "/la-so-tu-vi"];
 const CONG_CU_PATHS = [
   "/chuyen-doi-lich", "/tinh-tuoi-am", "/xem-ngay-tot", "/dem-ngay",
   "/lich-nghi-le", "/con-bao-nhieu-ngay-den-tet", "/tao-anh-lich",
-  "/tai-lich-am-pdf", "/nhac-ngay-gio", "/time-in-vietnam", "/sinh-nam",
+  "/tai-lich-am-pdf", "/nhac-ngay-gio", "/time-in-vietnam", "/sinh-nam", "/lap-la-so-tu-vi", "/la-so-tu-vi",
 ];
 
 function isActive(pathname: string, href: string) {
@@ -55,6 +55,7 @@ export function DesktopNavLinks({ currentYear, currentMonth }: Props) {
           <Link href="/tinh-tuoi-am">Xem tuổi</Link>
           <Link href="/xem-ngay-tot">Tìm ngày tốt theo việc</Link>
           <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
+          <Link href="/lap-la-so-tu-vi">Lập lá số tử vi</Link>
           <Link href="/dem-ngay">Đếm ngày</Link>
           <Link href="/lich-nghi-le">Lịch nghỉ lễ</Link>
           <Link href="/con-bao-nhieu-ngay-den-tet">Đếm ngày đến Tết</Link>
