@@ -53,7 +53,7 @@ export function GoldenHourPageContent({ selectedDate, isHomNay, isNgayMai }: { s
         <section className="heroCard" aria-labelledby="golden-hour-title">
           <p className="eyebrow">{isHomNay ? "Giờ tốt xấu hôm nay" : isNgayMai ? "Giờ tốt xấu ngày mai" : "Giờ tốt trong ngày"}</p>
           {(isHomNay || isNgayMai)
-            ? <h1 id="golden-hour-title">Giờ tốt xấu {isNgayMai ? "ngày mai" : "hôm nay"} {displayDate}</h1>
+            ? <h2 id="golden-hour-title">Giờ tốt xấu {isNgayMai ? "ngày mai" : "hôm nay"} {displayDate}</h2>
             : <h2 id="golden-hour-title">Giờ hoàng đạo ngày {displayDate}</h2>
           }
           <p className="converterIntro">

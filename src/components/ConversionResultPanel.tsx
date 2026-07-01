@@ -40,7 +40,7 @@ export function ConversionResultPanel({ result }: { result: CalendarConversion }
     return (
       <section className="heroCard converterResult" aria-labelledby="converter-result-title">
         <p className="eyebrow">Kết quả chuyển đổi</p>
-        <h1 id="converter-result-title">{result.heading}</h1>
+        <h2 id="converter-result-title">{result.heading}</h2>
         <p className="converterIntro">{result.intro}</p>
         <div className="resultNotice errorNotice">
           <strong>Không thể chuyển đổi ngày này.</strong>

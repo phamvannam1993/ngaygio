@@ -84,12 +84,6 @@ export function AmLichDayPageContent({ date }: { date: DateParts }) {
     <>
       <Header currentYear={date.year} />
       <main className="container mainStack">
-        <PageHeroBanner
-          eyebrow="Lịch âm"
-          title="Tra cứu lịch âm dương theo ngày"
-          description="Xem ngày âm lịch, can chi, giờ tốt xấu và thông tin liên quan với giao diện đồng bộ, sáng và trực quan hơn."
-          imageSrc="/bg-page-calendar.png"
-        />
         <AmLichDayHero day={day} prevDay={prevDay} nextDay={nextDay} />
         <MonthCalendarForAmLich calendar={calendar} />
         <AmLichDayDetails day={day} />

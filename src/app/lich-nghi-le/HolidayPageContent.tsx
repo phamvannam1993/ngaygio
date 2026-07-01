@@ -47,7 +47,7 @@ export function HolidayPageContent({ year }: { year: number }) {
         />
         <section className="heroCard">
           <p className="eyebrow">Lịch nghỉ lễ</p>
-          <h1>Lịch nghỉ lễ, ngày lễ Tết năm {year}</h1>
+          <h2>Lịch nghỉ lễ, ngày lễ Tết năm {year}</h2>
           <p className="converterIntro yearIntroText">Tổng hợp các ngày lễ chính, Tết âm lịch, Giỗ Tổ Hùng Vương và các ngày kỷ niệm trong năm {year}. Lịch nghỉ thực tế từng năm cần đối chiếu thông báo chính thức của cơ quan có thẩm quyền.</p>
           <div className="dayLinkList yearSwitchList">
             {yearLinks.map((item) => <Link key={item} href={holidayYearHref(item)}>Năm {item}</Link>)}
