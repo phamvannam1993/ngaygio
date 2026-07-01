@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const LICH_AM_PATHS = ["/am-lich", "/lich-van-nien", "/am-lich-hom-nay", "/lich-am"];
+const LICH_AM_PATHS = ["/am-lich", "/am-lich-hom-nay", "/lich-am"];
 const TU_VI_PATHS = ["/tu-vi", "/tu-vi-hom-nay", "/tu-vi-12-con-giap", "/tu-vi-tuoi", "/lap-la-so-tu-vi", "/la-so-tu-vi"];
 const CONG_CU_PATHS = [
   "/chuyen-doi-lich", "/tinh-tuoi-am", "/xem-ngay-tot", "/dem-ngay",
   "/lich-nghi-le", "/con-bao-nhieu-ngay-den-tet", "/tao-anh-lich",
-  "/tai-lich-am-pdf", "/nhac-ngay-gio", "/time-in-vietnam", "/sinh-nam", "/lap-la-so-tu-vi", "/la-so-tu-vi",
+  "/tai-lich-am-pdf", "/nhac-ngay-gio", "/time-in-vietnam", "/sinh-nam",
 ];
 
 function isActive(pathname: string, href: string) {
