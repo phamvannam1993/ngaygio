@@ -702,9 +702,17 @@ h2 {
   }
 
   .todayGrid,
-  .twoColumns,
-  .footerGrid {
+  .twoColumns {
     grid-template-columns: 1fr;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .footerBrand,
+  .footerContact {
+    grid-column: 1 / -1;
   }
 }
 
@@ -4346,6 +4354,12 @@ body::after {
   background: var(--green-50);
 }
 
+.dropdownMenu hr {
+  margin: 6px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
 .headerIcons {
   display: inline-flex;
   align-items: center;
@@ -5265,9 +5279,10 @@ body::after {
 }
 
 .footerGrid {
-  grid-template-columns: 1.45fr .9fr .9fr .9fr 1.25fr;
-  gap: 28px;
-  padding-bottom: 32px;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr 1.1fr;
+  gap: 24px 32px;
+  padding-bottom: 36px;
+  align-items: start;
 }
 
 .footerGrid h2 {
@@ -5308,11 +5323,20 @@ body::after {
 }
 
 .footerContact {
-  padding: 18px;
+  padding: 20px;
   background: rgba(255,255,255,.84);
   border: 1px solid rgba(8,119,53,.12);
   border-radius: 18px;
   box-shadow: 0 12px 28px rgba(19,45,27,.06);
+}
+
+.footerSlogan {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(8,119,53,.10);
+  font-style: italic;
+  font-size: .88rem;
+  color: #6a826e !important;
 }
 
 .copyright {
@@ -5478,7 +5502,18 @@ body::after {
     grid-template-columns: 1fr;
   }
   .footerGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px 12px;
+  }
+
+  .footerGrid a,
+  .footerGrid p {
+    font-size: .82rem;
+  }
+
+  .footerGrid h2 {
+    font-size: .75rem;
+    margin-bottom: 8px;
   }
 }
 
@@ -6535,5 +6570,247 @@ body:has(.pageFullscreenBg) .pickerPanel {
   }
   .tuViPalace .tuViStar.major {
     font-size: .78rem !important;
+  }
+}
+
+/* ── Age compatibility / phong thủy SEO tools ─────────────────────────────── */
+.compatHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 230px;
+  gap: 24px;
+  align-items: center;
+  background:
+    radial-gradient(circle at 86% 16%, rgba(243, 188, 61, .28), transparent 14rem),
+    radial-gradient(circle at 10% 100%, rgba(32, 138, 58, .10), transparent 17rem),
+    linear-gradient(135deg, rgba(255,255,255,.98), rgba(240,251,244,.96) 68%, rgba(255,249,232,.94));
+}
+
+.compatHeroPreview strong {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+}
+
+.compatForm {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+}
+
+.compatForm.threeFields {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+}
+
+.compatForm select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.compatResultPanel {
+  position: relative;
+  overflow: hidden;
+}
+
+.compatResultPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
+  background: var(--green);
+}
+
+.compatResultPanel.excellent::before { background: linear-gradient(90deg, #208a3a, #f3bc3d); }
+.compatResultPanel.good::before { background: #208a3a; }
+.compatResultPanel.ok::before { background: #d99a08; }
+.compatResultPanel.avoid::before { background: #d74343; }
+
+.compatResultHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.compatResultHead p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.compatScore {
+  width: 96px;
+  height: 96px;
+  flex: 0 0 96px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  border-radius: 28px;
+  background: #fff9e8;
+  border: 1px solid #f4e3ad;
+  color: #735100;
+  box-shadow: 0 15px 35px rgba(115,81,0,.08);
+}
+
+.compatScore strong {
+  font-size: 2.15rem;
+  line-height: .9;
+}
+
+.compatScore span {
+  font-weight: 900;
+  font-size: .86rem;
+}
+
+.compatPeopleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.compatPeopleGrid.threePeople {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.compatIdentity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 20px;
+  background: #f8fcfa;
+  border: 1px solid rgba(32,138,58,.12);
+}
+
+.compatIdentity .zodiacImg {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.compatIdentity span {
+  display: grid;
+  gap: 4px;
+}
+
+.compatIdentity small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.compatBreakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.compatBreakdown span,
+.compatCheckGrid article {
+  border: 1px solid rgba(32,138,58,.14);
+  background: var(--green-50);
+  color: var(--green-700);
+}
+
+.compatBreakdown span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: .88rem;
+  font-weight: 900;
+}
+
+.compatBreakdown span.bad,
+.compatCheckGrid article.bad {
+  color: #8c2a2a;
+  background: #fff0ee;
+  border-color: rgba(215,67,67,.20);
+}
+
+.compatBreakdown span.neutral {
+  color: #78570e;
+  background: #fff8df;
+  border-color: rgba(217,154,8,.22);
+}
+
+.compatNoteGrid {
+  margin-top: 18px;
+}
+
+.compatNoteGrid article a {
+  display: inline-flex;
+  margin-top: 10px;
+  min-height: 34px;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--green-700);
+  background: var(--green-50);
+  font-weight: 900;
+}
+
+.compatCheckGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.compatCheckGrid article {
+  padding: 18px;
+  border-radius: 20px;
+}
+
+.compatCheckGrid article strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.compatCheckGrid article p {
+  margin: 0;
+  color: #415044;
+  line-height: 1.6;
+}
+
+.directionGrid article {
+  grid-column: span 2;
+}
+
+.directionGrid article:nth-child(n+3) {
+  grid-column: span 1;
+}
+
+@media (max-width: 980px) {
+  .compatHero,
+  .compatResultHead,
+  .compatForm,
+  .compatForm.threeFields {
+    grid-template-columns: 1fr;
+  }
+
+  .compatResultHead {
+    display: grid;
+  }
+
+  .compatScore {
+    width: 100%;
+    height: auto;
+    min-height: 88px;
+  }
+
+  .compatPeopleGrid,
+  .compatPeopleGrid.threePeople,
+  .compatCheckGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .directionGrid article,
+  .directionGrid article:nth-child(n+3) {
+    grid-column: auto;
   }
 }

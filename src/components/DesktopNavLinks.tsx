@@ -3,12 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const LICH_AM_PATHS = ["/am-lich", "/am-lich-hom-nay", "/lich-am"];
+const LICH_AM_PATHS = ["/am-lich", "/am-lich-hom-nay", "/lich-am", "/lich-van-nien"];
 const TU_VI_PATHS = ["/tu-vi", "/tu-vi-hom-nay", "/tu-vi-12-con-giap", "/tu-vi-tuoi", "/lap-la-so-tu-vi", "/la-so-tu-vi"];
 const CONG_CU_PATHS = [
   "/chuyen-doi-lich", "/tinh-tuoi-am", "/xem-ngay-tot", "/dem-ngay",
-  "/lich-nghi-le", "/con-bao-nhieu-ngay-den-tet", "/tao-anh-lich",
+  "/con-bao-nhieu-ngay-den-tet", "/tao-anh-lich",
   "/tai-lich-am-pdf", "/nhac-ngay-gio", "/time-in-vietnam", "/sinh-nam",
+  "/xem-tuoi-hop", "/xem-tuoi-hop-lam-an", "/xem-tuoi-vo-chong",
+  "/xem-tuoi-sinh-con", "/xem-tuoi-lam-nha", "/xem-tuoi-hop-mau-gi",
+  "/xem-tuoi-hop-huong-nao", "/phong-thuy-theo-tuoi",
 ];
 
 function isActive(pathname: string, href: string) {
@@ -46,14 +49,21 @@ export function DesktopNavLinks({ currentYear, currentMonth }: Props) {
       <Link href="/gio-hoang-dao" className={isActive(pathname, "/gio-hoang-dao") ? "navActive" : undefined}>Giờ hoàng đạo</Link>
       <Link href="/ngay-tot-xau" className={isActive(pathname, "/ngay-tot-xau") || isActive(pathname, "/xem-ngay-tot") ? "navActive" : undefined}>Ngày tốt xấu</Link>
       <Link href="/tu-vi-hom-nay" className={tuViActive ? "navActive" : undefined}>Tử vi</Link>
-      <Link href="/lich-van-nien" className={isActive(pathname, "/lich-van-nien") ? "navActive" : undefined}>Lịch vạn niên</Link>
 
       <details className={`navDropdown${congCuActive ? " navActive" : ""}`}>
         <summary className={congCuActive ? "navActive" : undefined}>Công cụ</summary>
         <div className="dropdownMenu">
+          <Link href="/xem-tuoi-hop">Xem tuổi hợp</Link>
+          <Link href="/xem-tuoi-hop-lam-an">Tuổi hợp làm ăn</Link>
+          <Link href="/xem-tuoi-vo-chong">Tuổi vợ chồng</Link>
+          <Link href="/xem-tuoi-sinh-con">Tuổi sinh con</Link>
+          <Link href="/xem-tuoi-lam-nha">Tuổi làm nhà</Link>
+          <Link href="/xem-tuoi-hop-mau-gi">Hợp màu</Link>
+          <Link href="/xem-tuoi-hop-huong-nao">Hợp hướng</Link>
+          <Link href="/phong-thuy-theo-tuoi">Phong thủy tuổi</Link>
+          <hr />
           <Link href="/chuyen-doi-lich">Đổi ngày âm dương</Link>
-          <Link href="/tinh-tuoi-am">Xem tuổi</Link>
-          <Link href="/xem-ngay-tot">Tìm ngày tốt theo việc</Link>
+          <Link href="/tinh-tuoi-am">Tính tuổi âm</Link>
           <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
           <Link href="/lap-la-so-tu-vi">Lập lá số tử vi</Link>
           <Link href="/dem-ngay">Đếm ngày</Link>
