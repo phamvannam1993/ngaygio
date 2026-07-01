@@ -63,7 +63,7 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
   if (id === "tools") {
     const ageEntries: SitemapEntry[] = [];
     for (let y = yr - 1; y >= yr - 80; y--) {
-      const ref = new Date(y, 0, 1);
+      const ref = new Date(Date.UTC(y, 0, 1));
       const pri = y >= yr - 50 ? 0.65 : 0.50;
       ageEntries.push(u(`/tinh-tuoi-am/${y}`, ref, "yearly", pri));
       ageEntries.push(u(`/sinh-nam/${y}`, ref, "yearly", pri));
@@ -71,7 +71,7 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
     // Tết countdown + cluster pages
     const tetEntries: SitemapEntry[] = [];
     for (let y = yr - 1; y <= yr + 5; y++) {
-      const ref = new Date(y, 0, 1);
+      const ref = new Date(Date.UTC(y, 0, 1));
       const isCurr = y === yr;
       tetEntries.push(u(`/tet/${y}`, isCurr ? now : ref, isCurr ? "daily" : "yearly", isCurr ? 0.80 : 0.65));
       tetEntries.push(u(`/giao-thua/${y}`, ref, "yearly", 0.62));
@@ -113,7 +113,7 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
     ];
     // Yearly holiday landing per year
     for (let y = yr - 1; y <= yr + 2; y++) {
-      const ref = new Date(y, 0, 1);
+      const ref = new Date(Date.UTC(y, 0, 1));
       holidayEntries.push(u(`/trung-thu/${y}`, ref, "yearly", 0.62));
       holidayEntries.push(u(`/vu-lan/${y}`, ref, "yearly", 0.60));
       holidayEntries.push(u(`/gio-to-hung-vuong/${y}`, ref, "yearly", 0.60));
@@ -128,7 +128,7 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
     const entries: SitemapEntry[] = [];
     for (const y of [yr - 1, yr, yr + 1]) {
       const isCurrent = y === yr;
-      const ref = new Date(y, 0, 1);
+      const ref = new Date(Date.UTC(y, 0, 1));
       entries.push(u(`/am-lich/nam/${y}`, isCurrent ? now : ref, isCurrent ? "monthly" : "yearly", isCurrent ? 0.90 : 0.72));
       entries.push(u(`/lich-nghi-le/${y}`, isCurrent ? now : ref, isCurrent ? "monthly" : "yearly", isCurrent ? 0.80 : 0.62));
     }
@@ -142,7 +142,7 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
     const entries: SitemapEntry[] = [];
     for (let m = 1; m <= 12; m++) {
       const isCurrent = targetYear === yr && m === mo;
-      const ref = new Date(targetYear, m - 1, 1);
+      const ref = new Date(Date.UTC(targetYear, m - 1, 1));
       entries.push(u(
         `/am-lich/nam/${targetYear}/thang/${m}`,
         isCurrent ? now : ref,
@@ -164,7 +164,7 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
       const daysInMonth = new Date(targetYear, m, 0).getDate();
       for (let d = 1; d <= daysInMonth; d++) {
         const isToday = isCurrentYear && m === mo && d === dy;
-        const lm = isToday ? now : new Date(targetYear, m - 1, d);
+        const lm = isToday ? now : new Date(Date.UTC(targetYear, m - 1, d));
         const cf: SitemapEntry["changeFrequency"] = isToday ? "daily" : "weekly";
 
         // Priority: hôm nay cao nhất, năm hiện tại > quá khứ/tương lai
