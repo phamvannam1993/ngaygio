@@ -6456,15 +6456,6 @@ body:has(.pageFullscreenBg) .pickerPanel {
   line-height: 1.7;
 }
 
-@media (max-width: 1180px) {
-  .tuViForm {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .tuViForm button {
-    grid-column: 1 / -1;
-  }
-}
-
 @media (max-width: 820px) {
   .tuViLapHero,
   .tuViReadingGrid {
@@ -6473,18 +6464,38 @@ body:has(.pageFullscreenBg) .pickerPanel {
   .tuViHeroPreview {
     min-height: 170px;
   }
-  .tuViForm {
+  /* Row 1: Họ tên chiếm full, Giới tính + Loại ngày sinh cạnh nhau */
+  .tuViFormRow:first-child {
+    grid-template-columns: 1fr;
+  }
+  .tuViFormRow:first-child label:nth-child(2),
+  .tuViFormRow:first-child label:nth-child(3) {
+    display: grid;
+  }
+  /* Giới tính + Loại ngày sinh trên cùng 1 hàng */
+  .tuViFormRow:first-child {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .tuViFormRow:first-child label:first-child {
+    grid-column: 1 / -1;
+  }
+  /* Row 2: Ngày sinh + Giờ sinh cạnh nhau, Năm xem full, checkbox full, button full */
+  .tuViFormRow:last-child {
     grid-template-columns: 1fr 1fr;
   }
-  .tuViCheckLabel,
-  .tuViForm button {
+  .tuViFormRow:last-child label:nth-child(3),
+  .tuViFormRow:last-child .tuViCheckLabel,
+  .tuViFormRow:last-child button {
     grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 560px) {
-  .tuViForm {
-    grid-template-columns: 1fr;
+  .tuViFormRow:first-child {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tuViFormRow:last-child {
+    grid-template-columns: 1fr 1fr;
   }
   .tuViChartGrid {
     min-width: 900px;
