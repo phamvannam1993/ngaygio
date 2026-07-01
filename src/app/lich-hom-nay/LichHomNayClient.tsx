@@ -1,5 +1,8 @@
 "use client";
 
+import { PageHeroBanner } from "@/components/PageHeroBanner";
+import { SiteIcon } from "@/components/Icon";
+
 import Link from "next/link";
 import { type ReactNode, useEffect, useState } from "react";
 import { Header } from "@/components/Header";
@@ -52,10 +55,16 @@ export function LichHomNayClient({ today, day, allHolidays, calendarSlot }: Prop
     <>
       <Header currentYear={today.year} />
       <main className="container mainStack">
+        <PageHeroBanner
+          eyebrow="Lịch hôm nay"
+          title="Hôm nay thứ mấy, ngày mấy?"
+          description="Xem nhanh ngày hiện tại, thứ trong tuần, âm lịch, ngày nghỉ, công cụ đếm ngày và các tiện ích liên quan trên một giao diện thân thiện và hiện đại."
+          imageSrc="/bg-page-calendar.png"
+        />
 
         {/* Hero: dương lịch + đếm ngày */}
         <section className="heroCard lichHomNayHero">
-          <h1 className="lichHomNayH1">Hôm nay thứ mấy, ngày mấy?</h1>
+          <h2 className="lichHomNayH1">Hôm nay thứ mấy, ngày mấy?</h2>
           <p className="lichHomNayAnswer">Hôm nay là <strong>{wd}</strong>, ngày <strong>{today.day}/{today.month}/{today.year}</strong> dương lịch.</p>
           <p className="eyebrow">Dương lịch hôm nay</p>
           <div className="lichHomNayTop">
@@ -128,22 +137,22 @@ export function LichHomNayClient({ today, day, allHolidays, calendarSlot }: Prop
           <h2 className="lichHomNayToolsTitle">Tra nhanh</h2>
           <div className="lichHomNayToolGrid">
             <Link href="/dem-ngay" className="toolLink">
-              <span className="toolLinkIcon">📅</span><span>Đếm ngày giữa hai mốc</span>
+              <span className="toolLinkIcon"><SiteIcon name="calendar" /></span><span>Đếm ngày giữa hai mốc</span>
             </Link>
             <Link href="/chuyen-doi-lich" className="toolLink">
-              <span className="toolLinkIcon">🔄</span><span>Đổi ngày âm ↔ dương</span>
+              <span className="toolLinkIcon"><SiteIcon name="converter" /></span><span>Đổi ngày âm dương</span>
             </Link>
             <Link href="/lich-nghi-le" className="toolLink">
-              <span className="toolLinkIcon">🎌</span><span>Lịch nghỉ lễ {today.year}</span>
+              <span className="toolLinkIcon"><SiteIcon name="flag" /></span><span>Lịch nghỉ lễ {today.year}</span>
             </Link>
             <Link href="/nhac-ngay-gio" className="toolLink">
-              <span className="toolLinkIcon">🔔</span><span>Nhắc ngày giờ (.ics)</span>
+              <span className="toolLinkIcon"><SiteIcon name="bell" /></span><span>Nhắc ngày giờ (.ics)</span>
             </Link>
             <Link href="/tinh-tuoi-am" className="toolLink">
-              <span className="toolLinkIcon">🐉</span><span>Tính tuổi âm / con giáp</span>
+              <span className="toolLinkIcon"><SiteIcon name="age" /></span><span>Tính tuổi âm / con giáp</span>
             </Link>
             <Link href="/ngay-tot-xau" className="toolLink">
-              <span className="toolLinkIcon">⭐</span><span>Ngày tốt xấu hôm nay</span>
+              <span className="toolLinkIcon"><SiteIcon name="goodBad" /></span><span>Ngày tốt xấu hôm nay</span>
             </Link>
           </div>
         </section>

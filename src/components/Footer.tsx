@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { Logo } from "./Logo";
+import { SiteIcon } from "./Icon";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,56 +9,45 @@ export function Footer() {
   return (
     <footer className="siteFooter">
       <div className="container footerGrid">
-        <div>
+        <div className="footerBrand">
           <Logo />
           <p>
-            {siteConfig.domain} là công cụ xem lịch âm, lịch dương, lịch vạn niên và giờ hoàng đạo dành cho người Việt.
+            Công cụ xem ngày tốt xấu, giờ hoàng đạo, lịch âm dương chính xác, dễ dùng cho mọi người.
           </p>
+          <div className="footerSocials" aria-label="Mạng xã hội">
+            <span><SiteIcon name="facebook" /></span><span><SiteIcon name="youtube" /></span><span><SiteIcon name="zalo" /></span><span><SiteIcon name="tiktok" /></span>
+          </div>
         </div>
         <div>
-          <h2>Lịch vạn niên</h2>
+          <h2>Về NgayGio.vn</h2>
+          <Link href="/">Trang chủ</Link>
           <Link href="/lich-hom-nay">Lịch hôm nay</Link>
           <Link href="/am-lich-hom-nay">Âm lịch hôm nay</Link>
-          <Link href="/lich-am-ngay-mai">Âm lịch ngày mai</Link>
           <Link href="/lich-van-nien">Lịch vạn niên</Link>
-          <Link href={`/am-lich/nam/${currentYear}`}>Lịch âm {currentYear}</Link>
-        </div>
-        <div>
-          <h2>Ngày tốt · Giờ tốt</h2>
-          <Link href="/ngay-tot-xau-hom-nay">Ngày tốt xấu hôm nay</Link>
-          <Link href="/ngay-tot-xau-ngay-mai">Ngày tốt xấu ngày mai</Link>
-          <Link href="/gio-hoang-dao-hom-nay">Giờ hoàng đạo hôm nay</Link>
-          <Link href="/gio-hoang-dao-ngay-mai">Giờ hoàng đạo ngày mai</Link>
-          <Link href="/ngay-tot-xau">Xem ngày tốt xấu theo ngày</Link>
-          <Link href="/xem-ngay-tot">Tìm ngày tốt theo việc</Link>
-          <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
-          <Link href="/xem-ngay-tot/khai-truong">Ngày tốt khai trương</Link>
-          <Link href="/xem-ngay-tot/cuoi-hoi">Ngày tốt cưới hỏi</Link>
-          <Link href="/gio-hoang-dao">Xem giờ hoàng đạo theo ngày</Link>
-          <Link href="/con-bao-nhieu-ngay-den-tet">Còn bao nhiêu ngày đến Tết</Link>
-          <Link href={`/tet/${currentYear + 1}`}>Tết {currentYear + 1} ngày nào?</Link>
         </div>
         <div>
           <h2>Công cụ</h2>
+          <Link href="/gio-hoang-dao">Giờ hoàng đạo</Link>
+          <Link href="/ngay-tot-xau">Ngày tốt xấu</Link>
           <Link href="/chuyen-doi-lich">Đổi ngày âm dương</Link>
-          <Link href="/sinh-nam/1990">Sinh năm bao nhiêu tuổi</Link>
-          <Link href="/tinh-tuoi-am">Tính tuổi âm</Link>
-          <Link href="/dem-ngay">Đếm ngày</Link>
-          <Link href="/lich-nghi-le">Lịch nghỉ lễ</Link>
-          <Link href="/nhac-ngay-gio">Nhắc ngày âm</Link>
-          <Link href="/tao-anh-lich">Tạo ảnh lịch</Link>
-          <Link href="/tai-lich-am-pdf">Tải lịch âm PDF</Link>
-          <Link href="/dem-ngay-su-kien">Đếm ngày sự kiện</Link>
-          <Link href="/widget">Widget nhúng website</Link>
-          <Link href="/time-in-vietnam">Time in Vietnam (GMT+7)</Link>
+          <Link href="/tinh-tuoi-am">Xem tuổi âm</Link>
+          <Link href="/con-bao-nhieu-ngay-den-tet">Đếm ngày đến Tết</Link>
         </div>
         <div>
-          <h2>Liên hệ</h2>
-          <p>{siteConfig.email}</p>
+          <h2>Hỗ trợ</h2>
+          <Link href="/lich-nghi-le">Lịch nghỉ lễ</Link>
+          <Link href="/tai-lich-am-pdf">Tải lịch PDF</Link>
+          <Link href="/tao-anh-lich">Tạo ảnh lịch</Link>
+          <Link href={`/tet/${currentYear + 1}`}>Tết {currentYear + 1}</Link>
+        </div>
+        <div className="footerContact">
+          <h2>Kết nối với chúng tôi</h2>
+          <p><strong>Website:</strong> {siteConfig.domain}</p>
+          <p><strong>Email:</strong> {siteConfig.email}</p>
           <p>{siteConfig.slogan}</p>
         </div>
       </div>
-      <div className="copyright">© {new Date().getFullYear()} {siteConfig.name}</div>
+      <div className="copyright">© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</div>
     </footer>
   );
 }

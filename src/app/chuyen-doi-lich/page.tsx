@@ -8,6 +8,7 @@ import { MonthCalendar } from "@/components/MonthCalendar";
 import { getDefaultConversion } from "@/lib/calendar/conversion";
 import { getMonthCalendar } from "@/lib/calendar/service";
 import { siteConfig } from "@/lib/site";
+import { PageHeroBanner } from "@/components/PageHeroBanner";
 
 export async function generateMetadata(): Promise<Metadata> {
   const result = getDefaultConversion();
@@ -99,6 +100,12 @@ export default function CalendarConverterPage() {
     <>
       <Header currentYear={result.solar.year} />
       <main className="container mainStack">
+        <PageHeroBanner
+          eyebrow="Đổi ngày âm dương"
+          title="Chuyển đổi âm lịch và dương lịch"
+          description="Công cụ đổi ngày âm dương nhanh, chính xác, hỗ trợ tra can chi, giờ hoàng đạo và thông tin đi kèm trên cùng một giao diện đẹp, dễ dùng."
+          imageSrc="/bg-page-converter.png"
+        />
         <CalendarConverterForms defaultSolar={result.solar} defaultLunar={result.lunar} defaultMode="duong-am" />
         <ConversionResultPanel result={result} />
         <MonthCalendar calendar={calendar} />

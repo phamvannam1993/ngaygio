@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { formatDisplayDate, type DateParts } from "@/lib/date";
 import { formatHours } from "@/lib/calendar/can-chi";
-import type { CalendarMonth, DayInfo } from "@/lib/calendar/types";
+import type { CalendarMonth, ChiName, DayInfo } from "@/lib/calendar/types";
 import type { PerpetualYearSummary } from "@/lib/calendar/perpetual";
 import { amLichDayHref, amLichMonthHref, amLichYearHref } from "@/lib/calendar/urls";
+import { ZodiacIcon } from "./Icon";
+
+function chiFromCanChi(text: string): ChiName {
+  return text.trim().split(" ").at(-1) as ChiName;
+}
 
 export function lichVanNienHref(date: DateParts): string {
   return amLichDayHref(date);
@@ -89,7 +94,7 @@ export function PerpetualYearOverview({ summary, selectedMonth }: { summary: Per
           </p>
         </div>
         <div className="yearAnimal" aria-label={`Con giáp năm ${summary.canChiYear}`}>
-          <span>{summary.animalEmoji}</span>
+          <ZodiacIcon branch={chiFromCanChi(summary.canChiYear)} />
           <strong>{summary.canChiYear}</strong>
           <small>Năm {summary.animal}</small>
         </div>

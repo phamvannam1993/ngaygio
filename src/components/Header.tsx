@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { DateConverter } from "./DateConverter";
-import { LiveClock } from "./LiveClock";
 import { Logo } from "./Logo";
+import { DesktopNavLinks } from "./DesktopNavLinks";
 
 type HeaderProps = {
   currentYear: number;
@@ -16,56 +15,25 @@ export function Header({ currentYear }: HeaderProps) {
       <div className="container headerInner">
         <Logo />
 
-        <nav className="desktopNav" aria-label="Điều hướng chính">
-          <Link href="/lich-hom-nay">Hôm nay</Link>
-          <details className="navDropdown">
-            <summary>Lịch âm</summary>
-            <div className="dropdownMenu compactMenu">
-              <Link href="/am-lich-hom-nay">Âm lịch hôm nay</Link>
-              <Link href="/lich-van-nien">Lịch vạn niên</Link>
-              <Link href={`/am-lich/nam/${currentYear}`}>Lịch âm {currentYear}</Link>
-              <Link href={`/am-lich/nam/${currentYear}/thang/${currentMonth}`}>Tháng {currentMonth}/{currentYear}</Link>
-              <Link href={`/am-lich/nam/${currentYear - 1}`}>Lịch âm {currentYear - 1}</Link>
-              <Link href={`/am-lich/nam/${currentYear + 1}`}>Lịch âm {currentYear + 1}</Link>
-            </div>
-          </details>
-          <details className="navDropdown">
-            <summary>Chọn ngày</summary>
-            <div className="dropdownMenu">
-              <Link href="/xem-ngay-tot">Tìm ngày tốt theo việc</Link>
-              <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
-              <Link href="/xem-ngay-tot/khai-truong">Ngày tốt khai trương</Link>
-              <Link href="/xem-ngay-tot/cuoi-hoi">Ngày tốt cưới hỏi</Link>
-              <Link href="/xem-ngay-tot/dong-tho">Ngày tốt động thổ</Link>
-              <Link href="/xem-ngay-tot/nhap-trach">Ngày tốt nhập trạch</Link>
-            </div>
-          </details>
-          <Link href="/ngay-tot-xau-hom-nay">Ngày tốt xấu</Link>
-          <Link href="/gio-hoang-dao-hom-nay">Giờ tốt xấu</Link>
-          <details className="navDropdown">
-            <summary>Tiện ích</summary>
-            <div className="dropdownMenu compactMenu">
-              <Link href="/chuyen-doi-lich">Đổi ngày âm dương</Link>
-              <Link href="/tinh-tuoi-am">Tính tuổi âm</Link>
-              <Link href="/dem-ngay">Đếm ngày</Link>
-              <Link href="/dem-ngay-su-kien">Đếm ngày sự kiện</Link>
-              <Link href="/lich-nghi-le">Lịch nghỉ lễ</Link>
-              <Link href="/con-bao-nhieu-ngay-den-tet">Đếm ngày đến Tết</Link>
-              <Link href="/nhac-ngay-gio">Nhắc ngày âm</Link>
-              <Link href="/tao-anh-lich">Tạo ảnh lịch</Link>
-              <Link href="/tai-lich-am-pdf">Tải lịch PDF</Link>
-              <Link href="/time-in-vietnam">Time in Vietnam</Link>
-            </div>
-          </details>
-        </nav>
+        <DesktopNavLinks currentYear={currentYear} currentMonth={currentMonth} />
+
+        <div className="headerIcons" aria-label="Tìm kiếm và tài khoản">
+          <Link className="headerIconButton" href="/lich-van-nien" aria-label="Tìm kiếm lịch">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </Link>
+          <Link className="headerIconButton userIcon" href="/tinh-tuoi-am" aria-label="Xem tuổi">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+          </Link>
+        </div>
 
         <details className="mobileNav">
-          <summary aria-label="Mở menu điều hướng">☰ Menu</summary>
+          <summary aria-label="Mở menu điều hướng">☰</summary>
           <nav className="mobileNavPanel" aria-label="Menu mobile">
             <Link href="/lich-hom-nay">Lịch hôm nay</Link>
             <Link href="/am-lich-hom-nay">Âm lịch hôm nay</Link>
             <Link href="/ngay-tot-xau-hom-nay">Ngày tốt xấu hôm nay</Link>
             <Link href="/gio-hoang-dao-hom-nay">Giờ tốt xấu hôm nay</Link>
+            <Link href="/lich-van-nien">Lịch vạn niên</Link>
             <Link href="/xem-ngay-tot">Tìm ngày tốt theo việc</Link>
             <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
 
@@ -84,7 +52,7 @@ export function Header({ currentYear }: HeaderProps) {
               <summary>Công cụ</summary>
               <div className="mobileLinkGrid">
                 <Link href="/chuyen-doi-lich">Đổi lịch</Link>
-                <Link href="/tinh-tuoi-am">Tính tuổi</Link>
+                <Link href="/tinh-tuoi-am">Xem tuổi</Link>
                 <Link href="/dem-ngay">Đếm ngày</Link>
                 <Link href="/lich-nghi-le">Nghỉ lễ</Link>
                 <Link href="/dem-ngay-su-kien">Sự kiện</Link>
@@ -97,11 +65,6 @@ export function Header({ currentYear }: HeaderProps) {
             </details>
           </nav>
         </details>
-
-        <div className="headerActions" aria-label="Giờ Việt Nam và đổi ngày nhanh">
-          <LiveClock />
-          <DateConverter />
-        </div>
       </div>
     </header>
   );

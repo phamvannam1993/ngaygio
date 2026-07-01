@@ -16,7 +16,7 @@ export type AgeResult = {
   birthChi: ChiName;
   viewChi: ChiName;
   animal: string;
-  animalEmoji: string;
+  animalIconName: string;
   animalDescription: string;
   napAm: string;
   element: FiveElement;
@@ -132,7 +132,7 @@ export function getAgeResult(birthYear: number, viewYear: number): AgeResult {
     birthChi: birth.chi,
     viewChi: view.chi,
     animal: zodiac.animal,
-    animalEmoji: zodiac.emoji,
+    animalIconName: zodiac.iconName,
     animalDescription: zodiac.description,
     napAm: napAm.name,
     element: napAm.element,

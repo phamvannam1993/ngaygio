@@ -82,7 +82,7 @@ export const ACTIVITIES: ActivityConfig[] = [
     slug: "khai-truong",
     title: "Xem ngày tốt khai trương",
     shortTitle: "Khai trương",
-    icon: "🏮",
+    icon: "lantern",
     description: "Chọn ngày mở cửa, mở hàng, ra mắt cửa hàng hoặc khởi sự kinh doanh.",
     seoKeyword: "xem ngày tốt khai trương",
     goodDirects: ["Khai", "Thành", "Mãn", "Định"],
@@ -95,7 +95,7 @@ export const ACTIVITIES: ActivityConfig[] = [
     slug: "cuoi-hoi",
     title: "Xem ngày tốt cưới hỏi",
     shortTitle: "Cưới hỏi",
-    icon: "💍",
+    icon: "ring",
     description: "Tìm ngày phù hợp cho ăn hỏi, lễ cưới, đăng ký kết hôn hoặc gặp mặt hai họ.",
     seoKeyword: "xem ngày tốt cưới hỏi",
     goodDirects: ["Thành", "Định", "Mãn", "Khai"],
@@ -108,7 +108,7 @@ export const ACTIVITIES: ActivityConfig[] = [
     slug: "dong-tho",
     title: "Xem ngày tốt động thổ",
     shortTitle: "Động thổ",
-    icon: "🏗️",
+    icon: "building",
     description: "Lọc ngày hợp để động thổ, khởi công, sửa chữa hoặc bắt đầu xây dựng.",
     seoKeyword: "xem ngày tốt động thổ",
     goodDirects: ["Thành", "Định", "Khai", "Mãn"],
@@ -121,7 +121,7 @@ export const ACTIVITIES: ActivityConfig[] = [
     slug: "nhap-trach",
     title: "Xem ngày tốt nhập trạch",
     shortTitle: "Nhập trạch",
-    icon: "🏠",
+    icon: "home",
     description: "Chọn ngày vào nhà mới, an cư, chuyển đồ chính hoặc làm lễ nhập trạch.",
     seoKeyword: "xem ngày tốt nhập trạch",
     goodDirects: ["Định", "Thành", "Khai", "Mãn"],
@@ -134,7 +134,7 @@ export const ACTIVITIES: ActivityConfig[] = [
     slug: "mua-xe",
     title: "Xem ngày tốt mua xe",
     shortTitle: "Mua xe",
-    icon: "🚗",
+    icon: "car",
     description: "Tìm ngày đẹp để nhận xe, mua xe, đăng ký xe hoặc xuất hành chuyến đầu.",
     seoKeyword: "xem ngày tốt mua xe",
     goodDirects: ["Thành", "Khai", "Mãn", "Thu"],
@@ -147,7 +147,7 @@ export const ACTIVITIES: ActivityConfig[] = [
     slug: "ky-hop-dong",
     title: "Xem ngày tốt ký hợp đồng",
     shortTitle: "Ký hợp đồng",
-    icon: "🖋️",
+    icon: "contract",
     description: "Chọn ngày ký kết, thỏa thuận, nộp hồ sơ hoặc chốt giao dịch quan trọng.",
     seoKeyword: "xem ngày tốt ký hợp đồng",
     goodDirects: ["Định", "Thành", "Khai", "Thu"],
@@ -160,7 +160,7 @@ export const ACTIVITIES: ActivityConfig[] = [
     slug: "xuat-hanh",
     title: "Xem ngày tốt xuất hành",
     shortTitle: "Xuất hành",
-    icon: "🧭",
+    icon: "compass",
     description: "Tra ngày và giờ thuận để đi xa, đi công việc, du lịch hoặc mở đầu hành trình.",
     seoKeyword: "xem ngày tốt xuất hành",
     goodDirects: ["Khai", "Thành", "Mãn", "Kiến"],
@@ -173,7 +173,7 @@ export const ACTIVITIES: ActivityConfig[] = [
     slug: "cat-toc",
     title: "Xem ngày tốt cắt tóc",
     shortTitle: "Cắt tóc",
-    icon: "✂️",
+    icon: "scissors",
     description: "Gợi ý ngày nhẹ nhàng để cắt tóc, làm đẹp, thay đổi diện mạo hoặc chăm sóc bản thân.",
     seoKeyword: "xem ngày tốt cắt tóc",
     goodDirects: ["Trừ", "Khai", "Thành", "Bình"],
@@ -186,7 +186,7 @@ export const ACTIVITIES: ActivityConfig[] = [
     slug: "chuyen-nha",
     title: "Xem ngày tốt chuyển nhà",
     shortTitle: "Chuyển nhà",
-    icon: "📦",
+    icon: "box",
     description: "Tìm ngày phù hợp để chuyển nhà, chuyển văn phòng, sắp xếp nơi ở mới.",
     seoKeyword: "xem ngày tốt chuyển nhà",
     goodDirects: ["Định", "Thành", "Khai", "Trừ"],
@@ -199,7 +199,7 @@ export const ACTIVITIES: ActivityConfig[] = [
     slug: "dat-ban-tho",
     title: "Xem ngày tốt đặt bàn thờ",
     shortTitle: "Đặt bàn thờ",
-    icon: "🪔",
+    icon: "altar",
     description: "Gợi ý ngày an vị, đặt bàn thờ, sửa soạn không gian thờ cúng theo phong tục.",
     seoKeyword: "xem ngày tốt đặt bàn thờ",
     goodDirects: ["Định", "Thành", "Khai", "Trừ"],
@@ -473,18 +473,18 @@ export function getCountdownEvents(year: number): CountdownEvent[] {
     if (event) events.push(event);
   };
 
-  add({ slug: "tet-duong-lich", title: "Tết Dương lịch", date: { year, month: 1, day: 1 }, dateType: "solar", icon: "🎆", note: "Ngày đầu năm dương lịch.", href: `/dem-ngay?to=${year}-01-01` });
-  add({ slug: "ngay-30-4", title: "Ngày 30/4", date: { year, month: 4, day: 30 }, dateType: "solar", icon: "🇻🇳", note: "Ngày Giải phóng miền Nam.", href: `/dem-ngay?to=${year}-04-30` });
-  add({ slug: "quoc-khanh", title: "Quốc khánh 2/9", date: { year, month: 9, day: 2 }, dateType: "solar", icon: "⭐", note: "Ngày Quốc khánh Việt Nam.", href: `/dem-ngay?to=${year}-09-02` });
-  add({ slug: "noel", title: "Noel", date: { year, month: 12, day: 25 }, dateType: "solar", icon: "🎄", note: "Lễ Giáng sinh.", href: `/dem-ngay?to=${year}-12-25` });
+  add({ slug: "tet-duong-lich", title: "Tết Dương lịch", date: { year, month: 1, day: 1 }, dateType: "solar", icon: "fireworks", note: "Ngày đầu năm dương lịch.", href: `/dem-ngay?to=${year}-01-01` });
+  add({ slug: "ngay-30-4", title: "Ngày 30/4", date: { year, month: 4, day: 30 }, dateType: "solar", icon: "vietnam", note: "Ngày Giải phóng miền Nam.", href: `/dem-ngay?to=${year}-04-30` });
+  add({ slug: "quoc-khanh", title: "Quốc khánh 2/9", date: { year, month: 9, day: 2 }, dateType: "solar", icon: "star", note: "Ngày Quốc khánh Việt Nam.", href: `/dem-ngay?to=${year}-09-02` });
+  add({ slug: "noel", title: "Noel", date: { year, month: 12, day: 25 }, dateType: "solar", icon: "tree", note: "Lễ Giáng sinh.", href: `/dem-ngay?to=${year}-12-25` });
 
   const lunarEvents: Array<{ slug: string; title: string; lunarDay: number; lunarMonth: number; icon: string; note: string }> = [
-    { slug: "ong-cong-ong-tao", title: "Ông Công Ông Táo", lunarDay: 23, lunarMonth: 12, icon: "🔥", note: "Ngày 23 tháng Chạp âm lịch." },
-    { slug: "tet-nguyen-dan", title: "Tết Nguyên Đán", lunarDay: 1, lunarMonth: 1, icon: "🧧", note: "Mùng 1 Tết âm lịch." },
-    { slug: "than-tai", title: "Vía Thần Tài", lunarDay: 10, lunarMonth: 1, icon: "💰", note: "Mùng 10 tháng Giêng âm lịch." },
-    { slug: "gio-to-hung-vuong", title: "Giỗ Tổ Hùng Vương", lunarDay: 10, lunarMonth: 3, icon: "🏛️", note: "Mùng 10 tháng 3 âm lịch." },
-    { slug: "vu-lan", title: "Vu Lan", lunarDay: 15, lunarMonth: 7, icon: "🌕", note: "Rằm tháng 7 âm lịch." },
-    { slug: "trung-thu", title: "Trung thu", lunarDay: 15, lunarMonth: 8, icon: "🏮", note: "Rằm tháng 8 âm lịch." },
+    { slug: "ong-cong-ong-tao", title: "Ông Công Ông Táo", lunarDay: 23, lunarMonth: 12, icon: "fire", note: "Ngày 23 tháng Chạp âm lịch." },
+    { slug: "tet-nguyen-dan", title: "Tết Nguyên Đán", lunarDay: 1, lunarMonth: 1, icon: "gift", note: "Mùng 1 Tết âm lịch." },
+    { slug: "than-tai", title: "Vía Thần Tài", lunarDay: 10, lunarMonth: 1, icon: "money", note: "Mùng 10 tháng Giêng âm lịch." },
+    { slug: "gio-to-hung-vuong", title: "Giỗ Tổ Hùng Vương", lunarDay: 10, lunarMonth: 3, icon: "temple", note: "Mùng 10 tháng 3 âm lịch." },
+    { slug: "vu-lan", title: "Vu Lan", lunarDay: 15, lunarMonth: 7, icon: "moonFull", note: "Rằm tháng 7 âm lịch." },
+    { slug: "trung-thu", title: "Trung thu", lunarDay: 15, lunarMonth: 8, icon: "lantern", note: "Rằm tháng 8 âm lịch." },
   ];
 
   lunarEvents.forEach((item) => {

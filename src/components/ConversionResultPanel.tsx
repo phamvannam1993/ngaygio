@@ -4,6 +4,7 @@ import { formatHours } from "@/lib/calendar/can-chi";
 import { ZODIAC_BY_CHI } from "@/lib/calendar/zodiac";
 import type { CalendarConversion, ConversionSuccess } from "@/lib/calendar/conversion";
 import type { ChiName } from "@/lib/calendar/types";
+import { ZodiacIcon } from "./Icon";
 
 function lunarDisplay(result: ConversionSuccess): string {
   return `${result.lunar.day}/${result.lunar.month}/${result.lunar.year}${result.lunar.isLeap ? " nhuận" : ""}`;
@@ -13,7 +14,7 @@ function CanChiCard({ title, text, chi }: { title: string; text: string; chi: Ch
   const zodiac = ZODIAC_BY_CHI[chi];
   return (
     <article className="zodiacCard">
-      <span className="zodiacEmoji" aria-hidden="true">{zodiac.emoji}</span>
+      <span className="zodiacEmoji" aria-hidden="true"><ZodiacIcon branch={chi} /></span>
       <div>
         <h3>{title} {text}</h3>
         <p>{zodiac.animal}: {zodiac.description}</p>

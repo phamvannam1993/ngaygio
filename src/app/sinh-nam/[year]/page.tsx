@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ZodiacIcon } from "@/components/Icon";
 import { AgeCalculatorForm } from "@/components/AgeCalculatorForm";
 import { getAgeResult, isValidBirthYear } from "@/lib/calendar/age";
 import { getVietnamTodayParts } from "@/lib/date";
@@ -90,7 +91,7 @@ export default async function SinhNamYearPage({ params }: PageProps) {
               <p className="converterIntro yearIntroText">{result.summary}</p>
             </div>
             <div className="yearAnimal">
-              <span>{result.animalEmoji}</span>
+              <ZodiacIcon branch={result.birthChi} />
               <strong>{result.birthCanChi}</strong>
               <small>Con {result.animal}</small>
             </div>

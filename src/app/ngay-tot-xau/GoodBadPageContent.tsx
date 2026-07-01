@@ -9,6 +9,7 @@ import { type DateParts } from "@/lib/date";
 import { getGoodBadDetails } from "@/lib/calendar/good-bad";
 import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
 import { siteConfig } from "@/lib/site";
+import { PageHeroBanner } from "@/components/PageHeroBanner";
 
 export function goodBadDateHref(date: DateParts): string {
   return `/ngay-tot-xau/${date.year}/${date.month}/${date.day}`;
@@ -71,9 +72,12 @@ export function GoodBadPageContent({ selectedDate, isHomNay, isNgayMai }: { sele
     <>
       <Header currentYear={selectedDate.year} />
       <main className="container mainStack">
-        {!isHomNay && !isNgayMai && (
-          <h1 style={{ margin: "0 0 -12px", fontSize: "clamp(1.4rem, 3vw, 1.9rem)" }}>Xem ngày tốt xấu theo ngày</h1>
-        )}
+        <PageHeroBanner
+          eyebrow={isHomNay ? "Ngày tốt xấu hôm nay" : isNgayMai ? "Ngày tốt xấu ngày mai" : "Ngày tốt xấu"}
+          title={isHomNay ? "Xem ngày tốt xấu hôm nay" : isNgayMai ? "Xem ngày tốt xấu ngày mai" : "Tra cứu ngày tốt xấu theo ngày"}
+          description="Xem nhanh đánh giá tổng quan, việc nên làm, việc nên tránh và lịch tháng với phong cách hiển thị hiện đại, sạch và dễ theo dõi."
+          imageSrc="/bg-page-goodbad.png"
+        />
         <GoodBadDateForm defaultDate={selectedDate} />
         <GoodBadResultPanel day={dayInfo} details={details} isHomNay={isHomNay} isNgayMai={isNgayMai} />
         <GoodBadMonthSummary calendar={monthCalendar} />

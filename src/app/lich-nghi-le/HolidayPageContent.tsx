@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { formatDisplayDate } from "@/lib/date";
 import { getHolidayItems, getYearEvents, groupEventsByMonth } from "@/lib/calendar/holidays";
 import { siteConfig } from "@/lib/site";
+import { PageHeroBanner } from "@/components/PageHeroBanner";
 
 export function holidayYearHref(year: number) {
   return `/lich-nghi-le/${year}`;
@@ -38,6 +39,12 @@ export function HolidayPageContent({ year }: { year: number }) {
     <>
       <Header currentYear={year} />
       <main className="container mainStack">
+        <PageHeroBanner
+          eyebrow="Lịch nghỉ lễ"
+          title="Tra cứu lịch nghỉ lễ và ngày nghỉ"
+          description="Theo dõi ngày lễ, lịch nghỉ và kế hoạch năm một cách trực quan với thiết kế mới nhẹ nhàng, rõ ràng và dễ đọc."
+          imageSrc="/bg-page-perpetual.png"
+        />
         <section className="heroCard">
           <p className="eyebrow">Lịch nghỉ lễ</p>
           <h1>Lịch nghỉ lễ, ngày lễ Tết năm {year}</h1>

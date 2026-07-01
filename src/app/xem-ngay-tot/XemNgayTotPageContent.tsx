@@ -4,6 +4,7 @@ import { ActivityResults } from "@/components/ActivityResults";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MonthCalendar } from "@/components/MonthCalendar";
+import { ActivityIcon } from "@/components/Icon";
 import { ACTIVITIES, activityHref, getActivity, getActivityRecommendation, getCurrentMonthRange, searchGoodDates, type ActivitySlug } from "@/lib/calendar/activity";
 import { getGoodBadDetails } from "@/lib/calendar/good-bad";
 import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
@@ -72,7 +73,7 @@ export function XemNgayTotPageContent({ resolved, overrideTitle, overrideDescrip
       <main className="container mainStack">
         <section className="activityHero heroCard" aria-labelledby="activity-hero-title">
           <div>
-            <p className="eyebrow">{activity.icon} Công cụ chọn ngày mới</p>
+            <p className="eyebrow"><ActivityIcon slug={activity.slug} /> Công cụ chọn ngày mới</p>
             <h1 id="activity-hero-title">{overrideTitle ?? activity.title}</h1>
             <p className="converterIntro yearIntroText">{overrideDescription ?? `${activity.description} Hệ thống chấm điểm 100 theo lịch âm, trực ngày, giờ hoàng đạo, ngày kỵ và tuổi xung hợp nếu có năm sinh.`}</p>
             <div className="activityHeroBadges">
@@ -144,7 +145,7 @@ export function XemNgayTotPageContent({ resolved, overrideTitle, overrideDescrip
           <p className="eyebrow">Cụm trang SEO</p>
           <h2 id="activity-links-title">Xem ngày tốt theo từng việc</h2>
           <div className="activityChipCloud">
-            {ACTIVITIES.map((item) => <Link href={activityHref(item.slug)} key={item.slug}>{item.icon} {item.shortTitle}</Link>)}
+            {ACTIVITIES.map((item) => <Link href={activityHref(item.slug)} key={item.slug}><ActivityIcon slug={item.slug} /> {item.shortTitle}</Link>)}
           </div>
         </section>
 

@@ -3,9 +3,11 @@ import Link from "next/link";
 import { AgeCalculatorForm } from "@/components/AgeCalculatorForm";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ZodiacIcon } from "@/components/Icon";
 import { getAgeResult, isValidBirthYear } from "@/lib/calendar/age";
 import { getVietnamTodayParts } from "@/lib/date";
 import { siteConfig } from "@/lib/site";
+import { PageHeroBanner } from "@/components/PageHeroBanner";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 type PageProps = { searchParams?: Promise<SearchParams> };
@@ -84,17 +86,23 @@ export default async function TinhTuoiAmPage({ searchParams }: PageProps) {
     <>
       <Header currentYear={today.year} />
       <main className="container mainStack">
+        <PageHeroBanner
+          eyebrow="Tính tuổi âm"
+          title="Xem tuổi âm, can chi và con giáp"
+          description="Công cụ tính tuổi âm, tuổi mụ, tuổi dương, nạp âm và nhóm tuổi hợp xung với giao diện dễ dùng, hiện đại và có chiều sâu hình ảnh."
+          imageSrc="/bg-page-age.png"
+        />
         <AgeCalculatorForm birthYear={birthYear} viewYear={viewYear} />
 
         <section className="heroCard ageResultHero" aria-labelledby="age-result-title">
           <div className="yearOverviewHead">
             <div>
               <p className="eyebrow">Kết quả đổi tuổi</p>
-              <h1 id="age-result-title">Sinh năm {birthYear} năm {viewYear} bao nhiêu tuổi?</h1>
+              <h2 id="age-result-title">Sinh năm {birthYear} năm {viewYear} bao nhiêu tuổi?</h2>
               <p className="converterIntro yearIntroText">{result.summary}</p>
             </div>
             <div className="yearAnimal">
-              <span>{result.animalEmoji}</span>
+              <ZodiacIcon branch={result.birthChi} />
               <strong>{result.birthCanChi}</strong>
               <small>Con {result.animal}</small>
             </div>

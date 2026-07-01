@@ -2,6 +2,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MonthCalendar } from "@/components/MonthCalendar";
 import { PerpetualCalendarSearch } from "@/components/PerpetualCalendarSearch";
+import { PageHeroBanner } from "@/components/PageHeroBanner";
 import {
   lichVanNienHref,
   PerpetualCalendarArticle,
@@ -71,6 +72,12 @@ export function PerpetualCalendarPageContent({ selectedDate }: { selectedDate: D
     <>
       <Header currentYear={selectedDate.year} />
       <main className="container mainStack">
+        <PageHeroBanner
+          eyebrow="Lịch vạn niên"
+          title="Tra cứu lịch vạn niên đẹp, rõ, tiện dùng"
+          description="Xem ngày âm dương, can chi, tiết khí và lịch tháng theo năm với phần trình bày trực quan hơn, phù hợp cả desktop lẫn mobile."
+          imageSrc="/bg-page-perpetual.png"
+        />
         <PerpetualCalendarSearch defaultDate={selectedDate} />
         <PerpetualDayPanel day={data.selectedDay} prevDay={data.prevDay} nextDay={data.nextDay} />
         <PerpetualYearOverview summary={data.yearSummary} selectedMonth={selectedDate.month} />

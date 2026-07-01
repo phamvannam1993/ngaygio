@@ -3,7 +3,7 @@ import { formatDisplayDate, weekdayName, type DateParts } from "@/lib/date";
 import { CHI, formatHours } from "@/lib/calendar/can-chi";
 import { getGoodBadDetails } from "@/lib/calendar/good-bad";
 import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
-import type { CalendarEvent, CalendarMonth, DayInfo } from "@/lib/calendar/types";
+import type { CalendarEvent, CalendarMonth, ChiName, DayInfo } from "@/lib/calendar/types";
 import type { PerpetualYearSummary } from "@/lib/calendar/perpetual";
 import { ZODIAC_BY_CHI } from "@/lib/calendar/zodiac";
 import { amLichDayHref, amLichMonthHref, amLichYearHref, gioHoangDaoDayHref } from "@/lib/calendar/urls";
@@ -11,8 +11,14 @@ import { MonthCalendar } from "./MonthCalendar";
 import { ShareButtons } from "./ShareButtons";
 import { AddToCalendarButton } from "./AddToCalendarButton";
 import { SaveDateButton } from "./SaveDateButton";
+import { ZodiacIcon } from "./Icon";
 
 export { amLichDayHref, amLichMonthHref, amLichYearHref };
+
+
+function chiFromCanChi(text: string): ChiName {
+  return text.trim().split(" ").at(-1) as ChiName;
+}
 
 function dateLong(date: DateParts): string {
   return `ngày ${date.day} tháng ${date.month} năm ${date.year}`;
@@ -147,9 +153,9 @@ export function AmLichDayHero({ day, prevDay, nextDay, isHomNay, isNgayMai }: { 
       </div>
 
       <div className="zodiacGrid compactZodiacGrid">
-        <article className="zodiacCard"><span className="zodiacEmoji">{yearZodiac.emoji}</span><div><h3>Năm {day.canChi.year}</h3><p>{yearZodiac.animal}</p></div></article>
-        <article className="zodiacCard"><span className="zodiacEmoji">{monthZodiac.emoji}</span><div><h3>Tháng {day.canChi.month}</h3><p>{monthZodiac.animal}</p></div></article>
-        <article className="zodiacCard"><span className="zodiacEmoji">{dayZodiac.emoji}</span><div><h3>Ngày {day.canChi.day}</h3><p>{dayZodiac.animal}</p></div></article>
+        <article className="zodiacCard"><span className="zodiacEmoji"><ZodiacIcon branch={day.canChi.yearChi} /></span><div><h3>Năm {day.canChi.year}</h3><p>{yearZodiac.animal}</p></div></article>
+        <article className="zodiacCard"><span className="zodiacEmoji"><ZodiacIcon branch={day.canChi.monthChi} /></span><div><h3>Tháng {day.canChi.month}</h3><p>{monthZodiac.animal}</p></div></article>
+        <article className="zodiacCard"><span className="zodiacEmoji"><ZodiacIcon branch={day.canChi.dayChi} /></span><div><h3>Ngày {day.canChi.day}</h3><p>{dayZodiac.animal}</p></div></article>
       </div>
 
       <p className="converterIntro">Bạn có thể dùng trang này để tra âm lịch ngày {displayDate}, xem can chi, giờ hoàng đạo, ngày tốt xấu và các lưu ý dân gian trong ngày.</p>
@@ -331,7 +337,7 @@ export function AmLichYearHero({ summary, tetDay }: { summary: PerpetualYearSumm
           </p>
         </div>
         <div className="yearAnimal" aria-label={`Con giáp năm ${summary.canChiYear}`}>
-          <span>{summary.animalEmoji}</span>
+          <ZodiacIcon branch={chiFromCanChi(summary.canChiYear)} />
           <strong>{summary.canChiYear}</strong>
           <small>Năm {summary.animal}</small>
         </div>

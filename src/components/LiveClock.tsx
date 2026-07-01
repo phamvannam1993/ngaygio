@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { SiteIcon } from "./Icon";
 
 function formatTime(date: Date): string {
   return new Intl.DateTimeFormat("vi-VN", {
@@ -23,7 +24,7 @@ export function LiveClock() {
 
   return (
     <span className="liveClock" suppressHydrationWarning>
-      <span aria-hidden="true">◷</span> {time || "ICT +7"}
+      <SiteIcon name="clock" /> {time || "ICT +7"}
     </span>
   );
 }

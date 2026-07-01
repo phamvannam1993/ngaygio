@@ -11,6 +11,7 @@ import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
 import type { DateParts } from "@/lib/date";
 import { formatDisplayDate } from "@/lib/date";
 import { siteConfig } from "@/lib/site";
+import { PageHeroBanner } from "@/components/PageHeroBanner";
 
 export function GoldenHourPageContent({ selectedDate, isHomNay, isNgayMai }: { selectedDate: DateParts; isHomNay?: boolean; isNgayMai?: boolean }) {
   const day = getDayInfo(selectedDate);
@@ -42,9 +43,12 @@ export function GoldenHourPageContent({ selectedDate, isHomNay, isNgayMai }: { s
     <>
       <Header currentYear={selectedDate.year} />
       <main className="container mainStack">
-        {!isHomNay && !isNgayMai && (
-          <h1 style={{ margin: "0 0 -12px", fontSize: "clamp(1.4rem, 3vw, 1.9rem)" }}>Xem giờ hoàng đạo theo ngày</h1>
-        )}
+        <PageHeroBanner
+          eyebrow={isHomNay ? "Giờ tốt hôm nay" : isNgayMai ? "Giờ tốt ngày mai" : "Giờ hoàng đạo"}
+          title={isHomNay ? "Tra cứu giờ hoàng đạo hôm nay" : isNgayMai ? "Tra cứu giờ hoàng đạo ngày mai" : "Xem giờ hoàng đạo theo ngày"}
+          description="Theo dõi giờ hoàng đạo, giờ hắc đạo, khung giờ nên làm việc quan trọng với giao diện trực quan, rõ ràng và dễ đọc trên mọi thiết bị."
+          imageSrc="/bg-page-clock.png"
+        />
         <GoldenHourDateForm defaultDate={selectedDate} />
         <section className="heroCard" aria-labelledby="golden-hour-title">
           <p className="eyebrow">{isHomNay ? "Giờ tốt xấu hôm nay" : isNgayMai ? "Giờ tốt xấu ngày mai" : "Giờ tốt trong ngày"}</p>

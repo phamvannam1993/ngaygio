@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { getVietnamTodayParts } from "@/lib/date";
 import { amLichDayHref } from "@/lib/calendar/urls";
+import { SiteIcon } from "@/components/Icon";
 
 export default function NotFound() {
   const today = getVietnamTodayParts();
@@ -29,28 +30,28 @@ export default function NotFound() {
             <p className="notFoundLinksTitle">Trang thường dùng</p>
             <div className="notFoundGrid">
               <Link href="/lich-hom-nay">
-                <span>📅</span> Lịch hôm nay
+                <span><SiteIcon name="calendar" /></span> Lịch hôm nay
               </Link>
               <Link href="/am-lich-hom-nay">
-                <span>🌙</span> Âm lịch hôm nay
+                <span><SiteIcon name="moon" /></span> Âm lịch hôm nay
               </Link>
               <Link href="/gio-hoang-dao">
-                <span>⏰</span> Giờ hoàng đạo
+                <span><SiteIcon name="clock" /></span> Giờ hoàng đạo
               </Link>
               <Link href="/ngay-tot-xau">
-                <span>✨</span> Ngày tốt xấu
+                <span><SiteIcon name="sparkle" /></span> Ngày tốt xấu
               </Link>
               <Link href="/lich-van-nien">
-                <span>📖</span> Lịch vạn niên
+                <span><SiteIcon name="book" /></span> Lịch vạn niên
               </Link>
               <Link href="/chuyen-doi-lich">
-                <span>🔄</span> Đổi ngày âm dương
+                <span><SiteIcon name="converter" /></span> Đổi ngày âm dương
               </Link>
               <Link href="/dem-ngay">
-                <span>🔢</span> Đếm ngày
+                <span><SiteIcon name="number" /></span> Đếm ngày
               </Link>
               <Link href="/lich-nghi-le">
-                <span>🎌</span> Lịch nghỉ lễ
+                <span><SiteIcon name="flag" /></span> Lịch nghỉ lễ
               </Link>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { formatDisplayDate, getVietnamTodayParts } from "@/lib/date";
 import { getCountdownEvents, type CountdownEvent } from "@/lib/calendar/activity";
+import { EventIcon } from "./Icon";
 
 function diffDays(from: { year: number; month: number; day: number }, to: { year: number; month: number; day: number }) {
   const a = Date.UTC(from.year, from.month - 1, from.day);
@@ -13,7 +14,7 @@ function EventCard({ event, today }: { event: CountdownEvent; today: ReturnType<
   const nextText = left === 0 ? "Hôm nay" : left > 0 ? `Còn ${left} ngày` : `Đã qua ${Math.abs(left)} ngày`;
   return (
     <Link className="countdownEventCard" href={event.href}>
-      <span className="countdownIcon">{event.icon}</span>
+      <span className="countdownIcon"><EventIcon slug={event.slug} /></span>
       <strong>{event.title}</strong>
       <em>{nextText}</em>
       <small>{formatDisplayDate(event.date)} · {event.dateType === "lunar" ? "Âm lịch quy đổi" : "Dương lịch"}</small>

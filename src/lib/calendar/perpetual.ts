@@ -23,7 +23,7 @@ export type PerpetualYearSummary = {
   year: number;
   canChiYear: string;
   animal: string;
-  animalEmoji: string;
+  animalIconName: string;
   animalDescription: string;
   totalDays: number;
   isSolarLeapYear: boolean;
@@ -101,7 +101,7 @@ export function getPerpetualYearSummary(year: number): PerpetualYearSummary {
     year,
     canChiYear: yearCanChi.text,
     animal: zodiac.animal,
-    animalEmoji: zodiac.emoji,
+    animalIconName: zodiac.iconName,
     animalDescription: zodiac.description,
     totalDays,
     isSolarLeapYear: totalDays === 366,

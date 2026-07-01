@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { CountdownEventGrid } from "@/components/CountdownEventGrid";
+import { HomeHero } from "@/components/HomeHero";
 import { ModernFeatureHub } from "@/components/ModernFeatureHub";
 import { MonthCalendar } from "@/components/MonthCalendar";
 import { MonthPicker } from "@/components/MonthPicker";
@@ -123,17 +124,19 @@ export default async function Home({ searchParams }: PageProps) {
   return (
     <>
       <Header currentYear={selectedDate.year} />
-      <main className="container mainStack">
-        <h1 className="hubTitle">Ngày Giờ – Lịch âm dương, lịch vạn niên và giờ hoàng đạo</h1>
-        <TodayPanel day={todayInfo} asH2 />
-        <ModernFeatureHub />
-        <MonthCalendar calendar={monthCalendar} makeHref={amLichDayHref} />
-        <div className="twoColumns">
-          <MonthPicker month={selectedDate.month} year={selectedDate.year} />
-          <QuickTools />
+      <main className="homePageMain">
+        <HomeHero day={todayInfo} />
+        <div className="container mainStack homeContentStack">
+          <TodayPanel day={todayInfo} asH2 />
+          <MonthCalendar calendar={monthCalendar} makeHref={amLichDayHref} />
+          <div className="twoColumns">
+            <MonthPicker month={selectedDate.month} year={selectedDate.year} />
+            <QuickTools />
+          </div>
+          <ModernFeatureHub />
+          <CountdownEventGrid year={selectedDate.year} />
+          <SeoArticle />
         </div>
-        <CountdownEventGrid year={selectedDate.year} />
-        <SeoArticle />
       </main>
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
