@@ -21,6 +21,8 @@ export const siteConfig = {
     "nhắc ngày giờ",
     "xem ngày tốt theo việc",
     "xem ngày tốt theo tuổi",
+    "tử vi hôm nay",
+    "tử vi 12 con giáp",
     "tải lịch âm PDF",
     "tạo ảnh lịch",
   ],
@@ -30,6 +32,7 @@ export const mainNav = [
   { title: "Lịch hôm nay", href: "/lich-hom-nay" },
   { title: "Lịch vạn niên", href: "/lich-van-nien" },
   { title: "Ngày tốt xấu", href: "/ngay-tot-xau" },
+  { title: "Tử vi", href: "/tu-vi-hom-nay" },
   { title: "Giờ hoàng đạo", href: "/gio-hoang-dao" },
   { title: "Đổi tuổi", href: "/tinh-tuoi-am" },
   { title: "Chuyển đổi lịch", href: "/chuyen-doi-lich" },
@@ -55,6 +58,11 @@ export const quickTools = [
     title: "Xem ngày tốt theo tuổi",
     href: "/xem-ngay-tot-theo-tuoi",
     description: "Nhập năm sinh để chọn ngày hợp tuổi, tránh ngày xung/hại và chấm điểm 100.",
+  },
+  {
+    title: "Tử vi hôm nay 12 con giáp",
+    href: "/tu-vi-hom-nay",
+    description: "Xem tổng quan công việc, tài lộc, tình cảm, sức khỏe và giờ tốt cho từng con giáp.",
   },
   {
     title: "Ngày tốt xấu ngày mai",

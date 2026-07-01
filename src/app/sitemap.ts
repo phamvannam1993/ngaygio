@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { ACTIVITIES } from "@/lib/calendar/activity";
+import { fortuneHref, ZODIAC_FORTUNES } from "@/lib/calendar/fortune";
 
 const BASE = siteConfig.url;
 type SitemapEntry = MetadataRoute.Sitemap[number];
@@ -51,6 +52,8 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
       u("/ngay-tot-xau", now, "daily", 0.92),
       u("/xem-ngay-tot", now, "daily", 0.93),
       u("/xem-ngay-tot-theo-tuoi", now, "daily", 0.90),
+      u("/tu-vi-hom-nay", now, "daily", 0.91),
+      u("/tu-vi-12-con-giap", now, "daily", 0.84),
       u("/lich-van-nien", now, "weekly", 0.88),
     ];
   }
@@ -87,6 +90,7 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
       u("/widget", now, "monthly", 0.72),
       ...ACTIVITIES.map((activity) => u(`/xem-ngay-tot/${activity.slug}`, now, "daily", 0.82)),
       ...ACTIVITIES.map((activity) => u(`/xem-ngay-tot-${activity.slug}`, now, "daily", 0.76)),
+      ...ZODIAC_FORTUNES.map((item) => u(fortuneHref(item.slug), now, "daily", 0.82)),
       u("/con-bao-nhieu-ngay-den-tet", now, "daily", 0.85),
       u("/lich-am-ngay-mai", now, "daily", 0.70),
       u("/lich-am-hom-qua", now, "daily", 0.65),

@@ -5,6 +5,7 @@ import { ActivityIcon, SiteIcon, type SiteIconName } from "./Icon";
 const primaryTools: Array<{ href: string; iconName: SiteIconName; title: string; desc: string }> = [
   { href: "/xem-ngay-tot", iconName: "sparkle", title: "Tìm ngày tốt theo việc", desc: "Khai trương, cưới hỏi, động thổ, nhập trạch, mua xe." },
   { href: "/xem-ngay-tot-theo-tuoi", iconName: "focus", title: "Xem ngày hợp tuổi", desc: "Nhập năm sinh để lọc ngày xung hợp và chấm điểm 100." },
+  { href: "/tu-vi-hom-nay", iconName: "star", title: "Tử vi 12 con giáp", desc: "Xem vận trình hôm nay, giờ tốt, màu may mắn và điều nên tránh." },
   { href: "/tao-anh-lich", iconName: "image", title: "Tạo ảnh lịch chia sẻ", desc: "Xuất ảnh lịch hôm nay để đăng Facebook, Zalo, fanpage." },
   { href: "/tai-lich-am-pdf", iconName: "print", title: "Tải/In lịch âm", desc: "In lịch tháng, lưu PDF bằng trình duyệt, dùng cho gia đình." },
   { href: "/nhac-ngay-gio", iconName: "bell", title: "Nhắc ngày âm", desc: "Giỗ, rằm, mùng 1, sinh nhật âm và lịch nhắc cá nhân." },

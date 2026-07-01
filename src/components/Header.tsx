@@ -36,6 +36,7 @@ export function Header({ currentYear }: HeaderProps) {
             <Link href="/lich-van-nien">Lịch vạn niên</Link>
             <Link href="/xem-ngay-tot">Tìm ngày tốt theo việc</Link>
             <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
+            <Link href="/tu-vi-hom-nay">Tử vi hôm nay</Link>
 
             <details className="mobileSubMenu">
               <summary>Lịch âm theo năm</summary>
@@ -53,6 +54,7 @@ export function Header({ currentYear }: HeaderProps) {
               <div className="mobileLinkGrid">
                 <Link href="/chuyen-doi-lich">Đổi lịch</Link>
                 <Link href="/tinh-tuoi-am">Xem tuổi</Link>
+                <Link href="/tu-vi-hom-nay">Tử vi</Link>
                 <Link href="/dem-ngay">Đếm ngày</Link>
                 <Link href="/lich-nghi-le">Nghỉ lễ</Link>
                 <Link href="/dem-ngay-su-kien">Sự kiện</Link>

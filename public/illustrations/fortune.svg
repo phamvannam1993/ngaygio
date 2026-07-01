@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Tử vi 12 con giáp">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f6fff8"/>
+      <stop offset="1" stop-color="#fff4cf"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="180" rx="28" fill="url(#g)"/>
+  <circle cx="120" cy="90" r="54" fill="#208a3a" opacity=".1"/>
+  <circle cx="120" cy="90" r="42" fill="#fff" stroke="#208a3a" stroke-width="4"/>
+  <path d="M120 52l8.7 24.5 25.8 1-20.3 16 7 24.8L120 104l-21.2 14.3 7-24.8-20.3-16 25.8-1L120 52z" fill="#f4b62b" stroke="#8b6418" stroke-width="3" stroke-linejoin="round"/>
+  <g fill="none" stroke="#166a2b" stroke-width="3" stroke-linecap="round">
+    <path d="M46 54c14 3 22 11 25 25"/>
+    <path d="M194 54c-14 3-22 11-25 25"/>
+    <path d="M46 126c14-3 22-11 25-25"/>
+    <path d="M194 126c-14-3-22-11-25-25"/>
+  </g>
+  <g fill="#166a2b" opacity=".85">
+    <circle cx="46" cy="54" r="5"/><circle cx="194" cy="54" r="5"/><circle cx="46" cy="126" r="5"/><circle cx="194" cy="126" r="5"/>
+  </g>
+</svg>

@@ -5733,3 +5733,353 @@ body:has(.pageFullscreenBg) .pickerPanel {
   height: 1.05em;
   vertical-align: -0.18em;
 }
+
+/* Fortune / Tử vi pages */
+.fortuneHero,
+.fortuneDetailHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 24px;
+  align-items: center;
+  background:
+    radial-gradient(circle at 86% 14%, rgba(244, 182, 43, .26), transparent 14rem),
+    linear-gradient(135deg, rgba(255,255,255,.96) 0%, rgba(241,252,245,.95) 66%, rgba(255,248,224,.94) 100%);
+}
+
+.fortuneHeroPanel,
+.fortuneBigScore {
+  min-height: 230px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 22px;
+  border-radius: 28px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, var(--green), var(--green-700));
+  box-shadow: 0 20px 45px rgba(22, 106, 43, .2);
+}
+
+.fortuneHeroPanel span,
+.fortuneBigScore span {
+  opacity: .92;
+  font-weight: 900;
+}
+
+.fortuneHeroPanel strong,
+.fortuneBigScore strong {
+  font-size: clamp(1.65rem, 3.2vw, 2.8rem);
+  line-height: 1;
+}
+
+.fortuneHeroPanel small,
+.fortuneBigScore small {
+  max-width: 210px;
+  opacity: .88;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.fortuneHeroPanel .zodiacImg,
+.fortuneBigScore .zodiacImg {
+  width: 86px;
+  height: 86px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.18);
+  object-fit: cover;
+}
+
+.fortuneHighlights,
+.fortuneAdviceGrid,
+.fortuneMetricGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.sectionHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.sectionHeaderRow h2 {
+  margin-bottom: 0;
+}
+
+.sectionHeaderLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: var(--green-700);
+  background: var(--green-50);
+  border: 1px solid rgba(32,138,58,.18);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.zodiacFortuneGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.fortuneCard {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid rgba(32,138,58,.14);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fff, #f9fdfb);
+  box-shadow: 0 15px 34px rgba(23,34,27,.06);
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+
+.fortuneCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(32,138,58,.32);
+  box-shadow: 0 22px 48px rgba(23,34,27,.11);
+}
+
+.fortuneCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.fortuneCard .zodiacImg {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.fortuneScore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 999px;
+  color: var(--green-700);
+  background: var(--green-50);
+  font-weight: 1000;
+}
+
+.fortuneCard.good .fortuneScore,
+.fortuneMetric.good span {
+  color: #166a2b;
+  background: #e2f7ea;
+}
+
+.fortuneCard.careful .fortuneScore,
+.fortuneMetric.careful span {
+  color: #8c2a2a;
+  background: #ffeaea;
+}
+
+.fortuneCard strong {
+  font-size: 1.05rem;
+}
+
+.fortuneCard p {
+  margin: 0;
+  color: #415044;
+  line-height: 1.55;
+}
+
+.fortuneCard small {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.fortunePills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fortunePills span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: var(--green-700);
+  background: var(--green-50);
+  border: 1px solid rgba(32,138,58,.14);
+  font-size: .82rem;
+  font-weight: 900;
+}
+
+.fortunePills.large span {
+  font-size: .94rem;
+  padding: 8px 12px;
+}
+
+.fortuneMiniList {
+  display: grid;
+  gap: 10px;
+}
+
+.fortuneMiniList.inlineList {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.fortuneMiniList a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(32,138,58,.12);
+  background: #fff;
+}
+
+.fortuneMiniList a:hover {
+  border-color: rgba(32,138,58,.30);
+  background: #f8fcfa;
+}
+
+.fortuneMiniList .zodiacImg {
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.fortuneMiniList span {
+  display: grid;
+  gap: 2px;
+}
+
+.fortuneMiniList small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.fortuneRelationPanel p {
+  color: #415044;
+  line-height: 1.7;
+}
+
+.fortuneMetric {
+  position: relative;
+  overflow: hidden;
+}
+
+.fortuneMetric span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: #6b4800;
+  background: #fff5d6;
+  font-weight: 1000;
+}
+
+.fortuneMetric h2 {
+  margin-bottom: 8px;
+}
+
+.fortuneMetric p,
+.fortuneAdviceGrid li {
+  color: #415044;
+  line-height: 1.7;
+}
+
+.fortuneAdviceGrid ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.fortuneHourGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.fortuneHourGrid span {
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  border-radius: 16px;
+  color: var(--green-700);
+  background: var(--green-50);
+  border: 1px solid rgba(32,138,58,.15);
+  font-weight: 1000;
+  text-align: center;
+}
+
+.fortuneHourGrid small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.fortuneSeoLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fortuneDetailHero.careful .fortuneBigScore {
+  background: linear-gradient(135deg, #9b4a2d, #7b3326);
+}
+
+.fortuneDetailHero.neutral .fortuneBigScore {
+  background: linear-gradient(135deg, #8f6a16, #68500f);
+}
+
+@media (max-width: 1100px) {
+  .zodiacFortuneGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .fortuneHourGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .fortuneHero,
+  .fortuneDetailHero,
+  .fortuneHighlights,
+  .fortuneAdviceGrid,
+  .fortuneMetricGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fortuneHeroPanel,
+  .fortuneBigScore {
+    min-height: auto;
+  }
+
+  .sectionHeaderRow {
+    display: grid;
+  }
+
+  .sectionHeaderLink {
+    justify-self: flex-start;
+  }
+
+  .zodiacFortuneGrid,
+  .fortuneMiniList.inlineList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .zodiacFortuneGrid,
+  .fortuneMiniList.inlineList,
+  .fortuneHourGrid {
+    grid-template-columns: 1fr;
+  }
+}

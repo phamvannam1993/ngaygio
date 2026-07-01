@@ -23,6 +23,9 @@ const nextConfig: NextConfig = {
       { source: "/sitemap.xml", destination: "/api/sitemap-index" },
 
 
+      // Tử vi keyword URLs
+      { source: "/tu-vi-tuoi-:slug-hom-nay", destination: "/tu-vi/:slug" },
+
       // Chọn ngày tốt keyword URLs
       { source: "/xem-ngay-tot-khai-truong", destination: "/xem-ngay-tot/khai-truong" },
       { source: "/xem-ngay-tot-cuoi-hoi", destination: "/xem-ngay-tot/cuoi-hoi" },
