@@ -54,7 +54,6 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
       u("/xem-ngay-tot-theo-tuoi", now, "daily", 0.90),
       u("/tu-vi-hom-nay", now, "daily", 0.91),
       u("/tu-vi-12-con-giap", now, "daily", 0.84),
-      u("/lap-la-so-tu-vi", now, "monthly", 0.86),
       u("/lich-van-nien", now, "weekly", 0.88),
     ];
   }
@@ -92,6 +91,7 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
       ...ACTIVITIES.map((activity) => u(`/xem-ngay-tot/${activity.slug}`, now, "daily", 0.82)),
       ...ACTIVITIES.map((activity) => u(`/xem-ngay-tot-${activity.slug}`, now, "daily", 0.76)),
       ...ZODIAC_FORTUNES.map((item) => u(fortuneHref(item.slug), now, "daily", 0.82)),
+      u("/lap-la-so-tu-vi", now, "monthly", 0.86),
       u("/con-bao-nhieu-ngay-den-tet", now, "daily", 0.85),
       u("/lich-am-ngay-mai", now, "daily", 0.70),
       u("/lich-am-hom-qua", now, "daily", 0.65),
