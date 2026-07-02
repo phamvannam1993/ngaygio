@@ -70,8 +70,8 @@ export default function sitemap({ id }: { id: string }): MetadataRoute.Sitemap {
     // Tết countdown + cluster pages
     const tetEntries: SitemapEntry[] = [];
     for (let y = yr - 1; y <= yr + 5; y++) {
-      const ref = new Date(Date.UTC(y, 0, 1));
       const isCurr = y === yr;
+      const ref = y > yr ? now : new Date(Date.UTC(y, 0, 1));
       tetEntries.push(u(`/tet/${y}`, isCurr ? now : ref, isCurr ? "daily" : "yearly", isCurr ? 0.80 : 0.65));
       tetEntries.push(u(`/giao-thua/${y}`, ref, "yearly", 0.62));
       tetEntries.push(u(`/ong-cong-ong-tao/${y}`, ref, "yearly", 0.62));
