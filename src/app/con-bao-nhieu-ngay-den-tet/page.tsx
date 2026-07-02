@@ -51,6 +51,7 @@ export default function ConBaoNhieuNgayDenTetPage() {
     <>
       <Header currentYear={today.year} />
       <main className="container mainStack">
+        <div className="pageFullscreenBg" style={{ backgroundImage: "linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.82) 42%, rgba(255,255,255,.52) 100%), linear-gradient(180deg, rgba(245,251,247,.18) 0%, rgba(245,251,247,.9) 100%), url(/bg-page-calendar.png)" }} aria-hidden="true" />
         <section className="heroCard" aria-labelledby="tet-countdown-title">
           <p className="eyebrow">Đếm ngược đến Tết</p>
           <h1 id="tet-countdown-title">

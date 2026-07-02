@@ -71,6 +71,7 @@ export function XemNgayTotPageContent({ resolved, overrideTitle, overrideDescrip
     <>
       <Header currentYear={today.year} />
       <main className="container mainStack">
+        <div className="pageFullscreenBg" style={{ backgroundImage: "linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.82) 42%, rgba(255,255,255,.52) 100%), linear-gradient(180deg, rgba(245,251,247,.18) 0%, rgba(245,251,247,.9) 100%), url(/bg-page-goodbad.png)" }} aria-hidden="true" />
         <section className="activityHero heroCard" aria-labelledby="activity-hero-title">
           <div>
             <p className="eyebrow"><ActivityIcon slug={activity.slug} /> Công cụ chọn ngày mới</p>
