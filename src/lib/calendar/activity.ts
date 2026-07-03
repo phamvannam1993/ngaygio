@@ -7,15 +7,26 @@ import type { ChiName, DayInfo } from "./types";
 
 export type ActivitySlug =
   | "khai-truong"
+  | "mo-hang"
   | "cuoi-hoi"
   | "dong-tho"
   | "nhap-trach"
   | "mua-xe"
+  | "cung-xe-moi"
   | "ky-hop-dong"
+  | "dat-coc"
+  | "mua-nha"
   | "xuat-hanh"
+  | "di-xa"
   | "cat-toc"
   | "chuyen-nha"
-  | "dat-ban-tho";
+  | "dat-ban-tho"
+  | "nhap-hang"
+  | "mua-vang"
+  | "nop-ho-so"
+  | "phong-van"
+  | "khai-but"
+  | "cau-tai";
 
 export type ActivityConfig = {
   slug: ActivitySlug;
@@ -92,6 +103,19 @@ export const ACTIVITIES: ActivityConfig[] = [
     avoidWarnings: ["Tam nương", "Nguyệt kỵ", "Dương Công kỵ nhật"],
   },
   {
+    slug: "mo-hang",
+    title: "Xem ngày tốt mở hàng",
+    shortTitle: "Mở hàng",
+    icon: "money",
+    description: "Chọn ngày mở hàng đầu tháng, mở bán sản phẩm mới, nhận đơn đầu tiên hoặc khởi động doanh số.",
+    seoKeyword: "xem ngày tốt mở hàng",
+    goodDirects: ["Khai", "Thành", "Mãn", "Định"],
+    avoidDirects: ["Phá", "Bế", "Nguy"],
+    preferredQuality: "good",
+    goodForWords: ["Mở hàng", "Cầu tài", "Khai trương nhỏ", "Nhập hàng", "Ký kết"],
+    avoidWarnings: ["Tam nương", "Nguyệt kỵ", "Dương Công kỵ nhật"],
+  },
+  {
     slug: "cuoi-hoi",
     title: "Xem ngày tốt cưới hỏi",
     shortTitle: "Cưới hỏi",
@@ -144,6 +168,19 @@ export const ACTIVITIES: ActivityConfig[] = [
     avoidWarnings: ["Tam nương", "Nguyệt kỵ"],
   },
   {
+    slug: "cung-xe-moi",
+    title: "Xem ngày tốt cúng xe mới",
+    shortTitle: "Cúng xe mới",
+    icon: "car",
+    description: "Gợi ý ngày đẹp để cúng xe mới, nhận xe, xuất hành chuyến đầu và cầu bình an khi đi lại.",
+    seoKeyword: "xem ngày tốt cúng xe mới",
+    goodDirects: ["Thành", "Khai", "Mãn", "Thu"],
+    avoidDirects: ["Phá", "Nguy", "Bế"],
+    preferredQuality: "good",
+    goodForWords: ["Cúng xe", "Nhận xe", "Xuất hành", "Cầu an"],
+    avoidWarnings: ["Tam nương", "Nguyệt kỵ"],
+  },
+  {
     slug: "ky-hop-dong",
     title: "Xem ngày tốt ký hợp đồng",
     shortTitle: "Ký hợp đồng",
@@ -157,6 +194,32 @@ export const ACTIVITIES: ActivityConfig[] = [
     avoidWarnings: ["Tam nương", "Nguyệt kỵ", "Dương Công kỵ nhật"],
   },
   {
+    slug: "dat-coc",
+    title: "Xem ngày tốt đặt cọc",
+    shortTitle: "Đặt cọc",
+    icon: "contract",
+    description: "Gợi ý ngày phù hợp để đặt cọc mua nhà, mua đất, mua xe hoặc chốt giao dịch quan trọng.",
+    seoKeyword: "xem ngày tốt đặt cọc",
+    goodDirects: ["Định", "Thành", "Thu", "Khai"],
+    avoidDirects: ["Phá", "Bế", "Nguy"],
+    preferredQuality: "good",
+    goodForWords: ["Đặt cọc", "Ký kết", "Giao dịch", "Nhận tài sản"],
+    avoidWarnings: ["Tam nương", "Nguyệt kỵ", "Dương Công kỵ nhật"],
+  },
+  {
+    slug: "mua-nha",
+    title: "Xem ngày tốt mua nhà đất",
+    shortTitle: "Mua nhà đất",
+    icon: "home",
+    description: "Chọn ngày tốt để xem nhà, chốt mua nhà đất, ký giấy tờ hoặc nhận bàn giao tài sản lớn.",
+    seoKeyword: "xem ngày tốt mua nhà",
+    goodDirects: ["Định", "Thành", "Mãn", "Khai"],
+    avoidDirects: ["Phá", "Bế", "Nguy"],
+    preferredQuality: "good",
+    goodForWords: ["Mua nhà", "Mua đất", "Ký kết", "Nhận tài sản", "Nhập trạch"],
+    avoidWarnings: ["Tam nương", "Nguyệt kỵ", "Dương Công kỵ nhật"],
+  },
+  {
     slug: "xuat-hanh",
     title: "Xem ngày tốt xuất hành",
     shortTitle: "Xuất hành",
@@ -167,6 +230,19 @@ export const ACTIVITIES: ActivityConfig[] = [
     avoidDirects: ["Nguy", "Bế"],
     preferredQuality: "good",
     goodForWords: ["Xuất hành", "Gặp gỡ", "Cầu tài", "Đi xa"],
+    avoidWarnings: ["Nguyệt kỵ", "Dương Công kỵ nhật"],
+  },
+  {
+    slug: "di-xa",
+    title: "Xem ngày tốt đi xa",
+    shortTitle: "Đi xa",
+    icon: "compass",
+    description: "Chọn ngày đi xa, đi công tác, đi du lịch, về quê hoặc bắt đầu hành trình quan trọng.",
+    seoKeyword: "xem ngày tốt đi xa",
+    goodDirects: ["Khai", "Thành", "Mãn", "Kiến"],
+    avoidDirects: ["Nguy", "Bế", "Phá"],
+    preferredQuality: "any",
+    goodForWords: ["Đi xa", "Xuất hành", "Gặp gỡ", "Cầu tài"],
     avoidWarnings: ["Nguyệt kỵ", "Dương Công kỵ nhật"],
   },
   {
@@ -206,6 +282,84 @@ export const ACTIVITIES: ActivityConfig[] = [
     avoidDirects: ["Phá", "Bế", "Nguy"],
     preferredQuality: "good",
     goodForWords: ["An vị bàn thờ", "Cầu an", "Dọn dẹp", "Sửa sang"],
+    avoidWarnings: ["Tam nương", "Nguyệt kỵ", "Dương Công kỵ nhật"],
+  },
+  {
+    slug: "nhap-hang",
+    title: "Xem ngày tốt nhập hàng",
+    shortTitle: "Nhập hàng",
+    icon: "box",
+    description: "Gợi ý ngày nhập hàng, lấy hàng mới, bổ sung kho hoặc bắt đầu lô hàng kinh doanh.",
+    seoKeyword: "xem ngày tốt nhập hàng",
+    goodDirects: ["Mãn", "Thành", "Thu", "Khai"],
+    avoidDirects: ["Phá", "Bế", "Nguy"],
+    preferredQuality: "any",
+    goodForWords: ["Nhập hàng", "Mua sắm", "Cầu tài", "Kinh doanh"],
+    avoidWarnings: ["Nguyệt kỵ", "Dương Công kỵ nhật"],
+  },
+  {
+    slug: "mua-vang",
+    title: "Xem ngày tốt mua vàng",
+    shortTitle: "Mua vàng",
+    icon: "money",
+    description: "Chọn ngày mua vàng, tích lũy, cầu tài hoặc mở đầu kế hoạch tài chính cá nhân.",
+    seoKeyword: "xem ngày tốt mua vàng",
+    goodDirects: ["Thành", "Mãn", "Thu", "Khai"],
+    avoidDirects: ["Phá", "Bế", "Nguy"],
+    preferredQuality: "any",
+    goodForWords: ["Mua vàng", "Cầu tài", "Tích lũy", "Giao dịch"],
+    avoidWarnings: ["Tam nương", "Nguyệt kỵ"],
+  },
+  {
+    slug: "nop-ho-so",
+    title: "Xem ngày tốt nộp hồ sơ",
+    shortTitle: "Nộp hồ sơ",
+    icon: "contract",
+    description: "Gợi ý ngày nộp hồ sơ, gửi giấy tờ, đăng ký, xin việc hoặc hoàn tất thủ tục hành chính.",
+    seoKeyword: "xem ngày tốt nộp hồ sơ",
+    goodDirects: ["Định", "Thành", "Khai", "Thu"],
+    avoidDirects: ["Phá", "Bế", "Nguy"],
+    preferredQuality: "any",
+    goodForWords: ["Nộp hồ sơ", "Ký giấy tờ", "Hoàn tất thủ tục", "Gặp gỡ"],
+    avoidWarnings: ["Nguyệt kỵ", "Dương Công kỵ nhật"],
+  },
+  {
+    slug: "phong-van",
+    title: "Xem ngày tốt phỏng vấn xin việc",
+    shortTitle: "Phỏng vấn",
+    icon: "focus",
+    description: "Chọn ngày phù hợp để đi phỏng vấn, gặp đối tác, trao đổi công việc hoặc bắt đầu cơ hội mới.",
+    seoKeyword: "xem ngày tốt phỏng vấn",
+    goodDirects: ["Khai", "Thành", "Định", "Bình"],
+    avoidDirects: ["Phá", "Bế", "Nguy"],
+    preferredQuality: "any",
+    goodForWords: ["Phỏng vấn", "Gặp gỡ", "Trao đổi", "Nhận việc"],
+    avoidWarnings: ["Nguyệt kỵ"],
+  },
+  {
+    slug: "khai-but",
+    title: "Xem ngày tốt khai bút",
+    shortTitle: "Khai bút",
+    icon: "book",
+    description: "Gợi ý ngày khai bút, bắt đầu học tập, viết kế hoạch, mở đầu dự án tri thức hoặc công việc sáng tạo.",
+    seoKeyword: "xem ngày tốt khai bút",
+    goodDirects: ["Khai", "Thành", "Mãn", "Bình"],
+    avoidDirects: ["Phá", "Bế"],
+    preferredQuality: "any",
+    goodForWords: ["Khai bút", "Học tập", "Lập kế hoạch", "Sáng tạo"],
+    avoidWarnings: ["Nguyệt kỵ"],
+  },
+  {
+    slug: "cau-tai",
+    title: "Xem ngày tốt cầu tài",
+    shortTitle: "Cầu tài",
+    icon: "money",
+    description: "Chọn ngày cầu tài, mở ví, khởi động kế hoạch tài chính, làm việc kinh doanh hoặc xin lộc đầu tháng.",
+    seoKeyword: "xem ngày tốt cầu tài",
+    goodDirects: ["Khai", "Thành", "Mãn", "Thu"],
+    avoidDirects: ["Phá", "Bế", "Nguy"],
+    preferredQuality: "any",
+    goodForWords: ["Cầu tài", "Mở hàng", "Mua vàng", "Ký kết", "Kinh doanh"],
     avoidWarnings: ["Tam nương", "Nguyệt kỵ", "Dương Công kỵ nhật"],
   },
 ];
@@ -296,7 +450,7 @@ export function isActivitySlug(value: string): value is ActivitySlug {
 }
 
 export function activityHref(slug: ActivitySlug): string {
-  return `/xem-ngay-tot/${slug}`;
+  return `/xem-ngay-tot-${slug}`;
 }
 
 export function activityKeywordHref(slug: ActivitySlug): string {

@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ACTIVITIES, activityHref } from "@/lib/calendar/activity";
 import { ActivityIcon, SiteIcon, type SiteIconName } from "./Icon";
 
+const currentYear = new Date().getFullYear();
+
 const primaryTools: Array<{ href: string; iconName: SiteIconName; title: string; desc: string }> = [
   { href: "/xem-ngay-tot", iconName: "sparkle", title: "Tìm ngày tốt theo việc", desc: "Khai trương, cưới hỏi, động thổ, nhập trạch, mua xe." },
   { href: "/xem-ngay-tot-theo-tuoi", iconName: "focus", title: "Xem ngày hợp tuổi", desc: "Nhập năm sinh để lọc ngày xung hợp và chấm điểm 100." },
@@ -9,9 +11,12 @@ const primaryTools: Array<{ href: string; iconName: SiteIconName; title: string;
   { href: "/lap-la-so-tu-vi", iconName: "bagua", title: "Lập lá số tử vi", desc: "Nhập ngày giờ sinh để dựng 12 cung, Mệnh, Thân và đại vận." },
   { href: "/xem-tuoi-hop-lam-an", iconName: "heart", title: "Tuổi hợp làm ăn", desc: "So sánh hai năm sinh theo can chi, nạp âm và ngũ hành." },
   { href: "/xem-tuoi-lam-nha", iconName: "home", title: "Tuổi làm nhà", desc: "Kiểm tra Kim Lâu, Hoang Ốc, Tam Tai và gợi ý ngày động thổ." },
+  { href: `/tuoi-lam-nha/${currentYear}`, iconName: "building", title: "Bảng tuổi làm nhà", desc: "Tra tuổi đẹp xây nhà theo từng năm, có bảng Kim Lâu Hoang Ốc Tam Tai." },
   { href: "/phong-thuy-theo-tuoi", iconName: "compass", title: "Phong thủy theo tuổi", desc: "Xem màu hợp, hướng hợp và cung phi bát trạch theo năm sinh." },
   { href: "/tao-anh-lich", iconName: "image", title: "Tạo ảnh lịch chia sẻ", desc: "Xuất ảnh lịch hôm nay để đăng Facebook, Zalo, fanpage." },
   { href: "/tai-lich-am-pdf", iconName: "print", title: "Tải/In lịch âm", desc: "In lịch tháng, lưu PDF bằng trình duyệt, dùng cho gia đình." },
+  { href: `/tai-lich-am/${currentYear}`, iconName: "calendar", title: "Tải lịch âm theo năm", desc: "Landing page tải lịch âm PDF cho từng năm, dễ bắt long-tail." },
+  { href: "/api-lich-am", iconName: "converter", title: "API lịch âm", desc: "JSON/iCal cho developer nhúng lịch âm, giờ hoàng đạo và Tết countdown." },
   { href: "/nhac-ngay-gio", iconName: "bell", title: "Nhắc ngày âm", desc: "Giỗ, rằm, mùng 1, sinh nhật âm và lịch nhắc cá nhân." },
   { href: "/dem-ngay-su-kien", iconName: "hourglass", title: "Đếm ngày sự kiện", desc: "Tết, Trung thu, Vu Lan, Thần Tài, Noel và ngày lễ lớn." },
 ];

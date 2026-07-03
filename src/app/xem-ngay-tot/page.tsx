@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { XemNgayTotPageContent, resolveGoodDateParams } from "./XemNgayTotPageContent";
 import { siteConfig, faqSchema, webPageSchema } from "@/lib/site";
+import { isActivitySlug } from "@/lib/calendar/activity";
 
 type PageProps = { searchParams?: Promise<Record<string, string | string[] | undefined>> };
 
@@ -23,7 +25,20 @@ export const metadata: Metadata = {
 };
 
 export default async function XemNgayTotPage({ searchParams }: PageProps) {
-  const resolved = resolveGoodDateParams((await searchParams) ?? {});
+  const sp = (await searchParams) ?? {};
+
+  // Form submit với ?viec=di-xa → redirect sang URL flat /xem-ngay-tot-di-xa
+  const viec = typeof sp.viec === "string" ? sp.viec : undefined;
+  if (viec && isActivitySlug(viec)) {
+    const rest = new URLSearchParams(
+      Object.entries(sp).flatMap(([k, v]) =>
+        k === "viec" ? [] : Array.isArray(v) ? v.map((val) => [k, val]) : v ? [[k, v]] : []
+      )
+    ).toString();
+    redirect(`/xem-ngay-tot-${viec}${rest ? `?${rest}` : ""}`);
+  }
+
+  const resolved = resolveGoodDateParams(sp);
   const jsonLd = [
     webPageSchema({ name: "Xem ngày tốt theo việc", url: `${siteConfig.url}/xem-ngay-tot`, description: "Công cụ chọn ngày tốt theo mục đích, tuổi và khoảng thời gian." }),
     faqSchema([

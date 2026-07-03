@@ -179,15 +179,26 @@ export function SiteIcon({ name, className, title }: IconProps) {
 export function ActivityIcon({ slug, className, title }: { slug: ActivitySlug; className?: string; title?: string }) {
   const iconByActivity: Record<ActivitySlug, SiteIconName> = {
     "khai-truong": "lantern",
+    "mo-hang": "money",
     "cuoi-hoi": "ring",
     "dong-tho": "building",
     "nhap-trach": "home",
     "mua-xe": "car",
+    "cung-xe-moi": "car",
     "ky-hop-dong": "contract",
+    "dat-coc": "contract",
+    "mua-nha": "home",
     "xuat-hanh": "compass",
+    "di-xa": "compass",
     "cat-toc": "scissors",
     "chuyen-nha": "box",
     "dat-ban-tho": "altar",
+    "nhap-hang": "box",
+    "mua-vang": "money",
+    "nop-ho-so": "contract",
+    "phong-van": "focus",
+    "khai-but": "book",
+    "cau-tai": "money",
   };
   return <SiteIcon name={iconByActivity[slug]} className={className} title={title} />;
 }

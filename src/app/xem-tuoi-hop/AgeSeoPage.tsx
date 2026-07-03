@@ -104,6 +104,7 @@ export function AgeSeoPage({ config, params }: { config: AgeSeoPageConfig; param
             <a className="eventPill blue" href="/xem-tuoi-hop-lam-an">Tuổi hợp làm ăn</a>
             <a className="eventPill blue" href="/xem-tuoi-vo-chong">Tuổi vợ chồng</a>
             <a className="eventPill blue" href="/xem-tuoi-lam-nha">Tuổi làm nhà</a>
+            <a className="eventPill blue" href={`/tuoi-lam-nha/${today.year}`}>Bảng tuổi làm nhà {today.year}</a>
             <a className="eventPill blue" href="/lap-la-so-tu-vi">Lập lá số tử vi</a>
           </div>
         </article>

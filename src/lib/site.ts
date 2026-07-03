@@ -1,3 +1,5 @@
+const currentSolarYearForLinks = new Date().getFullYear();
+
 export const siteConfig = {
   name: "Ngày Giờ",
   domain: "ngaygio.vn",
@@ -34,6 +36,9 @@ export const siteConfig = {
     "xem tuổi hợp hướng nào",
     "tải lịch âm PDF",
     "tạo ảnh lịch",
+    "tuổi làm nhà theo năm",
+    "api lịch âm",
+    "widget lịch âm",
   ],
 };
 
@@ -149,6 +154,21 @@ export const quickTools = [
     title: "Tải lịch âm PDF",
     href: "/tai-lich-am-pdf",
     description: "In lịch âm dương theo tháng hoặc lưu PDF trực tiếp từ trình duyệt.",
+  },
+  {
+    title: "Bảng tuổi làm nhà theo năm",
+    href: `/tuoi-lam-nha/${currentSolarYearForLinks}`,
+    description: "Tra bảng Kim Lâu, Hoang Ốc, Tam Tai và tuổi đẹp làm nhà theo từng năm.",
+  },
+  {
+    title: "API lịch âm miễn phí",
+    href: "/api-lich-am",
+    description: "Tài liệu API JSON/iCal để nhúng lịch âm, giờ hoàng đạo và đếm ngược Tết vào website.",
+  },
+  {
+    title: "Tải lịch âm theo năm",
+    href: `/tai-lich-am/${currentSolarYearForLinks}`,
+    description: "Tải/in lịch âm dương cả năm, chọn từng tháng để lưu PDF nhanh.",
   },
 ];
 

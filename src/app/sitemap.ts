@@ -166,17 +166,23 @@ export default async function sitemap(props: {
     }
 
     const tetEntries: SitemapEntry[] = [];
+    const houseYearEntries: SitemapEntry[] = [];
+    const downloadYearEntries: SitemapEntry[] = [];
 
     for (let y = yr - 1; y <= yr + 5; y++) {
       const isFocusTet = y === tetFocusYear;
       const lm = isFocusTet ? now : siteLastmod;
       const cf: ChangeFrequency = isFocusTet ? "daily" : "yearly";
+      const isCurrentOrFuture = y >= yr;
 
       tetEntries.push(u(`/tet/${y}`, lm, cf, isFocusTet ? 0.82 : 0.65));
       tetEntries.push(u(`/giao-thua/${y}`, lm, cf, isFocusTet ? 0.72 : 0.62));
       tetEntries.push(u(`/ong-cong-ong-tao/${y}`, lm, cf, isFocusTet ? 0.7 : 0.62));
       tetEntries.push(u(`/ram-thang-chap/${y}`, lm, cf, isFocusTet ? 0.68 : 0.6));
       tetEntries.push(u(`/lich-nghi-tet/${y}`, lm, cf, isFocusTet ? 0.74 : 0.65));
+
+      houseYearEntries.push(u(`/tuoi-lam-nha/${y}`, isCurrentOrFuture ? now : siteLastmod, isCurrentOrFuture ? "weekly" : "yearly", isCurrentOrFuture ? 0.78 : 0.62));
+      downloadYearEntries.push(u(`/tai-lich-am/${y}`, isCurrentOrFuture ? now : siteLastmod, isCurrentOrFuture ? "monthly" : "yearly", isCurrentOrFuture ? 0.76 : 0.6));
     }
 
     return unique([
@@ -189,12 +195,10 @@ export default async function sitemap(props: {
       u("/tai-lich-am-pdf", siteLastmod, "weekly", 0.78),
       u("/dem-ngay-su-kien", now, "daily", 0.8),
       u("/widget", siteLastmod, "monthly", 0.72),
+      u("/api-lich-am", siteLastmod, "monthly", 0.74),
 
-      // Chỉ giữ URL canonical dạng thư mục:
-      // /xem-ngay-tot/khai-truong
-      // Không đưa /xem-ngay-tot-khai-truong vào sitemap để tránh duplicate.
       ...ACTIVITIES.map((activity) =>
-        u(`/xem-ngay-tot/${activity.slug}`, now, "daily", 0.82),
+        u(`/xem-ngay-tot-${activity.slug}`, now, "daily", 0.82),
       ),
 
       ...ZODIAC_FORTUNES.map((item) =>
@@ -218,6 +222,8 @@ export default async function sitemap(props: {
       u("/gio-hoang-dao-hom-nay", now, "daily", 0.88),
 
       ...tetEntries,
+      ...houseYearEntries,
+      ...downloadYearEntries,
       ...ageEntries,
     ]);
   }

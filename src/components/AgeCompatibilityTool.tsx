@@ -229,7 +229,7 @@ export function HouseAgeTool({ params, canonicalPath }: { params?: SearchParams;
           ))}
         </div>
         <div className="resultActions wideActions">
-          <Link href={`/xem-ngay-tot/dong-tho?tuoi=${birthYear}`}>Tìm ngày động thổ hợp tuổi</Link>
+          <Link href={`/xem-ngay-tot-dong-tho?tuoi=${birthYear}`}>Tìm ngày động thổ hợp tuổi</Link>
           <Link href={`/xem-tuoi-hop-huong-nao?namSinh=${birthYear}`}>Xem hướng hợp tuổi</Link>
         </div>
       </section>

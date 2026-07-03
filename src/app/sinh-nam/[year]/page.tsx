@@ -135,6 +135,10 @@ export default async function SinhNamYearPage({ params }: PageProps) {
             {nearbyYears.map((y) => (
               <Link key={y} href={`/sinh-nam/${y}`} className="eventPill blue">Sinh năm {y}</Link>
             ))}
+            <Link href={`/xem-tuoi-hop-mau-gi?namSinh=${birthYear}`} className="eventPill green">Tuổi {birthYear} hợp màu gì</Link>
+            <Link href={`/xem-tuoi-hop-huong-nao?namSinh=${birthYear}`} className="eventPill green">Tuổi {birthYear} hợp hướng nào</Link>
+            <Link href={`/xem-tuoi-lam-nha?namSinh=${birthYear}&namLamNha=${today.year}`} className="eventPill green">Làm nhà năm {today.year}</Link>
+            <Link href={`/tuoi-lam-nha/${today.year}`} className="eventPill green">Bảng tuổi làm nhà {today.year}</Link>
           </div>
         </article>
       </main>

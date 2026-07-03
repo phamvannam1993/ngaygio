@@ -136,6 +136,9 @@ GET ${apiUrl}?date=2026-06-26&format=json`}</code>
             <a href="/nhac-ngay-gio" className="eventPill blue">
               Tạo nhắc ngày giờ tuỳ chỉnh
             </a>
+            <a href="/api-lich-am" className="eventPill blue">
+              Xem tài liệu API lịch âm
+            </a>
           </div>
         </section>
 

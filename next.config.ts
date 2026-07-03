@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
       { source: "/gio-tot-hom-nay", destination: "/gio-hoang-dao-hom-nay", permanent: true },
       { source: "/gio-tot-xau-hom-nay", destination: "/gio-hoang-dao-hom-nay", permanent: true },
       { source: "/ngay-dep-hom-nay", destination: "/ngay-tot-xau-hom-nay", permanent: true },
+      { source: "/tuoi-lam-nha-:year", destination: "/tuoi-lam-nha/:year", permanent: true },
+      { source: "/tai-lich-am-:year-pdf", destination: "/tai-lich-am/:year", permanent: true },
+      { source: "/api-am-lich", destination: "/api-lich-am", permanent: true },
       { source: "/hom-nay-thu-may", destination: "/lich-hom-nay", permanent: true },
       { source: "/hom-nay-la-ngay-gi", destination: "/lich-hom-nay", permanent: true },
     ];
@@ -25,18 +28,6 @@ const nextConfig: NextConfig = {
 
       // Tử vi keyword URLs
       { source: "/tu-vi-tuoi-:slug-hom-nay", destination: "/tu-vi/:slug" },
-
-      // Chọn ngày tốt keyword URLs
-      { source: "/xem-ngay-tot-khai-truong", destination: "/xem-ngay-tot/khai-truong" },
-      { source: "/xem-ngay-tot-cuoi-hoi", destination: "/xem-ngay-tot/cuoi-hoi" },
-      { source: "/xem-ngay-tot-dong-tho", destination: "/xem-ngay-tot/dong-tho" },
-      { source: "/xem-ngay-tot-nhap-trach", destination: "/xem-ngay-tot/nhap-trach" },
-      { source: "/xem-ngay-tot-mua-xe", destination: "/xem-ngay-tot/mua-xe" },
-      { source: "/xem-ngay-tot-ky-hop-dong", destination: "/xem-ngay-tot/ky-hop-dong" },
-      { source: "/xem-ngay-tot-xuat-hanh", destination: "/xem-ngay-tot/xuat-hanh" },
-      { source: "/xem-ngay-tot-cat-toc", destination: "/xem-ngay-tot/cat-toc" },
-      { source: "/xem-ngay-tot-chuyen-nha", destination: "/xem-ngay-tot/chuyen-nha" },
-      { source: "/xem-ngay-tot-dat-ban-tho", destination: "/xem-ngay-tot/dat-ban-tho" },
       { source: "/in-lich-am", destination: "/tai-lich-am-pdf" },
       { source: "/tai-lich-am", destination: "/tai-lich-am-pdf" },
       { source: "/tao-anh-lich-am", destination: "/tao-anh-lich" },

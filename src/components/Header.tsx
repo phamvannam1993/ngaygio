@@ -41,6 +41,7 @@ export function Header({ currentYear }: HeaderProps) {
             <Link href="/xem-tuoi-hop-lam-an">Tuổi hợp làm ăn</Link>
             <Link href="/xem-tuoi-vo-chong">Tuổi vợ chồng</Link>
             <Link href="/xem-tuoi-lam-nha">Tuổi làm nhà</Link>
+            <Link href={`/tuoi-lam-nha/${currentYear}`}>Bảng tuổi làm nhà</Link>
 
             <details className="mobileSubMenu">
               <summary>Lịch âm theo năm</summary>
@@ -70,6 +71,8 @@ export function Header({ currentYear }: HeaderProps) {
                 <Link href="/nhac-ngay-gio">Nhắc âm</Link>
                 <Link href="/tao-anh-lich">Tạo ảnh</Link>
                 <Link href="/tai-lich-am-pdf">In PDF</Link>
+                <Link href={`/tai-lich-am/${currentYear}`}>Lịch âm PDF năm</Link>
+                <Link href="/api-lich-am">API lịch âm</Link>
                 <Link href="/time-in-vietnam">Giờ VN</Link>
               </div>
             </details>

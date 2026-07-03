@@ -8,10 +8,10 @@ const TU_VI_PATHS = ["/tu-vi", "/tu-vi-hom-nay", "/tu-vi-12-con-giap", "/tu-vi-t
 const CONG_CU_PATHS = [
   "/chuyen-doi-lich", "/tinh-tuoi-am", "/xem-ngay-tot", "/dem-ngay",
   "/con-bao-nhieu-ngay-den-tet", "/tao-anh-lich",
-  "/tai-lich-am-pdf", "/nhac-ngay-gio", "/time-in-vietnam", "/sinh-nam",
+  "/tai-lich-am-pdf", "/tai-lich-am", "/api-lich-am", "/nhac-ngay-gio", "/time-in-vietnam", "/sinh-nam",
   "/xem-tuoi-hop", "/xem-tuoi-hop-lam-an", "/xem-tuoi-vo-chong",
   "/xem-tuoi-sinh-con", "/xem-tuoi-lam-nha", "/xem-tuoi-hop-mau-gi",
-  "/xem-tuoi-hop-huong-nao", "/phong-thuy-theo-tuoi",
+  "/xem-tuoi-hop-huong-nao", "/phong-thuy-theo-tuoi", "/tuoi-lam-nha",
 ];
 
 function isActive(pathname: string, href: string) {
@@ -58,6 +58,7 @@ export function DesktopNavLinks({ currentYear, currentMonth }: Props) {
           <Link href="/xem-tuoi-vo-chong">Tuổi vợ chồng</Link>
           <Link href="/xem-tuoi-sinh-con">Tuổi sinh con</Link>
           <Link href="/xem-tuoi-lam-nha">Tuổi làm nhà</Link>
+          <Link href={`/tuoi-lam-nha/${currentYear}`}>Bảng tuổi làm nhà</Link>
           <Link href="/xem-tuoi-hop-mau-gi">Hợp màu</Link>
           <Link href="/xem-tuoi-hop-huong-nao">Hợp hướng</Link>
           <Link href="/phong-thuy-theo-tuoi">Phong thủy tuổi</Link>
@@ -71,6 +72,8 @@ export function DesktopNavLinks({ currentYear, currentMonth }: Props) {
           <Link href="/con-bao-nhieu-ngay-den-tet">Đếm ngày đến Tết</Link>
           <Link href="/tao-anh-lich">Tạo ảnh lịch</Link>
           <Link href="/tai-lich-am-pdf">Tải lịch PDF</Link>
+          <Link href={`/tai-lich-am/${currentYear}`}>Tải lịch âm {currentYear}</Link>
+          <Link href="/api-lich-am">API lịch âm</Link>
         </div>
       </details>
 

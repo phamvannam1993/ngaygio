@@ -20,6 +20,5 @@ export default async function XemNgayTotActivityPage({ params, searchParams }: P
     )
   ).toString() : "";
 
-  const dest = `/xem-ngay-tot-${activity}${query ? `?${query}` : ""}`;
-  redirect(dest);
+  redirect(`/xem-ngay-tot-${activity}${query ? `?${query}` : ""}`);
 }

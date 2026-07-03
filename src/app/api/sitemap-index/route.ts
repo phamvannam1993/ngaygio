@@ -20,6 +20,9 @@ export function GET() {
     `month-${yr + 2}`,
     `month-${yr + 3}`,
     `month-${yr + 4}`,
+    `day-${yr - 1}`,
+    `day-${yr}`,
+    `day-${yr + 1}`,
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

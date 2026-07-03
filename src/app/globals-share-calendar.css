@@ -1,0 +1,508 @@
+
+/* ===== Share calendar image: Ngaygio.vn ===== */
+
+.calendarGenerateBg {
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, .96) 0%, rgba(255, 255, 255, .84) 42%, rgba(255, 255, 255, .56) 100%),
+    linear-gradient(180deg, rgba(245, 251, 247, .18) 0%, rgba(245, 251, 247, .92) 100%),
+    url("/share-calendar/bg-calendar-soft.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.shareImageTool {
+  position: relative;
+  z-index: 1;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(37, 103, 69, .14);
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .94), rgba(247, 251, 247, .86)),
+    rgba(255, 255, 255, .72);
+  box-shadow: 0 24px 70px rgba(21, 77, 47, .08);
+  backdrop-filter: blur(14px);
+}
+
+.shareToolHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.shareToolHeader h2 {
+  margin: 4px 0 8px;
+  color: #113e2a;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.2;
+}
+
+.shareToolHeader p:last-child {
+  max-width: 680px;
+  margin: 0;
+  color: #5f7768;
+}
+
+.shareDownloadButton {
+  min-height: 46px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #155f36, #0b3d25);
+  box-shadow: 0 14px 30px rgba(13, 74, 41, .18);
+}
+
+.shareDownloadButton:disabled {
+  cursor: wait;
+  opacity: .7;
+}
+
+.calendarPreviewViewport {
+  overflow-x: auto;
+  padding: 8px 0 4px;
+}
+
+.calendarShareCanvas {
+  position: relative;
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  border-radius: 38px;
+  isolation: isolate;
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, .05)),
+    linear-gradient(180deg, rgba(251, 250, 242, .26), rgba(244, 249, 243, .48)),
+    url("/share-calendar/bg-calendar-soft.webp");
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 1px rgba(31, 92, 58, .10);
+}
+
+.calendarShareCanvas::before {
+  content: "";
+  position: absolute;
+  inset: 30px;
+  border: 1px solid rgba(93, 153, 115, .18);
+  border-radius: 42px;
+  background: rgba(255, 255, 255, .26);
+  filter: drop-shadow(0 22px 55px rgba(21, 66, 44, .08));
+}
+
+.calendarShareGlow {
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(18px);
+  opacity: .75;
+}
+
+.calendarShareGlowOne {
+  width: 340px;
+  height: 340px;
+  left: -80px;
+  bottom: -90px;
+  background: rgba(255, 248, 221, .55);
+}
+
+.calendarShareGlowTwo {
+  width: 420px;
+  height: 420px;
+  right: -120px;
+  top: -140px;
+  background: rgba(218, 239, 217, .56);
+}
+
+.calendarShareCard {
+  position: absolute;
+  z-index: 1;
+  left: 92px;
+  top: 66px;
+  width: 1016px;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 410px 1fr;
+  overflow: hidden;
+  border-radius: 34px;
+  background: #fffdf8;
+  box-shadow:
+    0 30px 70px rgba(22, 59, 37, .24),
+    0 1px 0 rgba(255, 255, 255, .9) inset;
+}
+
+.calendarDatePanel {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  padding: 70px 48px 48px;
+  background:
+    radial-gradient(circle at 48% 10%, rgba(255, 255, 255, .10), transparent 34%),
+    linear-gradient(145deg, #17673a 0%, #0f4a2d 56%, #0b3b25 100%);
+}
+
+.calendarDateInnerBorder {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(237, 226, 178, .52);
+  border-radius: 26px;
+  pointer-events: none;
+}
+
+.calendarLeafShadow {
+  position: absolute;
+  top: 22px;
+  left: 18px;
+  width: 190px;
+  height: 170px;
+  opacity: .16;
+  background:
+    radial-gradient(ellipse at 18% 22%, rgba(255,255,255,.55) 0 9px, transparent 10px),
+    radial-gradient(ellipse at 42% 36%, rgba(255,255,255,.44) 0 12px, transparent 13px),
+    radial-gradient(ellipse at 66% 18%, rgba(255,255,255,.38) 0 10px, transparent 11px),
+    radial-gradient(ellipse at 78% 52%, rgba(255,255,255,.36) 0 13px, transparent 14px);
+  transform: rotate(-18deg);
+}
+
+.calendarDateNumber {
+  position: relative;
+  margin-top: -10px;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 150px;
+  font-weight: 800;
+  line-height: .78;
+  letter-spacing: -8px;
+  text-shadow: 0 6px 14px rgba(0, 0, 0, .16);
+}
+
+.calendarOrnamentLine {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 6px 18px;
+  color: #e8d7a4;
+}
+
+.calendarOrnamentLine span {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, rgba(232, 215, 164, .75), transparent);
+}
+
+.calendarOrnamentLine svg {
+  width: 32px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.calendarWeekday {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, .14);
+}
+
+.calendarSolarMonth {
+  margin-top: 12px;
+  color: #f0ddb0;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.calendarThinDivider {
+  width: 100%;
+  height: 1px;
+  margin: 32px auto 26px;
+  background: linear-gradient(90deg, transparent, rgba(232, 215, 164, .72), transparent);
+}
+
+.calendarLunarBlock {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  column-gap: 14px;
+  text-align: left;
+}
+
+.calendarSmallIcon {
+  grid-row: span 3;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(232, 215, 164, .58);
+  border-radius: 999px;
+  color: #ead69e;
+  background: rgba(255, 255, 255, .08);
+}
+
+.calendarSmallIcon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.calendarLunarBlock strong {
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.18;
+}
+
+.calendarLunarBlock p {
+  grid-column: 1 / -1;
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, .88);
+  font-size: 22px;
+  line-height: 1.18;
+  text-align: center;
+}
+
+.calendarLunarBlock p + p {
+  margin-top: 8px;
+}
+
+.calendarInfoPanel {
+  position: relative;
+  overflow: hidden;
+  padding: 66px 74px 0 76px;
+  color: #132219;
+  background:
+    radial-gradient(circle at 85% 22%, rgba(232, 215, 164, .16), transparent 30%),
+    linear-gradient(135deg, #fffefa 0%, #fbfaf3 58%, #f6f8ef 100%);
+}
+
+.calendarInfoPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(138, 117, 64, .28);
+  border-left: 1px solid rgba(35, 84, 52, .12);
+  border-radius: 0 34px 34px 0;
+  pointer-events: none;
+}
+
+.calendarInfoHeader {
+  position: relative;
+}
+
+.calendarInfoTitle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #185236;
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: .28em;
+}
+
+.calendarInfoTitle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #185236;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.calendarInfoRule {
+  position: relative;
+  height: 1px;
+  margin-top: 18px;
+  background: linear-gradient(90deg, rgba(156, 137, 85, .62), rgba(156, 137, 85, .42), transparent);
+}
+
+.calendarInfoRule::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #185236;
+}
+
+.calendarQualityPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  min-width: 360px;
+  margin-top: 38px;
+  padding: 19px 34px 19px 24px;
+  border: 1.5px solid rgba(20, 84, 51, .54);
+  border-radius: 999px;
+  color: #185236;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .78), rgba(239, 246, 235, .78)),
+    rgba(255, 255, 255, .58);
+  box-shadow: 0 10px 22px rgba(26, 70, 43, .12);
+}
+
+.calendarQualityPill strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 40px;
+  line-height: 1;
+}
+
+.calendarQualityIcon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 2px solid rgba(232, 215, 164, .72);
+  border-radius: 999px;
+  color: #f0ddb0;
+  background: #17673a;
+}
+
+.calendarQualityIcon svg {
+  width: 31px;
+  height: 31px;
+  fill: currentColor;
+}
+
+.calendarInfoDivider {
+  height: 1px;
+  margin: 44px 0 38px;
+  background: linear-gradient(90deg, rgba(160, 151, 119, .35), rgba(160, 151, 119, .28), transparent);
+}
+
+.calendarGoodHours {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.calendarClockIcon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  color: #185236;
+  background: rgba(220, 235, 215, .82);
+}
+
+.calendarClockIcon svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.calendarGoodHours h3 {
+  margin: 0 0 22px;
+  color: #16231b;
+  font-size: 32px;
+  line-height: 1.08;
+  font-weight: 900;
+}
+
+.calendarGoodHours p {
+  max-width: 520px;
+  margin: 0;
+  color: #1c2a22;
+  font-size: 24px;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.calendarWatermarkLeaf {
+  position: absolute;
+  right: 46px;
+  bottom: 82px;
+  width: 190px;
+  height: 140px;
+  fill: rgba(160, 151, 119, .13);
+  stroke: rgba(160, 151, 119, .20);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.calendarShareFooter {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 74px 0 76px;
+  border-top: 1px solid rgba(160, 151, 119, .34);
+}
+
+.calendarFooterNote {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #607e6a;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.calendarFooterNote span {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  border: 2px solid #185236;
+  border-radius: 999px;
+  color: #185236;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 900;
+}
+
+.calendarFooterNote p {
+  margin: 0;
+}
+
+.calendarFooterBrand {
+  position: relative;
+  padding-left: 48px;
+  color: #105734;
+  font-size: 29px;
+  font-weight: 900;
+}
+
+.calendarFooterBrand::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: rgba(75, 104, 85, .36);
+}
+
+@media (max-width: 760px) {
+  .shareToolHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .shareDownloadButton {
+    width: 100%;
+  }
+}

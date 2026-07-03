@@ -6,10 +6,21 @@ const VALID_DATE = /^\d{4}-\d{2}-\d{2}$/;
 // Template/bot probe strings that should never be indexed
 const TEMPLATE_PATTERN = /[{}\[\]<>\\|^`]/;
 
+// /ngay-tot-xau/{slug} where slug is NOT a 4-digit year → redirect to /ngay-tot-xau-{slug}
+const NTX_SLUG = /^\/ngay-tot-xau\/([a-z][a-z0-9-]*)$/;
+
 export function middleware(req: NextRequest) {
   const { pathname, searchParams, origin } = req.nextUrl;
 
-  // Only apply to homepage
+  // /ngay-tot-xau/{activity-slug} → /ngay-tot-xau-{activity-slug}
+  const ntxMatch = NTX_SLUG.exec(pathname);
+  if (ntxMatch) {
+    const slug = ntxMatch[1];
+    const query = searchParams.toString();
+    return NextResponse.redirect(`${origin}/ngay-tot-xau-${slug}${query ? `?${query}` : ""}`, { status: 301 });
+  }
+
+  // Only apply date-param logic to homepage
   if (pathname !== "/") return NextResponse.next();
 
   const date = searchParams.get("date");
@@ -30,5 +41,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/"],
+  matcher: ["/", "/ngay-tot-xau/:slug"],
 };
