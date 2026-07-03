@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { CountdownEventGrid } from "@/components/CountdownEventGrid";
@@ -77,6 +78,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home({ searchParams }: PageProps) {
   const params = (await searchParams) ?? {};
+
+  // Redirect if only ?date=... query param (no month/year)
+  if (params.date && !params.month && !params.year) {
+    redirect("/");
+  }
+
   const selectedDate = resolveSelectedDate(params);
   const todayInfo = getDayInfo(selectedDate);
   const monthCalendar = getMonthCalendar(selectedDate.year, selectedDate.month, selectedDate);
