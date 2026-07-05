@@ -1006,7 +1006,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 12px;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .goodBadSearchForm label {
@@ -1896,7 +1896,7 @@ h2 {
 
 .reminderForm button,
 .reminderForm .secondaryButton {
-  align-self: end;
+  align-self: flex-end;
 }
 
 .savedReminders {
@@ -3661,7 +3661,7 @@ button {
   display: grid;
   grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr)) auto;
   gap: 12px;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .activityPlannerForm label,
@@ -6201,7 +6201,7 @@ body:has(.pageFullscreenBg) .pickerPanel {
 .tuViFormRow {
   display: grid;
   gap: 10px 14px;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .tuViFormRow:first-child {
@@ -6877,4 +6877,2436 @@ body:has(.pageFullscreenBg) .pickerPanel {
   font-weight: 900;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* Ngày tốt xấu theo ngày - luxury red/ivory design */
+.dayGoodBadShell {
+  --ngd-red: #a80707;
+  --ngd-red-dark: #790303;
+  --ngd-red-soft: #fff1ec;
+  --ngd-gold: #d08a16;
+  --ngd-gold-soft: #fff5dc;
+  --ngd-cream: #fff8ec;
+  --ngd-paper: #fffaf1;
+  --ngd-line: #edc98d;
+  --ngd-text: #351512;
+  --ngd-muted: #7b5b4f;
+  --ngd-good: #267a31;
+  --ngd-bad: #c3271d;
+  --ngd-shadow: 0 18px 48px rgba(103, 35, 8, 0.12);
+  color: var(--ngd-text);
+}
+
+.ngdPage {
+  position: relative;
+  isolation: isolate;
+  padding: 22px 0 48px;
+  background: transparent;
+}
+
+.ngdContainer {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+}
+
+.ngdBreadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  color: var(--ngd-muted);
+  font-size: .9rem;
+  font-weight: 750;
+}
+
+.ngdBreadcrumb a {
+  color: var(--ngd-red-dark);
+}
+
+.ngdBreadcrumb strong {
+  color: var(--ngd-text);
+}
+
+.ngdLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 26px;
+  align-items: start;
+}
+
+.ngdMainColumn,
+.ngdSidebar {
+  display: grid;
+  gap: 18px;
+}
+
+.ngdSidebar {
+  position: sticky;
+  top: 96px;
+}
+
+.ngdHeroCard,
+.ngdQuickConclusion,
+.ngdPanel,
+.ngdSideCard,
+.ngdCompassCard,
+.ngdAgeCard,
+.ngdTaskCard,
+.ngdFaq {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(208, 138, 22, .36);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .92), rgba(255, 250, 241, .96)),
+    radial-gradient(circle at 90% 0%, rgba(208, 138, 22, .10), transparent 15rem);
+  box-shadow: var(--ngd-shadow);
+}
+
+.ngdHeroCard::after,
+.ngdPanel::after,
+.ngdSideCard::after,
+.ngdQuickConclusion::after,
+.ngdFaq::after {
+  content: "";
+  position: absolute;
+  inset: auto -30px -46px auto;
+  width: 190px;
+  height: 190px;
+  border: 28px double rgba(168, 7, 7, .045);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ngdHeroCard {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) 230px;
+  gap: 24px;
+  align-items: center;
+  padding: clamp(18px, 2.5vw, 26px);
+}
+
+.ngdSolarCard {
+  min-height: 248px;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  overflow: hidden;
+  border: 1px solid rgba(208, 138, 22, .42);
+  border-radius: 14px;
+  background: #fffaf2;
+  box-shadow: inset 0 -18px 50px rgba(208, 138, 22, .08);
+  text-align: center;
+}
+
+.ngdSolarCard span {
+  width: 100%;
+  padding: 10px 12px;
+  color: #fff;
+  background: linear-gradient(90deg, var(--ngd-red-dark), var(--ngd-red));
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: .82rem;
+}
+
+.ngdSolarCard strong {
+  margin-top: 14px;
+  color: #1e1715;
+  font-size: .98rem;
+}
+
+.ngdSolarCard b {
+  display: block;
+  color: var(--ngd-red);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4.2rem, 8vw, 5.7rem);
+  line-height: .92;
+  letter-spacing: -.08em;
+}
+
+.ngdSolarCard em {
+  color: #1c1715;
+  font-size: 1.12rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.ngdSolarCard i {
+  margin-top: auto;
+  padding-bottom: 12px;
+  color: rgba(208, 138, 22, .46);
+  font-size: 2.4rem;
+  font-style: normal;
+}
+
+.ngdEyebrow {
+  margin: 0 0 6px;
+  color: var(--ngd-red);
+  font-size: .78rem;
+  font-weight: 950;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.ngdHeroInfo h1,
+.ngdSectionHead h2,
+.ngdPanelHead h2,
+.ngdSideCard h2,
+.ngdCompassCard h2,
+.ngdAgeCard h2,
+.ngdTaskCard h2,
+.ngdFaq h2 {
+  margin: 0;
+  color: var(--ngd-text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 850;
+  letter-spacing: -.025em;
+}
+
+.ngdHeroInfo h1 {
+  margin-bottom: 18px;
+  color: #4a0909;
+  font-size: clamp(1.75rem, 3.3vw, 2.5rem);
+}
+
+.ngdMetaList {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.ngdMetaList div {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.ngdMetaList dt {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  margin: 0;
+  color: var(--ngd-gold);
+  background: rgba(208, 138, 22, .12);
+  border-radius: 50%;
+}
+
+.ngdMetaList .svgIcon {
+  width: 17px;
+  height: 17px;
+}
+
+.ngdMetaList dd {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  color: var(--ngd-muted);
+  line-height: 1.35;
+}
+
+.ngdMetaList dd span {
+  flex: 0 0 80px;
+  font-weight: 850;
+}
+
+.ngdMetaList dd strong {
+  color: #281611;
+  font-weight: 850;
+}
+
+.ngdScoreSeal {
+  width: 210px;
+  height: 210px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  justify-self: center;
+  padding: 18px;
+  border-radius: 50%;
+  border: 9px double rgba(208, 138, 22, .68);
+  background:
+    radial-gradient(circle at 50% 50%, #fffdf8 0 48%, rgba(255, 246, 224, .95) 49% 100%);
+  text-align: center;
+  box-shadow: 0 18px 42px rgba(168, 7, 7, .12), inset 0 0 0 1px rgba(168, 7, 7, .10);
+}
+
+.ngdScoreSeal span {
+  color: var(--ngd-good);
+  font-size: .74rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.ngdScoreSeal strong {
+  display: block;
+  margin: 6px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 4vw, 3.8rem);
+  line-height: .92;
+}
+
+.ngdScoreSeal.good strong { color: var(--ngd-good); }
+.ngdScoreSeal.neutral strong { color: #b47410; font-size: clamp(1.55rem, 3vw, 2.3rem); }
+.ngdScoreSeal.bad strong { color: var(--ngd-bad); }
+
+.ngdScoreSeal b {
+  color: #2a1813;
+  font-size: 1.05rem;
+}
+
+.ngdScoreSeal div {
+  display: flex;
+  gap: 3px;
+  margin-top: 5px;
+  color: #dfc38b;
+  font-size: 1.2rem;
+}
+
+.ngdScoreSeal i {
+  font-style: normal;
+}
+
+.ngdScoreSeal i.active {
+  color: #f0a81e;
+}
+
+.ngdHeroSummary,
+.ngdHeroActions {
+  grid-column: 1 / -1;
+}
+
+.ngdHeroSummary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.ngdHeroSummary p {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(208, 138, 22, .36);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .64);
+  color: #4c342d;
+  line-height: 1.55;
+  font-size: .92rem;
+  font-weight: 700;
+}
+
+.ngdCheck,
+.ngdCross {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 950;
+}
+
+.ngdCheck { background: var(--ngd-good); }
+.ngdCross { background: var(--ngd-bad); }
+
+.ngdHeroActions {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(180px, .8fr);
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.ngdHeroActions > a,
+.ngdDatePicker button,
+.ngdBirthForm button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ngd-red), var(--ngd-red-dark));
+  box-shadow: 0 12px 28px rgba(168, 7, 7, .18);
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.ngdHeroActions > a {
+  color: var(--ngd-red-dark);
+  background: rgba(255, 255, 255, .68);
+  border: 1px solid rgba(208, 138, 22, .44);
+  box-shadow: none;
+}
+
+.ngdDatePicker {
+  display: grid;
+  gap: 10px;
+}
+
+.ngdDatePicker label {
+  display: grid;
+  gap: 7px;
+  color: var(--ngd-muted);
+  font-weight: 850;
+}
+
+.ngdDatePicker label span {
+  font-size: .9rem;
+}
+
+.ngdDatePicker input,
+.ngdBirthForm input,
+.ngdBirthForm select,
+.ngdFakeSelect select {
+  min-height: 48px;
+  padding: 0 12px;
+  border: 1px solid rgba(208, 138, 22, .42);
+  border-radius: 9px;
+  color: var(--ngd-text);
+  background: #fffdf8;
+  outline: none;
+}
+
+.ngdDatePicker input:focus,
+.ngdBirthForm input:focus,
+.ngdBirthForm select:focus,
+.ngdFakeSelect select:focus {
+  border-color: rgba(168, 7, 7, .52);
+  box-shadow: 0 0 0 4px rgba(168, 7, 7, .08);
+}
+
+.ngdDatePickerCompact {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: flex-end;
+}
+
+.ngdDatePickerCompact label span {
+  display: none;
+}
+
+.ngdDatePickerCompact button {
+  white-space: nowrap;
+}
+
+.ngdQuickConclusion,
+.ngdPanel,
+.ngdFaq {
+  padding: clamp(18px, 2.4vw, 24px);
+}
+
+.ngdSectionHead,
+.ngdPanelHead {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
+
+.ngdSectionHead.compact,
+.ngdPanelHead {
+  margin-bottom: 14px;
+}
+
+.ngdSectionHead h2,
+.ngdPanelHead h2,
+.ngdSideCard h2,
+.ngdCompassCard h2,
+.ngdAgeCard h2,
+.ngdTaskCard h2,
+.ngdFaq h2 {
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+}
+
+.ngdAdviceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ngdAdviceCard {
+  position: relative;
+  min-height: 170px;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(208, 138, 22, .34);
+  background: #fffdf8;
+}
+
+.ngdAdviceCard.good {
+  border-color: rgba(38, 122, 49, .24);
+  background: linear-gradient(135deg, rgba(241, 251, 235, .98), rgba(255, 255, 255, .90));
+}
+
+.ngdAdviceCard.bad {
+  border-color: rgba(195, 39, 29, .24);
+  background: linear-gradient(135deg, rgba(255, 241, 236, .98), rgba(255, 255, 255, .90));
+}
+
+.ngdAdviceCard > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ngdAdviceCard > div span {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 950;
+}
+
+.ngdAdviceCard.good > div span { background: var(--ngd-good); }
+.ngdAdviceCard.bad > div span { background: var(--ngd-bad); }
+
+.ngdAdviceCard h3 {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+
+.ngdAdviceCard.good h3 { color: var(--ngd-good); }
+.ngdAdviceCard.bad h3 { color: var(--ngd-bad); }
+
+.ngdAdviceCard ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #3d2a24;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.ngdAdviceCard li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.ngdAdviceCard li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "✓";
+  color: var(--ngd-good);
+  font-weight: 950;
+}
+
+.ngdAdviceCard.bad li::before {
+  content: "×";
+  color: var(--ngd-bad);
+}
+
+.ngdAdviceCard > i {
+  position: absolute;
+  right: 20px;
+  bottom: 12px;
+  color: rgba(105, 68, 24, .13);
+  font-size: 5.8rem;
+  font-style: normal;
+  line-height: 1;
+}
+
+.ngdPanelHead {
+  display: flex;
+  gap: 18px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.ngdFakeSelect {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--ngd-muted);
+  font-size: .9rem;
+  font-weight: 750;
+}
+
+.ngdFakeSelect select {
+  min-width: 190px;
+}
+
+.ngdHourGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(74px, 1fr));
+  overflow-x: auto;
+  border: 1px solid rgba(208, 138, 22, .36);
+  border-radius: 12px;
+  background: #fffdf8;
+}
+
+.ngdHourCard {
+  display: grid;
+  gap: 5px;
+  justify-items: center;
+  min-width: 74px;
+  padding: 14px 8px 12px;
+  border-right: 1px solid rgba(208, 138, 22, .28);
+  text-align: center;
+}
+
+.ngdHourCard:last-child {
+  border-right: 0;
+}
+
+.ngdHourCard strong {
+  color: #2e1711;
+  font-size: 1.02rem;
+}
+
+.ngdHourCard span {
+  color: var(--ngd-muted);
+  font-size: .78rem;
+  font-weight: 750;
+}
+
+.ngdHourCard em {
+  display: inline-flex;
+  min-width: 52px;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 7px;
+  font-size: .82rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.ngdHourCard.good em {
+  color: var(--ngd-good);
+  background: #edf8e8;
+  border: 1px solid rgba(38, 122, 49, .24);
+}
+
+.ngdHourCard.bad em {
+  color: var(--ngd-bad);
+  background: #fff0ea;
+  border: 1px solid rgba(195, 39, 29, .22);
+}
+
+.ngdHourLegend,
+.ngdLegend {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  color: var(--ngd-muted);
+  font-size: .86rem;
+  font-weight: 800;
+}
+
+.ngdHourLegend span,
+.ngdLegend span {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.ngdHourLegend i,
+.ngdLegend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.ngdHourLegend i.good,
+.ngdLegend i.good { background: var(--ngd-good); }
+.ngdLegend i.neutral { background: #e8a30e; }
+.ngdHourLegend i.bad,
+.ngdLegend i.bad { background: var(--ngd-bad); }
+
+.ngdActivityGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ngdActivityCard {
+  display: grid;
+  gap: 10px;
+  min-height: 190px;
+  padding: 16px;
+  border: 1px solid rgba(208, 138, 22, .36);
+  border-radius: 12px;
+  background: #fffdf8;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.ngdActivityCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px rgba(103, 35, 8, .13);
+}
+
+.ngdActivityTop {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.ngdActivityTop h3 {
+  margin: 0;
+  color: #2c1510;
+  font-size: 1.05rem;
+}
+
+.ngdActivityTop .svgIcon {
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  color: var(--ngd-gold);
+  background: rgba(208, 138, 22, .12);
+  border-radius: 12px;
+}
+
+.ngdActivityCard > span {
+  width: fit-content;
+  padding: 5px 9px;
+  border-radius: 7px;
+  font-size: .78rem;
+  font-weight: 950;
+}
+
+.ngdActivityCard.good > span {
+  color: var(--ngd-good);
+  background: #edf8e8;
+}
+
+.ngdActivityCard.neutral > span {
+  color: #9a640e;
+  background: #fff2cb;
+}
+
+.ngdActivityCard.bad > span {
+  color: var(--ngd-bad);
+  background: #fff0ea;
+}
+
+.ngdActivityCard p {
+  margin: 0;
+  color: #563d34;
+  line-height: 1.5;
+  font-size: .9rem;
+}
+
+.ngdActivityCard em {
+  align-self: flex-end;
+  color: var(--ngd-red);
+  font-style: normal;
+  font-weight: 900;
+}
+
+.ngdInfoTriplet,
+.ngdDetailAndLinks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ngdDetailAndLinks {
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, .8fr);
+}
+
+.ngdCompassCard,
+.ngdAgeCard,
+.ngdTaskCard {
+  padding: 18px;
+}
+
+.ngdCompassWrap {
+  position: relative;
+  width: 144px;
+  height: 144px;
+  display: grid;
+  place-items: center;
+  margin: 4px auto 12px;
+  border: 8px double rgba(38, 122, 49, .34);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fff 0 24%, rgba(237, 248, 232, .95) 25% 100%);
+}
+
+.ngdCompassWrap span {
+  position: absolute;
+  color: #2a3124;
+  font-size: .72rem;
+  font-weight: 900;
+}
+
+.ngdCompassWrap span:nth-child(1) { top: 6px; }
+.ngdCompassWrap span:nth-child(2) { right: 8px; }
+.ngdCompassWrap span:nth-child(3) { bottom: 6px; }
+.ngdCompassWrap span:nth-child(4) { left: 8px; }
+
+.ngdCompassWrap b {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  color: #fff;
+  background: conic-gradient(from 30deg, var(--ngd-good), #d64032, var(--ngd-good));
+  border: 6px solid #fff;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  transform: rotate(-35deg);
+}
+
+.ngdDirectionList {
+  display: grid;
+  gap: 9px;
+  margin: 0 0 12px;
+}
+
+.ngdDirectionList div {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.ngdDirectionList dt {
+  color: var(--ngd-muted);
+  font-weight: 850;
+}
+
+.ngdDirectionList dd {
+  margin: 0;
+  color: #2b1712;
+  font-weight: 950;
+}
+
+.ngdCompassCard p,
+.ngdAgeBox p,
+.ngdPickerSide p {
+  margin: 0;
+  color: var(--ngd-muted);
+  line-height: 1.55;
+  font-size: .9rem;
+}
+
+.ngdAgeBox {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(208, 138, 22, .3);
+}
+
+.ngdAgeBox.good {
+  background: rgba(237, 248, 232, .76);
+  border-color: rgba(38, 122, 49, .24);
+}
+
+.ngdAgeBox.bad {
+  background: rgba(255, 240, 234, .76);
+  border-color: rgba(195, 39, 29, .22);
+}
+
+.ngdAgeBox strong,
+.ngdAgeBox span {
+  display: block;
+}
+
+.ngdAgeBox strong {
+  color: var(--ngd-good);
+}
+
+.ngdAgeBox.bad strong {
+  color: var(--ngd-bad);
+}
+
+.ngdAgeBox span {
+  color: #2a1712;
+  font-weight: 950;
+}
+
+.ngdZodiacRow {
+  display: flex;
+  gap: 5px;
+}
+
+.ngdZodiacRow .zodiacImg {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  padding: 5px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(208, 138, 22, .34);
+}
+
+.ngdBirthForm {
+  display: grid;
+  grid-template-columns: minmax(108px, 136px) minmax(0, 1fr);
+  gap: 10px;
+  align-items: end;
+  margin-top: 12px;
+}
+
+.ngdBirthForm label {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 7px;
+  min-width: 0;
+}
+
+.ngdBirthForm label span {
+  color: var(--ngd-muted);
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 850;
+}
+
+.ngdBirthForm input,
+.ngdBirthForm select,
+.ngdBirthForm button {
+  width: 100%;
+  min-width: 0;
+}
+
+.ngdBirthForm button {
+  min-height: 48px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.ngdTaskLinks {
+  display: grid;
+  gap: 8px;
+}
+
+.ngdQuickLink {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 16px;
+  gap: 8px;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid rgba(208, 138, 22, .30);
+  border-radius: 10px;
+  background: rgba(255, 253, 248, .8);
+  color: #321913;
+}
+
+.ngdQuickLink:hover {
+  border-color: rgba(168, 7, 7, .34);
+  background: var(--ngd-red-soft);
+}
+
+.ngdQuickLink strong {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: .92rem;
+}
+
+.ngdQuickLink em {
+  color: var(--ngd-red);
+  font-style: normal;
+  font-size: 1.2rem;
+}
+
+.ngdTabs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  max-width: 100%;
+  margin: -2px 0 16px;
+  padding: 2px 2px 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ngdTabs span {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(208, 138, 22, .38);
+  border-radius: 999px;
+  color: var(--ngd-muted);
+  background: rgba(255, 253, 248, .92);
+  box-shadow: 0 8px 18px rgba(103, 35, 8, .06);
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.ngdTabs span:first-child {
+  color: #fff;
+  background: linear-gradient(135deg, var(--ngd-red), var(--ngd-red-dark));
+  border-color: transparent;
+  box-shadow: 0 12px 24px rgba(168, 7, 7, .18);
+}
+
+.ngdDetailText {
+  color: #3d271f;
+  line-height: 1.72;
+  font-size: .95rem;
+}
+
+.ngdDetailText p {
+  margin: 0 0 10px;
+}
+
+.ngdRelatedGrid {
+  display: grid;
+  gap: 10px;
+}
+
+.ngdRelatedGrid a {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid rgba(208, 138, 22, .32);
+  border-radius: 10px;
+  background: rgba(255, 253, 248, .84);
+  color: #40231b;
+  font-size: .9rem;
+  font-weight: 850;
+}
+
+.ngdRelatedGrid a:hover {
+  color: var(--ngd-red);
+  background: var(--ngd-red-soft);
+}
+
+.ngdRelatedGrid .svgIcon {
+  width: 19px;
+  height: 19px;
+  color: var(--ngd-red);
+}
+
+.ngdFaqGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+}
+
+.ngdFaq details {
+  border: 1px solid rgba(208, 138, 22, .32);
+  border-radius: 10px;
+  background: rgba(255, 253, 248, .84);
+}
+
+.ngdFaq summary {
+  padding: 12px 14px;
+  color: #321812;
+  cursor: pointer;
+  font-weight: 850;
+}
+
+.ngdFaq details[open] summary {
+  color: var(--ngd-red);
+}
+
+.ngdFaq details p {
+  margin: 0;
+  padding: 0 14px 14px;
+  color: var(--ngd-muted);
+  line-height: 1.6;
+}
+
+.ngdSideCard {
+  padding: 16px;
+}
+
+.ngdSideTitleRow {
+  display: grid;
+  grid-template-columns: 32px 1fr 32px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.ngdSideTitleRow a {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: var(--ngd-red);
+  border: 1px solid rgba(208, 138, 22, .42);
+  border-radius: 50%;
+  background: #fffdf8;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.ngdSideTitleRow h2,
+.ngdFastCard h2,
+.ngdPickerSide h2 {
+  text-align: center;
+  font-size: 1.28rem;
+}
+
+.ngdMonthGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.ngdMonthDow {
+  color: #44251d;
+  text-align: center;
+  font-size: .78rem;
+  font-weight: 950;
+}
+
+.ngdMonthDay {
+  position: relative;
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #2b1712;
+  font-size: .84rem;
+  font-weight: 850;
+}
+
+.ngdMonthDay:hover {
+  background: rgba(168, 7, 7, .08);
+}
+
+.ngdMonthDay.muted {
+  color: #b79b8d;
+}
+
+.ngdMonthDay.selected {
+  color: #fff;
+  background: var(--ngd-red);
+}
+
+.ngdMonthDay.today:not(.selected) {
+  outline: 2px solid rgba(168, 7, 7, .22);
+}
+
+.ngdMonthDay span {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.ngdMonthDay.good span { background: var(--ngd-good); }
+.ngdMonthDay.bad span { background: var(--ngd-bad); }
+.ngdMonthDay.selected span { background: #fff; }
+
+.ngdFastCard > div {
+  display: grid;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.ngdFastCard a {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  padding: 10px 8px;
+  color: #44251d;
+  border-bottom: 1px dashed rgba(208, 138, 22, .35);
+  font-size: .93rem;
+  font-weight: 850;
+}
+
+.ngdFastCard a:last-child {
+  border-bottom: 0;
+}
+
+.ngdFastCard a:hover {
+  color: var(--ngd-red);
+}
+
+.ngdFastCard .svgIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--ngd-red);
+}
+
+.ngdPickerSide {
+  display: grid;
+  gap: 12px;
+}
+
+.ngdPickerSide .ngdDatePicker button {
+  width: 100%;
+}
+
+@media (max-width: 1180px) {
+  .ngdLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .ngdSidebar {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ngdPickerSide {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 980px) {
+  .ngdHeroCard {
+    grid-template-columns: 130px 1fr;
+  }
+
+  .ngdScoreSeal {
+    grid-column: 1 / -1;
+    width: 190px;
+    height: 190px;
+  }
+
+  .ngdHeroSummary,
+  .ngdAdviceGrid,
+  .ngdInfoTriplet,
+  .ngdDetailAndLinks,
+  .ngdFaqGrid,
+  .ngdActivityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ngdPanelHead {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ngdFakeSelect {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 720px) {
+  .ngdPage {
+    padding-top: 14px;
+  }
+
+  .ngdLayout,
+  .ngdMainColumn,
+  .ngdSidebar {
+    gap: 14px;
+  }
+
+  .ngdSidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .ngdHeroCard {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ngdSolarCard {
+    width: min(100%, 210px);
+    min-height: 218px;
+    justify-self: center;
+  }
+
+  .ngdHeroInfo h1 {
+    text-align: center;
+  }
+
+  .ngdMetaList dd {
+    display: grid;
+    gap: 2px;
+  }
+
+  .ngdMetaList dd span {
+    flex-basis: auto;
+  }
+
+  .ngdHeroActions,
+  .ngdDatePickerCompact,
+  .ngdBirthForm {
+    grid-template-columns: 1fr;
+  }
+
+  .ngdTabs {
+    margin-inline: -2px;
+    padding-bottom: 10px;
+  }
+
+  .ngdTabs span {
+    min-height: 38px;
+    padding-inline: 12px;
+    font-size: 13px;
+  }
+
+  .ngdFakeSelect {
+    display: grid;
+  }
+
+  .ngdFakeSelect select {
+    width: 100%;
+  }
+
+  .ngdHourGrid {
+    grid-template-columns: repeat(6, minmax(76px, 1fr));
+  }
+
+  .ngdMonthDay {
+    min-height: 38px;
+  }
+}
+
+/* Shared page-only refinements: keep global header/footer untouched */
+.ngdFullscreenBg,
+.ageFullscreenBg {
+  filter: saturate(.98) contrast(1.02);
+}
+
+.goldenDayPage .ngdScoreSeal strong {
+  font-size: clamp(3.8rem, 6vw, 5.2rem);
+}
+
+.goldenDayPage .goldenSeal b {
+  color: var(--ngd-good);
+}
+
+.goldenTimeCard i {
+  color: rgba(208, 138, 22, .58);
+}
+
+.goldenUseCard .ngdActivityTop .svgIcon {
+  color: var(--ngd-good);
+  background: rgba(38, 122, 49, .11);
+}
+
+.goldenNoteCard .ngdAgeBox > .svgIcon {
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  color: var(--ngd-red);
+  border: 1px solid rgba(208, 138, 22, .32);
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Xem tuổi hợp / phong thủy - page-only design */
+.ageModernShell {
+  color: var(--ngd-text);
+}
+
+.ageModernPage {
+  position: relative;
+  isolation: isolate;
+  padding: 22px 0 48px;
+  background: transparent;
+}
+
+.ageModernContainer {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+}
+
+.ageModernHero,
+.ageModernArticle,
+.ageSideCard,
+.ageModernPage .panelCard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(208, 138, 22, .34);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,250,241,.96)),
+    radial-gradient(circle at 92% 4%, rgba(208,138,22,.12), transparent 17rem);
+  box-shadow: var(--ngd-shadow);
+  backdrop-filter: blur(14px);
+}
+
+.ageModernHero::after,
+.ageModernArticle::after,
+.ageSideCard::after,
+.ageModernPage .panelCard::after {
+  content: "";
+  position: absolute;
+  right: -44px;
+  bottom: -64px;
+  width: 190px;
+  height: 190px;
+  border: 28px double rgba(168, 7, 7, .045);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ageModernHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 24px;
+  align-items: center;
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.ageHeroText,
+.ageHeroPreview,
+.ageModernArticle > *,
+.ageSideCard > *,
+.ageModernPage .panelCard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ageHeroText h1 {
+  margin: 0 0 14px;
+  color: #4a0909;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+.ageHeroText p:not(.ngdEyebrow) {
+  max-width: 820px;
+  margin: 0;
+  color: #563d34;
+  font-size: 1.02rem;
+  line-height: 1.72;
+  font-weight: 650;
+}
+
+.ageHeroBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.ageHeroBadges span {
+  padding: 8px 11px;
+  border: 1px solid rgba(208, 138, 22, .32);
+  border-radius: 999px;
+  color: var(--ngd-red-dark);
+  background: rgba(255, 253, 248, .75);
+  font-size: .86rem;
+  font-weight: 900;
+}
+
+.ageHeroPreview {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  padding: 22px;
+  border: 9px double rgba(208, 138, 22, .64);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #fffdf8 0 48%, rgba(255,246,224,.95) 49% 100%);
+  text-align: center;
+  box-shadow: inset 0 0 0 1px rgba(168, 7, 7, .10), 0 18px 42px rgba(168,7,7,.10);
+}
+
+.ageHeroPreview span {
+  color: var(--ngd-good);
+  font-size: .74rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.ageHeroPreview strong {
+  display: block;
+  margin: 4px 0 2px;
+  color: var(--ngd-good);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.2rem, 5vw, 4.6rem);
+  line-height: .92;
+}
+
+.ageHeroPreview em {
+  color: #2a1813;
+  font-size: .98rem;
+  font-style: normal;
+  font-weight: 950;
+}
+
+.ageHeroPreview small {
+  display: block;
+  margin-top: 8px;
+  color: var(--ngd-muted);
+  font-size: .78rem;
+  line-height: 1.45;
+  font-weight: 750;
+}
+
+.ageModernLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 24px;
+  align-items: start;
+}
+
+.ageModernMain,
+.ageModernSidebar {
+  display: grid;
+  gap: 18px;
+}
+
+.ageModernSidebar {
+  position: sticky;
+  top: 96px;
+}
+
+.ageModernPage .panelCard {
+  padding: clamp(18px, 2.4vw, 24px);
+}
+
+.ageModernPage .ageSearch {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, .78fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.ageModernPage .ageSearch h2,
+.ageModernPage .compatResultHead h2,
+.ageModernArticle h2,
+.ageSideCard h2 {
+  margin: 0 0 8px;
+  color: var(--ngd-text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 850;
+  letter-spacing: -.025em;
+}
+
+.ageModernPage .ageSearch p,
+.ageModernPage .compatResultHead p,
+.ageModernArticle p,
+.ageSideCard p {
+  color: #563d34;
+  line-height: 1.65;
+}
+
+.ageModernPage .compatForm,
+.ageModernPage .ageForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.ageModernPage .compatForm.threeFields {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+}
+
+.ageModernPage .compatForm label,
+.ageModernPage .ageForm label {
+  display: grid;
+  gap: 7px;
+  color: var(--ngd-muted);
+  font-size: .9rem;
+  font-weight: 850;
+}
+
+.ageModernPage .compatForm input,
+.ageModernPage .compatForm select,
+.ageModernPage .ageForm input,
+.ageModernPage .ageForm select {
+  min-height: 48px;
+  padding: 0 12px;
+  border: 1px solid rgba(208, 138, 22, .42);
+  border-radius: 9px;
+  color: var(--ngd-text);
+  background: #fffdf8;
+  outline: none;
+}
+
+.ageModernPage .compatForm input:focus,
+.ageModernPage .compatForm select:focus,
+.ageModernPage .ageForm input:focus,
+.ageModernPage .ageForm select:focus {
+  border-color: rgba(168, 7, 7, .52);
+  box-shadow: 0 0 0 4px rgba(168, 7, 7, .08);
+}
+
+.ageModernPage .compatForm button,
+.ageModernPage .ageForm button {
+  min-height: 48px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ngd-red), var(--ngd-red-dark));
+  box-shadow: 0 12px 28px rgba(168, 7, 7, .18);
+  font-weight: 950;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ageModernPage .compatResultPanel {
+  border-color: rgba(208, 138, 22, .34);
+}
+
+.ageModernPage .compatResultPanel::before {
+  height: 6px;
+}
+
+.ageModernPage .compatScore {
+  color: var(--ngd-red-dark);
+  background: radial-gradient(circle at 30% 20%, #fff, #fff2d7);
+  border: 1px solid rgba(208, 138, 22, .42);
+}
+
+.ageModernPage .compatIdentity,
+.ageModernPage .compatBreakdown span,
+.ageModernPage .compatCheckGrid article,
+.ageModernPage .compatNoteGrid article,
+.ageModernPage .bestDateGrid article {
+  border-color: rgba(208, 138, 22, .30);
+  background: rgba(255, 253, 248, .78);
+}
+
+.ageModernPage .compatIdentity .zodiacImg,
+.ageModernPage .yearAnimal .zodiacImg {
+  border-color: rgba(208, 138, 22, .28);
+  background: #fff8ec;
+}
+
+.ageModernPage .resultActions a,
+.ageModernPage .compatNoteGrid article a {
+  color: var(--ngd-red-dark);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ageModernArticle {
+  padding: clamp(18px, 2.4vw, 24px);
+}
+
+.ageModernArticle h2:not(:first-of-type) {
+  margin-top: 18px;
+}
+
+.ageRelatedPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.ageRelatedPills a {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid rgba(208, 138, 22, .32);
+  border-radius: 999px;
+  color: var(--ngd-red-dark);
+  background: rgba(255,253,248,.80);
+  font-size: .9rem;
+  font-weight: 900;
+}
+
+.ageRelatedPills .svgIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--ngd-red);
+}
+
+.ageSideCard {
+  display: grid;
+  gap: 9px;
+  padding: 18px;
+}
+
+.ageSideCard h2 {
+  font-size: 1.28rem;
+}
+
+.ageSideCard a {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 10px;
+  border: 1px solid rgba(208, 138, 22, .30);
+  border-radius: 10px;
+  color: #321913;
+  background: rgba(255,253,248,.78);
+  font-size: .92rem;
+  font-weight: 850;
+}
+
+.ageSideCard a:hover {
+  color: var(--ngd-red);
+  background: var(--ngd-red-soft);
+}
+
+.ageSideCard .svgIcon {
+  width: 19px;
+  height: 19px;
+  color: var(--ngd-red);
+}
+
+.ageNoteCard p {
+  margin: 0;
+}
+
+@media (max-width: 1180px) {
+  .ageModernLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .ageModernSidebar {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .ageModernHero,
+  .ageModernPage .ageSearch {
+    grid-template-columns: 1fr;
+  }
+
+  .ageHeroPreview {
+    width: min(100%, 230px);
+    min-height: 230px;
+    justify-self: center;
+  }
+
+  .ageModernPage .compatForm,
+  .ageModernPage .ageForm,
+  .ageModernPage .compatForm.threeFields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ageModernPage .compatForm button,
+  .ageModernPage .ageForm button {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .ageModernPage {
+    padding-top: 14px;
+  }
+
+  .ageModernHero,
+  .ageModernPage .panelCard,
+  .ageModernArticle,
+  .ageSideCard {
+    border-radius: 16px;
+  }
+
+  .ageModernSidebar,
+  .ageModernPage .compatForm,
+  .ageModernPage .ageForm,
+  .ageModernPage .compatForm.threeFields {
+    grid-template-columns: 1fr;
+  }
+
+  .ageHeroText h1 {
+    text-align: center;
+  }
+
+  .ageHeroBadges {
+    justify-content: center;
+  }
+}
+
+/* Xem ngày tốt theo tuổi - scoped page design */
+.ageGoodDateShell {
+  color: var(--ngd-text);
+}
+
+.ageGoodDatePage {
+  position: relative;
+  isolation: isolate;
+  padding: 22px 0 48px;
+  background: transparent;
+}
+
+.ageGoodDateContainer {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+}
+
+.ageGoodDateHero,
+.ageGoodDatePlanner,
+.ageGoodDateInsightCard,
+.ageGoodDatePanel,
+.ageGoodDateSideCard,
+.ageGoodDateResults,
+.ageGoodDateEmpty,
+.ageGoodDateArticle {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(208, 138, 22, .34);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,250,241,.96)),
+    radial-gradient(circle at 92% 4%, rgba(208,138,22,.12), transparent 17rem);
+  box-shadow: var(--ngd-shadow);
+  backdrop-filter: blur(14px);
+}
+
+.ageGoodDateHero::after,
+.ageGoodDatePlanner::after,
+.ageGoodDatePanel::after,
+.ageGoodDateSideCard::after,
+.ageGoodDateResults::after,
+.ageGoodDateArticle::after {
+  content: "";
+  position: absolute;
+  right: -44px;
+  bottom: -64px;
+  width: 190px;
+  height: 190px;
+  border: 28px double rgba(168, 7, 7, .045);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ageGoodDateHero > *,
+.ageGoodDatePlanner > *,
+.ageGoodDatePanel > *,
+.ageGoodDateSideCard > *,
+.ageGoodDateResults > *,
+.ageGoodDateArticle > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ageGoodDateHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 24px;
+  align-items: center;
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.ageGoodDateHeroText h1,
+.ageGoodDatePlanner h2,
+.ageGoodDateSectionHead h2,
+.ageGoodDateSideCard h2,
+.ageGoodDateArticle h2 {
+  margin: 0;
+  color: #4a0909;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 850;
+  letter-spacing: -.035em;
+}
+
+.ageGoodDateHeroText h1 {
+  margin-bottom: 14px;
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.08;
+}
+
+.ageGoodDateHeroText p:not(.ngdEyebrow),
+.ageGoodDatePlanner p,
+.ageGoodDateSectionHead p:not(.ngdEyebrow),
+.ageGoodDateArticle p,
+.ageGoodDateSideCard p,
+.ageGoodDateNote {
+  margin: 0;
+  color: #563d34;
+  line-height: 1.65;
+}
+
+.ageGoodDateHeroText p:not(.ngdEyebrow) {
+  max-width: 820px;
+  font-size: 1.02rem;
+  font-weight: 650;
+  line-height: 1.72;
+}
+
+.ageGoodDateBadges,
+.ageGoodDateActions,
+.ageGoodDateActivityList,
+.ageGoodDateBreakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ageGoodDateBadges {
+  margin-top: 18px;
+}
+
+.ageGoodDateBadges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 1px solid rgba(208, 138, 22, .32);
+  border-radius: 999px;
+  color: var(--ngd-red-dark);
+  background: rgba(255, 253, 248, .75);
+  font-size: .86rem;
+  font-weight: 900;
+}
+
+.ageGoodDateBadges .svgIcon {
+  width: 17px;
+  height: 17px;
+  color: var(--ngd-red);
+}
+
+.ageGoodDateSeal {
+  min-height: 238px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  padding: 22px;
+  border: 9px double rgba(208, 138, 22, .64);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #fffdf8 0 48%, rgba(255,246,224,.95) 49% 100%);
+  text-align: center;
+  box-shadow: inset 0 0 0 1px rgba(168, 7, 7, .10), 0 18px 42px rgba(168,7,7,.10);
+}
+
+.ageGoodDateSeal span {
+  color: var(--ngd-good);
+  font-size: .74rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.ageGoodDateSeal strong {
+  display: block;
+  margin: 4px 0 0;
+  color: var(--ngd-good);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.4rem, 5.4vw, 4.8rem);
+  line-height: .88;
+}
+
+.ageGoodDateSeal.neutral strong { color: #b47410; }
+.ageGoodDateSeal.bad strong { color: var(--ngd-bad); }
+
+.ageGoodDateSeal b,
+.ageGoodDateSeal em {
+  color: #2a1813;
+  font-style: normal;
+  font-weight: 950;
+}
+
+.ageGoodDateSeal em {
+  margin-top: 7px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: var(--ngd-red-dark);
+  background: rgba(255, 241, 236, .76);
+  font-size: .82rem;
+}
+
+.ageGoodDateSeal small {
+  display: block;
+  margin-top: 8px;
+  color: var(--ngd-muted);
+  font-size: .78rem;
+  line-height: 1.45;
+  font-weight: 750;
+}
+
+.ageGoodDatePlanner {
+  display: grid;
+  grid-template-columns: minmax(0, .68fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+  padding: clamp(18px, 2.4vw, 24px);
+}
+
+.ageGoodDatePlanner h2 {
+  margin-bottom: 8px;
+  font-size: clamp(1.3rem, 2.4vw, 1.72rem);
+}
+
+.ageGoodDatePlanner strong {
+  color: var(--ngd-red-dark);
+}
+
+.ageGoodDateForm {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: end;
+}
+
+.ageGoodDateForm label {
+  display: grid;
+  gap: 7px;
+  color: var(--ngd-muted);
+  font-size: .9rem;
+  font-weight: 850;
+}
+
+.ageGoodDateForm label span {
+  white-space: nowrap;
+}
+
+.ageGoodDateForm input,
+.ageGoodDateForm select {
+  min-height: 48px;
+  width: 100%;
+  padding: 0 12px;
+  border: 1px solid rgba(208, 138, 22, .42);
+  border-radius: 9px;
+  color: var(--ngd-text);
+  background: #fffdf8;
+  outline: none;
+}
+
+.ageGoodDateForm input:focus,
+.ageGoodDateForm select:focus {
+  border-color: rgba(168, 7, 7, .52);
+  box-shadow: 0 0 0 4px rgba(168, 7, 7, .08);
+}
+
+.ageGoodDateForm button,
+.ageGoodDateActions a,
+.ageGoodDatePage .resultActions a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ngd-red), var(--ngd-red-dark));
+  box-shadow: 0 12px 28px rgba(168, 7, 7, .18);
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.ageGoodDateForm button {
+  grid-column: 1 / -1;
+}
+
+.ageGoodDateForm button .svgIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.ageGoodDateActions a:nth-child(2),
+.ageGoodDatePage .resultActions a:nth-child(2) {
+  color: var(--ngd-red-dark);
+  background: rgba(255, 255, 255, .68);
+  border: 1px solid rgba(208, 138, 22, .44);
+  box-shadow: none;
+}
+
+.ageGoodDateLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 24px;
+  align-items: start;
+}
+
+.ageGoodDateMain,
+.ageGoodDateSidebar {
+  display: grid;
+  gap: 18px;
+}
+
+.ageGoodDateSidebar {
+  position: sticky;
+  top: 96px;
+}
+
+.ageGoodDateInsightGrid {
+  display: grid;
+  grid-template-columns: 1.25fr .9fr .85fr;
+  gap: 14px;
+}
+
+.ageGoodDateInsightCard {
+  min-height: 220px;
+  display: grid;
+  align-content: start;
+  gap: 9px;
+  padding: 18px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.90), rgba(255,250,241,.96)),
+    radial-gradient(circle at 100% 0%, rgba(208,138,22,.14), transparent 14rem);
+}
+
+.ageGoodDateInsightCard.isPrimary {
+  background:
+    linear-gradient(135deg, rgba(255,247,231,.94), rgba(255,255,255,.92)),
+    radial-gradient(circle at 100% 0%, rgba(168,7,7,.12), transparent 13rem);
+}
+
+.ageGoodDateInsightCard > .svgIcon,
+.ageGoodDateInsightCard > .zodiacImg {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid rgba(208, 138, 22, .34);
+  border-radius: 16px;
+  color: var(--ngd-red);
+  background: rgba(255, 253, 248, .82);
+}
+
+.ageGoodDateInsightCard > .zodiacImg {
+  padding: 0;
+  object-fit: cover;
+}
+
+.ageGoodDateInsightCard span {
+  color: var(--ngd-muted);
+  font-size: .82rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ageGoodDateInsightCard strong {
+  color: #4a0909;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  line-height: 1.12;
+}
+
+.ageGoodDateInsightCard p {
+  margin: 0;
+  color: #563d34;
+  line-height: 1.58;
+  font-weight: 650;
+}
+
+.ageGoodDateActions {
+  margin-top: 8px;
+}
+
+.ageGoodDateActions a {
+  min-height: 38px;
+  padding-inline: 13px;
+  font-size: .86rem;
+  box-shadow: none;
+}
+
+.ageGoodDateResults,
+.ageGoodDatePanel,
+.ageGoodDateArticle {
+  padding: clamp(18px, 2.4vw, 24px);
+}
+
+.ageGoodDateSectionHead {
+  margin-bottom: 16px;
+}
+
+.ageGoodDateSectionHead.compact {
+  margin-bottom: 14px;
+}
+
+.ageGoodDateSectionHead h2 {
+  margin-bottom: 8px;
+  font-size: clamp(1.3rem, 2.4vw, 1.72rem);
+}
+
+.ageGoodDateResultGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ageGoodDatePage .activityResultCard {
+  border-color: rgba(208, 138, 22, .30);
+  background: rgba(255,253,248,.86);
+  box-shadow: 0 14px 36px rgba(103, 35, 8, .10);
+}
+
+.ageGoodDatePage .activityResultCard::before {
+  background: linear-gradient(90deg, var(--ngd-red-dark), var(--ngd-gold));
+}
+
+.ageGoodDatePage .activityResultCard.excellent::before { background: linear-gradient(90deg, var(--ngd-good), var(--ngd-gold)); }
+.ageGoodDatePage .activityResultCard.good::before { background: var(--ngd-good); }
+.ageGoodDatePage .activityResultCard.ok::before { background: #d99a08; }
+.ageGoodDatePage .activityResultCard.avoid::before { background: var(--ngd-bad); }
+
+.ageGoodDatePage .activityResultTop h3 {
+  color: #3b1711;
+}
+
+.ageGoodDatePage .activityResultTop p,
+.ageGoodDatePage .activitySummary,
+.ageGoodDatePage .ageNote,
+.ageGoodDatePage .miniInfoGrid span {
+  color: #563d34;
+}
+
+.ageGoodDatePage .resultRank {
+  color: var(--ngd-red-dark);
+  background: var(--ngd-red-soft);
+  border: 1px solid rgba(168, 7, 7, .12);
+}
+
+.ageGoodDatePage .scoreBadge {
+  background: #fff5dc;
+  border-color: rgba(208, 138, 22, .38);
+  color: var(--ngd-red-dark);
+}
+
+.ageGoodDatePage .miniInfoGrid span {
+  border-color: rgba(208, 138, 22, .30);
+  background: rgba(255, 250, 241, .78);
+}
+
+.ageGoodDateReasonGrid,
+.ageGoodDateGuideGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ageGoodDateReasonGrid article,
+.ageGoodDateGuideGrid article {
+  padding: 18px;
+  border: 1px solid rgba(208, 138, 22, .30);
+  border-radius: 16px;
+  background: rgba(255,253,248,.78);
+}
+
+.ageGoodDateReasonGrid h3,
+.ageGoodDateGuideGrid h3 {
+  margin: 0 0 10px;
+  color: var(--ngd-red-dark);
+  font-size: .92rem;
+  font-weight: 950;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.ageGoodDateReasonGrid ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #3d2a24;
+  line-height: 1.58;
+  font-weight: 650;
+}
+
+.ageGoodDateReasonGrid li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.ageGoodDateReasonGrid li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--ngd-gold);
+  font-weight: 950;
+}
+
+.ageGoodDateReasonGrid p,
+.ageGoodDateGuideGrid p {
+  margin: 0;
+  color: #563d34;
+  line-height: 1.58;
+}
+
+.ageGoodDateGuideGrid article span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ngd-red), var(--ngd-red-dark));
+  font-weight: 950;
+}
+
+.ageGoodDateBreakdown {
+  margin-top: 14px;
+  border-color: rgba(208, 138, 22, .32);
+  background: rgba(255,253,248,.78);
+}
+
+.ageGoodDateNote {
+  margin-top: 12px;
+}
+
+.ageGoodDateArticle h2:not(:first-of-type) {
+  margin-top: 18px;
+}
+
+.ageGoodDateSideCard {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+.ageGoodDateSideCard h2 {
+  margin-bottom: 2px;
+  font-size: 1.26rem;
+}
+
+.ageGoodDateSideCard > a,
+.ageGoodDateActivityList a {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 10px;
+  border: 1px solid rgba(208, 138, 22, .30);
+  border-radius: 10px;
+  color: #321913;
+  background: rgba(255,253,248,.78);
+  font-size: .92rem;
+  font-weight: 850;
+}
+
+.ageGoodDateSideCard > a:hover,
+.ageGoodDateActivityList a:hover {
+  color: var(--ngd-red);
+  background: var(--ngd-red-soft);
+}
+
+.ageGoodDateSideCard .svgIcon {
+  width: 19px;
+  height: 19px;
+  color: var(--ngd-red);
+}
+
+.ageGoodDateActivityList {
+  display: grid;
+  gap: 8px;
+}
+
+.ageGoodDateEmpty {
+  padding: 18px;
+}
+
+.ageGoodDateEmpty h3 {
+  margin: 0 0 8px;
+  color: var(--ngd-red-dark);
+}
+
+.ageGoodDateEmpty p {
+  margin: 0;
+  color: #563d34;
+  line-height: 1.6;
+}
+
+@media (max-width: 1180px) {
+  .ageGoodDateLayout,
+  .ageGoodDatePlanner {
+    grid-template-columns: 1fr;
+  }
+
+  .ageGoodDateSidebar {
+    position: static;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ageGoodDateInsightGrid,
+  .ageGoodDateReasonGrid,
+  .ageGoodDateGuideGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .ageGoodDateHero {
+    grid-template-columns: 1fr;
+  }
+
+  .ageGoodDateSeal {
+    width: min(100%, 230px);
+    min-height: 230px;
+    justify-self: center;
+  }
+
+  .ageGoodDateForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ageGoodDateForm button {
+    grid-column: 1 / -1;
+  }
+
+  .ageGoodDateSidebar,
+  .ageGoodDateResultGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .ageGoodDatePage {
+    padding-top: 14px;
+  }
+
+  .ageGoodDateHero,
+  .ageGoodDatePlanner,
+  .ageGoodDateInsightCard,
+  .ageGoodDatePanel,
+  .ageGoodDateSideCard,
+  .ageGoodDateResults,
+  .ageGoodDateArticle {
+    border-radius: 16px;
+  }
+
+  .ageGoodDateHeroText h1 {
+    text-align: center;
+  }
+
+  .ageGoodDateBadges {
+    justify-content: center;
+  }
+
+  .ageGoodDateForm,
+  .ageGoodDateInsightGrid,
+  .ageGoodDateReasonGrid,
+  .ageGoodDateGuideGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ageGoodDateForm label span {
+    white-space: normal;
+  }
+
+  .ageGoodDatePage .resultActions a,
+  .ageGoodDateActions a {
+    width: 100%;
+  }
 }

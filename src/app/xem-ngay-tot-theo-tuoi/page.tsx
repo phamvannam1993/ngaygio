@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { XemNgayTotPageContent, resolveGoodDateParams } from "../xem-ngay-tot/XemNgayTotPageContent";
+import { resolveGoodDateParams } from "../xem-ngay-tot/XemNgayTotPageContent";
+import { AgeGoodDateDesign } from "@/components/AgeGoodDateDesign";
 import { siteConfig } from "@/lib/site";
 
 type PageProps = { searchParams?: Promise<Record<string, string | string[] | undefined>> };
@@ -24,11 +25,5 @@ export const metadata: Metadata = {
 
 export default async function XemNgayTotTheoTuoiPage({ searchParams }: PageProps) {
   const resolved = resolveGoodDateParams((await searchParams) ?? {}, "khai-truong");
-  return (
-    <XemNgayTotPageContent
-      resolved={resolved}
-      overrideTitle="Xem ngày tốt theo tuổi"
-      overrideDescription="Nhập năm sinh để lọc ngày tốt, ngày hợp tuổi, tránh ngày xung tuổi trong khoảng thời gian bạn chọn. Hệ thống chấm điểm 100 theo lịch âm, trực ngày, giờ hoàng đạo và tuổi xung hợp."
-    />
-  );
+  return <AgeGoodDateDesign resolved={resolved} />;
 }

@@ -1,15 +1,10 @@
 import { Footer } from "@/components/Footer";
-import { GoodBadArticle } from "@/components/GoodBadArticle";
-import { GoodBadDateForm } from "@/components/GoodBadDateForm";
-import { GoodBadMonthSummary, GoodBadResultPanel } from "@/components/GoodBadResultPanel";
 import { Header } from "@/components/Header";
-import { MonthCalendar } from "@/components/MonthCalendar";
-import { QuickTools } from "@/components/QuickTools";
+import { DayGoodBadDesign } from "@/components/DayGoodBadDesign";
 import { type DateParts } from "@/lib/date";
 import { getGoodBadDetails } from "@/lib/calendar/good-bad";
 import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
 import { siteConfig } from "@/lib/site";
-import { PageHeroBanner } from "@/components/PageHeroBanner";
 
 export function goodBadDateHref(date: DateParts): string {
   return `/ngay-tot-xau/${date.year}/${date.month}/${date.day}`;
@@ -56,6 +51,14 @@ export function buildGoodBadJsonLd(dayInfo: ReturnType<typeof getDayInfo>, detai
               text: dayInfo.goodHours.map((hour) => `${hour.branch} ${hour.range}`).join(", "),
             },
           },
+          {
+            "@type": "Question",
+            name: "Ngày này nên làm gì?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: details.shouldDo.join(", "),
+            },
+          },
         ],
       },
     ],
@@ -71,20 +74,9 @@ export function GoodBadPageContent({ selectedDate, isHomNay, isNgayMai }: { sele
   return (
     <>
       <Header currentYear={selectedDate.year} />
-      <main className="container mainStack">
-        <PageHeroBanner
-          eyebrow={isHomNay ? "Ngày tốt xấu hôm nay" : isNgayMai ? "Ngày tốt xấu ngày mai" : "Ngày tốt xấu"}
-          title={isHomNay ? "Xem ngày tốt xấu hôm nay" : isNgayMai ? "Xem ngày tốt xấu ngày mai" : "Tra cứu ngày tốt xấu theo ngày"}
-          description="Xem nhanh đánh giá tổng quan, việc nên làm, việc nên tránh và lịch tháng với phong cách hiển thị hiện đại, sạch và dễ theo dõi."
-          imageSrc="/bg-page-goodbad.png"
-        />
-        <GoodBadDateForm defaultDate={selectedDate} />
-        <GoodBadResultPanel day={dayInfo} details={details} isHomNay={isHomNay} isNgayMai={isNgayMai} />
-        <GoodBadMonthSummary calendar={monthCalendar} />
-        <MonthCalendar calendar={monthCalendar} makeHref={goodBadDateHref} />
-        <GoodBadArticle />
-        <QuickTools />
-      </main>
+      <div className="dayGoodBadShell">
+        <DayGoodBadDesign day={dayInfo} details={details} calendar={monthCalendar} isHomNay={isHomNay} isNgayMai={isNgayMai} />
+      </div>
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
