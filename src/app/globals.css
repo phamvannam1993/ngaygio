@@ -7848,7 +7848,8 @@ body:has(.pageFullscreenBg) .pickerPanel {
   -webkit-overflow-scrolling: touch;
 }
 
-.ngdTabs span {
+.ngdTabs span,
+.ngdTabs button {
   flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
@@ -7861,12 +7862,22 @@ body:has(.pageFullscreenBg) .pickerPanel {
   background: rgba(255, 253, 248, .92);
   box-shadow: 0 8px 18px rgba(103, 35, 8, .06);
   font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: inherit;
+  transition: color .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
   line-height: 1;
   font-weight: 850;
   white-space: nowrap;
 }
 
-.ngdTabs span:first-child {
+.ngdTabs button:hover {
+  color: var(--ngd-red-dark);
+  border-color: var(--ngd-red);
+}
+
+.ngdTabs button.is-active,
+.ngdTabs button[aria-selected="true"] {
   color: #fff;
   background: linear-gradient(135deg, var(--ngd-red), var(--ngd-red-dark));
   border-color: transparent;
@@ -8165,7 +8176,8 @@ body:has(.pageFullscreenBg) .pickerPanel {
     padding-bottom: 10px;
   }
 
-  .ngdTabs span {
+  .ngdTabs span,
+  .ngdTabs button {
     min-height: 38px;
     padding-inline: 12px;
     font-size: 13px;

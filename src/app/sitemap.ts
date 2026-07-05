@@ -141,6 +141,7 @@ export default async function sitemap(props: {
       u("/am-lich-hom-nay", now, "daily", 0.94),
       u("/gio-hoang-dao", now, "daily", 0.92),
       u("/ngay-tot-xau", now, "daily", 0.92),
+      u("/ngay-kieng-ky", now, "daily", 0.82),
       u("/xem-ngay-tot", now, "daily", 0.93),
       u("/xem-ngay-tot-theo-tuoi", now, "daily", 0.9),
       u("/tu-vi-hom-nay", now, "daily", 0.91),

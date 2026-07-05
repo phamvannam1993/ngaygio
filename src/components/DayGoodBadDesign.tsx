@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ActivityIcon, SiteIcon, ZodiacIcon } from "./Icon";
 import { DayGoodBadDatePicker } from "./DayGoodBadDatePicker";
+import { DayDetailTabs } from "./DayDetailTabs";
 import { addDays, formatDisplayDate, type DateParts } from "@/lib/date";
 import { getNapAmByCanChi } from "@/lib/calendar/age";
 import { activityHref, getActivityRecommendation, getDayStars, getDirectionInfo, getGeneralDayScore100, type ActivityRecommendation, type ActivitySlug } from "@/lib/calendar/activity";
@@ -18,6 +19,15 @@ type DayGoodBadDesignProps = {
 };
 
 const featuredActivities: ActivitySlug[] = ["khai-truong", "cuoi-hoi", "xuat-hanh", "dong-tho", "ky-hop-dong", "nhap-trach"];
+
+// Ý nghĩa ngũ hành nạp âm của NGÀY — dùng cho phần luận giải chi tiết.
+const DAY_ELEMENT_NOTE: Record<string, string> = {
+  Kim: "hợp việc cần dứt khoát, quyết định, ký kết, thu hồi và những việc rạch ròi.",
+  Mộc: "thuận cho khởi sự, trồng trọt, học hành, phát triển và mở rộng.",
+  Thủy: "hợp giao tiếp, di chuyển, thương lượng, cầu tài và kết nối.",
+  Hỏa: "giàu năng lượng, hợp khai trương, ra mắt, việc cần khí thế và lan tỏa.",
+  Thổ: "thiên về ổn định, xây dựng, an cư, nhập trạch và củng cố nền tảng.",
+};
 
 const dayNames = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"];
 
@@ -339,19 +349,58 @@ export function DayGoodBadDesign({ day, details, calendar, isHomNay, isNgayMai }
                   <p className="ngdEyebrow">Luận giải</p>
                   <h2 id="detail-title">Luận giải chi tiết ngày {displayDate}</h2>
                 </div>
-                <div className="ngdTabs" aria-label="Các nhóm luận giải">
-                  <span>Theo can chi</span>
-                  <span>Theo trực</span>
-                  <span>Sao tốt</span>
-                  <span>Sao xấu</span>
-                  <span>Bành Tổ</span>
-                  <span>Giờ hoàng đạo</span>
-                </div>
+                <DayDetailTabs
+                  tabs={[
+                    {
+                      label: "Theo can chi",
+                      body: (
+                        <p>Ngày <strong>{day.canChi.day}</strong>, tháng {day.canChi.month}, năm {day.canChi.year}. Theo phân loại hiện tại, đây là <strong>{day.quality.label}</strong> — {day.quality.note}</p>
+                      ),
+                    },
+                    {
+                      label: "Theo trực",
+                      body: (
+                        <>
+                          <p>Trực ngày là <strong>Trực {details.twelveDirect.name}</strong> — {details.twelveDirect.meaning}</p>
+                          {details.twelveDirect.goodFor.length > 0 && <p><strong>Hợp:</strong> {details.twelveDirect.goodFor.join(", ")}.</p>}
+                          {details.twelveDirect.avoid.length > 0 && <p><strong>Nên tránh:</strong> {details.twelveDirect.avoid.join(", ")}.</p>}
+                        </>
+                      ),
+                    },
+                    {
+                      label: "Sao tốt",
+                      body: (
+                        <p><strong>Sao tốt trong ngày:</strong> {stars.goodStars.join(", ")}. Đây là các sao cát, hỗ trợ cho việc hỉ sự, cầu tài và khởi sự.</p>
+                      ),
+                    },
+                    {
+                      label: "Sao xấu",
+                      body: (
+                        <p><strong>Sao xấu cần lưu ý:</strong> {stars.badStars.join(", ")}. Nên tránh hoặc hóa giải khi tiến hành việc trọng đại.</p>
+                      ),
+                    },
+                    {
+                      label: "Ngũ hành",
+                      body: (
+                        <p>Ngày {day.canChi.day} nạp âm <strong>{napAm.name}</strong>, thuộc hành <strong>{napAm.element}</strong> — {DAY_ELEMENT_NOTE[napAm.element]}</p>
+                      ),
+                    },
+                    {
+                      label: "Bành Tổ",
+                      body: (
+                        <p><strong>Bành Tổ bách kỵ:</strong> {details.banhTo.join(" ")}</p>
+                      ),
+                    },
+                    {
+                      label: "Giờ hoàng đạo",
+                      body: (
+                        <p><strong>Giờ hoàng đạo trong ngày:</strong> {day.goodHours.map((h) => `${h.branch} (${h.range})`).join(", ")}.</p>
+                      ),
+                    },
+                  ]}
+                />
                 <div className="ngdDetailText">
-                  <p>Ngày {day.canChi.day}, tháng {day.canChi.month}, năm {day.canChi.year}. Theo phân loại hiện tại, đây là <strong>{day.quality.label}</strong>; Trực ngày là <strong>Trực {details.twelveDirect.name}</strong>, {details.twelveDirect.meaning.toLowerCase()}</p>
-                  <p><strong>Sao tốt:</strong> {stars.goodStars.join(", ")}. <strong>Sao xấu:</strong> {stars.badStars.join(", ")}.</p>
-                  <p><strong>Bành Tổ bách kỵ:</strong> {details.banhTo.join(" ")}</p>
-                  {details.specialWarnings.length > 0 ? <p><strong>Ngày kỵ cần lưu ý:</strong> {details.specialWarnings.map((warning) => `${warning.name}: ${warning.description}`).join(" ")}</p> : <p>Không phạm các nhóm ngày kỵ phổ biến trong bộ kiểm tra hiện tại. Dù vậy, các việc lớn vẫn nên cân nhắc tuổi, giờ, người đứng việc và điều kiện thực tế.</p>}
+                  {details.specialWarnings.length > 0 ? <p className="ngdDetailNote"><strong>Ngày kỵ cần lưu ý:</strong> {details.specialWarnings.map((warning) => `${warning.name}: ${warning.description}`).join(" ")}</p> : <p className="ngdDetailNote">Không phạm các nhóm ngày kỵ phổ biến trong bộ kiểm tra hiện tại. Dù vậy, các việc lớn vẫn nên cân nhắc tuổi, giờ, người đứng việc và điều kiện thực tế.</p>}
                 </div>
               </article>
 

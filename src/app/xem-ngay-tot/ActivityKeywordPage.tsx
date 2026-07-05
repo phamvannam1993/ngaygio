@@ -7,12 +7,15 @@ export type SearchParams = Record<string, string | string[] | undefined>;
 
 export function buildActivityKeywordMetadata(activitySlug: ActivitySlug, path: string): Metadata {
   const activity = getActivity(activitySlug);
-  const title = `${activity.title} theo tuổi, theo tháng`;
-  const description = `${activity.description} Nhập khoảng ngày và năm sinh để lọc ngày đẹp, giờ hoàng đạo, tuổi xung hợp và lý do chấm điểm 100.`;
+  const year = new Date().getFullYear();
+  // Title có token năm để tăng CTR + độ tươi mới trên SERP (chuẩn đối thủ lichngaytot/tuvi).
+  const title = `${activity.title} ${year} theo tuổi, theo tháng`;
+  // Meta description ≤155 ký tự: mô tả việc + lợi ích cụ thể + CTA.
+  const description = `${activity.description} Lọc ngày hoàng đạo, giờ đẹp, tránh tuổi xung khắc theo năm sinh. Xem ngay!`;
   return {
     title: `${title} | Ngày Giờ`,
     description,
-    keywords: [activity.seoKeyword, `${activity.seoKeyword} theo tuổi`, `ngày đẹp ${activity.shortTitle.toLowerCase()}`, `${activity.shortTitle.toLowerCase()} ngày nào tốt`],
+    keywords: [activity.seoKeyword, `${activity.seoKeyword} ${year}`, `${activity.seoKeyword} theo tuổi`, `ngày đẹp ${activity.shortTitle.toLowerCase()}`, `${activity.shortTitle.toLowerCase()} ngày nào tốt`],
     alternates: { canonical: path },
     openGraph: {
       title: `${title} | Ngày Giờ`,
