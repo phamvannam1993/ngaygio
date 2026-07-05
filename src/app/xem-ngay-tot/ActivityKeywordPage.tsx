@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { XemNgayTotPageContent, resolveGoodDateParams } from "./XemNgayTotPageContent";
+import { ActivityGoodDateDesign } from "@/components/ActivityGoodDateDesign";
 import { getActivity, type ActivitySlug } from "@/lib/calendar/activity";
 import { faqSchema, siteConfig, webPageSchema } from "@/lib/site";
 
@@ -29,7 +29,6 @@ export function buildActivityKeywordMetadata(activitySlug: ActivitySlug, path: s
 
 export function ActivityKeywordPage({ activitySlug, path, params }: { activitySlug: ActivitySlug; path: string; params?: SearchParams }) {
   const activity = getActivity(activitySlug);
-  const resolved = resolveGoodDateParams(params ?? {}, activitySlug);
   const jsonLd = [
     webPageSchema({
       name: activity.title,
@@ -44,11 +43,7 @@ export function ActivityKeywordPage({ activitySlug, path, params }: { activitySl
   ];
   return (
     <>
-      <XemNgayTotPageContent
-        resolved={resolved}
-        overrideTitle={activity.title}
-        overrideDescription={`${activity.description} Trang này tập trung cho từ khóa ${activity.seoKeyword}, có bộ lọc theo tuổi, khoảng ngày, giờ hoàng đạo và thang điểm 100.`}
-      />
+      <ActivityGoodDateDesign activitySlug={activitySlug} path={path} params={params ?? {}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
   );
