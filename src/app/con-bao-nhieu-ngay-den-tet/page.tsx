@@ -109,6 +109,7 @@ export default function ConBaoNhieuNgayDenTetPage() {
           </div>
           <h2>Xem thêm</h2>
           <div className="dayLinkList">
+            <Link href="/tuoi-xong-dat" className="eventPill blue">Xem tuổi xông đất {tet.year}</Link>
             <Link href={`/lich-nghi-le/${tet.solarDate.year}`} className="eventPill green">Lịch nghỉ lễ {tet.solarDate.year}</Link>
             <Link href={`/am-lich/nam/${tet.solarDate.year}/thang/${tet.solarDate.month}`} className="eventPill green">Lịch âm tháng {tet.solarDate.month}/{tet.solarDate.year}</Link>
           </div>
