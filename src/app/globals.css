@@ -10930,7 +10930,7 @@ body:has(.pageFullscreenBg) .pickerPanel {
 
 .tshSharePreview {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 270px;
+  grid-template-columns: minmax(0, 1fr) 300px;
   gap: 22px;
   align-items: center;
   background:
