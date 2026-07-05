@@ -12,6 +12,7 @@ const CONG_CU_PATHS = [
   "/xem-tuoi-hop", "/xem-tuoi-hop-lam-an", "/xem-tuoi-vo-chong",
   "/xem-tuoi-sinh-con", "/xem-tuoi-lam-nha", "/xem-tuoi-hop-mau-gi",
   "/xem-tuoi-hop-huong-nao", "/phong-thuy-theo-tuoi", "/tuoi-lam-nha",
+  "/than-so-hoc", "/tuoi-xong-dat", "/ngay-kieng-ky",
 ];
 
 function isActive(pathname: string, href: string) {
@@ -62,11 +63,14 @@ export function DesktopNavLinks({ currentYear, currentMonth }: Props) {
           <Link href="/xem-tuoi-hop-mau-gi">Hợp màu</Link>
           <Link href="/xem-tuoi-hop-huong-nao">Hợp hướng</Link>
           <Link href="/phong-thuy-theo-tuoi">Phong thủy tuổi</Link>
+          <Link href="/tuoi-xong-dat">Tuổi xông đất</Link>
           <hr />
           <Link href="/chuyen-doi-lich">Đổi ngày âm dương</Link>
           <Link href="/tinh-tuoi-am">Tính tuổi âm</Link>
           <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
+          <Link href="/ngay-kieng-ky">Ngày kiêng kỵ</Link>
           <Link href="/lap-la-so-tu-vi">Lập lá số tử vi</Link>
+          <Link href="/than-so-hoc">Thần số học</Link>
           <Link href="/dem-ngay">Đếm ngày</Link>
           <Link href="/lich-nghi-le">Lịch nghỉ lễ</Link>
           <Link href="/con-bao-nhieu-ngay-den-tet">Đếm ngày đến Tết</Link>

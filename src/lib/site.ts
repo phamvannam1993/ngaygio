@@ -86,6 +86,21 @@ export const quickTools = [
     description: "Nhập ngày giờ sinh để dựng lá số 12 cung, Mệnh, Thân, đại vận và luận giải tham khảo.",
   },
   {
+    title: "Tra cứu thần số học",
+    href: "/than-so-hoc",
+    description: "Nhập họ tên và ngày sinh để xem Số Đường Đời, Sứ Mệnh, Linh Hồn, Nhân Cách theo thần số học.",
+  },
+  {
+    title: "Tuổi xông đất",
+    href: "/tuoi-xong-dat",
+    description: "Chọn tuổi xông đất, xông nhà hợp với gia chủ để đón năm mới nhiều may mắn.",
+  },
+  {
+    title: "Ngày kiêng kỵ",
+    href: "/ngay-kieng-ky",
+    description: "Tra ngày Tam Nương, Nguyệt Kỵ, Dương Công Kỵ Nhật trong tháng để tránh việc lớn.",
+  },
+  {
     title: "Xem tuổi hợp làm ăn",
     href: "/xem-tuoi-hop-lam-an",
     description: "So sánh hai năm sinh để xem mức hợp tác kinh doanh theo can chi, địa chi và nạp âm.",

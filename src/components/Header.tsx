@@ -38,6 +38,9 @@ export function Header({ currentYear }: HeaderProps) {
             <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
             <Link href="/tu-vi-hom-nay">Tử vi hôm nay</Link>
             <Link href="/lap-la-so-tu-vi">Lập lá số tử vi</Link>
+            <Link href="/than-so-hoc">Thần số học</Link>
+            <Link href="/ngay-kieng-ky">Ngày kiêng kỵ</Link>
+            <Link href="/tuoi-xong-dat">Tuổi xông đất</Link>
             <Link href="/xem-tuoi-hop-lam-an">Tuổi hợp làm ăn</Link>
             <Link href="/xem-tuoi-vo-chong">Tuổi vợ chồng</Link>
             <Link href="/xem-tuoi-lam-nha">Tuổi làm nhà</Link>
