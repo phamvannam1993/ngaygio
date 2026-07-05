@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { ACTIVITIES } from "@/lib/calendar/activity";
 import { fortuneHref, ZODIAC_FORTUNES } from "@/lib/calendar/fortune";
+import { LIFE_PATH_NUMBERS } from "@/lib/numerology";
 
 const BASE = siteConfig.url.replace(/\/+$/, "");
 const VN_TIMEZONE = "Asia/Ho_Chi_Minh";
@@ -217,6 +218,7 @@ export default async function sitemap(props: {
       u("/phong-thuy-theo-tuoi", siteLastmod, "weekly", 0.8),
       u("/tuoi-xong-dat", now, "weekly", 0.82),
       u("/than-so-hoc", siteLastmod, "weekly", 0.84),
+      ...LIFE_PATH_NUMBERS.map((n) => u(`/than-so-hoc/so-chu-dao/${n}`, siteLastmod, "monthly", 0.7)),
 
       u("/con-bao-nhieu-ngay-den-tet", now, "daily", 0.85),
       u("/lich-am-ngay-mai", now, "daily", 0.7),
