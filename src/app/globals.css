@@ -10209,6 +10209,7 @@ body:has(.pageFullscreenBg) .pickerPanel {
   font-size: clamp(2.25rem, 5.1vw, 4.6rem);
   line-height: 0.98;
   letter-spacing: -0.055em;
+  margin-top: 20px;
 }
 
 .tshHero p {
@@ -10743,16 +10744,16 @@ body:has(.pageFullscreenBg) .pickerPanel {
 
 .tshIndexCard strong {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 8px;
+  right: 5px;
   display: grid;
-  min-width: 64px;
-  height: 64px;
+  min-width: 40px;
+  height: 40px;
   place-items: center;
   border-radius: 20px;
   color: #7a192b;
   background: #fff1bf;
-  font-size: 2rem;
+  font-size: 24px;
   line-height: 1;
 }
 
@@ -11103,9 +11104,19 @@ body:has(.pageFullscreenBg) .pickerPanel {
   }
 
   .tshHero h1 {
-    font-size: clamp(2.05rem, 11vw, 3rem);
+    font-size: 16px;
+    margin-top: 12px;
   }
-
+  .tshPanelHead h2 {
+    margin-top: 10px;
+  }
+  .tshFormHead h2 {
+    font-size: 22px;
+    margin-top: 10px;
+  }
+  .tshHero p {
+    font-size: 12px;
+  }
   .tshHeroActions a,
   .tshFormActions button,
   .tshFormActions a {
@@ -11142,8 +11153,9 @@ body:has(.pageFullscreenBg) .pickerPanel {
   }
 
   .tshIndexCard strong {
-    position: static;
-    width: 64px;
+    width: 40px;
+    border-radius: 100%;
+    font-size: 25px;
   }
 
   .tshNumberOrb {
