@@ -216,6 +216,7 @@ export default async function sitemap(props: {
       u("/xem-tuoi-hop-mau-gi", siteLastmod, "weekly", 0.8),
       u("/xem-tuoi-hop-huong-nao", siteLastmod, "weekly", 0.8),
       u("/phong-thuy-theo-tuoi", siteLastmod, "weekly", 0.8),
+      u("/thuoc-lo-ban", siteLastmod, "weekly", 0.84),
       u("/tuoi-xong-dat", now, "weekly", 0.82),
       u("/than-so-hoc", siteLastmod, "weekly", 0.84),
       ...LIFE_PATH_NUMBERS.map((n) => u(`/than-so-hoc/so-chu-dao/${n}`, siteLastmod, "monthly", 0.7)),

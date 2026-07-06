@@ -54,6 +54,7 @@ export function Footer() {
           <Link href="/tinh-tuoi-am">Tính tuổi âm</Link>
           <Link href="/xem-ngay-tot">Ngày tốt theo việc</Link>
           <Link href="/xem-ngay-tot-theo-tuoi">Ngày tốt theo tuổi</Link>
+          <Link href="/thuoc-lo-ban">Thước Lỗ Ban</Link>
           <Link href="/dem-ngay">Đếm ngày</Link>
           <Link href="/con-bao-nhieu-ngay-den-tet">Đếm ngày đến Tết</Link>
           <Link href="/tai-lich-am-pdf">Tải lịch PDF</Link>

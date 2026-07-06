@@ -34,6 +34,11 @@ export const siteConfig = {
     "xem tuổi làm nhà",
     "xem tuổi hợp màu gì",
     "xem tuổi hợp hướng nào",
+    "thước lỗ ban",
+    "thước lỗ ban online",
+    "tra kích thước đẹp",
+    "kích thước cửa đẹp",
+    "kích thước bàn thờ đẹp",
     "tải lịch âm PDF",
     "tạo ảnh lịch",
     "tuổi làm nhà theo năm",
@@ -119,6 +124,11 @@ export const quickTools = [
     title: "Hợp màu, hợp hướng",
     href: "/phong-thuy-theo-tuoi",
     description: "Tra màu hợp tuổi, cung phi bát trạch và hướng tốt xấu theo năm sinh.",
+  },
+  {
+    title: "Thước Lỗ Ban online",
+    href: "/thuoc-lo-ban",
+    description: "Tra kích thước cửa, bàn thờ, bậc thang, tủ kệ theo thước Lỗ Ban 52.2cm, 42.9cm và 38.8cm.",
   },
   {
     title: "Ngày tốt xấu ngày mai",

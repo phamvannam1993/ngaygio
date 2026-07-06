@@ -12,7 +12,7 @@ const CONG_CU_PATHS = [
   "/xem-tuoi-hop", "/xem-tuoi-hop-lam-an", "/xem-tuoi-vo-chong",
   "/xem-tuoi-sinh-con", "/xem-tuoi-lam-nha", "/xem-tuoi-hop-mau-gi",
   "/xem-tuoi-hop-huong-nao", "/phong-thuy-theo-tuoi", "/tuoi-lam-nha",
-  "/than-so-hoc", "/tuoi-xong-dat", "/ngay-kieng-ky",
+  "/than-so-hoc", "/tuoi-xong-dat", "/ngay-kieng-ky", "/thuoc-lo-ban",
 ];
 
 function isActive(pathname: string, href: string) {
@@ -63,6 +63,7 @@ export function DesktopNavLinks({ currentYear, currentMonth }: Props) {
           <Link href="/xem-tuoi-hop-mau-gi">Hợp màu</Link>
           <Link href="/xem-tuoi-hop-huong-nao">Hợp hướng</Link>
           <Link href="/phong-thuy-theo-tuoi">Phong thủy tuổi</Link>
+          <Link href="/thuoc-lo-ban">Thước Lỗ Ban</Link>
           <Link href="/tuoi-xong-dat">Tuổi xông đất</Link>
           <hr />
           <Link href="/chuyen-doi-lich">Đổi ngày âm dương</Link>
