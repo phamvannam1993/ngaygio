@@ -91,14 +91,11 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       images: ["/home.jpg"],
     },
     robots: {
-      index: true,
+      index: false,
       follow: true,
       googleBot: {
-        index: true,
+        index: false,
         follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
       },
     },
   };

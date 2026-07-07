@@ -40,9 +40,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [{ url: "/home.jpg", width: 1200, height: 630, alt: title }],
     },
     robots: {
-      index: true,
+      index: false,
       follow: true,
-      googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+      googleBot: { index: false, follow: true },
     },
   };
 }

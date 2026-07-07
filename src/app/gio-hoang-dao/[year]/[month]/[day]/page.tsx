@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: [`giờ hoàng đạo ngày ${displayDate}`, `giờ tốt ngày ${displayDate}`, "giờ hoàng đạo", "giờ hắc đạo"],
     alternates: { canonical: gioHoangDaoDayHref(date) },
     openGraph: { title, description, url: `${siteConfig.url}${gioHoangDaoDayHref(date)}`, siteName: siteConfig.name, locale: "vi_VN", type: "article", images: [{ url: "/home.jpg", width: 1200, height: 630, alt: title }] },
-    robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
+    robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
   };
 }
 
