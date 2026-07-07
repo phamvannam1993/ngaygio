@@ -57,14 +57,14 @@ export function LichHomNayClient({ today, day, allHolidays, calendarSlot }: Prop
       <main className="container mainStack">
         <PageHeroBanner
           eyebrow="Lịch hôm nay"
-          title="Hôm nay thứ mấy, ngày mấy?"
-          description="Xem nhanh ngày hiện tại, thứ trong tuần, âm lịch, ngày nghỉ, công cụ đếm ngày và các tiện ích liên quan trên một giao diện thân thiện và hiện đại."
+          title={`Lịch hôm nay ${today.day}/${today.month}/${today.year}`}
+          description="Xem nhanh lịch ngày hôm nay: dương lịch, âm lịch, thứ trong tuần, ngày nghỉ, công cụ đếm ngày và các tiện ích liên quan trên một giao diện thân thiện và hiện đại."
           imageSrc="/bg-page-calendar.png"
         />
 
         {/* Hero: dương lịch + đếm ngày */}
         <section className="heroCard lichHomNayHero">
-          <h2 className="lichHomNayH1">Hôm nay thứ mấy, ngày mấy?</h2>
+          <h2 className="lichHomNayH1">Lịch ngày hôm nay có gì?</h2>
           <p className="lichHomNayAnswer">Hôm nay là <strong>{wd}</strong>, ngày <strong>{today.day}/{today.month}/{today.year}</strong> dương lịch.</p>
           <p className="eyebrow">Dương lịch hôm nay</p>
           <div className="lichHomNayTop">

@@ -22,13 +22,13 @@ export async function generateMetadata(): Promise<Metadata> {
   const holidays = getHolidayItems(today.year).filter(h => h.date.month === today.month && h.date.day === today.day);
   const holidayText = holidays.length ? ` Hôm nay là ${holidays.map(h => h.title).join(", ")}.` : "";
 
-  const title = `Hôm nay thứ mấy, ngày mấy? ${wd} ${displayDate} | Ngày Giờ`;
-  const description = `Hôm nay là ${wd}, ngày ${displayDate} dương lịch, ngày thứ ${ordinal} trong năm ${today.year}, còn ${remaining} ngày.${holidayText} Xem lịch âm, ngày tốt xấu và giờ hoàng đạo hôm nay.`;
+  const title = `Lịch hôm nay ${displayDate} (${wd}) – Xem lịch ngày dương & âm | Ngày Giờ`;
+  const description = `Lịch hôm nay ${wd}, ngày ${displayDate} dương lịch — xem lịch âm dương, ngày thứ ${ordinal}/${totalDays} trong năm.${holidayText} Kèm ngày tốt xấu và giờ hoàng đạo hôm nay.`;
 
   return {
     title,
     description,
-    keywords: ["hôm nay thứ mấy", "hôm nay ngày mấy", "nay là ngày gì", "bữa nay thứ mấy", "hôm nay thứ mấy ngày mấy tháng mấy", "lịch hôm nay", `lịch hôm nay ${displayDate}`],
+    keywords: ["lịch hôm nay", `lịch hôm nay ${displayDate}`, "xem lịch hôm nay", "lịch ngày hôm nay", "lịch dương hôm nay"],
     alternates: { canonical: "/lich-hom-nay" },
     openGraph: {
       title,

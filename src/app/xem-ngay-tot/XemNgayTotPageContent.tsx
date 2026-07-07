@@ -151,8 +151,8 @@ export function XemNgayTotPageContent({ resolved, overrideTitle, overrideDescrip
         </section>
 
         <article className="seoArticle">
-          <h2>{activity.title} nên xem những yếu tố nào?</h2>
-          <p>Khi chọn ngày cho việc {activity.shortTitle.toLowerCase()}, bạn nên kết hợp ngày hoàng đạo/hắc đạo, trực ngày, giờ hoàng đạo, tuổi xung hợp, ngày kỵ dân gian và điều kiện thực tế như sức khỏe, pháp lý, thời tiết, tài chính, lịch của người liên quan.</p>
+          <h2>{overrideTitle ? "Chọn ngày tốt theo việc cần xem những yếu tố nào?" : `${activity.title} nên xem những yếu tố nào?`}</h2>
+          <p>Khi chọn ngày cho {overrideTitle ? "một việc trọng đại (cưới hỏi, khai trương, động thổ, nhập trạch, mua xe, ký hợp đồng...)" : `việc ${activity.shortTitle.toLowerCase()}`}, bạn nên kết hợp ngày hoàng đạo/hắc đạo, trực ngày, giờ hoàng đạo, tuổi xung hợp, ngày kỵ dân gian và điều kiện thực tế như sức khỏe, pháp lý, thời tiết, tài chính, lịch của người liên quan.</p>
           <h2>Điểm ngày trên Ngaygio.vn có ý nghĩa gì?</h2>
           <p>Điểm 100 là thang gợi ý để người dùng dễ so sánh giữa nhiều ngày. Điểm càng cao nghĩa là càng ít yếu tố xấu và càng có nhiều tín hiệu phù hợp với mục đích đã chọn. Thông tin chỉ nên dùng như tham khảo văn hóa dân gian, không thay thế tư vấn chuyên môn.</p>
           <h2>Gợi ý đang dùng tiêu chí nào?</h2>

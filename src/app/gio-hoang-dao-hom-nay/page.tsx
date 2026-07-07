@@ -12,8 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const day = getDayInfo(today);
   const displayDate = formatDisplayDate(today);
   const hours = formatHours(day.goodHours);
-  const title = `Giờ tốt xấu hôm nay ${displayDate} – Giờ hoàng đạo: ${hours} | Ngày Giờ`;
-  const description = `Xem giờ tốt xấu hôm nay ${displayDate}: giờ hoàng đạo gồm ${hours}. Âm lịch ${day.lunar.day}/${day.lunar.month}/${day.lunar.year}, ngày ${day.canChi.day}, ${day.quality.label}.`;
+  const title = `Giờ hoàng đạo hôm nay ${displayDate} là mấy giờ? ${hours} | Ngày Giờ`;
+  const description = `Giờ hoàng đạo hôm nay ${displayDate} gồm: ${hours}. Xem chi tiết giờ hoàng đạo, giờ hắc đạo, can chi từng giờ. Âm lịch ${day.lunar.day}/${day.lunar.month}, ngày ${day.canChi.day}, ${day.quality.label}.`;
   return {
     title,
     description,

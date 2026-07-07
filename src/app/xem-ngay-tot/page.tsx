@@ -48,7 +48,11 @@ export default async function XemNgayTotPage({ searchParams }: PageProps) {
   ];
   return (
     <>
-      <XemNgayTotPageContent resolved={resolved} />
+      <XemNgayTotPageContent
+        resolved={resolved}
+        overrideTitle="Xem ngày tốt theo việc"
+        overrideDescription="Chọn ngày tốt cho khai trương, cưới hỏi, nhập trạch, mua xe, ký hợp đồng, động thổ, xuất hành, cắt tóc... theo khoảng ngày và năm sinh. Hệ thống chấm điểm ngày đẹp 100 theo lịch âm, trực ngày, giờ hoàng đạo, ngày kỵ và tuổi xung hợp."
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
   );

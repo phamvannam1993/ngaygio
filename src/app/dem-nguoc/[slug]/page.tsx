@@ -68,7 +68,10 @@ export default async function CountdownPage({ params }: { params: Promise<{ slug
 
         <section className="heroCard" aria-labelledby="cd-title">
           <p className="eyebrow">Đếm ngược đến {ev.name}</p>
-          <h1 id="cd-title">{ev.daysLeft === 0 ? `Hôm nay là ${ev.name}!` : `Còn ${ev.daysLeft} ngày nữa đến ${ev.name}`}</h1>
+          <h1 id="cd-title">Còn bao nhiêu ngày nữa đến {ev.name}?</h1>
+          <p className="homeHeroLead" style={{ marginTop: 8 }}>
+            {ev.daysLeft === 0 ? `Hôm nay chính là ${ev.name}!` : <>Còn <strong>{ev.daysLeft} ngày</strong> (khoảng {ev.weeksLeft} tuần) nữa — {ev.name} rơi vào {formatDisplayDate(ev.target)} dương lịch.</>}
+          </p>
 
           <div className="todayGrid" style={{ marginTop: 24 }}>
             <article className="dateBox">
