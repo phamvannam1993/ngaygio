@@ -30,6 +30,7 @@ export function Header({ currentYear }: HeaderProps) {
           <summary aria-label="Mở menu điều hướng">☰</summary>
           <nav className="mobileNavPanel" aria-label="Menu mobile">
             <Link href="/lich-hom-nay">Lịch hôm nay</Link>
+            <Link href="/hom-nay">Hôm nay là ngày gì</Link>
             <Link href="/am-lich-hom-nay">Âm lịch hôm nay</Link>
             <Link href="/ngay-tot-xau-hom-nay">Ngày tốt xấu hôm nay</Link>
             <Link href="/gio-hoang-dao-hom-nay">Giờ tốt xấu hôm nay</Link>

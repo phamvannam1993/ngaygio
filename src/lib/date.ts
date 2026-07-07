@@ -97,3 +97,23 @@ export function clampYear(year: number, min = 1900, max = 2050): number {
   if (!Number.isFinite(year)) return getVietnamTodayParts().year;
   return Math.min(max, Math.max(min, Math.trunc(year)));
 }
+
+// Tuần thứ mấy trong năm theo chuẩn ISO-8601 (tuần bắt đầu từ thứ Hai; tuần 1 là tuần chứa thứ Năm đầu tiên).
+export function isoWeekOfYear(date: DateParts): { week: number; year: number } {
+  const d = new Date(Date.UTC(date.year, date.month - 1, date.day));
+  const dayNum = (d.getUTCDay() + 6) % 7; // Thứ Hai = 0 … Chủ Nhật = 6
+  d.setUTCDate(d.getUTCDate() - dayNum + 3); // về thứ Năm cùng tuần
+  const isoYear = d.getUTCFullYear();
+  const firstThursday = new Date(Date.UTC(isoYear, 0, 4));
+  const firstDayNum = (firstThursday.getUTCDay() + 6) % 7;
+  firstThursday.setUTCDate(firstThursday.getUTCDate() - firstDayNum + 3);
+  const week = 1 + Math.round((d.getTime() - firstThursday.getTime()) / (7 * 24 * 3600 * 1000));
+  return { week, year: isoYear };
+}
+
+// Ngày thứ mấy trong năm (day-of-year, 1–366).
+export function dayOfYear(date: DateParts): number {
+  const start = Date.UTC(date.year, 0, 1);
+  const cur = Date.UTC(date.year, date.month - 1, date.day);
+  return Math.floor((cur - start) / (24 * 3600 * 1000)) + 1;
+}

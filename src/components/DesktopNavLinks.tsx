@@ -38,6 +38,7 @@ export function DesktopNavLinks({ currentYear, currentMonth }: Props) {
       <details className={`navDropdown${lichAmActive ? " navActive" : ""}`}>
         <summary className={lichAmActive ? "navActive" : undefined}>Lịch âm</summary>
         <div className="dropdownMenu compactMenu">
+          <Link href="/hom-nay">Hôm nay là ngày gì</Link>
           <Link href="/am-lich-hom-nay">Âm lịch hôm nay</Link>
           <Link href="/lich-van-nien">Lịch vạn niên</Link>
           <Link href={`/am-lich/nam/${currentYear}`}>Lịch âm {currentYear}</Link>
@@ -69,6 +70,8 @@ export function DesktopNavLinks({ currentYear, currentMonth }: Props) {
           <Link href="/chuyen-doi-lich">Đổi ngày âm dương</Link>
           <Link href="/tinh-tuoi-am">Tính tuổi âm</Link>
           <Link href="/xem-ngay-tot-theo-tuoi">Xem ngày tốt theo tuổi</Link>
+          <Link href="/tinh-ngay-online">Tính ngày online</Link>
+          <Link href="/gio-tot-hom-nay">Giờ tốt hôm nay</Link>
           <Link href="/ngay-kieng-ky">Ngày kiêng kỵ</Link>
           <Link href="/lap-la-so-tu-vi">Lập lá số tử vi</Link>
           <Link href="/than-so-hoc">Thần số học</Link>

@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/site";
 import { ACTIVITIES } from "@/lib/calendar/activity";
 import { fortuneHref, ZODIAC_FORTUNES } from "@/lib/calendar/fortune";
 import { LIFE_PATH_NUMBERS } from "@/lib/numerology";
+import { COUNTDOWN_SLUGS } from "@/lib/countdown";
 
 const BASE = siteConfig.url.replace(/\/+$/, "");
 const VN_TIMEZONE = "Asia/Ho_Chi_Minh";
@@ -137,6 +138,19 @@ export default async function sitemap(props: {
   if (id === "static") {
     return unique([
       u("/", now, "daily", 1.0),
+      u("/hom-nay", now, "daily", 0.98),
+      u("/hom-nay-ngay-gi", now, "daily", 0.8),
+      u("/hom-nay-la-thu-may", now, "daily", 0.75),
+      u("/hom-nay-la-tuan-may", now, "daily", 0.7),
+      u("/ngay-duong-lich-hom-nay", now, "daily", 0.75),
+      u("/gio-tot-hom-nay", now, "daily", 0.9),
+      u("/tinh-ngay-online", siteLastmod, "monthly", 0.78),
+      ...COUNTDOWN_SLUGS.map((s) => u(`/con-bao-nhieu-ngay-nua-den-${s}`, now, "daily", 0.8)),
+      ...Array.from({ length: 6 }, (_, i) => {
+        const month = ((mo - 1 + i) % 12) + 1;
+        const year = yr + Math.floor((mo - 1 + i) / 12);
+        return u(`/ngay-tot-thang-${month}-nam-${year}`, now, "weekly", 0.78);
+      }),
       u("/lich-hom-nay", now, "daily", 0.98),
       u(`/am-lich/nam/${yr}/thang/${mo}/ngay/${dy}`, now, "daily", 0.96),
       u("/am-lich-hom-nay", now, "daily", 0.94),

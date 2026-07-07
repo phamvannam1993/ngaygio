@@ -61,6 +61,21 @@ export const mainNav = [
 
 export const quickTools = [
   {
+    title: "Hôm nay là ngày gì",
+    href: "/hom-nay",
+    description: "Hôm nay thứ mấy, ngày mấy dương/âm lịch, tuần thứ mấy, ngày lễ, giờ tốt và ngày tốt xấu.",
+  },
+  {
+    title: "Giờ tốt hôm nay",
+    href: "/gio-tot-hom-nay",
+    description: "Giờ hoàng đạo, giờ hắc đạo và giờ đẹp để xuất hành, ký kết, khai trương, nhận xe.",
+  },
+  {
+    title: "Tính ngày online",
+    href: "/tinh-ngay-online",
+    description: "Cộng/trừ ngày ra ngày mới và tính số ngày giữa hai ngày, kèm thứ và âm lịch.",
+  },
+  {
     title: "Âm lịch hôm nay",
     href: "/am-lich-hom-nay",
     description: "Xem nhanh ngày âm, can chi, tiết khí và giờ tốt trong ngày.",
