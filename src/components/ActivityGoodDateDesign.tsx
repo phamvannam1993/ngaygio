@@ -104,9 +104,20 @@ function getVariants(slug: ActivitySlug) {
   return variantByActivity[slug] ?? [activity.shortTitle, ...activity.goodForWords].slice(0, 5);
 }
 
+// Nếu URL sạch truyền tháng+năm (vd /ngay-tot-khai-truong-thang-8-2026) → lấy trọn tháng đó làm khoảng ngày.
+function monthRangeFromParams(params: SearchParams): { from: DateParts; to: DateParts } | null {
+  const month = Number(single(params.thang));
+  const year = Number(single(params.nam));
+  if (!Number.isInteger(month) || month < 1 || month > 12) return null;
+  if (!Number.isInteger(year) || year < 1900 || year > 2050) return null;
+  const lastDay = new Date(year, month, 0).getDate();
+  return { from: { year, month, day: 1 }, to: { year, month, day: lastDay } };
+}
+
 function resolveActivityDateParams(params: SearchParams, activitySlug: ActivitySlug): ActivityDateParams {
   const today = getVietnamTodayParts();
-  const defaultRange = getCurrentMonthRange(today);
+  const monthRange = monthRangeFromParams(params);
+  const defaultRange = monthRange ?? getCurrentMonthRange(today);
   const from = parseDateKey(single(params.tu)) ?? defaultRange.from;
   const to = parseDateKey(single(params.den)) ?? defaultRange.to;
   const fixedRange = dateTime(from) <= dateTime(to) ? { from, to } : defaultRange;
@@ -142,12 +153,12 @@ function scoreTone(score: number) {
   return "avoid";
 }
 
-function ActivityDateFilterForm({ activitySlug, path, resolved }: { activitySlug: ActivitySlug; path: string; resolved: ActivityDateParams }) {
+function ActivityDateFilterForm({ activitySlug, formAction, resolved }: { activitySlug: ActivitySlug; formAction: string; resolved: ActivityDateParams }) {
   const activity = getActivity(activitySlug);
   const variants = getVariants(activitySlug);
 
   return (
-    <form className="contractDateForm" action={path} method="get">
+    <form className="contractDateForm" action={formAction} method="get">
       <label>
         <span>Việc cần xem</span>
         <select name="kieu" defaultValue={resolved.variant}>
@@ -221,7 +232,7 @@ function getChecklist(activitySlug: ActivitySlug, shortTitle: string) {
   ];
 }
 
-export function ActivityGoodDateDesign({ activitySlug, path, params = {} }: { activitySlug: ActivitySlug; path: string; params?: SearchParams }) {
+export function ActivityGoodDateDesign({ activitySlug, path, params = {}, formAction }: { activitySlug: ActivitySlug; path: string; params?: SearchParams; formAction?: string }) {
   const today = getVietnamTodayParts();
   const activity = getActivity(activitySlug);
   const resolved = resolveActivityDateParams(params, activity.slug);
@@ -283,7 +294,7 @@ export function ActivityGoodDateDesign({ activitySlug, path, params = {} }: { ac
                 <h2 id="activity-filter-title">Tìm ngày đẹp cho {activity.shortTitle.toLowerCase()}</h2>
                 <p>Đang xem từ <strong>{formatDisplayDate(resolved.from)}</strong> đến <strong>{formatDisplayDate(resolved.to)}</strong>{resolved.birthYear ? <> · người chủ việc sinh năm <strong>{resolved.birthYear}</strong></> : ""}.</p>
               </div>
-              <ActivityDateFilterForm activitySlug={activity.slug} path={path} resolved={resolved} />
+              <ActivityDateFilterForm activitySlug={activity.slug} formAction={formAction ?? path} resolved={resolved} />
             </section>
 
             <div className="contractDateLayout">

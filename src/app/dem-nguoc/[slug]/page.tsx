@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const ev = getCountdownEvent(slug);
   if (!ev) return {};
-  const title = `Còn bao nhiêu ngày nữa đến ${ev.name}? Còn ${ev.daysLeft} ngày | Ngày Giờ`;
+  const title = `Còn bao nhiêu ngày nữa đến ${ev.name}? Đếm ngược chính xác (còn ${ev.daysLeft} ngày) | Ngày Giờ`;
   const description = `${ev.longName}: còn ${ev.daysLeft} ngày (khoảng ${ev.weeksLeft} tuần) — ${ev.name} rơi vào ${formatDisplayDate(ev.target)} dương lịch (${ev.lunarLabel}). Xem đồng hồ đếm ngược.`;
   return {
     title,

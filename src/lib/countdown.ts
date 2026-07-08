@@ -1,4 +1,4 @@
-import { getVietnamTodayParts, formatDisplayDate, type DateParts } from "@/lib/date";
+import { getVietnamTodayParts, formatDisplayDate, addDays, type DateParts } from "@/lib/date";
 import { convertLunar2Solar, convertSolar2Lunar } from "@/lib/calendar/lunar";
 import { getTetInfoForYear } from "@/lib/calendar/tet";
 
@@ -39,6 +39,8 @@ function nextLunar(today: DateParts, lunarMonth: number, lunarDay: number): Date
 export const COUNTDOWN_SLUGS = [
   "tet-2026", "tet-2027", "tet-2028", "tet-2029",
   "trung-thu-2026", "trung-thu-2027",
+  "giao-thua-2026", "giao-thua-2027",
+  "vu-lan-2026", "vu-lan-2027",
   "noel", "quoc-khanh", "30-4",
 ];
 
@@ -55,6 +57,21 @@ export function getCountdownEvent(slug: string): CountdownEvent | null {
     const y = Number(tetMatch[1]);
     const tet = getTetInfoForYear(y, today);
     return build(`Tết ${y}`, `Còn bao nhiêu ngày nữa đến Tết Nguyên Đán ${tet.canChi} ${y}`, tet.solarDate, "mùng 1 Tết (1/1 âm lịch)", `Tết Nguyên Đán ${tet.canChi} ${y} là ngày đầu năm mới âm lịch — dịp sum họp gia đình, thờ cúng tổ tiên và đón năm mới.`);
+  }
+
+  const gtMatch = slug.match(/^giao-thua-(\d{4})$/);
+  if (gtMatch) {
+    const y = Number(gtMatch[1]);
+    const tet = getTetInfoForYear(y, today);
+    const target = addDays(tet.solarDate, -1); // đêm 30 tháng Chạp — ngày liền trước mùng 1
+    return build(`Giao thừa ${y}`, `Còn bao nhiêu ngày nữa đến Giao thừa Tết ${tet.canChi} ${y}`, target, "đêm 30 tháng Chạp", `Giao thừa là thời khắc chuyển giao năm cũ sang năm mới, đêm 30 tháng Chạp trước Tết ${tet.canChi} ${y}.`);
+  }
+
+  const vlMatch = slug.match(/^vu-lan-(\d{4})$/);
+  if (vlMatch) {
+    const y = Number(vlMatch[1]);
+    const solar = convertLunar2Solar(15, 7, y) ?? { year: y, month: 8, day: 1 };
+    return build(`Vu Lan ${y}`, `Còn bao nhiêu ngày nữa đến lễ Vu Lan ${y}`, solar, "15/7 âm lịch", `Lễ Vu Lan báo hiếu ${y} (Rằm tháng 7 âm lịch) là dịp tưởng nhớ, báo hiếu công ơn cha mẹ, tổ tiên.`);
   }
 
   const ttMatch = slug.match(/^trung-thu-(\d{4})$/);

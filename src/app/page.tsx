@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -85,6 +86,7 @@ export default async function Home({ searchParams }: PageProps) {
   }
 
   const selectedDate = resolveSelectedDate(params);
+  const today = getVietnamTodayParts();
   const todayInfo = getDayInfo(selectedDate);
   const monthCalendar = getMonthCalendar(selectedDate.year, selectedDate.month, selectedDate);
 
@@ -142,6 +144,20 @@ export default async function Home({ searchParams }: PageProps) {
           </div>
           <ModernFeatureHub />
           <CountdownEventGrid year={selectedDate.year} />
+          <section className="panelCard homeQuickLinks" aria-labelledby="home-quicklinks-title">
+            <p className="eyebrow">Truy cập nhanh</p>
+            <h2 id="home-quicklinks-title">Xem nhanh lịch và ngày tốt</h2>
+            <div className="dayLinkList">
+              <Link href="/lich-hom-nay" className="eventPill blue">Lịch hôm nay</Link>
+              <Link href="/am-lich-hom-nay" className="eventPill blue">Âm lịch hôm nay</Link>
+              <Link href={`/sinh-nam/${today.year - 36}`} className="eventPill green">Sinh năm bao nhiêu tuổi</Link>
+              <Link href="/con-bao-nhieu-ngay-den-tet" className="eventPill blue">Đếm ngày đến Tết {today.year + 1}</Link>
+              <Link href="/xem-ngay-tot-mua-xe" className="eventPill green">Ngày tốt mua xe</Link>
+              <Link href="/xem-ngay-tot-khai-truong" className="eventPill green">Ngày tốt khai trương</Link>
+              <Link href="/xem-ngay-tot-dong-tho" className="eventPill green">Ngày tốt động thổ</Link>
+              <Link href="/tai-lich-am-pdf" className="eventPill blue">Tải lịch âm PDF</Link>
+            </div>
+          </section>
           <SeoArticle />
         </div>
       </main>

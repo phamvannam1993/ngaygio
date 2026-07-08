@@ -217,6 +217,15 @@ export default async function sitemap(props: {
         u(`/xem-ngay-tot-${activity.slug}`, now, "daily", 0.82),
       ),
 
+      // #1 URL sạch theo tháng (bounded: mỗi việc × 3 tháng tới) để Google phát hiện & index.
+      ...ACTIVITIES.flatMap((activity) =>
+        Array.from({ length: 3 }, (_, i) => {
+          const month = ((mo - 1 + i) % 12) + 1;
+          const year = yr + Math.floor((mo - 1 + i) / 12);
+          return u(`/ngay-tot-${activity.slug}-thang-${month}-${year}`, now, "weekly", 0.7);
+        }),
+      ),
+
       ...ZODIAC_FORTUNES.map((item) =>
         u(fortuneHref(item.slug), now, "daily", 0.82),
       ),

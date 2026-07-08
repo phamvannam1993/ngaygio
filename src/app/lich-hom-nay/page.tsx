@@ -5,7 +5,7 @@ import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
 import { MonthCalendar } from "@/components/MonthCalendar";
 import { amLichDayHref } from "@/lib/calendar/urls";
 import { getHolidayItems } from "@/lib/calendar/holidays";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, webPageSchema, faqSchema } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -47,12 +47,30 @@ export default function LichHomNayPage() {
   const day = getDayInfo(today);
   const holidays = getHolidayItems(today.year);
   const monthCalendar = getMonthCalendar(today.year, today.month, today);
+
+  const jsonLd = [
+    webPageSchema({
+      name: `Lịch hôm nay ${formatDisplayDate(today)}`,
+      url: `${siteConfig.url}/lich-hom-nay`,
+      description: `Lịch hôm nay ${day.weekdayName}, ngày ${today.day}/${today.month}/${today.year} dương lịch, âm lịch ${day.lunar.day}/${day.lunar.month}/${day.lunar.year}.`,
+      breadcrumb: [{ name: "Lịch hôm nay", url: `${siteConfig.url}/lich-hom-nay` }],
+    }),
+    faqSchema([
+      { q: "Hôm nay là thứ mấy, ngày bao nhiêu?", a: `Hôm nay là ${day.weekdayName}, ngày ${today.day}/${today.month}/${today.year} dương lịch, tức ${day.lunar.day}/${day.lunar.month}/${day.lunar.year} âm lịch (ngày ${day.canChi.day}).` },
+      { q: "Hôm nay là ngày tốt hay xấu?", a: `Hôm nay (${day.canChi.day}) được xếp loại ${day.quality.label}. Giờ hoàng đạo trong ngày: ${day.goodHours.map((h) => `${h.branch} (${h.range})`).join(", ")}.` },
+      { q: "Hôm nay âm lịch ngày mấy?", a: `Ngày ${today.day}/${today.month}/${today.year} dương lịch tương ứng ${day.lunar.day}/${day.lunar.month}/${day.lunar.year} âm lịch.` },
+    ]),
+  ];
+
   return (
-    <LichHomNayClient
-      today={today}
-      day={day}
-      allHolidays={holidays}
-      calendarSlot={<MonthCalendar calendar={monthCalendar} makeHref={amLichDayHref} />}
-    />
+    <>
+      <LichHomNayClient
+        today={today}
+        day={day}
+        allHolidays={holidays}
+        calendarSlot={<MonthCalendar calendar={monthCalendar} makeHref={amLichDayHref} />}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+    </>
   );
 }

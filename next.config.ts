@@ -42,11 +42,18 @@ const nextConfig: NextConfig = {
       // /sitemap.xml → sitemap index API (Next.js không tự gen index khi dùng generateSitemaps)
       { source: "/sitemap.xml", destination: "/api/sitemap-index" },
 
-      // Đếm ngược ngày lễ: URL đẹp /con-bao-nhieu-ngay-nua-den-<slug> → route /dem-nguoc/[slug]
+      // Đếm ngược ngày lễ: URL đẹp /con-bao-nhieu-ngay-nua-den-<slug> và /con-bao-nhieu-ngay-den-<slug> → route /dem-nguoc/[slug]
+      // (trang /con-bao-nhieu-ngay-den-tet là route vật lý nên vẫn được ưu tiên trước rewrite)
       { source: "/con-bao-nhieu-ngay-nua-den-:slug", destination: "/dem-nguoc/:slug" },
+      { source: "/con-bao-nhieu-ngay-den-:slug", destination: "/dem-nguoc/:slug" },
 
       // Ngày tốt theo tháng: /ngay-tot-thang-7-nam-2026 → /ngay-tot-thang/7/2026
       { source: "/ngay-tot-thang-:month(\\d{1,2})-nam-:year(\\d{4})", destination: "/ngay-tot-thang/:month/:year" },
+
+      // #1 URL sạch cho xem ngày tốt theo việc — self-canonical qua /ngay-tot-seo/[activity]
+      // /ngay-tot-dong-tho-tuoi-1981-nam-2026 (theo tuổi) & /ngay-tot-khai-truong-thang-8-2026 (theo tháng)
+      { source: "/ngay-tot-:activity-tuoi-:tuoi(\\d{4})-nam-:nam(\\d{4})", destination: "/ngay-tot-seo/:activity?tuoi=:tuoi&nam=:nam" },
+      { source: "/ngay-tot-:activity-thang-:thang(\\d{1,2})-:nam(\\d{4})", destination: "/ngay-tot-seo/:activity?thang=:thang&nam=:nam" },
 
 
       // Tử vi keyword URLs

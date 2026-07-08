@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const today = getVietnamTodayParts();
   const result = getAgeResult(birthYear, today.year);
-  const title = `Sinh năm ${birthYear} bao nhiêu tuổi? – ${result.solarAge} tuổi (${result.birthCanChi}) | Ngày Giờ`;
-  const description = `Sinh năm ${birthYear} (${result.birthCanChi}, con ${result.animal}) năm ${today.year} được ${result.solarAge} tuổi dương, ${result.lunarAge} tuổi âm. Mệnh ${result.napAm}, hành ${result.element}.`;
+  const title = `Sinh năm ${birthYear} bao nhiêu tuổi năm ${today.year}? Tuổi âm, tuổi dương, mệnh gì | Ngày Giờ`;
+  const description = `Sinh năm ${birthYear} (${result.birthCanChi}, con ${result.animal}) năm ${today.year} được ${result.solarAge} tuổi dương, ${result.lunarAge} tuổi âm. Mệnh ${result.napAm} (hành ${result.element}), hợp tuổi ${result.compatibleBranches.slice(0, 3).join(", ")}.`;
 
   return {
     title,
@@ -68,6 +68,10 @@ export default async function SinhNamYearPage({ params }: PageProps) {
       {
         q: `Tuổi ${result.birthCanChi} hợp với tuổi gì?`,
         a: `Tuổi ${result.birthCanChi} hợp với: ${result.compatibleBranches.join(", ")}. Nên thận trọng với: ${result.conflictBranches.join(", ")}.`,
+      },
+      {
+        q: `${result.solarAge} tuổi sinh năm bao nhiêu?`,
+        a: `Người ${result.solarAge} tuổi (tính theo tuổi dương trong năm ${today.year}) sinh năm ${birthYear} dương lịch, tức tuổi ${result.birthCanChi}, con ${result.animal}.`,
       },
     ]),
   ];

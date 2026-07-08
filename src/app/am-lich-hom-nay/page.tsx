@@ -67,6 +67,7 @@ export default function AmLichHomNayPage() {
     <>
       <Header currentYear={today.year} />
       <main className="container mainStack">
+        <div className="pageFullscreenBg" style={{ backgroundImage: "linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.82) 42%, rgba(255,255,255,.52) 100%), linear-gradient(180deg, rgba(245,251,247,.18) 0%, rgba(245,251,247,.9) 100%), url(/bg-page-calendar.png)" }} aria-hidden="true" />
         <AmLichDayHero day={day} prevDay={addDays(today, -1)} nextDay={addDays(today, 1)} isHomNay />
         <AmLichDayDetails day={day} />
         <MonthCalendarForAmLich calendar={calendar} />

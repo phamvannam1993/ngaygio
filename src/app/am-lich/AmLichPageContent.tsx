@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
@@ -26,6 +27,61 @@ import { siteConfig } from "@/lib/site";
 
 function tetSolarDate(year: number): DateParts | null {
   return convertLunar2Solar(1, 1, year, false);
+}
+
+const WEEKDAY_VN = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
+
+// Các dịp lễ theo âm lịch trong năm (ngày âm cố định) → quy đổi ra dương lịch để tạo nội dung khác biệt từng năm.
+function getLunarFestivals(year: number): Array<{ name: string; lunarLabel: string; solar: DateParts | null }> {
+  const defs: Array<{ name: string; d: number; m: number }> = [
+    { name: "Tết Nguyên Đán", d: 1, m: 1 },
+    { name: "Rằm tháng Giêng (Nguyên Tiêu)", d: 15, m: 1 },
+    { name: "Tết Hàn Thực", d: 3, m: 3 },
+    { name: "Giỗ Tổ Hùng Vương", d: 10, m: 3 },
+    { name: "Tết Đoan Ngọ", d: 5, m: 5 },
+    { name: "Lễ Vu Lan (Rằm tháng 7)", d: 15, m: 7 },
+    { name: "Tết Trung Thu", d: 15, m: 8 },
+    { name: "Ông Công Ông Táo", d: 23, m: 12 },
+  ];
+  return defs.map((f) => ({ name: f.name, lunarLabel: `${f.d}/${f.m} âm lịch`, solar: convertLunar2Solar(f.d, f.m, year, false) }));
+}
+
+function solarWithWeekday(date: DateParts | null): string {
+  if (!date) return "—";
+  const wd = WEEKDAY_VN[new Date(date.year, date.month - 1, date.day).getDay()];
+  return `${wd}, ${date.day}/${date.month}/${date.year}`;
+}
+
+function AmLichYearFestivals({ year }: { year: number }) {
+  const festivals = getLunarFestivals(year);
+  return (
+    <section className="panelCard amLichFestivals" aria-labelledby="amlich-festivals-title">
+      <p className="eyebrow">Lịch âm {year}</p>
+      <h2 id="amlich-festivals-title">Các ngày lễ âm lịch quan trọng năm {year}</h2>
+      <p>Ngày dương lịch tương ứng của các dịp lễ, Tết theo âm lịch trong năm {year} — tiện lên kế hoạch cúng lễ, nghỉ lễ và sự kiện gia đình.</p>
+      <div style={{ overflowX: "auto" }}>
+        <table className="amLichFestivalTable">
+          <thead>
+            <tr><th>Dịp lễ</th><th>Âm lịch</th><th>Dương lịch {year}</th></tr>
+          </thead>
+          <tbody>
+            {festivals.map((f) => (
+              <tr key={f.name}>
+                <td>{f.solar ? <Link href={amLichDayHref(f.solar)}>{f.name}</Link> : f.name}</td>
+                <td>{f.lunarLabel}</td>
+                <td>{solarWithWeekday(f.solar)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="dayLinkList" style={{ marginTop: 16 }}>
+        <Link href={`/tai-lich-am/${year}`} className="eventPill blue">Tải lịch âm {year} (PDF)</Link>
+        <Link href="/tai-lich-am-pdf" className="eventPill blue">In lịch âm khổ A4</Link>
+        <Link href={`/tet/${year}`} className="eventPill green">Tết {year} vào ngày nào?</Link>
+      </div>
+    </section>
+  );
 }
 
 export function buildAmLichBreadcrumbJsonLd(items: Array<{ name: string; href: string }>) {
@@ -84,6 +140,7 @@ export function AmLichDayPageContent({ date }: { date: DateParts }) {
     <>
       <Header currentYear={date.year} />
       <main className="container mainStack">
+        <div className="pageFullscreenBg" style={{ backgroundImage: "linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.82) 42%, rgba(255,255,255,.52) 100%), linear-gradient(180deg, rgba(245,251,247,.18) 0%, rgba(245,251,247,.9) 100%), url(/bg-page-calendar.png)" }} aria-hidden="true" />
         <AmLichDayHero day={day} prevDay={prevDay} nextDay={nextDay} />
         <MonthCalendarForAmLich calendar={calendar} />
         <AmLichDayDetails day={day} />
@@ -124,6 +181,7 @@ export function AmLichMonthPageContent({ year, month }: { year: number; month: n
     <>
       <Header currentYear={year} />
       <main className="container mainStack">
+        <div className="pageFullscreenBg" style={{ backgroundImage: "linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.82) 42%, rgba(255,255,255,.52) 100%), linear-gradient(180deg, rgba(245,251,247,.18) 0%, rgba(245,251,247,.9) 100%), url(/bg-page-calendar.png)" }} aria-hidden="true" />
         <AmLichMonthHero calendar={calendar} />
         <MonthCalendarForAmLich calendar={calendar} />
         <AmLichMonthExtra calendar={calendar} />
@@ -170,6 +228,16 @@ export function AmLichYearPageContent({ year }: { year: number }) {
             name: `Năm ${year} có bao nhiêu ngày?`,
             acceptedAnswer: { "@type": "Answer", text: `Năm ${year} dương lịch có ${summary.totalDays} ngày.` },
           },
+          {
+            "@type": "Question",
+            name: `Tết Nguyên Đán ${year} vào ngày nào dương lịch?`,
+            acceptedAnswer: { "@type": "Answer", text: tetDate ? `Mùng 1 Tết Nguyên Đán ${summary.canChiYear} ${year} rơi vào ${solarWithWeekday(tetDate)} dương lịch.` : `Xem chi tiết tại trang Tết ${year}.` },
+          },
+          {
+            "@type": "Question",
+            name: `Rằm tháng Giêng, Vu Lan và Trung thu ${year} là ngày nào?`,
+            acceptedAnswer: { "@type": "Answer", text: getLunarFestivals(year).filter((f) => ["Rằm tháng Giêng (Nguyên Tiêu)", "Lễ Vu Lan (Rằm tháng 7)", "Tết Trung Thu"].includes(f.name)).map((f) => `${f.name}: ${solarWithWeekday(f.solar)}`).join("; ") + "." },
+          },
         ],
       },
     ],
@@ -179,8 +247,10 @@ export function AmLichYearPageContent({ year }: { year: number }) {
     <>
       <Header currentYear={year} />
       <main className="container mainStack">
+        <div className="pageFullscreenBg" style={{ backgroundImage: "linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.82) 42%, rgba(255,255,255,.52) 100%), linear-gradient(180deg, rgba(245,251,247,.18) 0%, rgba(245,251,247,.9) 100%), url(/bg-page-calendar.png)" }} aria-hidden="true" />
         <AmLichYearHero summary={summary} tetDay={tetDay} />
         <AmLichYearMonthLinks summary={summary} />
+        <AmLichYearFestivals year={year} />
         <AmLichYearCalendars year={year} selectedDate={selectedDate} />
         <RelatedYears year={year} />
         <AmLichSeoArticle mode="year" year={year} />

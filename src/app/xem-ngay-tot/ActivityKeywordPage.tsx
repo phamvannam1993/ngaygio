@@ -30,7 +30,7 @@ export function buildActivityKeywordMetadata(activitySlug: ActivitySlug, path: s
   };
 }
 
-export function ActivityKeywordPage({ activitySlug, path, params }: { activitySlug: ActivitySlug; path: string; params?: SearchParams }) {
+export function ActivityKeywordPage({ activitySlug, path, params, formAction }: { activitySlug: ActivitySlug; path: string; params?: SearchParams; formAction?: string }) {
   const activity = getActivity(activitySlug);
   const jsonLd = [
     webPageSchema({
@@ -46,7 +46,7 @@ export function ActivityKeywordPage({ activitySlug, path, params }: { activitySl
   ];
   return (
     <>
-      <ActivityGoodDateDesign activitySlug={activitySlug} path={path} params={params ?? {}} />
+      <ActivityGoodDateDesign activitySlug={activitySlug} path={path} params={params ?? {}} formAction={formAction} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
   );
