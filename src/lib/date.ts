@@ -93,6 +93,16 @@ export function getVietnamTodayParts(): DateParts {
   };
 }
 
+export function getVietnamNowHour(): number {
+  const value = new Intl.DateTimeFormat("en-GB", {
+    timeZone: VIETNAM_TIMEZONE,
+    hour: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(new Date()).find((part) => part.type === "hour")?.value;
+
+  return Number(value);
+}
+
 export function clampYear(year: number, min = 1900, max = 2050): number {
   if (!Number.isFinite(year)) return getVietnamTodayParts().year;
   return Math.min(max, Math.max(min, Math.trunc(year)));

@@ -5635,12 +5635,25 @@ body:has(.pageFullscreenBg) .pickerPanel {
   letter-spacing: -0.04em;
 }
 
-.pageHeroBanner p:last-child {
+.pageHeroBanner .pageHeroDesc {
   margin: 0;
   max-width: 55ch;
   color: rgba(23,34,27,.84);
   font-size: 1.03rem;
   line-height: 1.75;
+}
+
+/* Biến thể ảnh nằm trong thẻ hero (ảnh đã có sẵn artwork + khoảng trắng cho chữ) */
+.pageHeroBanner.isInset {
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  backdrop-filter: none;
+}
+
+.pageHeroBanner.isInset::before {
+  background: linear-gradient(90deg, rgba(255,255,255,.88) 0%, rgba(255,255,255,.40) 44%, rgba(255,255,255,0) 64%);
 }
 
 .pageHeroBanner.isRight .pageHeroContent {
@@ -5677,7 +5690,7 @@ body:has(.pageFullscreenBg) .pickerPanel {
     font-size: clamp(1.55rem, 7vw, 2.1rem);
   }
 
-  .pageHeroBanner p:last-child {
+  .pageHeroBanner .pageHeroDesc {
     font-size: .96rem;
   }
 }
@@ -12881,5 +12894,864 @@ body:has(.pageFullscreenBg) .pickerPanel {
 
   .lobanDragInput div {
     grid-template-columns: minmax(0, 1fr) 54px;
+  }
+}
+
+/* ===== Use cases: ai dùng, tình huống nào ===== */
+.useCaseSection {
+  display: grid;
+  gap: 20px;
+  padding: clamp(22px, 3.4vw, 34px);
+  border: 1px solid rgba(8, 119, 53, 0.12);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(243, 188, 61, 0.16), transparent 16rem),
+    linear-gradient(160deg, #ffffff 0%, #f4fbf6 100%);
+  box-shadow: var(--soft-shadow, var(--shadow));
+}
+
+.useCaseHead {
+  max-width: 62ch;
+}
+
+.useCaseHead h2 {
+  margin: 6px 0 10px;
+  font-size: clamp(1.5rem, 2.8vw, 2.05rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--green-700);
+}
+
+.useCaseHead p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.useCaseGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.useCaseCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid rgba(32, 138, 58, 0.14);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 14px 34px rgba(23, 34, 27, 0.06);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.useCaseCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(32, 138, 58, 0.32);
+  box-shadow: 0 22px 48px rgba(23, 34, 27, 0.11);
+}
+
+.useCaseCardTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.useCaseIcon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 14px;
+  color: var(--green-700);
+  background: var(--green-50);
+}
+
+.useCasePersona {
+  margin: 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  color: var(--green-700);
+  background: var(--green-50);
+  border: 1px solid rgba(32, 138, 58, 0.18);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.useCaseCard h3 {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.useCaseStory {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 0.94rem;
+}
+
+.useCaseSteps {
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+
+.useCaseSteps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.useCaseSteps li .svgIcon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--green);
+}
+
+.useCaseCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 12px;
+  color: var(--green-700);
+  font-weight: 800;
+  font-size: 0.94rem;
+}
+
+.useCaseCta:hover {
+  text-decoration: underline;
+}
+
+/* ===== Trust: cơ sở dữ liệu & độ chính xác ===== */
+.trustSection {
+  display: grid;
+  gap: 14px;
+}
+
+.trustSection h2 {
+  margin: 6px 0 0;
+  font-size: clamp(1.45rem, 2.6vw, 1.95rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--green-700);
+}
+
+.trustLead {
+  margin: 0;
+  max-width: 72ch;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.trustCard {
+  display: flex;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid rgba(32, 138, 58, 0.12);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff, #f9fdfb);
+}
+
+.trustIcon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 13px;
+  color: var(--green-700);
+  background: var(--green-50);
+}
+
+.trustCard strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.99rem;
+  line-height: 1.35;
+}
+
+.trustCard p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.62;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 860px) {
+  .useCaseGrid,
+  .trustGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .useCaseCardTop {
+    flex-wrap: wrap;
+  }
+
+  .trustCard {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ===== Lịch hôm nay: hero quick links ===== */
+.heroQuickLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 26px;
+}
+
+.heroQuickLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 26px;
+  color: var(--text);
+  text-align: center;
+}
+
+.heroQuickLink + .heroQuickLink {
+  border-left: 1px solid rgba(32, 138, 58, 0.18);
+}
+
+.heroQuickIcon img {
+  width: 24px;
+  height: 24px;
+}
+
+.heroQuickIcon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(32, 138, 58, 0.16);
+  box-shadow: 0 6px 16px rgba(23, 34, 27, 0.08);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.heroQuickLink:hover .heroQuickIcon {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(23, 34, 27, 0.14);
+}
+
+.heroQuickLabel {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #3d4b41;
+}
+
+.heroQuickLink:hover .heroQuickLabel {
+  color: var(--green-700);
+}
+
+/* ===== Lịch hôm nay: panel chính ===== */
+.lichTodayPanel {
+  display: grid;
+  gap: 16px;
+}
+
+.lichTodayAnswer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.lichTodayAnswer img {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+.lichTodayAnswer strong {
+  color: var(--text);
+}
+
+.lichTodayGrid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(280px, 1.15fr) minmax(300px, 1fr);
+  gap: 16px;
+  align-items: stretch;
+  margin-top: 4px;
+}
+
+/* Thẻ ngày dương lớn */
+.solarDateCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 22px 18px 30px;
+  overflow: hidden;
+  border: 1px solid rgba(32, 138, 58, 0.14);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4fbf6 100%);
+  text-align: center;
+}
+
+.solarDateEyebrow {
+  margin: 0;
+  color: var(--green-700);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.solarDateWeekday {
+  margin: 6px 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #3d4b41;
+}
+
+.solarDateBig {
+  display: block;
+  font-size: clamp(4.5rem, 9vw, 7rem);
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--green-700);
+}
+
+.solarDateMonth {
+  margin: 4px 0 0;
+  color: var(--green-700);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Dải núi trang trí đáy thẻ ngày */
+.solarDateScenery {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 58px;
+  pointer-events: none;
+  opacity: 0.5;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(243, 188, 61, 0.5) 0 9px, transparent 10px),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 60' preserveAspectRatio='none'><path d='M0 60V38l38-22 30 20 26-13 34 24 30-30 40 32 28-16 44 25v22Z' fill='%23bcd9c4'/><path d='M0 60V46l44-18 32 20 34-12 40 22 36-18 42 24 32-12 40 18v6Z' fill='%23dbeee1'/></svg>") bottom / 100% 100% no-repeat;
+}
+
+/* 4 ô thống kê */
+.lichStatGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 14px;
+}
+
+.lichStatTile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(32, 138, 58, 0.12);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff, #f9fdfb);
+}
+
+.lichStatIcon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 14px;
+  background: var(--green-50);
+}
+
+.lichStatIcon img {
+  width: 26px;
+  height: 26px;
+}
+
+.lichStatTile strong {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--green-700);
+}
+
+.lichStatTile p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.lichStatTile.isFlipped p {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Lịch tháng thu gọn */
+.miniCalendar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid rgba(32, 138, 58, 0.12);
+  border-radius: 20px;
+  background: #fff;
+}
+
+.miniCalendarHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.miniCalendarHead h3 {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-700);
+}
+
+.miniCalendarNav {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  opacity: 0.55;
+  transition: background 0.16s ease, opacity 0.16s ease;
+}
+
+.miniCalendarNav:hover {
+  opacity: 1;
+  background: var(--green-50);
+}
+
+.miniCalendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+  place-items: center;
+}
+
+.miniDayName {
+  padding-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.miniDayCell {
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.miniDayCell:hover {
+  background: var(--green-50);
+  color: var(--green-700);
+}
+
+.miniDayCell.isSunday {
+  color: var(--green);
+}
+
+.miniDayCell.isOther {
+  color: #c2ccc5;
+  font-weight: 500;
+}
+
+.miniDayCell.isToday,
+.miniDayCell.isToday:hover {
+  color: #fff;
+  background: var(--green);
+  font-weight: 900;
+  box-shadow: 0 6px 14px rgba(32, 138, 58, 0.34);
+}
+
+/* Ngày lễ trong ngày + nghỉ kế tiếp */
+.lichTodayHoliday {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.lichTodayNextHoliday {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.lichTodayNextHoliday a {
+  color: var(--green-700);
+  font-weight: 800;
+}
+
+.lichTodayNextHoliday a:hover {
+  text-decoration: underline;
+}
+
+.lichTodayNextSub {
+  color: var(--muted);
+}
+
+/* ===== Dải âm lịch + giờ hoàng đạo ===== */
+.lunarBand {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: 30px;
+  overflow: hidden;
+  padding: 24px 26px;
+  border: 1px solid rgba(32, 138, 58, 0.12);
+  border-radius: 22px;
+  background: linear-gradient(118deg, #ffffff 0%, #f7fcf9 58%, #fffdf4 100%);
+}
+
+/* Quầng sáng vàng nhẹ thay cho hình minh hoạ */
+.lunarBand::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -6%;
+  width: 320px;
+  height: 320px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243, 188, 61, 0.16) 0%, rgba(243, 188, 61, 0) 68%);
+}
+
+.lunarBandMain,
+.lunarBandHours {
+  position: relative;
+}
+
+.lunarBandEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  color: var(--green-700);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lunarBandIcon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.lunarBandIcon img {
+  width: 30px;
+  height: 30px;
+}
+
+.lunarBandDate {
+  margin: 12px 0 10px;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.lunarBandMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lunarBandMeta li {
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Gạch phân cách bám đuôi mỗi mục nên khi xuống dòng không bị gạch mồ côi đầu dòng */
+.lunarBandMeta li:not(:last-child)::after {
+  content: "";
+  width: 1px;
+  height: 13px;
+  margin: 0 13px;
+  background: var(--line);
+}
+
+.lunarBandMeta strong {
+  margin-left: 5px;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.lunarBandHours {
+  display: grid;
+  gap: 12px;
+}
+
+.lunarBandHourList {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.lunarHourPill {
+  display: grid;
+  gap: 3px;
+  padding: 10px 4px;
+  border-radius: 14px;
+  background: var(--green-50);
+  border: 1px solid rgba(32, 138, 58, 0.14);
+  text-align: center;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.lunarHourPill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(23, 34, 27, 0.08);
+}
+
+.lunarHourPill b {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--green-700);
+  white-space: nowrap;
+}
+
+.lunarHourPill small {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.lunarBandMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  justify-self: start;
+  color: var(--green-700);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.lunarBandMore img {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.16s ease;
+}
+
+.lunarBandMore:hover {
+  text-decoration: underline;
+}
+
+.lunarBandMore:hover img {
+  transform: translateX(2px);
+}
+
+/* ===== Tiện ích nổi bật ===== */
+.featureStrip {
+  display: grid;
+  gap: 14px;
+}
+
+.featureStripGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.featureStripItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+
+.featureStripItem + .featureStripItem {
+  border-left: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.featureStripItem:hover {
+  transform: translateY(-2px);
+  border-color: rgba(32, 138, 58, 0.22);
+  background: #fff;
+}
+
+.featureStripIcon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  background: var(--green-50);
+  border: 1px solid rgba(32, 138, 58, 0.16);
+}
+
+.featureStripIcon img {
+  width: 26px;
+  height: 26px;
+}
+
+.featureStripText {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.featureStripText strong {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.featureStripText small {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.featureStripArrow {
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  flex: none;
+  opacity: 0.45;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.featureStripItem:hover .featureStripArrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+@media (max-width: 1080px) {
+  .lichTodayGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .lichTodayGrid .miniCalendar {
+    grid-column: 1 / -1;
+  }
+
+  .lunarBand {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .featureStripGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featureStripItem:nth-child(odd) {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .heroQuickLinks {
+    gap: 4px;
+  }
+
+  .heroQuickLink {
+    flex: 1 1 22%;
+    padding: 4px 6px;
+  }
+
+  .heroQuickLink + .heroQuickLink {
+    border-left: 0;
+  }
+
+  .heroQuickLabel {
+    font-size: 0.74rem;
+  }
+
+  .lichTodayGrid,
+  .lunarBand,
+  .featureStripGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .lunarBandHourList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .featureStripItem {
+    border-left: 0 !important;
+  }
+
+  .lunarBand {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .lunarBandMeta li:not(:last-child)::after {
+    margin: 0 9px;
+  }
+}
+
+@media (max-width: 520px) {
+  .lichStatGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .lichStatTile strong {
+    font-size: 1.6rem;
   }
 }

@@ -43,6 +43,22 @@ export function getDayCanChi(jd: number) {
   };
 }
 
+// Giờ Tý bắt đầu từ 23h, nên chi của giờ lệch nửa canh so với đồng hồ.
+export function getHourChiIndex(hour: number): number {
+  return Math.floor((positiveModulo(hour, 24) + 1) % 24 / 2);
+}
+
+// Ngũ thử độn nhật: can giờ Tý = (can ngày mod 5) * 2, các giờ sau tăng dần theo chi.
+export function getHourCanChi(dayCan: CanName, hour: number) {
+  const chiIndex = getHourChiIndex(hour);
+  const canIndex = positiveModulo(positiveModulo(CAN.indexOf(dayCan), 5) * 2 + chiIndex, 10);
+  return {
+    can: CAN[canIndex],
+    chi: CHI[chiIndex],
+    text: canChiText(canIndex, chiIndex),
+  };
+}
+
 const HOUR_RANGES: Array<{ branch: ChiName; range: string }> = [
   { branch: "Tý", range: "23-1" },
   { branch: "Sửu", range: "1-3" },
@@ -81,6 +97,11 @@ export function getHoursByDayChi(dayChi: ChiName): { goodHours: HourInfo[]; badH
     goodHours: hours.filter((hour) => hour.isGood),
     badHours: hours.filter((hour) => !hour.isGood),
   };
+}
+
+// "23-1" -> "23-01h"
+export function formatHourRange(range: string): string {
+  return `${range.split("-").map((part) => part.trim().padStart(2, "0")).join("-")}h`;
 }
 
 export function formatHours(hours: HourInfo[]): string {

@@ -21,6 +21,7 @@ export type SiteIconName =
   | "sparkle"
   | "number"
   | "hourglass"
+  | "pie"
   | "compass"
   | "shield"
   | "heart"
@@ -117,6 +118,8 @@ export function SiteIcon({ name, className, title }: IconProps) {
       return <IconSvg className={className} title={title}><path d="M9 4 7 20M17 4l-2 16M4 9h16M3 15h16" {...strongLine}/></IconSvg>;
     case "hourglass":
       return <IconSvg className={className} title={title}><path d="M7 4h10M7 20h10M8 4c0 5 4 5 4 8s-4 3-4 8M16 4c0 5-4 5-4 8s4 3 4 8" {...line}/></IconSvg>;
+    case "pie":
+      return <IconSvg className={className} title={title}><circle cx="12" cy="12" r="8" {...line}/><path d="M12 4v8h8" {...line}/><path d="M12 12 19.6 9.4A8 8 0 0 0 12 4v8Z" fill="currentColor" opacity=".9"/></IconSvg>;
     case "compass":
       return <IconSvg className={className} title={title}><circle cx="12" cy="12" r="8" {...line}/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" {...line}/></IconSvg>;
     case "shield":

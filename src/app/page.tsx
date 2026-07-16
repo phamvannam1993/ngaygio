@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { CountdownEventGrid } from "@/components/CountdownEventGrid";
+import { DataTrustNote } from "@/components/DataTrustNote";
 import { HomeHero } from "@/components/HomeHero";
 import { ModernFeatureHub } from "@/components/ModernFeatureHub";
 import { MonthCalendar } from "@/components/MonthCalendar";
@@ -11,6 +12,7 @@ import { MonthPicker } from "@/components/MonthPicker";
 import { QuickTools } from "@/components/QuickTools";
 import { SeoArticle } from "@/components/SeoArticle";
 import { TodayPanel } from "@/components/TodayPanel";
+import { UseCaseShowcase } from "@/components/UseCaseShowcase";
 import { getVietnamTodayParts, parseDateKey, type DateParts } from "@/lib/date";
 import { getDayInfo, getMonthCalendar } from "@/lib/calendar/service";
 import { amLichDayHref } from "@/lib/calendar/urls";
@@ -143,6 +145,7 @@ export default async function Home({ searchParams }: PageProps) {
             <QuickTools />
           </div>
           <ModernFeatureHub />
+          <UseCaseShowcase />
           <CountdownEventGrid year={selectedDate.year} />
           <section className="panelCard homeQuickLinks" aria-labelledby="home-quicklinks-title">
             <p className="eyebrow">Truy cập nhanh</p>
@@ -158,6 +161,7 @@ export default async function Home({ searchParams }: PageProps) {
               <Link href="/tai-lich-am-pdf" className="eventPill blue">Tải lịch âm PDF</Link>
             </div>
           </section>
+          <DataTrustNote />
           <SeoArticle />
         </div>
       </main>
